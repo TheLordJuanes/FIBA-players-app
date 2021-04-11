@@ -28,8 +28,8 @@ public class FibaGUI {
     // -----------------------------------------------------------------
 
     /**
-     * Name: FibaGUI
-     * GUI constructor method. <br>
+     * Name: FibaGUI <br>
+     * <br> GUI constructor method. <br>
      * @param primaryStage - GUI primary stage - primaryStage = Stage
     */
     public FibaGUI(Stage primaryStage) {

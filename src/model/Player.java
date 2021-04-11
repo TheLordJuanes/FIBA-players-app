@@ -2,6 +2,10 @@ package model;
 
 public class Player {
 
+	// -----------------------------------------------------------------
+	// Attributes
+    // -----------------------------------------------------------------
+
 	private String name;
 	private int id;
 	private String team;
@@ -11,20 +15,31 @@ public class Player {
 	private double rebound;
 	private double defensive;
 
+	// -----------------------------------------------------------------
+	// Methods
+    // -----------------------------------------------------------------
+
 	/**
-	 * 
-	 * @param name
-	 * @param id
-	 * @param team
-	 * @param trueShooting
-	 * @param usage
-	 * @param assist
-	 * @param rebound
-	 * @param defensive
-	 */
+	 * Name: Player <br>
+	 * <br> Constructor method of a player.
+	 * @param name - player's name - name = String, name != null, name != ""
+	 * @param id - player's ID - id = int, id != null, id != 0
+	 * @param team - player's team - team = String, team != null, team != ""
+	 * @param trueShooting - player's true shooting - trueShooting = double, trueShooting != null
+	 * @param usage - player's usage - usage = double, usage != null
+	 * @param assist - player's assist - assist = double, assist != null
+	 * @param rebound - player's rebound - rebound = double, rebound != null
+	 * @param defensive - player's defensive - defensive = double, defensive != null
+	*/
 	public Player(String name, int id, String team, double trueShooting, double usage, double assist, double rebound, double defensive) {
-		// TODO - implement Player.Player
-		throw new UnsupportedOperationException();
+		this.name = name;
+		this.id = id;
+		this.team = team;
+		this.trueShooting = trueShooting;
+		this.usage = usage;
+		this.assist = assist;
+		this.rebound = rebound;
+		this.defensive = defensive;
 	}
 
 	public String getName() {
@@ -32,7 +47,7 @@ public class Player {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param name
 	 */
 	public void setName(String name) {
@@ -48,7 +63,7 @@ public class Player {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param team
 	 */
 	public void setTeam(String team) {
@@ -60,7 +75,7 @@ public class Player {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param trueShooting
 	 */
 	public void setTrueShooting(double trueShooting) {
@@ -72,7 +87,7 @@ public class Player {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param usage
 	 */
 	public void setUsage(double usage) {
@@ -84,7 +99,7 @@ public class Player {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param assist
 	 */
 	public void setAssist(double assist) {
@@ -96,7 +111,7 @@ public class Player {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param rebound
 	 */
 	public void setRebound(double rebound) {
@@ -108,7 +123,7 @@ public class Player {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param defensive
 	 */
 	public void setDefensive(double defensive) {
@@ -116,8 +131,6 @@ public class Player {
 	}
 
 	public String toString() {
-		// TODO - implement Player.toString
-		throw new UnsupportedOperationException();
+		return "";
 	}
-
 }
