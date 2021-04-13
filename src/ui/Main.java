@@ -31,7 +31,7 @@ public class Main extends Application {
 	*/
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("start-menu.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fiba.fxml"));
 		FibaGUI fibaGUI = new FibaGUI(primaryStage);
 		fxmlLoader.setController(fibaGUI);
 		Parent root = fxmlLoader.load();
