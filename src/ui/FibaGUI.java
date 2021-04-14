@@ -7,6 +7,7 @@
 package ui;
 
 import java.io.IOException;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,33 @@ public class FibaGUI {
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
+
+    @FXML
+    private JFXTextField trueShooting;
+
+    @FXML
+    private JFXTextField usage;
+
+    @FXML
+    private JFXTextField assist;
+
+    @FXML
+    private JFXTextField rebound;
+
+    @FXML
+    private JFXTextField defensive;
+
+    @FXML
+    private JFXTextField name;
+
+    @FXML
+    private JFXTextField age;
+
+    @FXML
+    private JFXTextField id;
+
+    @FXML
+    private JFXTextField team;
 
     private Stage primaryStage;
 
@@ -74,7 +102,37 @@ public class FibaGUI {
     }
 
     @FXML
+    public void goBackToMenu(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("start-menu.fxml"));
+            FibaGUI fibaGUI = new FibaGUI(primaryStage);
+            fxmlLoader.setController(fibaGUI);
+            Parent root = fxmlLoader.load();
+            primaryStage.setScene(new Scene(root));
+            primaryStage.setTitle("Start Menu");
+            primaryStage.show();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+
+    @FXML
     public void addPlayer(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("new-player.fxml"));
+            FibaGUI fibaGUI = new FibaGUI(primaryStage);
+            fxmlLoader.setController(fibaGUI);
+            Parent root = fxmlLoader.load();
+            primaryStage.setScene(new Scene(root));
+            primaryStage.setTitle("Start Menu");
+            primaryStage.show();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void addNewPlayer(ActionEvent event) {
 
     }
 

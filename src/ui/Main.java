@@ -6,6 +6,10 @@
 */
 package ui;
 
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -38,5 +42,13 @@ public class Main extends Application {
 		primaryStage.setScene(new Scene(root));
 		primaryStage.setTitle("International Basketball Federation");
 		primaryStage.show();
+		File file = new File("resources/music.wav");
+		if (file.exists()) {
+			AudioInputStream audioInput = AudioSystem.getAudioInputStream(file);
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioInput);
+			clip.start();
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		}
 	}
 }

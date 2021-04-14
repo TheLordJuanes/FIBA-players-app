@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="394.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/player.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton alignment="CENTER" blendMode="GREEN" contentDisplay="CENTER" disable="true" layoutX="476.0" layoutY="24.0" onAction="#addNewPlayer" prefHeight="48.0" prefWidth="160.0" style="-fx-background-radius: 5em; -fx-background-color: #00f4ff;" text="Add New Player" textAlignment="CENTER">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXTextField fx:id="trueShooting" blendMode="ADD" focusColor="#00b6ff" layoutX="450.0" layoutY="81.0" prefHeight="48.0" prefWidth="227.0" promptText="True Shooting (%)" unFocusColor="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="usage" blendMode="ADD" focusColor="#00b6ff" layoutX="450.0" layoutY="142.0" prefHeight="48.0" prefWidth="227.0" promptText="Usage (%)" unFocusColor="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="assist" blendMode="ADD" focusColor="#00b6ff" layoutX="450.0" layoutY="205.0" prefHeight="48.0" prefWidth="227.0" promptText="Assist (%)" unFocusColor="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="rebound" blendMode="ADD" focusColor="#00b6ff" layoutX="450.0" layoutY="264.0" prefHeight="48.0" prefWidth="227.0" promptText="Rebound (%)" unFocusColor="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="defensive" blendMode="ADD" focusColor="#00b6ff" layoutX="450.0" layoutY="324.0" prefHeight="48.0" prefWidth="227.0" promptText="Defensive (+/–)" unFocusColor="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="name" blendMode="ADD" focusColor="#00b6ff" layoutX="56.0" layoutY="105.0" prefHeight="48.0" prefWidth="227.0" promptText="Name" unFocusColor="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="age" blendMode="ADD" focusColor="#00b6ff" layoutX="56.0" layoutY="166.0" prefHeight="48.0" prefWidth="227.0" promptText="Age" unFocusColor="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="id" blendMode="ADD" focusColor="#00b6ff" layoutX="56.0" layoutY="229.0" prefHeight="48.0" prefWidth="227.0" promptText="ID" unFocusColor="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="team" blendMode="ADD" focusColor="#00b6ff" layoutX="56.0" layoutY="288.0" prefHeight="48.0" prefWidth="227.0" promptText="Team" unFocusColor="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXButton alignment="CENTER" blendMode="LIGHTEN" contentDisplay="CENTER" layoutX="23.0" layoutY="24.0" onAction="#goBackToMenu" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 5em; -fx-background-color: #00c2ff;" text=" " textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="42.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/return.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>
