@@ -65,7 +65,7 @@ public class FibaGUI {
      * Name: FibaGUI <br>
      * <br> GUI constructor method. <br>
      * @param primaryStage - GUI primary stage - primaryStage = Stage
-     */
+    */
     public FibaGUI(Stage primaryStage) {
         this.primaryStage = primaryStage;
         fiba = new FIBA();
