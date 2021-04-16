@@ -21,6 +21,7 @@ Check the engineering method with the functional requirements, the UML Class Dia
 - Programming Language 💱 : Java 8
 - Operating systems used 💻 : Windows 10 Home Single and MacOS Big Sur
 - Integrated Development Environment used 👨🏻‍💻 : Visual Studio Code v. 1.55.1 and Eclipse IDE v. 4.17
+- External Libraries used: JFoeniX-8.0.10 (https://github.com/jfoenixadmin/JFoenix)
 - Installation 🔧 : Click on Code, then on Download ZIP.
 
 ## Authors 🖊️

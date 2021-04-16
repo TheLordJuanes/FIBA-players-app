@@ -6,7 +6,7 @@
 			<accessrule kind="accessible" pattern="javafx/**"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/Juanes/Documents/jfoenix-8.0.10.jar"/>
 	<classpathentry excluding="src/" kind="src" path=""/>
+	<classpathentry kind="lib" path="resources/jfoenix-8.0.10.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
