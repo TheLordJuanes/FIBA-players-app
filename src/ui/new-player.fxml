@@ -15,7 +15,7 @@
             <Image url="@../../resources/player.jpg" />
          </image>
       </ImageView>
-      <JFXButton alignment="CENTER" blendMode="GREEN" contentDisplay="CENTER" disable="true" layoutX="476.0" layoutY="24.0" onAction="#addNewPlayer" prefHeight="48.0" prefWidth="160.0" style="-fx-background-radius: 5em; -fx-background-color: #00f4ff;" text="Add New Player" textAlignment="CENTER">
+      <JFXButton alignment="CENTER" blendMode="GREEN" contentDisplay="CENTER" disable="true" layoutX="471.0" layoutY="26.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#addNewPlayer" prefHeight="48.0" prefWidth="185.0" style="-fx-background-radius: 5em; -fx-background-color: #00f4ff;" text="Add New Player" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="20.0" />
          </font>
