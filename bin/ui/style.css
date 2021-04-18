@@ -1,0 +1,13 @@
+.jfx-combo-box {
+    -fx-prompt-text-fill: #a0a0a0;
+    -fx-font-size: 18px;
+    font-size: 18px;
+    -fx-font-family: Avenir Next Condensed;
+    font-family: Avenir Next Condensed;
+    -fx-font-weight: Bold;
+    font-weight: Bold;
+}
+
+.jfx-text-field {
+    -fx-text-fill: #a0a0a0;
+}

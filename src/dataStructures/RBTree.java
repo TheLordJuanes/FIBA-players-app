@@ -1,5 +1,7 @@
 package dataStructures;
 
+import exceptions.RBTreeException;
+
 public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // class adapted from  https://github.com/Bibeknam/algorithmtutorprograms/blob/11ef340f8c8e60839a9dff395dd52b8752c537a6/data-structures/red-black-trees/RedBlackTree.java#L298
 
     // -----------------------------------------------------------------
@@ -15,110 +17,107 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
     public RBTree() {
     }
 
-    private void preOrderHelper(RBNode<K> node) {
-        if (node != null) {
-            System.out.print(node.getKey() + " ");
-            preOrderHelper(node.getLeft());
-            preOrderHelper(node.getRight());
+    public RBNode<K> getRoot() {
+        return root;
+    }
+
+    @Override
+    public void insert(K key) {
+        RBNode<K> node = new RBNode<K>(key);
+        node.setParent(null);
+        node.setKey(key);
+        node.setLeft(null);
+        node.setRight(null);
+        node.setColor(1);
+        RBNode<K> y = null;
+        RBNode<K> x = root;
+        while (x != null) {
+            y = x;
+            if (node.getKey().compareTo(x.getKey()) < 0)
+                x = x.getLeft();
+            else
+                x = x.getRight();
         }
-    }
-
-    private void inOrderHelper(RBNode<K> node) {
-        if (node != null) {
-            inOrderHelper(node.getLeft());
-            System.out.print(node.getKey() + " ");
-            inOrderHelper(node.getRight());
+        node.setParent(y);
+        if (y == null)
+            root = node;
+        else if (node.getKey().compareTo(y.getKey()) < 0)
+            y.setLeft(node);
+        else
+            y.setRight(node);
+        if (node.getParent() == null) {
+            node.setColor(0);
+            return;
         }
-    }
-
-    private void postOrderHelper(RBNode<K> node) {
-        if (node != null) {
-            postOrderHelper(node.getLeft());
-            postOrderHelper(node.getRight());
-            System.out.print(node.getKey() + " ");
+        if (node.getParent().getParent() == null) {
+            return;
         }
+        fixInsert(node);
     }
 
-    private RBNode<K> searchTreeHelper(RBNode<K> node, K key) {
-        if (node == null || key.compareTo(node.getKey()) == 0)
-            return node;
-        if (key.compareTo(node.getKey()) < 0)
-            return searchTreeHelper(node.getLeft(), key);
-        return searchTreeHelper(node.getRight(), key);
-    }
-
-    private void fixDelete(RBNode<K> x) {
-        RBNode<K> s;
-        while (x != root && x.getColor() == 0) {
-            if (x == x.getParent().getLeft()) {
-                s = x.getParent().getRight();
-                if (s.getColor() == 1) {
-                    s.setColor(0);
-                    x.getParent().setColor(1);
-                    leftRotate(x.getParent());
-                    s = x.getParent().getRight();
-                }
-                if (s.getLeft().getColor() == 0 && s.getRight().getColor() == 0) {
-                    s.setColor(1);
-                    x = x.getParent();
+    private void fixInsert(RBNode<K> node) {
+        RBNode<K> u;
+        while (node.getParent().getColor() == 1) {
+            if (node.getParent().equals(node.getParent().getParent().getRight())) {
+                u = node.getParent().getParent().getLeft();
+                if (u.getColor() == 1) {
+                    u.setColor(0);
+                    node.getParent().setColor(0);
+                    node.getParent().getParent().setColor(1);
+                    node = node.getParent().getParent();
                 } else {
-                    if (s.getRight().getColor() == 0) {
-                        s.getLeft().setColor(0);
-                        s.setColor(1);
-                        rightRotate(s);
-                        s = x.getParent().getRight();
+                    if (node.equals(node.getParent().getLeft())) {
+                        node = node.getParent();
+                        rightRotate(node);
                     }
-                    s.setColor(x.getParent().getColor());
-                    x.getParent().setColor(0);
-                    s.getRight().setColor(0);
-                    leftRotate(x.getParent());
-                    x = root;
+                    node.getParent().setColor(0);
+                    node.getParent().getParent().setColor(1);
+                    leftRotate(node.getParent().getParent());
                 }
             } else {
-                s = x.getParent().getLeft();
-                if (s.getColor() == 1) {
-                    s.setColor(0);
-                    x.getParent().setColor(1);
-                    rightRotate(x.getParent());
-                    s = x.getParent().getLeft();
-                }
-                if (s.getRight().getColor() == 0 && s.getRight().getColor() == 0) {
-                    s.setColor(1);
-                    x = x.getParent();
+                u = node.getParent().getParent().getRight();
+                if (u.getColor() == 1) {
+                    u.setColor(0);
+                    node.getParent().setColor(0);
+                    node.getParent().getParent().setColor(1);
+                    node = node.getParent().getParent();
                 } else {
-                    if (s.getLeft().getColor() == 0) {
-                        s.getRight().setColor(0);
-                        s.setColor(1);
-                        leftRotate(s);
-                        s = x.getParent().getLeft();
+                    if (node.equals(node.getParent().getRight())) {
+                        node = node.getParent();
+                        leftRotate(node);
                     }
-                    s.setColor(x.getParent().getColor());
-                    x.getParent().setColor(0);
-                    s.getLeft().setColor(0);
-                    rightRotate(x.getParent());
-                    x = root;
+                    node.getParent().setColor(0);
+                    node.getParent().getParent().setColor(1);
+                    rightRotate(node.getParent().getParent());
                 }
             }
+            if (node.equals(root))
+                break;
         }
-        x.setColor(0);
+        root.setColor(0);
     }
 
-    private void rbTransplant(RBNode<K> u, RBNode<K> v) {
-        if (u.getParent() == null)
-            root = v;
-        else if (u == u.getParent().getLeft())
-            u.getParent().setLeft(v);
-        else {
-            u.getParent().setRight(v);
-        }
-        v.setParent(u.getParent());
+    @Override
+    public RBNode<K> search(K key) {
+        if (root != null)
+            return privateSearch(root, key);
+        return null;
     }
 
-    private void deleteNodeHelper(RBNode<K> node, K key) {
+    private RBNode<K> privateSearch(RBNode<K> current, K key) {
+        if (current == null || key.compareTo(current.getKey()) == 0)
+			return current;
+		else if (key.compareTo(current.getKey()) < 0)
+			return privateSearch(current.getLeft(), key);
+		return privateSearch(current.getRight(), key);
+    }
+
+    @Override
+    public void delete(RBNode<K> node, K key) throws RBTreeException {
         RBNode<K> z = null;
         RBNode<K> x, y;
         while (node != null) {
-            if (node.getKey() == key)
+            if (node.getKey().compareTo(key) == 0)
                 z = node;
             if (node.getKey().compareTo(key) <= 0)
                 node = node.getRight();
@@ -126,8 +125,7 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
                 node = node.getLeft();
         }
         if (z == null) {
-            System.out.println("Couldn't find key in the tree");
-            return;
+            throw new RBTreeException("Couldn't find key in the tree");
         }
         y = z;
         int yOriginalColor = y.getColor();
@@ -157,86 +155,105 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
             fixDelete(x);
     }
 
-    private void fixInsert(RBNode<K> k) {
-        RBNode<K> u;
-        while (k.getParent().getColor() == 1) {
-            if (k.getParent() == k.getParent().getParent().getRight()) {
-                u = k.getParent().getParent().getLeft();
-                if (u.getColor() == 1) {
-                    u.setColor(0);
-                    k.getParent().setColor(0);
-                    k.getParent().getParent().setColor(1);
-                    k = k.getParent().getParent();
+    private void rbTransplant(RBNode<K> u, RBNode<K> v) {
+        if (u.getParent() == null)
+            root = v;
+        else if (u.equals(u.getParent().getLeft()))
+            u.getParent().setLeft(v);
+        else {
+            u.getParent().setRight(v);
+        }
+        v.setParent(u.getParent());
+    }
+
+    private void fixDelete(RBNode<K> node) {
+        RBNode<K> s;
+        while (!node.equals(root) && node.getColor() == 0) {
+            if (node.equals(node.getParent().getLeft())) {
+                s = node.getParent().getRight();
+                if (s.getColor() == 1) {
+                    s.setColor(0);
+                    node.getParent().setColor(1);
+                    leftRotate(node.getParent());
+                    s = node.getParent().getRight();
+                }
+                if (s.getLeft().getColor() == 0 && s.getRight().getColor() == 0) {
+                    s.setColor(1);
+                    node = node.getParent();
                 } else {
-                    if (k == k.getParent().getLeft()) {
-                        k = k.getParent();
-                        rightRotate(k);
+                    if (s.getRight().getColor() == 0) {
+                        s.getLeft().setColor(0);
+                        s.setColor(1);
+                        rightRotate(s);
+                        s = node.getParent().getRight();
                     }
-                    k.getParent().setColor(0);
-                    k.getParent().getParent().setColor(1);
-                    leftRotate(k.getParent().getParent());
+                    s.setColor(node.getParent().getColor());
+                    node.getParent().setColor(0);
+                    s.getRight().setColor(0);
+                    leftRotate(node.getParent());
+                    node = root;
                 }
             } else {
-                u = k.getParent().getParent().getRight();
-                if (u.getColor() == 1) {
-                    u.setColor(0);
-                    k.getParent().setColor(0);
-                    k.getParent().getParent().setColor(1);
-                    k = k.getParent().getParent();
+                s = node.getParent().getLeft();
+                if (s.getColor() == 1) {
+                    s.setColor(0);
+                    node.getParent().setColor(1);
+                    rightRotate(node.getParent());
+                    s = node.getParent().getLeft();
+                }
+                if (s.getRight().getColor() == 0 && s.getRight().getColor() == 0) {
+                    s.setColor(1);
+                    node = node.getParent();
                 } else {
-                    if (k == k.getParent().getRight()) {
-                        k = k.getParent();
-                        leftRotate(k);
+                    if (s.getLeft().getColor() == 0) {
+                        s.getRight().setColor(0);
+                        s.setColor(1);
+                        leftRotate(s);
+                        s = node.getParent().getLeft();
                     }
-                    k.getParent().setColor(0);
-                    k.getParent().getParent().setColor(1);
-                    rightRotate(k.getParent().getParent());
+                    s.setColor(node.getParent().getColor());
+                    node.getParent().setColor(0);
+                    s.getLeft().setColor(0);
+                    rightRotate(node.getParent());
+                    node = root;
                 }
             }
-            if (k == root)
-                break;
         }
-        root.setColor(0);
+        node.setColor(0);
     }
 
-    public void preorder() {
-        preOrderHelper(this.root);
-    }
-
-    public void inorder() {
-        inOrderHelper(this.root);
-    }
-
-    public void postorder() {
-        postOrderHelper(this.root);
-    }
-
-    public RBNode<K> searchTree(K k) {
-        return searchTreeHelper(this.root, k);
-    }
-
-    public RBNode<K> minimum(RBNode<K> node) {
-        while (node.getLeft() != null)
-            node = node.getLeft();
-        return node;
-    }
-
-    public RBNode<K> maximum(RBNode<K> node) {
-        while (node.getRight() != null)
-            node = node.getRight();
-        return node;
-    }
-
-    public RBNode<K> successor(RBNode<K> x) {
-        if (x.getRight() != null) {
-            return minimum(x.getRight());
+    public void leftRotate(RBNode<K> node) {
+        node.setRight(node.getRight().getLeft());
+        if (node.getRight().getLeft() != null) {
+            node.getRight().getLeft().setParent(node);
         }
-        RBNode<K> y = x.getParent();
-        while (y != null && x == y.getRight()) {
-            x = y;
-            y = y.getParent();
+        node.getRight().setParent(node.getParent());
+        if (node.getParent() == null)
+            root = node.getRight();
+        else if (node.equals(node.getParent().getLeft()))
+            node.getParent().setLeft(node.getRight());
+        else {
+            node.getParent().setRight(node.getRight());
         }
-        return y;
+        node.getRight().setLeft(node);
+        node.setParent(node.getRight());
+    }
+
+    public void rightRotate(RBNode<K> node) {
+        node.setLeft(node.getLeft().getRight());
+        if (node.getLeft().getRight() != null) {
+            node.getLeft().getRight().setParent(node);
+        }
+        node.getLeft().setParent(node.getParent());
+        if (node.getParent() == null)
+            root = node.getLeft();
+        else if (node.equals(node.getParent().getRight()))
+            node.getParent().setRight(node.getLeft());
+        else {
+            node.getParent().setLeft(node.getLeft());
+        }
+        node.getLeft().setRight(node);
+        node.setParent(node.getLeft());
     }
 
     public RBNode<K> predecessor(RBNode<K> x) {
@@ -251,80 +268,63 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
         return y;
     }
 
-    public void leftRotate(RBNode<K> x) {
-        RBNode<K> y = x.getRight();
-        x.setRight(y.getLeft());
-        if (y.getLeft() != null) {
-            y.getLeft().setParent(x);
+    public RBNode<K> successor(RBNode<K> x) {
+        if (x.getRight() != null) {
+            return minimum(x.getRight());
         }
-        y.setParent(x.getParent());
-        if (x.getParent() == null)
-            this.root = y;
-        else if (x == x.getParent().getLeft())
-            x.getParent().setLeft(y);
-        else {
-            x.getParent().setRight(y);
+        RBNode<K> y = x.getParent();
+        while (y != null && x == y.getRight()) {
+            x = y;
+            y = y.getParent();
         }
-        y.setLeft(x);
-        x.setParent(y);
+        return y;
     }
 
-    public void rightRotate(RBNode<K> x) {
-        RBNode<K> y = x.getLeft();
-        x.setLeft(y.getRight());
-        if (y.getRight() != null) {
-            y.getRight().setParent(x);
-        }
-        y.setParent(x.getParent());
-        if (x.getParent() == null)
-            this.root = y;
-        else if (x == x.getParent().getRight())
-            x.getParent().setRight(y);
-        else {
-            x.getParent().setLeft(y);
-        }
-        y.setRight(x);
-        x.setParent(y);
+    public RBNode<K> minimum(RBNode<K> node) {
+        while (node.getLeft() != null)
+            node = node.getLeft();
+        return node;
     }
 
-    public void insert(K key) {
-        RBNode<K> node = new RBNode<K>(key);
-        node.setParent(null);
-        node.setKey(key);
-        node.setLeft(null);
-        node.setRight(null);
-        node.setColor(1);
-        RBNode<K> y = null;
-        RBNode<K> x = this.root;
-        while (x != null) {
-            y = x;
-            if (node.getKey().compareTo(x.getKey()) < 0)
-                x = x.getLeft();
-            else
-                x = x.getRight();
-        }
-        node.setParent(y);
-        if (y == null)
-            root = node;
-        else if (node.getKey().compareTo(y.getKey()) < 0)
-            y.setLeft(node);
-        else
-            y.setRight(node);
-        if (node.getParent() == null) {
-            node.setColor(0);
-            return;
-        }
-        if (node.getParent().getParent() == null) {
-            return;
-        }
-        fixInsert(node);
+    public RBNode<K> maximum(RBNode<K> node) {
+        while (node.getRight() != null)
+            node = node.getRight();
+        return node;
     }
 
-    public RBNode<K> getRoot() {
-        return this.root;
+    @Override
+    public String preOrder(RBNode<K> current) {
+        String keys = "";
+        if (current != null) {
+            keys += current.getKey() + " ";
+            keys += preOrder(current.getLeft());
+            keys += preOrder(current.getRight());
+            return keys;
+        }
+        return null;
     }
 
-    public void deleteNode(K key) {
-		deleteNodeHelper(this.root, key);
+    @Override
+    public String inOrder(RBNode<K> current) {
+        String keys = "";
+		if (current != null) {
+			keys += inOrder(current.getLeft());
+			keys += current.getKey() + " ";
+			keys += inOrder(current.getRight());
+            return keys;
+		}
+        return null;
+	}
+
+    @Override
+    public String postOrder(RBNode<K> current) {
+        String keys = "";
+		if (current != null) {
+			keys += postOrder(current.getLeft());
+			keys += postOrder(current.getRight());
+			keys += current.getKey() + " ";
+            return keys;
+		}
+        return null;
 	}
 }

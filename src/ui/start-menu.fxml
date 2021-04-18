@@ -23,7 +23,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </Label>
-      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="437.0" layoutY="95.0" onAction="#addPlayer" prefHeight="48.0" prefWidth="156.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Add player" textAlignment="CENTER">
+      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="437.0" layoutY="95.0" onAction="#addAPlayer" prefHeight="48.0" prefWidth="156.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Add player" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="24.0" />
          </font>
@@ -31,7 +31,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="420.0" layoutY="165.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#modifyPlayer" prefHeight="51.0" prefWidth="191.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Modify player" textAlignment="CENTER">
+      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="420.0" layoutY="165.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#modifyAPlayer" prefHeight="51.0" prefWidth="191.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Modify player" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="24.0" />
          </font>
@@ -39,7 +39,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="428.0" layoutY="237.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#deletePlayer" prefHeight="51.0" prefWidth="175.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Delete player" textAlignment="CENTER">
+      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="428.0" layoutY="237.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#deleteAPlayer" prefHeight="51.0" prefWidth="175.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Delete player" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="24.0" />
          </font>

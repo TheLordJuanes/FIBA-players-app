@@ -15,7 +15,7 @@
             <Image url="@../../resources/menu.jpg" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" blendMode="COLOR_BURN" layoutX="427.0" layoutY="22.0" prefHeight="52.0" prefWidth="176.0" text="What to do?" textAlignment="CENTER" underline="true">
+      <Label alignment="CENTER" blendMode="COLOR_BURN" layoutX="413.0" layoutY="22.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="205.0" text="What to do?" textAlignment="CENTER" underline="true">
          <font>
             <Font name="Avenir Next Condensed Bold" size="36.0" />
          </font>
@@ -23,7 +23,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </Label>
-      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="437.0" layoutY="95.0" onAction="#addPlayer" prefHeight="48.0" prefWidth="156.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Add player" textAlignment="CENTER">
+      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="437.0" layoutY="95.0" onAction="#addAPlayer" prefHeight="48.0" prefWidth="156.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Add player" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="24.0" />
          </font>
@@ -31,7 +31,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="431.0" layoutY="165.0" onAction="#modifyPlayer" prefHeight="51.0" prefWidth="168.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Modify player" textAlignment="CENTER">
+      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="420.0" layoutY="165.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#modifyAPlayer" prefHeight="51.0" prefWidth="191.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Modify player" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="24.0" />
          </font>
@@ -39,7 +39,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="434.0" layoutY="236.0" onAction="#deletePlayer" prefHeight="51.0" prefWidth="162.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Delete player" textAlignment="CENTER">
+      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="428.0" layoutY="237.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#deleteAPlayer" prefHeight="51.0" prefWidth="175.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Delete player" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="24.0" />
          </font>
@@ -47,7 +47,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="413.0" layoutY="306.0" onAction="#searchPlayer" prefHeight="63.0" prefWidth="205.0" style="-fx-background-color: #ff9d00; -fx-background-radius: 5em;" text="Search player" textAlignment="CENTER">
+      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="402.0" layoutY="305.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#searchPlayer" prefHeight="63.0" prefWidth="227.0" style="-fx-background-color: #ff9d00; -fx-background-radius: 5em;" text="Search player" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="30.0" />
          </font>

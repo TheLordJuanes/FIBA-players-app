@@ -20,36 +20,32 @@ public class AVLTree<K extends Comparable<K>> implements AVLTreeInterface<K> { /
         return root;
     }
 
-    public void setRoot(AVLNode<K> root) {
-        this.root = root;
-    }
-
     @Override
-    public AVLNode<K> insert(AVLNode<K> AVLNode, K key) {
-        if (AVLNode == null)
+    public AVLNode<K> insert(AVLNode<K> node, K key) {
+        if (node == null)
             return new AVLNode<K>(key);
-        if (key.compareTo(AVLNode.getKey()) < 0)
-            AVLNode.setLeft(insert(AVLNode.getLeft(), key));
-        else if (key.compareTo(AVLNode.getKey()) > 0)
-            AVLNode.setRight(insert(AVLNode.getRight(), key));
+        if (key.compareTo(node.getKey()) < 0)
+            node.setLeft(insert(node.getLeft(), key));
+        else if (key.compareTo(node.getKey()) > 0)
+            node.setRight(insert(node.getRight(), key));
         else {
-            return AVLNode;
+            return node;
         }
-        AVLNode.setHeight(1 + maxHeight(height(AVLNode.getLeft()), height(AVLNode.getRight())));
-        int balance = getBalance(AVLNode);
-        if (balance > 1 && key.compareTo(AVLNode.getLeft().getKey()) < 0)
-            return rightRotate(AVLNode);
-        if (balance < -1 && key.compareTo(AVLNode.getRight().getKey()) > 0)
-            return leftRotate(AVLNode);
-        if (balance > 1 && key.compareTo(AVLNode.getLeft().getKey()) > 0) {
-            AVLNode.setLeft(leftRotate(AVLNode.getLeft()));
-            return rightRotate(AVLNode);
+        node.setHeight(1 + maxHeight(height(node.getLeft()), height(node.getRight())));
+        int balance = getBalance(node);
+        if (balance > 1 && key.compareTo(node.getLeft().getKey()) < 0)
+            return rightRotate(node);
+        if (balance < -1 && key.compareTo(node.getRight().getKey()) > 0)
+            return leftRotate(node);
+        if (balance > 1 && key.compareTo(node.getLeft().getKey()) > 0) {
+            node.setLeft(leftRotate(node.getLeft()));
+            return rightRotate(node);
         }
-        if (balance < -1 && key.compareTo(AVLNode.getRight().getKey()) < 0) {
-            AVLNode.setRight(rightRotate(AVLNode.getRight()));
-            return leftRotate(AVLNode);
+        if (balance < -1 && key.compareTo(node.getRight().getKey()) < 0) {
+            node.setRight(rightRotate(node.getRight()));
+            return leftRotate(node);
         }
-        return AVLNode;
+        return node;
     }
 
     @Override
@@ -71,153 +67,147 @@ public class AVLTree<K extends Comparable<K>> implements AVLTreeInterface<K> { /
     }
 
     @Override
-    public AVLNode<K> delete(AVLNode<K> root, K key) {
-        if (root == null)
-            return root;
-        if (key.compareTo(root.getKey()) < 0)
-            root.setLeft(delete(root.getLeft(), key));
-        else if (key.compareTo(root.getKey()) > 0)
-            root.setRight(delete(root.getRight(), key));
+    public AVLNode<K> delete(AVLNode<K> current, K key) {
+        if (current == null)
+            return current;
+        if (key.compareTo(current.getKey()) < 0)
+            current.setLeft(delete(current.getLeft(), key));
+        else if (key.compareTo(current.getKey()) > 0)
+            current.setRight(delete(current.getRight(), key));
         else {
-            if ((root.getLeft() == null) || (root.getRight() == null)) {
+            if ((current.getLeft() == null) || (current.getRight() == null)) {
                 AVLNode<K> temp = null;
-                if (temp == root.getLeft())
-                    temp = root.getRight();
+                if (temp == current.getLeft())
+                    temp = current.getRight();
                 else
-                    temp = root.getLeft();
+                    temp = current.getLeft();
                 if (temp == null) {
-                    temp = root;
-                    root = null;
+                    temp = current;
+                    current = null;
                 } else
-                    root = temp;
+                    current = temp;
             } else {
-                AVLNode<K> temp = minimum(root.getRight());
-                root.setKey(temp.getKey());
-                root.setRight(delete(root.getRight(), temp.getKey()));
+                AVLNode<K> temp = minimum(current.getRight());
+                current.setKey(temp.getKey());
+                current.setRight(delete(current.getRight(), temp.getKey()));
             }
         }
-        root.setHeight(maxHeight(height(root.getLeft()), height(root.getRight())) + 1);
-        int balance = getBalance(root);
-        if (balance > 1 && getBalance(root.getLeft()) >= 0)
-            return rightRotate(root);
-        if (balance > 1 && getBalance(root.getLeft()) < 0) {
-            root.setLeft(leftRotate(root.getLeft()));
-            return rightRotate(root);
+        current.setHeight(maxHeight(height(current.getLeft()), height(current.getRight())) + 1);
+        int balance = getBalance(current);
+        if (balance > 1 && getBalance(current.getLeft()) >= 0)
+            return rightRotate(current);
+        if (balance > 1 && getBalance(current.getLeft()) < 0) {
+            current.setLeft(leftRotate(current.getLeft()));
+            return rightRotate(current);
         }
-        if (balance < -1 && getBalance(root.getRight()) <= 0)
-            return leftRotate(root);
-        if (balance < -1 && getBalance(root.getRight()) > 0) {
-            root.setRight(rightRotate(root.getRight()));
-            return leftRotate(root);
+        if (balance < -1 && getBalance(current.getRight()) <= 0)
+            return leftRotate(current);
+        if (balance < -1 && getBalance(current.getRight()) > 0) {
+            current.setRight(rightRotate(current.getRight()));
+            return leftRotate(current);
         }
-        return root;
+        return current;
     }
 
-    private int height(AVLNode<K> AVLNode) {
-        if (AVLNode == null)
+    private int height(AVLNode<K> node) {
+        if (node == null)
             return 0;
-        return AVLNode.getHeight();
+        return node.getHeight();
     }
 
     private int maxHeight(int a, int b) {
         return a > b ? a : b;
     }
 
-    @Override
-    public AVLNode<K> leftRotate(AVLNode<K> x) {
-        AVLNode<K> y = x.getRight();
-        AVLNode<K> T2 = y.getLeft();
-        y.setLeft(x);
-        x.setRight(T2);
-        x.setHeight(maxHeight(height(x.getLeft()), height(x.getRight())) + 1);
-        y.setHeight(maxHeight(height(y.getLeft()), height(y.getRight())) + 1);
-        return y;
+    private AVLNode<K> leftRotate(AVLNode<K> node) {
+        node.getRight().setLeft(node);
+        node.setRight(node.getRight().getLeft());
+        node.setHeight(maxHeight(height(node.getLeft()), height(node.getRight())) + 1);
+        node.getRight().setHeight(maxHeight(height(node.getRight().getLeft()), height(node.getRight().getRight())) + 1);
+        return node.getRight();
     }
 
-    @Override
-    public AVLNode<K> rightRotate(AVLNode<K> y) {
-        AVLNode<K> x = y.getLeft();
-        AVLNode<K> T2 = x.getRight();
-        x.setRight(y);
-        y.setLeft(T2);
-        y.setHeight(maxHeight(height(y.getLeft()), height(y.getRight())) + 1);
-        x.setHeight(maxHeight(height(x.getLeft()), height(x.getRight())) + 1);
-        return x;
+    private AVLNode<K> rightRotate(AVLNode<K> node) {
+        node.getLeft().setRight(node);
+        node.setLeft(node.getLeft().getRight());
+        node.setHeight(maxHeight(height(node.getLeft()), height(node.getRight())) + 1);
+        node.getLeft().setHeight(maxHeight(height(node.getLeft().getLeft()), height(node.getLeft().getRight())) + 1);
+        return node.getLeft();
     }
 
-    public AVLNode<K> predecessor(AVLNode<K> AVLNode) {
-		if (AVLNode.getLeft() != null) {
-			return maximum(AVLNode.getLeft());
+    public AVLNode<K> predecessor(AVLNode<K> node) {
+		if (node.getLeft() != null) {
+			return maximum(node.getLeft());
 		}
-		AVLNode<K> y = AVLNode.getParent();
-		while (y != null && AVLNode == y.getLeft()) {
-			AVLNode = y;
+		AVLNode<K> y = node.getParent();
+		while (y != null && node.equals(y.getLeft())) {
+			node = y;
 			y = y.getParent();
 		}
 		return y;
 	}
 
-    public AVLNode<K> successor(AVLNode<K> AVLNode) {
-		if (AVLNode.getRight() != null) {
-			return minimum(AVLNode.getRight());
+    public AVLNode<K> successor(AVLNode<K> node) {
+		if (node.getRight() != null) {
+			return minimum(node.getRight());
 		}
-		AVLNode<K> y = AVLNode.getParent();
-		while (y != null && AVLNode == y.getRight()) {
-			AVLNode = y;
+		AVLNode<K> y = node.getParent();
+		while (y != null && node.equals(y.getRight())) {
+			node = y;
 			y = y.getParent();
 		}
 		return y;
 	}
 
-    private int getBalance(AVLNode<K> AVLNode) {
-        if (AVLNode == null)
+    private int getBalance(AVLNode<K> node) {
+        if (node == null)
             return 0;
-        return height(AVLNode.getLeft()) - height(AVLNode.getRight());
+        return height(node.getLeft()) - height(node.getRight());
     }
 
-    private AVLNode<K> maximum(AVLNode<K> AVLNode) {
-		while (AVLNode.getRight() != null)
-			AVLNode = AVLNode.getRight();
-		return AVLNode;
+    private AVLNode<K> minimum(AVLNode<K> node) {
+        while (node.getLeft() != null)
+            node = node.getLeft();
+        return node;
+    }
+
+    private AVLNode<K> maximum(AVLNode<K> node) {
+		while (node.getRight() != null)
+            node = node.getRight();
+		return node;
 	}
 
-    private AVLNode<K> minimum(AVLNode<K> AVLNode) {
-        while (AVLNode.getLeft() != null)
-            AVLNode = AVLNode.getLeft();
-        return AVLNode;
-    }
-
     @Override
-    public String preOrder(AVLNode<K> AVLNode) {
+    public String preOrder(AVLNode<K> node) {
         String keys = "";
-        if (AVLNode != null) {
-            keys += AVLNode.getKey() + " ";
-            keys += preOrder(AVLNode.getLeft());
-            keys += preOrder(AVLNode.getRight());
+        if (node != null) {
+            keys += node.getKey() + " ";
+            keys += preOrder(node.getLeft());
+            keys += preOrder(node.getRight());
             return keys;
         }
         return null;
     }
 
     @Override
-    public String inOrder(AVLNode<K> AVLNode) {
+    public String inOrder(AVLNode<K> node) {
         String keys = "";
-		if (AVLNode != null) {
-			keys += inOrder(AVLNode.getLeft());
-			keys += AVLNode.getKey() + " ";
-			keys += inOrder(AVLNode.getRight());
+		if (node != null) {
+			keys += inOrder(node.getLeft());
+			keys += node.getKey() + " ";
+			keys += inOrder(node.getRight());
             return keys;
 		}
         return null;
 	}
 
     @Override
-    public String postOrder(AVLNode<K> AVLNode) {
+    public String postOrder(AVLNode<K> node) {
         String keys = "";
-		if (AVLNode != null) {
-			keys += postOrder(AVLNode.getLeft());
-			keys += postOrder(AVLNode.getRight());
-			keys += AVLNode.getKey() + " ";
+		if (node != null) {
+			keys += postOrder(node.getLeft());
+			keys += postOrder(node.getRight());
+			keys += node.getKey() + " ";
             return keys;
 		}
         return null;

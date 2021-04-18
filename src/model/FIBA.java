@@ -39,7 +39,7 @@ public class FIBA {
 	 * @param attribute
 	 * @param valueD
 	 * @param valueS
-	 */
+	*/
 	public boolean modifyPlayerData(int attribute, double valueD, String valueS) {
 		return false;
 	}
@@ -47,7 +47,7 @@ public class FIBA {
 	/**
 	 *
 	 * @param id
-	 */
+	*/
 	public boolean deletePlayer(int id) {
 		return false;
 	}
@@ -56,7 +56,7 @@ public class FIBA {
 	 *
 	 * @param attribute
 	 * @param value
-	 */
+	*/
 	public String searchPlayer(int attribute, double value) {
 		return "";
 	}
@@ -65,7 +65,7 @@ public class FIBA {
 	 *
 	 * @param attribute
 	 * @param value
-	 */
+	*/
 	public String searchPlayer(int attribute, String value) {
 		return "";
 	}
@@ -76,7 +76,7 @@ public class FIBA {
 	 * @param attribute2
 	 * @param value1
 	 * @param value2
-	 */
+	*/
 	public String searchPlayer(int attribute1, int attribute2, double value1, double value2) {
 		return "";
 	}
@@ -87,7 +87,7 @@ public class FIBA {
 	 * @param attribute2
 	 * @param value1
 	 * @param value2
-	 */
+	*/
 	public String searchPlayer(int attribute1, int attribute2, double value1, String value2) {
 		return "";
 	}
@@ -98,7 +98,7 @@ public class FIBA {
 	 * @param attribute2
 	 * @param value1
 	 * @param value2
-	 */
+	*/
 	public String searchPlayer(int attribute1, int attribute2, String value1, String value2) {
 		return "";
 	}

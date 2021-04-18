@@ -7,12 +7,14 @@
 package ui;
 
 import java.io.IOException;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.FIBA;
 
@@ -48,6 +50,21 @@ public class FibaGUI {
 
     @FXML
     private JFXTextField team;
+
+    @FXML
+    private Label lbAddPlayer;
+
+    @FXML
+    private JFXComboBox<Integer> cbPlayerID;
+
+    @FXML
+    private JFXComboBox<String> cbDataType;
+
+    @FXML
+    private JFXTextField txtDataValue;
+
+    @FXML
+    private Label lbModifyPlayer;
 
     private Stage primaryStage;
 
@@ -117,14 +134,14 @@ public class FibaGUI {
     }
 
     @FXML
-    public void addPlayer(ActionEvent event) {
+    public void addAPlayer(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("new-player.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add-player.fxml"));
             FibaGUI fibaGUI = new FibaGUI(primaryStage);
             fxmlLoader.setController(fibaGUI);
             Parent root = fxmlLoader.load();
             primaryStage.setScene(new Scene(root));
-            primaryStage.setTitle("Start Menu");
+            primaryStage.setTitle("Player addition");
             primaryStage.show();
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -137,12 +154,27 @@ public class FibaGUI {
     }
 
     @FXML
-    public void deletePlayer(ActionEvent event) {
-
+    public void modifyAPlayer(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modify-player.fxml"));
+            FibaGUI fibaGUI = new FibaGUI(primaryStage);
+            fxmlLoader.setController(fibaGUI);
+            Parent root = fxmlLoader.load();
+            primaryStage.setScene(new Scene(root));
+            primaryStage.setTitle("Player modification");
+            primaryStage.show();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
     }
 
     @FXML
     public void modifyPlayer(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void deleteAPlayer(ActionEvent event) {
 
     }
 
