@@ -15,5 +15,4 @@ public interface RBTreeInterface<K extends Comparable<K>> {
     public String inOrder(RBNode<K> root);
 
     public String postOrder(RBNode<K> root);
-
 }

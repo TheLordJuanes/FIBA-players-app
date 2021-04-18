@@ -1,16 +1,16 @@
 package dataStructures;
 
-public interface AVLTreeInterface<K extends Comparable<K>> {
+public interface AVLTreeInterface<K extends Comparable<K>, V> {
 
-    public AVLNode<K> insert(AVLNode<K> node, K key);
+    public boolean insert(AVLNode<K,V> node, K key);
 
-    public AVLNode<K> search(K key);
+    public AVLNode<K,V> search(K key);
 
-    public AVLNode<K> delete(AVLNode<K> root, K key);
+    public AVLNode<K, V> delete(AVLNode<K, V> root, K key);
 
-    public String preOrder(AVLNode<K> node);
+    public String preOrder(AVLNode<K, V> node);
 
-    public String inOrder(AVLNode<K> node);
+    public String inOrder(AVLNode<K, V> node);
 
-    public String postOrder(AVLNode<K> node);
+    public String postOrder(AVLNode<K, V> node);
 }

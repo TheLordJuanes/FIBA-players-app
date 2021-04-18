@@ -130,7 +130,25 @@ public class Player {
 		this.defensive = defensive;
 	}
 
+	/**
+	 * private String name;
+	private int id;
+	private String team;
+	private double trueShooting;
+	private double usage;
+	private double assist;
+	private double rebound;
+	private double defensive;
+	 */
+
 	public String toString() {
-		return "";
+		String message="Name: "+name+"\n"+
+		"Team:"+team+"\n"+
+		"True shooting:"+trueShooting+"\n"+
+		"Usage:"+usage+"\n"+
+		"Assist:"+assist+"\n"+
+		"Rebound:"+rebound+"\n"+
+		"Defensive:"+defensive+"\n";
+		return message;
 	}
 }

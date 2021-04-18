@@ -1,68 +1,113 @@
 package dataStructures;
 
-public class AVLNode<K extends Comparable<K>> {
+public class AVLNode<K extends Comparable<K>,V> {
 
     // -----------------------------------------------------------------
 	// Attributes
     // -----------------------------------------------------------------
 
     private K key;
-    private int height;
+    private V value;
+    private int balanceFactor;
 
     // -----------------------------------------------------------------
 	// Relations
     // -----------------------------------------------------------------
 
-    private AVLNode<K> parent;
-    private AVLNode<K> left;
-    private AVLNode<K> right;
+    private AVLNode<K, V> parent;
+    private AVLNode<K, V> left;
+    private AVLNode<K, V> right;
 
     // -----------------------------------------------------------------
 	// Methods
     // -----------------------------------------------------------------
 
-    public AVLNode(K key) {
-        this.key = key;
+    public AVLNode(K key, V value) {
         height = 1;
     }
 
+    /**
+     * @return AVLNode<K, V> return the parent
+     */
+    public AVLNode<K, V> getParent() {
+        return parent;
+    }
+
+    /**
+     * @param parent the parent to set
+     */
+    public void setParent(AVLNode<K, V> parent) {
+        this.parent = parent;
+    }
+
+    /**
+     * @return AVLNode<K, V> return the left
+     */
+    public AVLNode<K, V> getLeft() {
+        return left;
+    }
+
+    /**
+     * @param left the left to set
+     */
+    public void setLeft(AVLNode<K, V> left) {
+        this.left = left;
+    }
+
+    /**
+     * @return AVLNode<K, V> return the right
+     */
+    public AVLNode<K, V> getRight() {
+        return right;
+    }
+
+    /**
+     * @param right the right to set
+     */
+    public void setRight(AVLNode<K, V> right) {
+        this.right = right;
+    }
+
+    /**
+     * @return K return the key
+     */
     public K getKey() {
         return key;
     }
 
+    /**
+     * @param key the key to set
+     */
     public void setKey(K key) {
         this.key = key;
     }
 
-    public int getHeight() {
-        return height;
+    /**
+     * @return V return the value
+     */
+    public V getValue() {
+        return value;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    /**
+     * @param value the value to set
+     */
+    public void setValue(V value) {
+        this.value = value;
     }
 
-    public AVLNode<K> getParent() {
-        return parent;
+    /**
+     * @return int return the balanceFactor
+     */
+    public int getBalanceFactor() {
+        return balanceFactor;
     }
 
-    public void setParent(AVLNode<K> parent) {
-        this.parent = parent;
+    /**
+     * @param balanceFactor the balanceFactor to set
+     */
+    public void setBalanceFactor(int balanceFactor) {
+        this.balanceFactor = balanceFactor;
     }
 
-    public AVLNode<K> getLeft() {
-        return left;
-    }
-
-    public void setLeft(AVLNode<K> left) {
-        this.left = left;
-    }
-
-    public AVLNode<K> getRight() {
-        return right;
-    }
-
-    public void setRight(AVLNode<K> right) {
-        this.right = right;
-    }
 }
