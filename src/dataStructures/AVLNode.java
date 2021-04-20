@@ -8,8 +8,7 @@ public class AVLNode<K extends Comparable<K>,V> {
 
     private K key;
     private V value;
-    private int balanceFactor;
-
+    private int height;
     // -----------------------------------------------------------------
 	// Relations
     // -----------------------------------------------------------------
@@ -23,7 +22,51 @@ public class AVLNode<K extends Comparable<K>,V> {
     // -----------------------------------------------------------------
 
     public AVLNode(K key, V value) {
+        this.key = key;
+        this.value = value;
         height = 1;
+    }
+
+    /**
+     * @return K return the key
+     */
+    public K getKey() {
+        return key;
+    }
+
+    /**
+     * @param key the key to set
+     */
+    public void setKey(K key) {
+        this.key = key;
+    }
+
+    /**
+     * @return V return the value
+     */
+    public V getValue() {
+        return value;
+    }
+
+    /**
+     * @param value the value to set
+     */
+    public void setValue(V value) {
+        this.value = value;
+    }
+
+    /**
+     * @return int return the height
+     */
+    public int getHeight() {
+        return height;
+    }
+
+    /**
+     * @param height the height to set
+     */
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     /**
@@ -67,47 +110,4 @@ public class AVLNode<K extends Comparable<K>,V> {
     public void setRight(AVLNode<K, V> right) {
         this.right = right;
     }
-
-    /**
-     * @return K return the key
-     */
-    public K getKey() {
-        return key;
-    }
-
-    /**
-     * @param key the key to set
-     */
-    public void setKey(K key) {
-        this.key = key;
-    }
-
-    /**
-     * @return V return the value
-     */
-    public V getValue() {
-        return value;
-    }
-
-    /**
-     * @param value the value to set
-     */
-    public void setValue(V value) {
-        this.value = value;
-    }
-
-    /**
-     * @return int return the balanceFactor
-     */
-    public int getBalanceFactor() {
-        return balanceFactor;
-    }
-
-    /**
-     * @param balanceFactor the balanceFactor to set
-     */
-    public void setBalanceFactor(int balanceFactor) {
-        this.balanceFactor = balanceFactor;
-    }
-
 }

@@ -11,3 +11,7 @@
 .jfx-text-field {
     -fx-text-fill: #a0a0a0;
 }
+
+.jfx-text-area {
+    -fx-text-fill: white;
+}

@@ -1,6 +1,6 @@
 package dataStructures;
 
-public class BSTree<K extends Comparable<K>, V> implements BSTreeInterface<K, V> {
+public class BSTree<K extends Comparable<K>, V> implements BSTreeInterface<K, V> { // class adapted from https://github.com/Bibeknam/algorithmtutorprograms/blob/11ef340f8c8e60839a9dff395dd52b8752c537a6/data-structures/red-black-trees/RedBlackTree.java#L298
 
     private BSTNode<K, V> root;
 

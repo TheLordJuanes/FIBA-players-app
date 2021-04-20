@@ -2,13 +2,13 @@ package dataStructures;
 
 import exceptions.RBTreeException;
 
-public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // class adapted from  https://github.com/Bibeknam/algorithmtutorprograms/blob/11ef340f8c8e60839a9dff395dd52b8752c537a6/data-structures/red-black-trees/RedBlackTree.java#L298
+public class RBTree<K extends Comparable<K>, V> implements RBTreeInterface<K, V> { // class adapted from  https://github.com/Bibeknam/algorithmtutorprograms/blob/11ef340f8c8e60839a9dff395dd52b8752c537a6/data-structures/red-black-trees/RedBlackTree.java#L298
 
     // -----------------------------------------------------------------
 	// Relations
     // -----------------------------------------------------------------
 
-    private RBNode<K> root;
+    private RBNode<K, V> root;
 
     // -----------------------------------------------------------------
 	// Methods
@@ -17,20 +17,15 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
     public RBTree() {
     }
 
-    public RBNode<K> getRoot() {
+    public RBNode<K, V> getRoot() {
         return root;
     }
 
     @Override
-    public void insert(K key) {
-        RBNode<K> node = new RBNode<K>(key);
-        node.setParent(null);
-        node.setKey(key);
-        node.setLeft(null);
-        node.setRight(null);
+    public void insert(RBNode<K, V> node) {
         node.setColor(1);
-        RBNode<K> y = null;
-        RBNode<K> x = root;
+        RBNode<K, V> y = null;
+        RBNode<K, V> x = root;
         while (x != null) {
             y = x;
             if (node.getKey().compareTo(x.getKey()) < 0)
@@ -55,8 +50,8 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
         fixInsert(node);
     }
 
-    private void fixInsert(RBNode<K> node) {
-        RBNode<K> u;
+    private void fixInsert(RBNode<K, V> node) {
+        RBNode<K, V> u;
         while (node.getParent().getColor() == 1) {
             if (node.getParent().equals(node.getParent().getParent().getRight())) {
                 u = node.getParent().getParent().getLeft();
@@ -98,13 +93,13 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
     }
 
     @Override
-    public RBNode<K> search(K key) {
+    public RBNode<K, V> search(K key) {
         if (root != null)
             return privateSearch(root, key);
         return null;
     }
 
-    private RBNode<K> privateSearch(RBNode<K> current, K key) {
+    private RBNode<K, V> privateSearch(RBNode<K, V> current, K key) {
         if (current == null || key.compareTo(current.getKey()) == 0)
 			return current;
 		else if (key.compareTo(current.getKey()) < 0)
@@ -113,9 +108,9 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
     }
 
     @Override
-    public void delete(RBNode<K> node, K key) throws RBTreeException {
-        RBNode<K> z = null;
-        RBNode<K> x, y;
+    public void delete(RBNode<K, V> node, K key) throws RBTreeException {
+        RBNode<K, V> z = null;
+        RBNode<K, V> x, y;
         while (node != null) {
             if (node.getKey().compareTo(key) == 0)
                 z = node;
@@ -155,7 +150,7 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
             fixDelete(x);
     }
 
-    private void rbTransplant(RBNode<K> u, RBNode<K> v) {
+    private void rbTransplant(RBNode<K, V> u, RBNode<K, V> v) {
         if (u.getParent() == null)
             root = v;
         else if (u.equals(u.getParent().getLeft()))
@@ -166,8 +161,8 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
         v.setParent(u.getParent());
     }
 
-    private void fixDelete(RBNode<K> node) {
-        RBNode<K> s;
+    private void fixDelete(RBNode<K, V> node) {
+        RBNode<K, V> s;
         while (!node.equals(root) && node.getColor() == 0) {
             if (node.equals(node.getParent().getLeft())) {
                 s = node.getParent().getRight();
@@ -222,7 +217,7 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
         node.setColor(0);
     }
 
-    public void leftRotate(RBNode<K> node) {
+    public void leftRotate(RBNode<K, V> node) {
         node.setRight(node.getRight().getLeft());
         if (node.getRight().getLeft() != null) {
             node.getRight().getLeft().setParent(node);
@@ -239,7 +234,7 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
         node.setParent(node.getRight());
     }
 
-    public void rightRotate(RBNode<K> node) {
+    public void rightRotate(RBNode<K, V> node) {
         node.setLeft(node.getLeft().getRight());
         if (node.getLeft().getRight() != null) {
             node.getLeft().getRight().setParent(node);
@@ -256,11 +251,11 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
         node.setParent(node.getLeft());
     }
 
-    public RBNode<K> predecessor(RBNode<K> x) {
+    public RBNode<K, V> predecessor(RBNode<K, V> x) {
         if (x.getLeft() != null) {
             return maximum(x.getLeft());
         }
-        RBNode<K> y = x.getParent();
+        RBNode<K, V> y = x.getParent();
         while (y != null && x == y.getLeft()) {
             x = y;
             y = y.getParent();
@@ -268,11 +263,11 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
         return y;
     }
 
-    public RBNode<K> successor(RBNode<K> x) {
+    public RBNode<K, V> successor(RBNode<K, V> x) {
         if (x.getRight() != null) {
             return minimum(x.getRight());
         }
-        RBNode<K> y = x.getParent();
+        RBNode<K, V> y = x.getParent();
         while (y != null && x == y.getRight()) {
             x = y;
             y = y.getParent();
@@ -280,20 +275,20 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
         return y;
     }
 
-    public RBNode<K> minimum(RBNode<K> node) {
+    public RBNode<K, V> minimum(RBNode<K, V> node) {
         while (node.getLeft() != null)
             node = node.getLeft();
         return node;
     }
 
-    public RBNode<K> maximum(RBNode<K> node) {
+    public RBNode<K, V> maximum(RBNode<K, V> node) {
         while (node.getRight() != null)
             node = node.getRight();
         return node;
     }
 
     @Override
-    public String preOrder(RBNode<K> current) {
+    public String preOrder(RBNode<K, V> current) {
         String keys = "";
         if (current != null) {
             keys += current.getKey() + " ";
@@ -305,7 +300,7 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
     }
 
     @Override
-    public String inOrder(RBNode<K> current) {
+    public String inOrder(RBNode<K, V> current) {
         String keys = "";
 		if (current != null) {
 			keys += inOrder(current.getLeft());
@@ -317,7 +312,7 @@ public class RBTree<K extends Comparable<K>> implements RBTreeInterface<K> { // 
 	}
 
     @Override
-    public String postOrder(RBNode<K> current) {
+    public String postOrder(RBNode<K, V> current) {
         String keys = "";
 		if (current != null) {
 			keys += postOrder(current.getLeft());

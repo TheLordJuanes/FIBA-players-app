@@ -47,7 +47,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="402.0" layoutY="305.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#searchPlayer" prefHeight="63.0" prefWidth="227.0" style="-fx-background-color: #ff9d00; -fx-background-radius: 5em;" text="Search player" textAlignment="CENTER">
+      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="402.0" layoutY="305.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#searchAPlayer" prefHeight="63.0" prefWidth="227.0" style="-fx-background-color: #ff9d00; -fx-background-radius: 5em;" text="Search player" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="30.0" />
          </font>

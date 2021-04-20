@@ -6,7 +6,26 @@
 */
 package model;
 
+import dataStructures.AVLTree;
+import dataStructures.BSTree;
+import dataStructures.RBTree;
+import dataStructures.AVLNode;
+import dataStructures.BSTNode;
+import dataStructures.RBNode;
+import thread.AddPlayerThread;
+
 public class FIBA {
+
+	// -----------------------------------------------------------------
+	// Relations
+    // -----------------------------------------------------------------
+
+	private AVLTree<Integer, Player> playersById;
+	private AVLTree<Double, Player> playersByTrueShooting;
+	private AVLTree<Double, Player> playersByUsage;
+	private AVLTree<Double, Player> playersByAssist;
+	private BSTree<Double, Player> playersByRebound;
+	private RBTree<Double, Player> playersByDefensive;
 
 	// -----------------------------------------------------------------
 	// Methods
@@ -17,6 +36,12 @@ public class FIBA {
 	 * <br> FIBA constructor method. <br>
 	*/
 	public FIBA() {
+		playersById = new AVLTree<Integer, Player>();
+		playersByTrueShooting = new AVLTree<Double, Player>();
+		playersByUsage = new AVLTree<Double, Player>();
+		playersByAssist = new AVLTree<Double, Player>();
+		playersByRebound = new BSTree<Double, Player>();
+		playersByDefensive = new RBTree<Double, Player>();
 	}
 
 	/**
@@ -29,9 +54,35 @@ public class FIBA {
 	 * @param assist
 	 * @param rebound
 	 * @param defensive
-	 */
-	public boolean addPlayerData(String name, int id, String team, double trueShooting, double usage, double assist, double rebound, double defensive) {
+	 * @throws InterruptedException
+	*/
+	public boolean addPlayerData(String name, int id, String team, double trueShooting, double usage, double assist, double rebound, double defensive) throws InterruptedException {
+		if (playersById.search(playersById.getRoot(), id) == null) {
+			Player p = new Player(name, id, team, trueShooting, usage, assist, rebound, defensive);
+			AddPlayerThread[] trees = new AddPlayerThread[6];
+			for (int i = 0; i < trees.length; i++) {
+				trees[i] = new AddPlayerThread(this, p, i);
+				trees[i].start();
+			}
+			for (int i = 0; i < trees.length; i++)
+				trees[i].join();
+			return true;
+		}
 		return false;
+	}
+
+
+
+	public <K extends Comparable<K>, V> void addPlayerDataIn(AVLNode<K, V> node, AVLTree<K, V> tree){
+		tree.insert(node);
+	}
+
+	public <K extends Comparable<K>, V> void addPlayerDataIn(BSTNode<K, V> node, BSTree<K, V> tree){
+		tree.insert(node);
+	}
+
+	public <K extends Comparable<K>, V> void addPlayerDataIn(RBNode<K, V> node, RBTree<K, V> tree){
+		tree.insert(node);
 	}
 
 	/**
@@ -40,7 +91,7 @@ public class FIBA {
 	 * @param valueD
 	 * @param valueS
 	*/
-	public boolean modifyPlayerData(int attribute, double valueD, String valueS) {
+	public boolean modifyPlayerData(String attribute, double valueD, String valueS, int valueI, int id) {
 		return false;
 	}
 
@@ -102,4 +153,88 @@ public class FIBA {
 	public String searchPlayer(int attribute1, int attribute2, String value1, String value2) {
 		return "";
 	}
+
+    /**
+     * @return AVLTree<Integer, Player> return the playersById
+     */
+    public AVLTree<Integer, Player> getPlayersById() {
+        return playersById;
+    }
+
+    /**
+     * @param playersById the playersById to set
+     */
+    public void setPlayersById(AVLTree<Integer, Player> playersById) {
+        this.playersById = playersById;
+    }
+
+    /**
+     * @return AVLTree<Double, Player> return the playersByTrueShooting
+     */
+    public AVLTree<Double, Player> getPlayersByTrueShooting() {
+        return playersByTrueShooting;
+    }
+
+    /**
+     * @param playersByTrueShooting the playersByTrueShooting to set
+     */
+    public void setPlayersByTrueShooting(AVLTree<Double, Player> playersByTrueShooting) {
+        this.playersByTrueShooting = playersByTrueShooting;
+    }
+
+    /**
+     * @return AVLTree<Double, Player> return the playersByUsage
+     */
+    public AVLTree<Double, Player> getPlayersByUsage() {
+        return playersByUsage;
+    }
+
+    /**
+     * @param playersByUsage the playersByUsage to set
+     */
+    public void setPlayersByUsage(AVLTree<Double, Player> playersByUsage) {
+        this.playersByUsage = playersByUsage;
+    }
+
+    /**
+     * @return AVLTree<Double, Player> return the playersByAssist
+     */
+    public AVLTree<Double, Player> getPlayersByAssist() {
+        return playersByAssist;
+    }
+
+    /**
+     * @param playersByAssist the playersByAssist to set
+     */
+    public void setPlayersByAssist(AVLTree<Double, Player> playersByAssist) {
+        this.playersByAssist = playersByAssist;
+    }
+
+    /**
+     * @return BSTree<Double, Player> return the playersByRebound
+     */
+    public BSTree<Double, Player> getPlayersByRebound() {
+        return playersByRebound;
+    }
+
+    /**
+     * @param playersByRebound the playersByRebound to set
+     */
+    public void setPlayersByRebound(BSTree<Double, Player> playersByRebound) {
+        this.playersByRebound = playersByRebound;
+    }
+
+    /**
+     * @return RBTree<Double, Player> return the playersByDefensive
+     */
+    public RBTree<Double, Player> getPlayersByDefensive() {
+        return playersByDefensive;
+    }
+
+    /**
+     * @param playersByDefensive the playersByDefensive to set
+     */
+    public void setPlayersByDefensive(RBTree<Double, Player> playersByDefensive) {
+        this.playersByDefensive = playersByDefensive;
+    }
 }

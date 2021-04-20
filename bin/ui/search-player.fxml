@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/search.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnSearchPlayers" alignment="CENTER" blendMode="COLOR_BURN" contentDisplay="CENTER" layoutX="317.0" layoutY="322.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#searchPlayer" prefHeight="48.0" prefWidth="185.0" ripplerFill="WHITE" style="-fx-background-radius: 5em; -fx-background-color: #969696;" text="Search Players" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXComboBox fx:id="cbDataType" focusColor="ORANGE" labelFloat="true" layoutX="81.0" layoutY="64.0" prefHeight="39.0" prefWidth="185.0" promptText="Attribute 1" stylesheets="@style3.css" unFocusColor="#389bff" />
+      <JFXTextField fx:id="searchValue2" alignment="CENTER" blendMode="ADD" focusColor="ORANGE" layoutX="214.0" layoutY="128.0" prefHeight="39.0" prefWidth="60.0" stylesheets="@style3.css" unFocusColor="#0080ff">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXComboBox fx:id="cbSymbol1" focusColor="ORANGE" labelFloat="true" layoutX="282.0" layoutY="63.0" prefHeight="39.0" prefWidth="60.0" stylesheets="@style3.css" unFocusColor="#389bff" />
+      <JFXTextField fx:id="searchValue1" alignment="CENTER" blendMode="ADD" focusColor="ORANGE" layoutX="379.0" layoutY="63.0" prefHeight="39.0" prefWidth="60.0" stylesheets="@style3.css" unFocusColor="#0080ff">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <Label fx:id="lbModifyPlayer1111" blendMode="LIGHTEN" layoutX="449.0" layoutY="68.0" prefHeight="32.0" prefWidth="20.0" text="\%" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="searchValue3" alignment="CENTER" blendMode="ADD" focusColor="ORANGE" layoutX="449.0" layoutY="128.0" prefHeight="39.0" prefWidth="60.0" stylesheets="@style3.css" unFocusColor="#0080ff">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXComboBox fx:id="cbSymbol2" focusColor="ORANGE" labelFloat="true" layoutX="282.0" layoutY="127.0" prefHeight="39.0" prefWidth="60.0" stylesheets="@style3.css" unFocusColor="#389bff" />
+      <Label fx:id="searchName1" blendMode="LIGHTEN" layoutX="352.0" layoutY="131.0" prefHeight="32.0" prefWidth="30.0" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cbSymbol3" focusColor="ORANGE" labelFloat="true" layoutX="379.0" layoutY="128.0" prefHeight="39.0" prefWidth="60.0" promptText="≤" stylesheets="@style3.css" unFocusColor="#389bff" />
+      <JFXTextField fx:id="searchValue5" alignment="CENTER" blendMode="ADD" focusColor="ORANGE" layoutX="207.0" layoutY="265.0" prefHeight="39.0" prefWidth="60.0" stylesheets="@style3.css" unFocusColor="#0080ff">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXComboBox fx:id="cbSymbol4" focusColor="ORANGE" labelFloat="true" layoutX="275.0" layoutY="200.0" prefHeight="39.0" prefWidth="60.0" stylesheets="@style3.css" unFocusColor="#389bff" />
+      <JFXTextField fx:id="searchValue4" alignment="CENTER" blendMode="ADD" focusColor="ORANGE" layoutX="372.0" layoutY="200.0" prefHeight="39.0" prefWidth="60.0" stylesheets="@style3.css" unFocusColor="#0080ff">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <Label fx:id="lbModifyPlayer11111" blendMode="LIGHTEN" layoutX="442.0" layoutY="205.0" prefHeight="32.0" prefWidth="20.0" text="\%" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="searchValue6" alignment="CENTER" blendMode="ADD" focusColor="ORANGE" layoutX="442.0" layoutY="265.0" prefHeight="39.0" prefWidth="60.0" stylesheets="@style3.css" unFocusColor="#0080ff">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXComboBox fx:id="cbSymbol5" focusColor="ORANGE" labelFloat="true" layoutX="275.0" layoutY="264.0" prefHeight="39.0" prefWidth="60.0" stylesheets="@style3.css" unFocusColor="#389bff" />
+      <Label fx:id="searchName2" blendMode="LIGHTEN" layoutX="345.0" layoutY="268.0" prefHeight="32.0" prefWidth="30.0" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cbSymbol6" focusColor="ORANGE" labelFloat="true" layoutX="372.0" layoutY="265.0" prefHeight="39.0" prefWidth="60.0" stylesheets="@style3.css" unFocusColor="#389bff" />
+      <Label fx:id="lbModifyPlayer11112" blendMode="LIGHTEN" layoutX="154.0" layoutY="132.0" prefHeight="32.0" prefWidth="20.0" text="or" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbModifyPlayer111122" blendMode="LIGHTEN" layoutX="154.0" layoutY="265.0" prefHeight="32.0" prefWidth="20.0" text="or" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cbDataType2" focusColor="ORANGE" labelFloat="true" layoutX="72.0" layoutY="200.0" prefHeight="39.0" prefWidth="185.0" promptText="Attribute 2 (opt)" stylesheets="@style3.css" unFocusColor="#389bff" />
+      <Label blendMode="LIGHTEN" layoutX="205.0" layoutY="14.0" prefHeight="35.0" prefWidth="224.0" text="Search players with..." textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="24.0" />
+         </font>
+      </Label>
+      <JFXButton alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" layoutX="115.0" layoutY="322.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#goBackToMenu" prefHeight="48.0" prefWidth="185.0" ripplerFill="WHITE" style="-fx-background-radius: 5em; -fx-background-color: #969696;" text="Cancel" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>
