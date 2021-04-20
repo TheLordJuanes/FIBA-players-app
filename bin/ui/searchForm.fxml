@@ -28,7 +28,7 @@
             <Font name="Avenir Next Condensed Bold" size="22.0" />
          </font>
       </Label>
-      <JFXButton alignment="CENTER" blendMode="HARD_LIGHT" contentDisplay="CENTER" layoutX="62.0" layoutY="98.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#platformSearch" prefHeight="48.0" prefWidth="185.0" ripplerFill="WHITE" style="-fx-background-radius: 5em; -fx-background-color: #969696;" text="Platform" textAlignment="CENTER" textFill="WHITE">
+      <JFXButton fx:id="btnPlatform" alignment="CENTER" blendMode="HARD_LIGHT" contentDisplay="CENTER" layoutX="62.0" layoutY="98.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#platformSearch" prefHeight="48.0" prefWidth="185.0" ripplerFill="WHITE" style="-fx-background-radius: 5em; -fx-background-color: #969696;" text="Platform" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Avenir Next Condensed Bold" size="20.0" />
          </font>

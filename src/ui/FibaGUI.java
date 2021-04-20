@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,6 +27,9 @@ public class FibaGUI {
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
+
+    @FXML
+    private JFXButton btnPlatform;
 
     @FXML
     private JFXTextArea taSearchResult;
@@ -43,7 +47,7 @@ public class FibaGUI {
     private JFXTextField searchValue1;
 
     @FXML
-    private Label lbModifyPlayer1111;
+    private Label lbModifyPlayer1;
 
     @FXML
     private JFXTextField searchValue3;
@@ -67,7 +71,7 @@ public class FibaGUI {
     private JFXTextField searchValue4;
 
     @FXML
-    private Label lbModifyPlayer11111;
+    private Label lbModifyPlayer12;
 
     @FXML
     private JFXTextField searchValue6;
@@ -82,10 +86,10 @@ public class FibaGUI {
     private JFXComboBox<Character> cbSymbol6;
 
     @FXML
-    private Label lbModifyPlayer11112;
+    private Label lbModifyPlayer3;
 
     @FXML
-    private Label lbModifyPlayer111122;
+    private Label lbModifyPlayer4;
 
     @FXML
     private JFXComboBox<Character> cbDataType2;
@@ -218,6 +222,14 @@ public class FibaGUI {
             stage.setScene(new Scene(root));
             stage.setTitle("Player addition form");
             stage.show();
+            btnPlatform.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+                    stage.close();
+                    platformAddition(event);
+                }
+            });
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -267,6 +279,14 @@ public class FibaGUI {
             stage.setScene(new Scene(root));
             stage.setTitle("Player modification form");
             stage.show();
+            btnPlatform.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+                    stage.close();
+                    platformModification(event);
+                }
+            });
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -321,6 +341,14 @@ public class FibaGUI {
             stage.setScene(new Scene(root));
             stage.setTitle("Player elimination form");
             stage.show();
+            btnPlatform.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+                    stage.close();
+                    platformDeletion(event);
+                }
+            });
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -364,6 +392,14 @@ public class FibaGUI {
             stage.setScene(new Scene(root));
             stage.setTitle("Player search form");
             stage.show();
+            btnPlatform.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+                    stage.close();
+                    platformSearch(event);
+                }
+            });
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
