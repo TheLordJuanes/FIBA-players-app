@@ -64,7 +64,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <JFXTextField fx:id="txtName" blendMode="ADD" focusColor="#00b6ff" layoutX="56.0" layoutY="93.0" prefHeight="48.0" prefWidth="227.0" promptText="Name" stylesheets="@style.css" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtName" blendMode="ADD" focusColor="#00b6ff" layoutX="52.0" layoutY="83.0" prefHeight="48.0" prefWidth="227.0" promptText="Name" stylesheets="@style.css" unFocusColor="WHITE">
          <font>
             <Font name="Avenir Next Condensed Bold" size="22.0" />
          </font>
@@ -72,7 +72,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <JFXTextField fx:id="txtAge" blendMode="ADD" focusColor="#00b6ff" layoutX="56.0" layoutY="154.0" prefHeight="48.0" prefWidth="227.0" promptText="Age" stylesheets="@style.css" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtAge" blendMode="ADD" focusColor="#00b6ff" layoutX="52.0" layoutY="144.0" prefHeight="48.0" prefWidth="227.0" promptText="Age" stylesheets="@style.css" unFocusColor="WHITE">
          <font>
             <Font name="Avenir Next Condensed Bold" size="22.0" />
          </font>
@@ -80,7 +80,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <JFXTextField fx:id="txtID" blendMode="ADD" focusColor="#00b6ff" layoutX="56.0" layoutY="217.0" prefHeight="48.0" prefWidth="227.0" promptText="ID" stylesheets="@style.css" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtID" blendMode="ADD" focusColor="#00b6ff" layoutX="52.0" layoutY="207.0" prefHeight="48.0" prefWidth="227.0" promptText="ID" stylesheets="@style.css" unFocusColor="WHITE">
          <font>
             <Font name="Avenir Next Condensed Bold" size="22.0" />
          </font>
@@ -88,7 +88,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <JFXTextField fx:id="txtTeam" blendMode="ADD" focusColor="#00b6ff" layoutX="56.0" layoutY="276.0" prefHeight="48.0" prefWidth="227.0" promptText="Team" stylesheets="@style.css" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtTeam" blendMode="ADD" focusColor="#00b6ff" layoutX="52.0" layoutY="266.0" prefHeight="48.0" prefWidth="227.0" promptText="Team" stylesheets="@style.css" unFocusColor="WHITE">
          <font>
             <Font name="Avenir Next Condensed Bold" size="22.0" />
          </font>
@@ -108,10 +108,18 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label fx:id="lbAddPlayer" layoutX="56.0" layoutY="340.0" textFill="#00ff2f">
+      <Label fx:id="lbAddPlayer" layoutX="123.0" layoutY="34.0" prefHeight="32.0" prefWidth="296.0" textFill="#00ff2f">
          <font>
             <Font name="Avenir Next Condensed Bold" size="22.0" />
          </font>
       </Label>
+      <JFXTextField fx:id="txtBlocks" blendMode="ADD" focusColor="#00b6ff" layoutX="48.0" layoutY="324.0" prefHeight="48.0" prefWidth="233.0" promptText="Blocks (%)" stylesheets="@style.css" unFocusColor="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
    </children>
 </AnchorPane>

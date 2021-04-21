@@ -14,6 +14,7 @@ public class Player {
 	private double assist;
 	private double rebound;
 	private double defensive;
+	private double blocks;
 
 	// -----------------------------------------------------------------
 	// Methods
@@ -31,7 +32,7 @@ public class Player {
 	 * @param rebound - player's rebound - rebound = double, rebound != null
 	 * @param defensive - player's defensive - defensive = double, defensive != null
 	*/
-	public Player(String name, int id, String team, double trueShooting, double usage, double assist, double rebound, double defensive) {
+	public Player(String name, int id, String team, double trueShooting, double usage, double assist, double rebound, double defensive, double blocks) {
 		this.name = name;
 		this.id = id;
 		this.team = team;
@@ -40,6 +41,7 @@ public class Player {
 		this.assist = assist;
 		this.rebound = rebound;
 		this.defensive = defensive;
+		this.blocks = blocks;
 	}
 
 	public String getName() {
@@ -128,6 +130,14 @@ public class Player {
 	 */
 	public void setDefensive(double defensive) {
 		this.defensive = defensive;
+	}
+
+	public double getBlocks() {
+		return blocks;
+	}
+
+	public void setBlocks(double blocks) {
+		this.blocks = blocks;
 	}
 
 	/**

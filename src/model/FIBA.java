@@ -10,11 +10,12 @@ import dataStructures.AVLTree;
 import dataStructures.BSTree;
 import dataStructures.RBTree;
 import dataStructures.AVLNode;
-import dataStructures.BSTNode;
-import dataStructures.RBNode;
 import thread.AddPlayerThread;
+import thread.DeletePlayerThread;
 
 public class FIBA {
+	
+	public static final int NUMBER_OF_STATISTICS = 7;
 
 	// -----------------------------------------------------------------
 	// Relations
@@ -25,7 +26,9 @@ public class FIBA {
 	private AVLTree<Double, Player> playersByUsage;
 	private AVLTree<Double, Player> playersByAssist;
 	private BSTree<Double, Player> playersByRebound;
+	private BSTree<Double, Player> playersByBlocks;
 	private RBTree<Double, Player> playersByDefensive;
+
 
 	// -----------------------------------------------------------------
 	// Methods
@@ -54,12 +57,13 @@ public class FIBA {
 	 * @param assist
 	 * @param rebound
 	 * @param defensive
+	 * @param blocks
 	 * @throws InterruptedException
 	*/
-	public boolean addPlayerData(String name, int id, String team, double trueShooting, double usage, double assist, double rebound, double defensive) throws InterruptedException {
+	public boolean addPlayerData(String name, int id, String team, double trueShooting, double usage, double assist, double rebound, double defensive, double blocks) throws InterruptedException {
 		if (playersById.search(playersById.getRoot(), id) == null) {
-			Player p = new Player(name, id, team, trueShooting, usage, assist, rebound, defensive);
-			AddPlayerThread[] trees = new AddPlayerThread[6];
+			Player p = new Player(name, id, team, trueShooting, usage, assist, rebound, defensive, blocks);
+			AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
 			for (int i = 0; i < trees.length; i++) {
 				trees[i] = new AddPlayerThread(this, p, i);
 				trees[i].start();
@@ -71,9 +75,7 @@ public class FIBA {
 		return false;
 	}
 
-
-
-	public <K extends Comparable<K>, V> void addPlayerDataIn(AVLNode<K, V> node, AVLTree<K, V> tree){
+	/*public <K extends Comparable<K>, V> void addPlayerDataIn(AVLNode<K, V> node, AVLTree<K, V> tree){
 		tree.insert(node);
 	}
 
@@ -83,7 +85,7 @@ public class FIBA {
 
 	public <K extends Comparable<K>, V> void addPlayerDataIn(RBNode<K, V> node, RBTree<K, V> tree){
 		tree.insert(node);
-	}
+	}*/
 
 	/**
 	 *
@@ -98,8 +100,21 @@ public class FIBA {
 	/**
 	 *
 	 * @param id
+	 * @throws InterruptedException
 	*/
-	public boolean deletePlayer(int id) {
+	public boolean deletePlayer(int id) throws InterruptedException {
+		AVLNode<Integer, Player> objSearch = playersById.search(playersById.getRoot(), id);
+		if (objSearch != null) {
+			Player p = objSearch.getValue();
+			DeletePlayerThread[] trees = new DeletePlayerThread[NUMBER_OF_STATISTICS];
+			for (int i = 0; i < trees.length; i++) {
+				trees[i] = new DeletePlayerThread(this, p, i);
+				trees[i].start();
+			}
+			for (int i = 0; i < trees.length; i++)
+				trees[i].join();
+			return true;
+		}
 		return false;
 	}
 
@@ -237,4 +252,12 @@ public class FIBA {
     public void setPlayersByDefensive(RBTree<Double, Player> playersByDefensive) {
         this.playersByDefensive = playersByDefensive;
     }
+
+	public BSTree<Double, Player> getPlayersByBlocks() {
+		return playersByBlocks;
+	}
+
+	public void setPlayersByBlocks(BSTree<Double, Player> playersByBlocks) {
+		this.playersByBlocks = playersByBlocks;
+	}
 }

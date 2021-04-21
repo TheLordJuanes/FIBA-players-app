@@ -6,6 +6,7 @@
 */
 package ui;
 
+import java.io.File;
 import java.io.IOException;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -17,8 +18,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.FIBA;
 
@@ -27,6 +31,9 @@ public class FibaGUI {
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
+
+    @FXML
+    private JFXTextField txtBlocks;
 
     @FXML
     private JFXButton btnPlatform;
@@ -251,13 +258,22 @@ public class FibaGUI {
 
     @FXML
     public void textFileAddition(ActionEvent event) {
+        showInformationAlert("File Missing", null, "No file was selected ");
+        Stage stage = new Stage();
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Txt files", "*.txt"));
+        File file = fc.showOpenDialog(stage);
+        if (file != null) {
 
+        }else{
+            showInformationAlert("File Missing", null, "No file was selected ");
+        }
     }
 
     @FXML
     public void addNewPlayer(ActionEvent event) {
         try {
-            boolean added = fiba.addPlayerData(txtName.getText(), Integer.valueOf(txtID.getText()), txtTeam.getText(), Double.valueOf(txtTrueShooting.getText()), Double.valueOf(txtUsage.getText()), Double.valueOf(txtAssist.getText()), Double.valueOf(txtRebound.getText()), Double.valueOf(txtDefensive.getText()));
+            boolean added = fiba.addPlayerData(txtName.getText(), Integer.valueOf(txtID.getText()), txtTeam.getText(), Double.valueOf(txtTrueShooting.getText()), Double.valueOf(txtUsage.getText()), Double.valueOf(txtAssist.getText()), Double.valueOf(txtRebound.getText()), Double.valueOf(txtDefensive.getText()), Double.valueOf(txtBlocks.getText()));
             if (added)
                 lbAddPlayer.setText("Player successfully added!");
             else
@@ -375,11 +391,20 @@ public class FibaGUI {
 
     @FXML
     public void deletePlayer(ActionEvent event) {
-        boolean deleted = fiba.deletePlayer(Integer.valueOf(txtID.getText()));
-        if (deleted)
-            lbDeletePlayer.setText("Player successfully deleted!");
-        else
-            lbDeletePlayer.setText("Player doesn't exist!");
+        boolean deleted;
+        try {
+            deleted = fiba.deletePlayer(Integer.valueOf(txtID.getText()));
+            if (deleted)
+                lbDeletePlayer.setText("Player successfully deleted!");
+            else
+                lbDeletePlayer.setText("Player doesn't exist!");
+        } catch (NumberFormatException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -436,5 +461,29 @@ public class FibaGUI {
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
+    }
+
+    public void showErrorAlert(String title, String header, String content) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    public void showWarningAlert(String title, String header, String content) {
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    public void showInformationAlert(String title, String header, String content) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

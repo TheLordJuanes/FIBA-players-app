@@ -37,24 +37,19 @@ public class AVLTree<K extends Comparable<K>, V> { // class adapted from GeeksFo
         else {
             y.setRight(node);
         }
-        node.setHeight(1 + maxHeight(height(node.getLeft()), height(node.getRight())));
-        int balance = getBalance(node);
-        if (balance > 1 && node.getKey().compareTo(node.getLeft().getKey()) < 0)
-            rightRotate(node);
-        if (balance < -1 && node.getKey().compareTo(node.getRight().getKey()) > 0)
-            leftRotate(node);
-        if (balance > 1 && node.getKey().compareTo(node.getLeft().getKey()) > 0) {
-            node.setLeft(leftRotate(node.getLeft()));
-            rightRotate(node);
-        }
-        if (balance < -1 && node.getKey().compareTo(node.getRight().getKey()) < 0) {
-            node.setRight(rightRotate(node.getRight()));
-            leftRotate(node);
-        }
+        rebalance(node);
     }
 
     public AVLNode<K, V> search(AVLNode<K, V> r, K key) {
         if (r == null || key.compareTo(r.getKey()) == 0)
+            return r;
+        if (key.compareTo(r.getKey()) < 0)
+            return search(r.getLeft(), key);
+        return search(r.getRight(), key);
+    }
+
+    public AVLNode<K, V> search(AVLNode<K, V> r, K key, V value) {
+        if (r == null || (key.compareTo(r.getKey()) == 0 && value == r.getValue()))
             return r;
         if (key.compareTo(r.getKey()) < 0)
             return search(r.getLeft(), key);
@@ -115,6 +110,23 @@ public class AVLTree<K extends Comparable<K>, V> { // class adapted from GeeksFo
         if (balance < -1 && getBalance(current.getRight()) > 0) {
             current.setRight(rightRotate((AVLNode<K, V>) current.getRight()));
             leftRotate(current);
+        }
+    }
+
+    public void rebalance(AVLNode<K, V> node) {
+        node.setHeight(1 + maxHeight(height(node.getLeft()), height(node.getRight())));
+        int balance = getBalance(node);
+        if (balance > 1 && node.getKey().compareTo(node.getLeft().getKey()) < 0)
+            rightRotate(node);
+        if (balance < -1 && node.getKey().compareTo(node.getRight().getKey()) > 0)
+            leftRotate(node);
+        if (balance > 1 && node.getKey().compareTo(node.getLeft().getKey()) > 0) {
+            node.setLeft(leftRotate(node.getLeft()));
+            rightRotate(node);
+        }
+        if (balance < -1 && node.getKey().compareTo(node.getRight().getKey()) < 0) {
+            node.setRight(rightRotate(node.getRight()));
+            leftRotate(node);
         }
     }
 
@@ -213,5 +225,5 @@ public class AVLTree<K extends Comparable<K>, V> { // class adapted from GeeksFo
         return result;
     }
 
-    
+
 }

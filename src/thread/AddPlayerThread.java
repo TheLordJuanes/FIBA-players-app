@@ -25,7 +25,8 @@ public class AddPlayerThread extends Thread {
 	// Methods
     // -----------------------------------------------------------------
 
-    public AddPlayerThread(FIBA f,  Player p, int tD) {
+    public AddPlayerThread(FIBA f, Player p, int tD) {
+        setDaemon(true);
         fiba = f;
         typeData = tD;
         player = p;
@@ -41,32 +42,37 @@ public class AddPlayerThread extends Thread {
             case 0:
                 //Add in playersByTrueShooting
                 node1 = new AVLNode<>(player.getTrueShooting(), player);
-                fiba.addPlayerDataIn(node1, fiba.getPlayersByTrueShooting());
+                fiba.getPlayersByTrueShooting().insert(node1);
                 break;
             case 1:
                 //Add in playersByUsage
                 node1 = new AVLNode<>(player.getUsage(), player);
-                fiba.addPlayerDataIn(node1, fiba.getPlayersByUsage());
+                fiba.getPlayersByUsage().insert(node1);
                 break;
             case 2:
                 //Add in playersByAssist
                 node1 = new AVLNode<>(player.getAssist(), player);
-                fiba.addPlayerDataIn(node1, fiba.getPlayersByAssist());
+                fiba.getPlayersByAssist().insert(node1);
                 break;
             case 3:
                 //Add in playersByRebound
                 node2 = new BSTNode<>(player.getRebound(), player);
-                fiba.addPlayerDataIn(node2, fiba.getPlayersByRebound());
+                fiba.getPlayersByRebound().insert(node2);
                 break;
             case 4:
                 //Add in playersByDefensive
                 node3 = new RBNode<>(player.getDefensive(), player);
-                fiba.addPlayerDataIn(node3, fiba.getPlayersByDefensive());
+                fiba.getPlayersByDefensive().insert(node3);
                 break;
             case 5:
                 //Add in playersById
                 node4 = new AVLNode<>(player.getId(), player);
-                fiba.addPlayerDataIn(node4, fiba.getPlayersById());
+                fiba.getPlayersById().insert(node4);
+                break;
+            case 6:
+                //Add in playersByBlocks
+                node2 = new BSTNode<>(player.getBlocks(), player);
+                fiba.getPlayersByBlocks().insert(node2);
                 break;
             default:
                 break;
