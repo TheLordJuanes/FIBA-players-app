@@ -7,7 +7,7 @@ public class Player {
     // -----------------------------------------------------------------
 
 	private String name;
-	private int id;
+	private String id;
 	private String team;
 	private double trueShooting;
 	private double usage;
@@ -32,7 +32,7 @@ public class Player {
 	 * @param rebound - player's rebound - rebound = double, rebound != null
 	 * @param defensive - player's defensive - defensive = double, defensive != null
 	*/
-	public Player(String name, int id, String team, double trueShooting, double usage, double assist, double rebound, double defensive, double blocks) {
+	public Player(String name, String id, String team, double trueShooting, double usage, double assist, double rebound, double defensive, double blocks) {
 		this.name = name;
 		this.id = id;
 		this.team = team;
@@ -56,7 +56,7 @@ public class Player {
 		this.name = name;
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 

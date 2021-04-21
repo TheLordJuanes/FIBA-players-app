@@ -37,7 +37,7 @@ public class AddPlayerThread extends Thread {
         AVLNode<Double, Player> node1;
         BSTNode<Double, Player> node2;
         RBNode<Double, Player> node3;
-        AVLNode<Integer, Player> node4;
+        AVLNode<String, Player> node4;
         switch (typeData) {
             case 0:
                 //Add in playersByTrueShooting
@@ -66,7 +66,7 @@ public class AddPlayerThread extends Thread {
                 break;
             case 5:
                 //Add in playersById
-                node4 = new AVLNode<>(player.getId(), player);
+                node4 = new AVLNode<String, Player>(player.getId(), player);
                 fiba.getPlayersById().insert(node4);
                 break;
             case 6:

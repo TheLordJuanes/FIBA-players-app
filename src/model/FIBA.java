@@ -7,21 +7,27 @@
 package model;
 
 import dataStructures.AVLTree;
+import dataStructures.BSTNode;
 import dataStructures.BSTree;
+import dataStructures.RBNode;
 import dataStructures.RBTree;
 import dataStructures.AVLNode;
 import thread.AddPlayerThread;
 import thread.DeletePlayerThread;
 
 public class FIBA {
-	
+
+	// -----------------------------------------------------------------
+	// Constants
+    // -----------------------------------------------------------------
+
 	public static final int NUMBER_OF_STATISTICS = 7;
 
 	// -----------------------------------------------------------------
 	// Relations
     // -----------------------------------------------------------------
 
-	private AVLTree<Integer, Player> playersById;
+	private AVLTree<String, Player> playersById;
 	private AVLTree<Double, Player> playersByTrueShooting;
 	private AVLTree<Double, Player> playersByUsage;
 	private AVLTree<Double, Player> playersByAssist;
@@ -39,12 +45,13 @@ public class FIBA {
 	 * <br> FIBA constructor method. <br>
 	*/
 	public FIBA() {
-		playersById = new AVLTree<Integer, Player>();
+		playersById = new AVLTree<String, Player>();
 		playersByTrueShooting = new AVLTree<Double, Player>();
 		playersByUsage = new AVLTree<Double, Player>();
 		playersByAssist = new AVLTree<Double, Player>();
 		playersByRebound = new BSTree<Double, Player>();
 		playersByDefensive = new RBTree<Double, Player>();
+		playersByBlocks = new BSTree<Double, Player>();
 	}
 
 	/**
@@ -60,16 +67,22 @@ public class FIBA {
 	 * @param blocks
 	 * @throws InterruptedException
 	*/
-	public boolean addPlayerData(String name, int id, String team, double trueShooting, double usage, double assist, double rebound, double defensive, double blocks) throws InterruptedException {
+	public boolean addPlayerData(String name, String id, String team, double trueShooting, double usage, double assist, double rebound, double defensive, double blocks) throws InterruptedException {
 		if (playersById.search(playersById.getRoot(), id) == null) {
 			Player p = new Player(name, id, team, trueShooting, usage, assist, rebound, defensive, blocks);
 			AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
 			for (int i = 0; i < trees.length; i++) {
+				if(i==4){ //CORREGIRRRRRRRR
+					continue;
+				}
 				trees[i] = new AddPlayerThread(this, p, i);
 				trees[i].start();
 			}
-			for (int i = 0; i < trees.length; i++)
-				trees[i].join();
+			for (int i = 0; i < trees.length; i++){
+				if(i==4){ //CORREGIRRRRRRRR
+					continue;
+				}
+				trees[i].join();}
 			return true;
 		}
 		return false;
@@ -102,8 +115,8 @@ public class FIBA {
 	 * @param id
 	 * @throws InterruptedException
 	*/
-	public boolean deletePlayer(int id) throws InterruptedException {
-		AVLNode<Integer, Player> objSearch = playersById.search(playersById.getRoot(), id);
+	public boolean deletePlayer(String id) throws InterruptedException {
+		AVLNode<String, Player> objSearch = playersById.search(playersById.getRoot(), id);
 		if (objSearch != null) {
 			Player p = objSearch.getValue();
 			DeletePlayerThread[] trees = new DeletePlayerThread[NUMBER_OF_STATISTICS];
@@ -170,16 +183,16 @@ public class FIBA {
 	}
 
     /**
-     * @return AVLTree<Integer, Player> return the playersById
+     * @return AVLTree<String, Player> return the playersById
      */
-    public AVLTree<Integer, Player> getPlayersById() {
+    public AVLTree<String, Player> getPlayersById() {
         return playersById;
     }
 
     /**
      * @param playersById the playersById to set
      */
-    public void setPlayersById(AVLTree<Integer, Player> playersById) {
+    public void setPlayersById(AVLTree<String, Player> playersById) {
         this.playersById = playersById;
     }
 
