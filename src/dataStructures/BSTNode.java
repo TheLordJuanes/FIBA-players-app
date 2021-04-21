@@ -1,5 +1,5 @@
 package dataStructures;
-
+import java.io.Serializable;
 public class BSTNode<K extends Comparable<K>,V> {
 
     // -----------------------------------------------------------------

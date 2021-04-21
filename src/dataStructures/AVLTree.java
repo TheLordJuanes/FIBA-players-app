@@ -1,6 +1,6 @@
 package dataStructures;
-
-public class AVLTree<K extends Comparable<K>, V> { // class adapted from GeeksForGeeks https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
+import java.io.Serializable;
+public class AVLTree<K extends Comparable<K>, V> implements AVLTreeInterface<K, V>  { // class adapted from GeeksForGeeks https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
 
     // -----------------------------------------------------------------
     // Relations
@@ -19,6 +19,7 @@ public class AVLTree<K extends Comparable<K>, V> { // class adapted from GeeksFo
         return root;
     }
 
+    @Override
     public void insert(AVLNode<K, V> node) {
         AVLNode<K, V> y = null;
         AVLNode<K, V> x = root;
@@ -40,6 +41,7 @@ public class AVLTree<K extends Comparable<K>, V> { // class adapted from GeeksFo
         rebalance(node);
     }
 
+    @Override
     public AVLNode<K, V> search(AVLNode<K, V> r, K key) {
         if (r == null || key.compareTo(r.getKey()) == 0)
             return r;
@@ -48,6 +50,7 @@ public class AVLTree<K extends Comparable<K>, V> { // class adapted from GeeksFo
         return search(r.getRight(), key);
     }
 
+    @Override
     public AVLNode<K, V> search(AVLNode<K, V> r, K key, V value) {
         if (r == null || (key.compareTo(r.getKey()) == 0 && value == r.getValue()))
             return r;
@@ -56,6 +59,7 @@ public class AVLTree<K extends Comparable<K>, V> { // class adapted from GeeksFo
         return search(r.getRight(), key);
     }
 
+    @Override
     public boolean delete(K key) {
 		AVLNode<K, V> toErase = search(root, key);
         if (toErase != null) {
@@ -198,6 +202,7 @@ public class AVLTree<K extends Comparable<K>, V> { // class adapted from GeeksFo
         return node;
     }
 
+    @Override
     public String preOrder(AVLNode<K, V> node) {
         String keys = "";
         if (node != null) {
@@ -209,6 +214,7 @@ public class AVLTree<K extends Comparable<K>, V> { // class adapted from GeeksFo
         return null;
     }
 
+    @Override
     public String inOrder(AVLNode<K, V> node) {
         String keys = "";
         if (node != null) {
@@ -220,10 +226,15 @@ public class AVLTree<K extends Comparable<K>, V> { // class adapted from GeeksFo
         return null;
     }
 
+    @Override
     public String postOrder(AVLNode<K, V> node) {
-        String result = postOrder(node);
-        return result;
-    }
-
-
+        String keys = "";
+		if (node != null) {
+			keys += postOrder(node.getLeft());
+			keys += postOrder(node.getRight());
+			keys += node.getValue().toString() + " ";
+            return keys;
+		}
+        return null;
+	}
 }

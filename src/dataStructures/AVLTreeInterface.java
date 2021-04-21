@@ -2,11 +2,13 @@ package dataStructures;
 
 public interface AVLTreeInterface<K extends Comparable<K>, V> {
 
-    public boolean insert(AVLNode<K,V> node, K key);
+    public void insert(AVLNode<K,V> node);
 
-    public AVLNode<K,V> search(K key);
+    public AVLNode<K,V> search(AVLNode<K,V> r,K key);
+    
+    public AVLNode<K,V> search(AVLNode<K,V> r,K key,V value);
 
-    public AVLNode<K, V> delete(AVLNode<K, V> root, K key);
+    public boolean delete(K key);
 
     public String preOrder(AVLNode<K, V> node);
 
