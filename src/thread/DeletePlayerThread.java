@@ -3,7 +3,6 @@ package thread;
 import model.FIBA;
 import model.Player;
 import dataStructures.RBNode;
-import exceptions.RBTreeException;
 
 public class DeletePlayerThread extends Thread {
 
@@ -52,12 +51,8 @@ public class DeletePlayerThread extends Thread {
                 break;
             case 4:
                 // Delete in playersByDefensive
-                try {
-                    RBNode<Double, Player> node = new RBNode<>(player.getDefensive(), player);
-                    fiba.getPlayersByDefensive().delete(node, player.getDefensive());
-                } catch (RBTreeException rbte) {
-                    rbte.printStackTrace();
-                }
+                RBNode<Double, Player> node = new RBNode<>(player.getDefensive(), player);
+                fiba.getPlayersByDefensive().delete(node);
                 break;
             case 5:
                 // Delete in playersById

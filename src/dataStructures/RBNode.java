@@ -3,15 +3,24 @@ package dataStructures;
 public class RBNode<K extends Comparable<K>, V> {
 
     // -----------------------------------------------------------------
-	// Attributes
+    // Constants
+    // -----------------------------------------------------------------
+
+    public enum COLOR {
+        RED, BLACK;
+    }
+
+    private COLOR color;
+
+    // -----------------------------------------------------------------
+    // Attributes
     // -----------------------------------------------------------------
 
     private K key;
     private V value;
-    private int color; // 1 = Red | 0 = Black
 
     // -----------------------------------------------------------------
-	// Relations
+    // Relations
     // -----------------------------------------------------------------
 
     private RBNode<K, V> parent;
@@ -19,12 +28,21 @@ public class RBNode<K extends Comparable<K>, V> {
     private RBNode<K, V> right;
 
     // -----------------------------------------------------------------
-	// Methods
+    // Methods
     // -----------------------------------------------------------------
 
     public RBNode(K key, V value) {
         this.key = key;
         this.value = value;
+        color = COLOR.RED;
+    }
+
+    public COLOR getColor() {
+        return color;
+    }
+
+    public void setColor(COLOR color) {
+        this.color = color;
     }
 
     public K getKey() {
@@ -41,14 +59,6 @@ public class RBNode<K extends Comparable<K>, V> {
 
     public void setValue(V value) {
         this.value = value;
-    }
-
-    public int getColor() {
-        return color;
-    }
-
-    public void setColor(int color) {
-        this.color = color;
     }
 
     public RBNode<K, V> getParent() {
@@ -73,5 +83,41 @@ public class RBNode<K extends Comparable<K>, V> {
 
     public void setRight(RBNode<K, V> right) {
         this.right = right;
+    }
+
+    public RBNode<K, V> uncle() {
+        if (parent == null || parent.getParent() == null)
+            return null;
+        if (parent.isOnLeft())
+            return parent.getParent().getRight();
+        else
+            return parent.getParent().getLeft();
+    }
+
+    public boolean isOnLeft() {
+        return this == parent.getLeft();
+    }
+
+    public RBNode<K, V> sibling() {
+        if (parent == null)
+            return null;
+        if (isOnLeft())
+            return parent.getRight();
+        return parent.getLeft();
+    }
+
+    public void moveDown(RBNode<K, V> nParent) {
+        if (parent != null) {
+            if (isOnLeft())
+                parent.setLeft(nParent);
+            else
+                parent.setRight(nParent);
+        }
+        nParent.setParent(parent);
+        parent = nParent;
+    }
+
+    public boolean hasRedChild() {
+        return (left != null && left.color == COLOR.RED) || (right != null && right.color == COLOR.RED);
     }
 }

@@ -34,6 +34,8 @@ public class FibaGUI {
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
+    @FXML
+    private JFXButton btnTextFile;
 
     @FXML
     private JFXTextField txtBlocks;
@@ -174,7 +176,7 @@ public class FibaGUI {
      * Name: FibaGUI <br>
      * <br> GUI constructor method. <br>
      * @param primaryStage - GUI primary stage - primaryStage = Stage
-    */
+     */
     public FibaGUI(Stage primaryStage) {
         this.primaryStage = primaryStage;
         fiba = new FIBA();
@@ -240,6 +242,14 @@ public class FibaGUI {
                     platformAddition(event);
                 }
             });
+            btnTextFile.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+                    stage.close();
+                    textFileAddition(event);
+                }
+            });
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -261,7 +271,7 @@ public class FibaGUI {
 
     @FXML
     public void textFileAddition(ActionEvent event) {
-        showInformationAlert("Format", "The data of the players must be in this order separated by a \";\"", "name;id;team;trueShooting;usage;assist;rebound;defensive;blocks");
+        showInformationAlert("Text Input Format", "The data of the players must be in this order separated by a coma \",\"", "name,id,team,trueShooting,usage,assist,rebound,defensive,blocks");
         Stage stage = new Stage();
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Txt files", "*.txt"), new FileChooser.ExtensionFilter("Csv files", "*.csv"));
@@ -276,38 +286,36 @@ public class FibaGUI {
                 while (line != null) {
                     String[] data = line.split(",");
                     boolean added2 = fiba.addPlayerData(data[0], data[1], data[2], Double.valueOf(data[3]), Double.valueOf(data[4]), Double.valueOf(data[5]), Double.valueOf(data[6]), Double.valueOf(data[7]), Double.valueOf(data[8]));
-                    if(!added2){
-                        added1=false;
+                    if (!added2) {
+                        added1 = false;
                     }
                     line = br.readLine();
                 }
-                if (added1) {
-                    showInformationAlert("Successful addtion", null, "The players were added successfully");
-                }else{
-                    showErrorAlert("Error", "Something went wrong", "Some players were not added");
-                }
-            } catch (FileNotFoundException e) {
-                showErrorAlert("Error", "Something went wrong", "The file was not found");
-                e.printStackTrace();
-            } catch (IOException e) {
+                br.close();
+                if (added1)
+                    showInformationAlert("Successful addition", null, "Players were successfully added!");
+                else
+                    showErrorAlert("Error", "Something went wrong", "Some players weren't added");
+            } catch (FileNotFoundException fnfe) {
+                showErrorAlert("Error", "Something went wrong", "The file wasn't found");
+            } catch (IOException ioe) {
                 showErrorAlert("Error", "Something went wrong", "There were problems reading the file");
-            } catch (NumberFormatException e) {
-                showErrorAlert("Error", "Something went wrong", "There data in the file is not correct");
-                e.printStackTrace();
+            } catch (NumberFormatException nfe) {
+                showErrorAlert("Error", "Something went wrong", "There data in the file isn't correct");
             } catch (InterruptedException e) {
                 showErrorAlert("Error", null, "Something went wrong");
-                e.printStackTrace();
             }
-
-        }else {
-            showInformationAlert("File Missing", null, "No file was selected ");
-        }
+        } else
+            showInformationAlert("Missing File", null, "No file was selected ");
     }
 
     @FXML
     public void addNewPlayer(ActionEvent event) {
         try {
-            boolean added = fiba.addPlayerData(txtName.getText(), txtID.getText(), txtTeam.getText(), Double.valueOf(txtTrueShooting.getText()), Double.valueOf(txtUsage.getText()), Double.valueOf(txtAssist.getText()), Double.valueOf(txtRebound.getText()), Double.valueOf(txtDefensive.getText()), Double.valueOf(txtBlocks.getText()));
+            boolean added = fiba.addPlayerData(txtName.getText(), txtID.getText(), txtTeam.getText(),
+                    Double.valueOf(txtTrueShooting.getText()), Double.valueOf(txtUsage.getText()),
+                    Double.valueOf(txtAssist.getText()), Double.valueOf(txtRebound.getText()),
+                    Double.valueOf(txtDefensive.getText()), Double.valueOf(txtBlocks.getText()));
             if (added)
                 lbAddPlayer.setText("Player successfully added!");
             else
@@ -337,6 +345,14 @@ public class FibaGUI {
                     platformModification(event);
                 }
             });
+            btnTextFile.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+                    stage.close();
+                    textFileModification(event);
+                }
+            });
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -361,7 +377,6 @@ public class FibaGUI {
 
     }
 
-
     @FXML
     public void modifyPlayer(ActionEvent event) {
         int valueI = 0;
@@ -374,7 +389,8 @@ public class FibaGUI {
         else {
             valueD = Double.valueOf(txtDataValue.getText());
         }
-        boolean modified = fiba.modifyPlayerData(cbDataType.getValue(), valueD, valueS, valueI, Integer.valueOf(txtID.getText()));
+        boolean modified = fiba.modifyPlayerData(cbDataType.getValue(), valueD, valueS, valueI,
+                Integer.valueOf(txtID.getText()));
         if (modified)
             lbModifyPlayer.setText("Player successfully modified!");
         else
@@ -399,6 +415,14 @@ public class FibaGUI {
                     platformDeletion(event);
                 }
             });
+            btnTextFile.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+                    stage.close();
+                    textFileDeletion(event);
+                }
+            });
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -420,6 +444,7 @@ public class FibaGUI {
 
     @FXML
     public void textFileDeletion(ActionEvent event) {
+        showInformationAlert("Text Input Format", "The players' IDs must be one per line as follows:", "ID1\nID2\nID3\n...");
         Stage stage = new Stage();
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Txt files", "*.txt"));
@@ -428,21 +453,32 @@ public class FibaGUI {
             try {
                 FileReader fr = new FileReader(file);
                 BufferedReader br = new BufferedReader(fr);
+                br.readLine();
                 String line = br.readLine();
+                boolean deleted1 = true;
                 while (line != null) {
-                    fiba.deletePlayer(line);
+                    boolean deleted2 = fiba.deletePlayer(line);
+                    if (!deleted2) {
+                        deleted1 = false;
+                    }
                     line = br.readLine();
                 }
+                br.close();
+                if (deleted1)
+                    showInformationAlert("Successful deletion", null, "Players were successfully deleted!");
+                else
+                    showErrorAlert("Error", "Something went wrong", "Some players weren't added");
             } catch (FileNotFoundException fnfe) {
-                fnfe.printStackTrace();
+                showErrorAlert("Error", "Something went wrong", "The file wasn't found");
             } catch (IOException ioe) {
-                ioe.printStackTrace();
+                showErrorAlert("Error", "Something went wrong", "There were problems reading the file");
             } catch (NumberFormatException nfe) {
-                nfe.printStackTrace();
+                showErrorAlert("Error", "Something went wrong", "The data in the file isn't correct");
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                showErrorAlert("Error", null, "Something went wrong");
             }
-        }
+        } else
+            showInformationAlert("Missing File", null, "No file was selected ");
     }
 
     @FXML
@@ -477,6 +513,14 @@ public class FibaGUI {
                 public void handle(ActionEvent event) {
                     stage.close();
                     platformSearch(event);
+                }
+            });
+            btnTextFile.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+                    stage.close();
+                    textFileSearch(event);
                 }
             });
         } catch (IOException ioe) {

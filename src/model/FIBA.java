@@ -7,9 +7,7 @@
 package model;
 
 import dataStructures.AVLTree;
-import dataStructures.BSTNode;
 import dataStructures.BSTree;
-import dataStructures.RBNode;
 import dataStructures.RBTree;
 import dataStructures.AVLNode;
 import thread.AddPlayerThread;
@@ -72,33 +70,15 @@ public class FIBA {
 			Player p = new Player(name, id, team, trueShooting, usage, assist, rebound, defensive, blocks);
 			AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
 			for (int i = 0; i < trees.length; i++) {
-				if(i==4){ //CORREGIRRRRRRRR
-					continue;
-				}
 				trees[i] = new AddPlayerThread(this, p, i);
 				trees[i].start();
 			}
-			for (int i = 0; i < trees.length; i++){
-				if(i==4){ //CORREGIRRRRRRRR
-					continue;
-				}
-				trees[i].join();}
+			for (int i = 0; i < trees.length; i++)
+				trees[i].join();
 			return true;
 		}
 		return false;
 	}
-
-	/*public <K extends Comparable<K>, V> void addPlayerDataIn(AVLNode<K, V> node, AVLTree<K, V> tree){
-		tree.insert(node);
-	}
-
-	public <K extends Comparable<K>, V> void addPlayerDataIn(BSTNode<K, V> node, BSTree<K, V> tree){
-		tree.insert(node);
-	}
-
-	public <K extends Comparable<K>, V> void addPlayerDataIn(RBNode<K, V> node, RBTree<K, V> tree){
-		tree.insert(node);
-	}*/
 
 	/**
 	 *
