@@ -53,6 +53,26 @@ public class RBTree<K extends Comparable<K>, V> implements RBTreeInterface<K, V>
         return privateSearch(current.getRight(), key);
     }
 
+    public RBNode<K, V> searchWith(K key, char symbol) {
+        RBNode<K, V> nodeSearched = null;
+        switch(symbol){
+            case '=':
+                nodeSearched = privateSearch(root, key);
+                break;
+            case '≠':
+                break;
+            case '>':
+                break;
+            case '<':
+                break;
+            case '≥':
+                break;
+            case '≤':
+                break;
+        }
+        return nodeSearched;
+    }
+
     @Override
     public boolean delete(RBNode<K, V> v) {
         if (root == null) {

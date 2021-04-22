@@ -48,7 +48,7 @@ public class AddPlayerThread extends Thread {
                 //Add in playersByTrueShooting
                 double trueShooting = Double.parseDouble(player[3]);
                 AVLTree<Double, ArrayList<Integer>> playersByTrueShooting = fiba.getPlayersByTrueShooting();
-                node1 = playersByTrueShooting.search(playersByTrueShooting.getRoot(), trueShooting);
+                node1 = playersByTrueShooting.search(trueShooting);
                 if(node1==null){
                     ArrayList<Integer> positions = new ArrayList<>();
                     positions.add(index);
@@ -62,7 +62,7 @@ public class AddPlayerThread extends Thread {
                 //Add in playersByUsage
                 double usage = Double.parseDouble(player[4]);
                 AVLTree<Double, ArrayList<Integer>> playersByUsage = fiba.getPlayersByUsage();
-                node1 = playersByUsage.search(playersByUsage.getRoot(), usage);
+                node1 = playersByUsage.search(usage);
                 if(node1==null){
                     ArrayList<Integer> positions = new ArrayList<>();
                     positions.add(index);
@@ -76,7 +76,7 @@ public class AddPlayerThread extends Thread {
                 //Add in playersByAssist
                 double assist = Double.parseDouble(player[5]);
                 AVLTree<Double, ArrayList<Integer>> playersByAssist = fiba.getPlayersByAssist();
-                node1 = playersByAssist.search(playersByAssist.getRoot(), assist);
+                node1 = playersByAssist.search(assist);
                 if(node1==null){
                     ArrayList<Integer> positions = new ArrayList<>();
                     positions.add(index);
@@ -90,7 +90,7 @@ public class AddPlayerThread extends Thread {
                 //Add in playersByRebound
                 double rebound = Double.parseDouble(player[6]);
                 BSTree<Double, ArrayList<Integer>> playersByRebound = fiba.getPlayersByRebound();
-                node2 = playersByRebound.search(playersByRebound.getRoot(), rebound);
+                node2 = playersByRebound.search(rebound);
                 if(node2==null){
                     ArrayList<Integer> positions = new ArrayList<>();
                     positions.add(index);

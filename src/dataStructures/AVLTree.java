@@ -42,26 +42,41 @@ public class AVLTree<K extends Comparable<K>, V> implements AVLTreeInterface<K, 
     }
 
     @Override
-    public AVLNode<K, V> search(AVLNode<K, V> r, K key) {
+    public AVLNode<K, V> search(K key) {
+        return searchEqual(root, key);
+    }
+
+    private AVLNode<K, V> searchEqual(AVLNode<K, V> r, K key) {
         if (r == null || key.compareTo(r.getKey()) == 0)
             return r;
         if (key.compareTo(r.getKey()) < 0)
-            return search(r.getLeft(), key);
-        return search(r.getRight(), key);
+            return searchEqual(r.getLeft(), key);
+        return searchEqual(r.getRight(), key);
     }
 
-    @Override
-    public AVLNode<K, V> search(AVLNode<K, V> r, K key, V value) {
-        if (r == null || (key.compareTo(r.getKey()) == 0 && value == r.getValue()))
-            return r;
-        if (key.compareTo(r.getKey()) < 0)
-            return search(r.getLeft(), key);
-        return search(r.getRight(), key);
+    public AVLNode<K, V> searchWith(K key, char symbol) {
+        AVLNode<K, V> nodeSearched = null;
+        switch(symbol){
+            case '=':
+                nodeSearched = searchEqual(root, key);
+                break;
+            case '≠':
+                break;
+            case '>':
+                break;
+            case '<':
+                break;
+            case '≥':
+                break;
+            case '≤':
+                break;
+        }
+        return nodeSearched;
     }
 
     @Override
     public boolean delete(K key) {
-		AVLNode<K, V> toErase = search(root, key);
+		AVLNode<K, V> toErase = searchEqual(root, key);
         if (toErase != null) {
             privateDelete(toErase);
             return true;

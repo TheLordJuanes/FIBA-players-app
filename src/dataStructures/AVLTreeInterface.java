@@ -4,9 +4,7 @@ public interface AVLTreeInterface<K extends Comparable<K>, V> {
 
     public void insert(AVLNode<K,V> node);
 
-    public AVLNode<K,V> search(AVLNode<K,V> r,K key);
-    
-    public AVLNode<K,V> search(AVLNode<K,V> r,K key,V value);
+    public AVLNode<K,V> search(K key);
 
     public boolean delete(K key);
 

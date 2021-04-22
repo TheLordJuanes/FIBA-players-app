@@ -46,7 +46,7 @@ public class FIBA {
 	private BSTree<Double, ArrayList<Integer>> playersByRebound;
 	private ArrayList<Double> playersByBlocks;
 	private RBTree<Double, ArrayList<Integer>> playersByDefensive;
-	private LinkedList<String[]> allData;
+	private ArrayList<String[]> allData;
 
 
 	// -----------------------------------------------------------------
@@ -64,13 +64,13 @@ public class FIBA {
 		playersByRebound = new BSTree<Double, ArrayList<Integer>>();
 		playersByDefensive = new RBTree<Double, ArrayList<Integer>>();
 		playersByBlocks = new  ArrayList<Double>();
-		allData = new LinkedList<>();
+		allData = new ArrayList<>();
 	}
 
 	public boolean addPlayerDataByTextFile(File file) throws IOException, CsvException, InterruptedException {
 		FileReader fr = new FileReader(file);
 		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
-		allData = (LinkedList<String[]>) csvReader.readAll();
+		allData = new ArrayList<>((LinkedList<String[]>) csvReader.readAll());
 		System.out.println(allData.size());
 		for(int i=0; i<allData.size(); i++){
 			AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
@@ -82,7 +82,7 @@ public class FIBA {
 				trees[j].join();
 			}
 			int number=i+1;
-			System.out.println("Jugador "+number+" añadido");
+			System.out.println("Jugador "+number+" aÃ±adido");
 		}
 		return true;
 	}
@@ -124,7 +124,7 @@ public class FIBA {
 		}
 		FileReader fr = new FileReader(FILE_NAME);
 		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
-		allData = ((LinkedList<String[]>) csvReader.readAll());
+		allData = new ArrayList<>((LinkedList<String[]>) csvReader.readAll());
 		csvwriter.close();
 		csvReader.close();
 	}
@@ -166,50 +166,41 @@ public class FIBA {
 	 * @param attribute
 	 * @param value
 	*/
-	public String searchPlayer(int attribute, double value) {
-		return "";
+	public ArrayList<String[]> searchPlayer(char symbol, String statistic, double value) {
+		ArrayList<String[]> players = new ArrayList<String[]>();
+		AVLNode<Double, ArrayList<Integer>> node1;
+		ArrayList<Integer> positionsPlayers;
+		switch(statistic){
+			case "True Shooting":
+				node1 = playersByTrueShooting.searchWith(value, symbol);
+				positionsPlayers = node1.getValue();
+				for(int i=0; i<positionsPlayers.size(); i++){
+					players.add(allData.get(positionsPlayers.get(i)));
+				}
+			case "Usage":
+				playersByUsage.searchWith(value, symbol);
+				break;
+			case "Assist":
+				playersByAssist.searchWith(value, symbol);
+				break;
+			case "Rebound":
+				playersByRebound.searchWith(value, symbol);
+				break;
+			case "Defensive":
+				playersByDefensive.searchWith(value, symbol);
+				break;
+			case "Blocks":
+		
+				break;
+			default:
+				break;
+		}
+		return players;
 	}
 
-	/**
-	 *
-	 * @param attribute
-	 * @param value
-	*/
-	public String searchPlayer(int attribute, String value) {
-		return "";
-	}
-
-	/**
-	 *
-	 * @param attribute1
-	 * @param attribute2
-	 * @param value1
-	 * @param value2
-	*/
-	public String searchPlayer(int attribute1, int attribute2, double value1, double value2) {
-		return "";
-	}
-
-	/**
-	 *
-	 * @param attribute1
-	 * @param attribute2
-	 * @param value1
-	 * @param value2
-	*/
-	public String searchPlayer(int attribute1, int attribute2, double value1, String value2) {
-		return "";
-	}
-
-	/**
-	 *
-	 * @param attribute1
-	 * @param attribute2
-	 * @param value1
-	 * @param value2
-	*/
-	public String searchPlayer(int attribute1, int attribute2, String value1, String value2) {
-		return "";
+	public ArrayList<String[]> searchPlayer(char symbol1, char symbol2, String statistic, double value1, double value2) {
+		ArrayList<String[]> players = new ArrayList<String[]>();
+		return players;
 	}
 
     /**
@@ -299,14 +290,14 @@ public class FIBA {
     /**
      * @return ArrayList<String[]> return the allData
      */
-    public LinkedList<String[]> getAllData() {
+    public ArrayList<String[]> getAllData() {
         return allData;
     }
 
     /**
      * @param allData the allData to set
      */
-    public void setAllData(LinkedList<String[]> allData) {
+    public void setAllData(ArrayList<String[]> allData) {
         this.allData = allData;
     }
 }

@@ -4,7 +4,7 @@ public interface BSTreeInterface<K extends Comparable<K>, V> {
 
     public void insert(BSTNode<K, V> node);
 
-    public BSTNode<K, V> search(BSTNode<K, V> r, K key);
+    public BSTNode<K, V> search(K key);
 
     public boolean delete(K key);
 
