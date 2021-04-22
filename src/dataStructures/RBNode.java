@@ -1,5 +1,5 @@
 package dataStructures;
-import java.io.Serializable;
+
 public class RBNode<K extends Comparable<K>, V> {
 
     // -----------------------------------------------------------------

@@ -1,6 +1,6 @@
 package dataStructures;
-import java.io.Serializable;
-public class AVLNode<K extends Comparable<K>,V> implements Serializable {
+
+public class AVLNode<K extends Comparable<K>,V> {
 
     // -----------------------------------------------------------------
 	// Attributes

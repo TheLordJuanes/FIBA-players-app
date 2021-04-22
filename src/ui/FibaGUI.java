@@ -219,6 +219,8 @@ public class FibaGUI {
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Start Menu");
             primaryStage.show();
+            lbAddPlayer.setText("");
+            lbtnDeletePlayer.set("");
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -271,7 +273,7 @@ public class FibaGUI {
 
     @FXML
     public void textFileAddition(ActionEvent event) {
-        showInformationAlert("Text Input Format", "The data of the players must be in this order separated by a coma \",\"", "name,id,team,trueShooting,usage,assist,rebound,defensive,blocks");
+        showInformationAlert("Text Input Format", "The data of the players must be in this order separated by a coma \",\"", "name,team,trueShooting,usage,assist,rebound,defensive,blocks");
         Stage stage = new Stage();
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Txt files", "*.txt"), new FileChooser.ExtensionFilter("Csv files", "*.csv"));
@@ -316,10 +318,7 @@ public class FibaGUI {
                     Double.valueOf(txtTrueShooting.getText()), Double.valueOf(txtUsage.getText()),
                     Double.valueOf(txtAssist.getText()), Double.valueOf(txtRebound.getText()),
                     Double.valueOf(txtDefensive.getText()), Double.valueOf(txtBlocks.getText()));
-            if (added)
-                lbAddPlayer.setText("Player successfully added!");
-            else
-                lbAddPlayer.setText("Player already exists!");
+            lbAddPlayer.setText("Player successfully added!");
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
         } catch (InterruptedException e) {

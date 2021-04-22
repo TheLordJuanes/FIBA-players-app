@@ -9,9 +9,21 @@ package model;
 import dataStructures.AVLTree;
 import dataStructures.BSTree;
 import dataStructures.RBTree;
+import java.util.ArrayList;
+import com.opencsv.CSVParser;
+import com.opencsv.CSVParserBuilder;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.CSVWriter;
+import com.opencsv.exceptions.CsvException;
 import dataStructures.AVLNode;
 import thread.AddPlayerThread;
 import thread.DeletePlayerThread;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class FIBA {
 
@@ -20,18 +32,19 @@ public class FIBA {
     // -----------------------------------------------------------------
 
 	public static final int NUMBER_OF_STATISTICS = 7;
+	public static final String FILE_NAME="data/players.csv";
 
 	// -----------------------------------------------------------------
 	// Relations
     // -----------------------------------------------------------------
 
-	private AVLTree<String, Player> playersById;
-	private AVLTree<Double, Player> playersByTrueShooting;
-	private AVLTree<Double, Player> playersByUsage;
-	private AVLTree<Double, Player> playersByAssist;
-	private BSTree<Double, Player> playersByRebound;
-	private BSTree<Double, Player> playersByBlocks;
-	private RBTree<Double, Player> playersByDefensive;
+	private AVLTree<Double, ArrayList<Integer>> playersByTrueShooting;
+	private AVLTree<Double, ArrayList<Integer>> playersByUsage;
+	private AVLTree<Double, ArrayList<Integer>> playersByAssist;
+	private BSTree<Double, ArrayList<Integer>> playersByRebound;
+	private ArrayList<Double> playersByBlocks;
+	private RBTree<Double, ArrayList<Integer>> playersByDefensive;
+	private ArrayList<String[]> allData;
 
 
 	// -----------------------------------------------------------------
@@ -43,19 +56,34 @@ public class FIBA {
 	 * <br> FIBA constructor method. <br>
 	*/
 	public FIBA() {
-		playersById = new AVLTree<String, Player>();
-		playersByTrueShooting = new AVLTree<Double, Player>();
-		playersByUsage = new AVLTree<Double, Player>();
-		playersByAssist = new AVLTree<Double, Player>();
-		playersByRebound = new BSTree<Double, Player>();
-		playersByDefensive = new RBTree<Double, Player>();
-		playersByBlocks = new BSTree<Double, Player>();
+		playersByTrueShooting = new AVLTree<Double, ArrayList<Integer>>();
+		playersByUsage = new AVLTree<Double, ArrayList<Integer>>();
+		playersByAssist = new AVLTree<Double, ArrayList<Integer>>();
+		playersByRebound = new BSTree<Double, ArrayList<Integer>>();
+		playersByDefensive = new RBTree<Double, ArrayList<Integer>>();
+		playersByBlocks = new  ArrayList<Double>();
+		allData = new ArrayList<>();
+	}
+
+	public boolean addPlayerDataByTextFile() throws IOException, CsvException, InterruptedException {
+		FileReader fr = new FileReader(FILE_NAME);
+		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
+		allData = ((ArrayList<String[]>) csvReader.readAll());
+		for(int i=0; i<allData.size(); i++){
+			AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
+			for (int j = 0; j < trees.length; j++) {
+				trees[j] = new AddPlayerThread(this, allData.get(i), j, i);
+				trees[j].start();
+			}
+			for (int j = 0; j < trees.length; j++)
+				trees[j].join();
+		}
+		return true;
 	}
 
 	/**
 	 *
 	 * @param name
-	 * @param id
 	 * @param team
 	 * @param trueShooting
 	 * @param usage
@@ -64,20 +92,35 @@ public class FIBA {
 	 * @param defensive
 	 * @param blocks
 	 * @throws InterruptedException
+	 * @throws CsvException
+	 * @throws IOException
 	*/
-	public boolean addPlayerData(String name, String id, String team, double trueShooting, double usage, double assist, double rebound, double defensive, double blocks) throws InterruptedException {
-		if (playersById.search(playersById.getRoot(), id) == null) {
-			Player p = new Player(name, id, team, trueShooting, usage, assist, rebound, defensive, blocks);
-			AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
-			for (int i = 0; i < trees.length; i++) {
-				trees[i] = new AddPlayerThread(this, p, i);
-				trees[i].start();
-			}
-			for (int i = 0; i < trees.length; i++)
-				trees[i].join();
-			return true;
+	public void addPlayerDatabyPlatform(String name, String team, double trueShooting, double usage, double assist, double rebound, double defensive, double blocks) throws InterruptedException, IOException, CsvException {
+		FileWriter fw = new FileWriter(FILE_NAME);
+		CSVWriter csvwriter= new CSVWriter(fw);
+		String[] info = new String[8];
+		info[0]=name;
+		info[1]=team;
+		info[2] = String.valueOf(trueShooting);
+		info[3]= String.valueOf(usage);
+		info[4] = String.valueOf(assist);
+		info[5] = String.valueOf(rebound);
+		info[6] = String.valueOf(defensive);
+		info[7] = String.valueOf(blocks);
+		csvwriter.writeNext(info);
+		AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
+		for (int i = 0; i < trees.length; i++) {
+			trees[i] = new AddPlayerThread(this, info, i, allData.size());
+			trees[i].start();
 		}
-		return false;
+		for (int i = 0; i < trees.length; i++) {
+			trees[i].join();
+		}
+		FileReader fr = new FileReader(FILE_NAME);
+		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
+		allData = ((ArrayList<String[]>) csvReader.readAll());
+		csvwriter.close();
+		csvReader.close();
 	}
 
 	/**
@@ -96,9 +139,9 @@ public class FIBA {
 	 * @throws InterruptedException
 	*/
 	public boolean deletePlayer(String id) throws InterruptedException {
-		AVLNode<String, Player> objSearch = playersById.search(playersById.getRoot(), id);
+		AVLNode<String, ArrayList<Integer>> objSearch = playersById.search(playersById.getRoot(), id);
 		if (objSearch != null) {
-			Player p = objSearch.getValue();
+			ArrayList<Integer> p = objSearch.getValue();
 			DeletePlayerThread[] trees = new DeletePlayerThread[NUMBER_OF_STATISTICS];
 			for (int i = 0; i < trees.length; i++) {
 				trees[i] = new DeletePlayerThread(this, p, i);
@@ -163,94 +206,100 @@ public class FIBA {
 	}
 
     /**
-     * @return AVLTree<String, Player> return the playersById
+     * @return AVLTree<Double, ArrayList<Integer>> return the playersByTrueShooting
      */
-    public AVLTree<String, Player> getPlayersById() {
-        return playersById;
-    }
-
-    /**
-     * @param playersById the playersById to set
-     */
-    public void setPlayersById(AVLTree<String, Player> playersById) {
-        this.playersById = playersById;
-    }
-
-    /**
-     * @return AVLTree<Double, Player> return the playersByTrueShooting
-     */
-    public AVLTree<Double, Player> getPlayersByTrueShooting() {
+    public AVLTree<Double, ArrayList<Integer>> getPlayersByTrueShooting() {
         return playersByTrueShooting;
     }
 
     /**
      * @param playersByTrueShooting the playersByTrueShooting to set
      */
-    public void setPlayersByTrueShooting(AVLTree<Double, Player> playersByTrueShooting) {
+    public void setPlayersByTrueShooting(AVLTree<Double, ArrayList<Integer>> playersByTrueShooting) {
         this.playersByTrueShooting = playersByTrueShooting;
     }
 
     /**
-     * @return AVLTree<Double, Player> return the playersByUsage
+     * @return AVLTree<Double, ArrayList<Integer>> return the playersByUsage
      */
-    public AVLTree<Double, Player> getPlayersByUsage() {
+    public AVLTree<Double, ArrayList<Integer>> getPlayersByUsage() {
         return playersByUsage;
     }
 
     /**
      * @param playersByUsage the playersByUsage to set
      */
-    public void setPlayersByUsage(AVLTree<Double, Player> playersByUsage) {
+    public void setPlayersByUsage(AVLTree<Double, ArrayList<Integer>> playersByUsage) {
         this.playersByUsage = playersByUsage;
     }
 
     /**
-     * @return AVLTree<Double, Player> return the playersByAssist
+     * @return AVLTree<Double, ArrayList<Integer>> return the playersByAssist
      */
-    public AVLTree<Double, Player> getPlayersByAssist() {
+    public AVLTree<Double, ArrayList<Integer>> getPlayersByAssist() {
         return playersByAssist;
     }
 
     /**
      * @param playersByAssist the playersByAssist to set
      */
-    public void setPlayersByAssist(AVLTree<Double, Player> playersByAssist) {
+    public void setPlayersByAssist(AVLTree<Double, ArrayList<Integer>> playersByAssist) {
         this.playersByAssist = playersByAssist;
     }
 
     /**
-     * @return BSTree<Double, Player> return the playersByRebound
+     * @return BSTree<Double, ArrayList<Integer>> return the playersByRebound
      */
-    public BSTree<Double, Player> getPlayersByRebound() {
+    public BSTree<Double, ArrayList<Integer>> getPlayersByRebound() {
         return playersByRebound;
     }
 
     /**
      * @param playersByRebound the playersByRebound to set
      */
-    public void setPlayersByRebound(BSTree<Double, Player> playersByRebound) {
+    public void setPlayersByRebound(BSTree<Double, ArrayList<Integer>> playersByRebound) {
         this.playersByRebound = playersByRebound;
     }
 
     /**
-     * @return RBTree<Double, Player> return the playersByDefensive
+     * @return ArrayList<Double> return the playersByBlocks
      */
-    public RBTree<Double, Player> getPlayersByDefensive() {
+    public ArrayList<Double> getPlayersByBlocks() {
+        return playersByBlocks;
+    }
+
+    /**
+     * @param playersByBlocks the playersByBlocks to set
+     */
+    public void setPlayersByBlocks(ArrayList<Double> playersByBlocks) {
+        this.playersByBlocks = playersByBlocks;
+    }
+
+    /**
+     * @return RBTree<Double, ArrayList<Integer>> return the playersByDefensive
+     */
+    public RBTree<Double, ArrayList<Integer>> getPlayersByDefensive() {
         return playersByDefensive;
     }
 
     /**
      * @param playersByDefensive the playersByDefensive to set
      */
-    public void setPlayersByDefensive(RBTree<Double, Player> playersByDefensive) {
+    public void setPlayersByDefensive(RBTree<Double, ArrayList<Integer>> playersByDefensive) {
         this.playersByDefensive = playersByDefensive;
     }
 
-	public BSTree<Double, Player> getPlayersByBlocks() {
-		return playersByBlocks;
-	}
+    /**
+     * @return ArrayList<String[]> return the allData
+     */
+    public ArrayList<String[]> getAllData() {
+        return allData;
+    }
 
-	public void setPlayersByBlocks(BSTree<Double, Player> playersByBlocks) {
-		this.playersByBlocks = playersByBlocks;
-	}
+    /**
+     * @param allData the allData to set
+     */
+    public void setAllData(ArrayList<String[]> allData) {
+        this.allData = allData;
+    }
 }

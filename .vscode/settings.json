@@ -3,5 +3,9 @@
         "Avenir",
         "fnfe",
         "uafe"
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "resources/opencsv-5.4.jar"
     ]
 }

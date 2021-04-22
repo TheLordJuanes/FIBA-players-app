@@ -1,5 +1,5 @@
 package dataStructures;
-import java.io.Serializable;
+
 public class AVLTree<K extends Comparable<K>, V> implements AVLTreeInterface<K, V>  { // class adapted from GeeksForGeeks https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
 
     // -----------------------------------------------------------------

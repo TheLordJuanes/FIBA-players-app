@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry excluding="src/" kind="src" path=""/>
 	<classpathentry kind="lib" path="resources/jfoenix-8.0.10.jar"/>
+	<classpathentry kind="lib" path="resources/opencsv-5.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
