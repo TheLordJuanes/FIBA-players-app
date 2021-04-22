@@ -10,6 +10,8 @@ import dataStructures.AVLTree;
 import dataStructures.BSTree;
 import dataStructures.RBTree;
 import java.util.ArrayList;
+import java.util.LinkedList;
+
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
@@ -44,7 +46,7 @@ public class FIBA {
 	private BSTree<Double, ArrayList<Integer>> playersByRebound;
 	private ArrayList<Double> playersByBlocks;
 	private RBTree<Double, ArrayList<Integer>> playersByDefensive;
-	private ArrayList<String[]> allData;
+	private LinkedList<String[]> allData;
 
 
 	// -----------------------------------------------------------------
@@ -62,21 +64,25 @@ public class FIBA {
 		playersByRebound = new BSTree<Double, ArrayList<Integer>>();
 		playersByDefensive = new RBTree<Double, ArrayList<Integer>>();
 		playersByBlocks = new  ArrayList<Double>();
-		allData = new ArrayList<>();
+		allData = new LinkedList<>();
 	}
 
-	public boolean addPlayerDataByTextFile() throws IOException, CsvException, InterruptedException {
-		FileReader fr = new FileReader(FILE_NAME);
+	public boolean addPlayerDataByTextFile(File file) throws IOException, CsvException, InterruptedException {
+		FileReader fr = new FileReader(file);
 		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
-		allData = ((ArrayList<String[]>) csvReader.readAll());
+		allData = (LinkedList<String[]>) csvReader.readAll();
+		System.out.println(allData.size());
 		for(int i=0; i<allData.size(); i++){
 			AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
 			for (int j = 0; j < trees.length; j++) {
 				trees[j] = new AddPlayerThread(this, allData.get(i), j, i);
 				trees[j].start();
 			}
-			for (int j = 0; j < trees.length; j++)
+			for (int j = 0; j < trees.length; j++) {
 				trees[j].join();
+			}
+			int number=i+1;
+			System.out.println("Jugador "+number+" añadido");
 		}
 		return true;
 	}
@@ -118,7 +124,7 @@ public class FIBA {
 		}
 		FileReader fr = new FileReader(FILE_NAME);
 		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
-		allData = ((ArrayList<String[]>) csvReader.readAll());
+		allData = ((LinkedList<String[]>) csvReader.readAll());
 		csvwriter.close();
 		csvReader.close();
 	}
@@ -138,6 +144,7 @@ public class FIBA {
 	 * @param id
 	 * @throws InterruptedException
 	*/
+	/**
 	public boolean deletePlayer(String id) throws InterruptedException {
 		AVLNode<String, ArrayList<Integer>> objSearch = playersById.search(playersById.getRoot(), id);
 		if (objSearch != null) {
@@ -153,7 +160,7 @@ public class FIBA {
 		}
 		return false;
 	}
-
+	**/
 	/**
 	 *
 	 * @param attribute
@@ -292,14 +299,14 @@ public class FIBA {
     /**
      * @return ArrayList<String[]> return the allData
      */
-    public ArrayList<String[]> getAllData() {
+    public LinkedList<String[]> getAllData() {
         return allData;
     }
 
     /**
      * @param allData the allData to set
      */
-    public void setAllData(ArrayList<String[]> allData) {
+    public void setAllData(LinkedList<String[]> allData) {
         this.allData = allData;
     }
 }

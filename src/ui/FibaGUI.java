@@ -15,6 +15,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import com.opencsv.exceptions.CsvException;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -220,7 +222,7 @@ public class FibaGUI {
             primaryStage.setTitle("Start Menu");
             primaryStage.show();
             lbAddPlayer.setText("");
-            lbtnDeletePlayer.set("");
+            //lbtnDeletePlayer.set("");
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -273,28 +275,15 @@ public class FibaGUI {
 
     @FXML
     public void textFileAddition(ActionEvent event) {
-        showInformationAlert("Text Input Format", "The data of the players must be in this order separated by a coma \",\"", "name,team,trueShooting,usage,assist,rebound,defensive,blocks");
+        showInformationAlert("Text Input Format", "The data of the players must be in this order separated by a coma \",\"", "firstName, lastName, team,trueShooting,usage,assist,rebound,defensive,blocks");
         Stage stage = new Stage();
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Txt files", "*.txt"), new FileChooser.ExtensionFilter("Csv files", "*.csv"));
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Csv files", "*.csv"));
         File file = fc.showOpenDialog(stage);
         if (file != null) {
             try {
-                FileReader fr = new FileReader(file);
-                BufferedReader br = new BufferedReader(fr);
-                br.readLine();
-                String line = br.readLine();
-                boolean added1 = true;
-                while (line != null) {
-                    String[] data = line.split(",");
-                    boolean added2 = fiba.addPlayerData(data[0], data[1], data[2], Double.valueOf(data[3]), Double.valueOf(data[4]), Double.valueOf(data[5]), Double.valueOf(data[6]), Double.valueOf(data[7]), Double.valueOf(data[8]));
-                    if (!added2) {
-                        added1 = false;
-                    }
-                    line = br.readLine();
-                }
-                br.close();
-                if (added1)
+                boolean added = fiba.addPlayerDataByTextFile(file);
+                if (added)
                     showInformationAlert("Successful addition", null, "Players were successfully added!");
                 else
                     showErrorAlert("Error", "Something went wrong", "Some players weren't added");
@@ -306,6 +295,9 @@ public class FibaGUI {
                 showErrorAlert("Error", "Something went wrong", "There data in the file isn't correct");
             } catch (InterruptedException e) {
                 showErrorAlert("Error", null, "Something went wrong");
+            } catch (CsvException e) {
+                showErrorAlert("Error", null, "There were problems reading the cvs");
+                e.printStackTrace();
             }
         } else
             showInformationAlert("Missing File", null, "No file was selected ");
@@ -314,7 +306,7 @@ public class FibaGUI {
     @FXML
     public void addNewPlayer(ActionEvent event) {
         try {
-            boolean added = fiba.addPlayerData(txtName.getText(), txtID.getText(), txtTeam.getText(),
+            fiba.addPlayerDatabyPlatform(txtName.getText(), txtTeam.getText(),
                     Double.valueOf(txtTrueShooting.getText()), Double.valueOf(txtUsage.getText()),
                     Double.valueOf(txtAssist.getText()), Double.valueOf(txtRebound.getText()),
                     Double.valueOf(txtDefensive.getText()), Double.valueOf(txtBlocks.getText()));
@@ -322,6 +314,12 @@ public class FibaGUI {
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (CsvException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -419,7 +417,7 @@ public class FibaGUI {
                 @Override
                 public void handle(ActionEvent event) {
                     stage.close();
-                    textFileDeletion(event);
+                    //textFileDeletion(event);
                 }
             });
         } catch (IOException ioe) {
@@ -441,6 +439,7 @@ public class FibaGUI {
         }
     }
 
+    /**
     @FXML
     public void textFileDeletion(ActionEvent event) {
         showInformationAlert("Text Input Format", "The players' IDs must be one per line as follows:", "ID1\nID2\nID3\n...");
@@ -479,7 +478,9 @@ public class FibaGUI {
         } else
             showInformationAlert("Missing File", null, "No file was selected ");
     }
+    **/
 
+    /** 
     @FXML
     public void deletePlayer(ActionEvent event) {
         boolean deleted;
@@ -495,6 +496,7 @@ public class FibaGUI {
             e.printStackTrace();
         }
     }
+    **/
 
     @FXML
     public void searchAPlayer(ActionEvent event) {

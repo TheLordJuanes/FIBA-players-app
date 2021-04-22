@@ -1,7 +1,6 @@
 package thread;
 
 import model.FIBA;
-import model.Player;
 import dataStructures.RBNode;
 
 public class DeletePlayerThread extends Thread {
@@ -17,21 +16,20 @@ public class DeletePlayerThread extends Thread {
     // -----------------------------------------------------------------
 
     private FIBA fiba;
-    private Player player;
 
     // -----------------------------------------------------------------
 	// Methods
     // -----------------------------------------------------------------
 
-    public DeletePlayerThread(FIBA f, Player p, int tD) {
+    public DeletePlayerThread(FIBA f, int tD) {
         setDaemon(true);
         fiba = f;
         typeData = tD;
-        player = p;
     }
 
     @Override
 	public void run() {
+        /** 
         switch (typeData) {
             case 0:
                 // Delete in playersByTrueShooting
@@ -65,5 +63,6 @@ public class DeletePlayerThread extends Thread {
             default:
                 break;
         }
+        **/
     }
 }
