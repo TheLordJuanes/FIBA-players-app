@@ -29,40 +29,20 @@ public class BSTree<K extends Comparable<K>, V> implements BSTreeInterface<K, V>
 
     @Override
     public BSTNode<K, V> search(K key) {
-        return searchEqual(root, key);
+        return privateSearch(root, key);
     }
 
-    private BSTNode<K, V> searchEqual(BSTNode<K, V> r, K key) {
+    private BSTNode<K, V> privateSearch(BSTNode<K, V> r, K key) {
         if (r == null || key.compareTo(r.getKey()) == 0)
             return r;
         if (key.compareTo(r.getKey()) < 0)
-            return searchEqual(r.getLeft(), key);
-        return searchEqual(r.getRight(), key);
-    }
-
-    public BSTNode<K, V> searchWith(K key, char symbol) {
-        BSTNode<K, V> nodeSearched = null;
-        switch(symbol){
-            case '=':
-                nodeSearched = searchEqual(root, key);
-                break;
-            case '≠':
-                break;
-            case '>':
-                break;
-            case '<':
-                break;
-            case '≥':
-                break;
-            case '≤':
-                break;
-        }
-        return nodeSearched;
+            return privateSearch(r.getLeft(), key);
+        return privateSearch(r.getRight(), key);
     }
 
     @Override
     public boolean delete(K key) {
-		BSTNode<K,V> toErase = searchEqual(root, key);
+		BSTNode<K,V> toErase = privateSearch(root, key);
         if (toErase != null) {
             privateDelete(toErase);
             return true;

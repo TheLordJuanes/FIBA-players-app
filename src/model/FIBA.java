@@ -7,7 +7,9 @@
 package model;
 
 import dataStructures.AVLTree;
+import dataStructures.BSTNode;
 import dataStructures.BSTree;
+import dataStructures.RBNode;
 import dataStructures.RBTree;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -176,10 +178,10 @@ public class FIBA {
 				searchWith(symbol, playersByAssist, players, value);
 				break;
 			case "Rebound":
-				playersByRebound.searchWith(value, symbol);
+				searchWith(symbol, playersByRebound, players, value);
 				break;
 			case "Defensive":
-				playersByDefensive.searchWith(value, symbol);
+				searchWith(symbol, playersByDefensive, players, value);
 				break;
 			case "Blocks":
 		
@@ -224,6 +226,86 @@ public class FIBA {
 	}
 
 	private void addPlayers(ArrayList<String[]> players, AVLNode<Double, ArrayList<Integer>> node){
+		ArrayList<Integer> positionsPlayers = node.getValue();
+			for(int i=0; i<positionsPlayers.size();i++){
+				players.add(allData.get(positionsPlayers.get(i)));
+			}
+	}
+
+	private void searchWith(char symbol, BSTree<Double, ArrayList<Integer>> tree, ArrayList<String[]> players, double value){
+		BSTNode<Double, ArrayList<Integer>> node = tree.search(value);
+		if(node!=null){
+			switch(symbol){
+				case '=':
+					addPlayers(players, node);
+					break;
+				case '>':
+					getValues(players, node.getRight());
+					break;
+				case '<':
+					getValues(players, node.getLeft());
+					break;
+				case '≥':
+					addPlayers(players, node);
+					getValues(players, node.getRight());
+					break;
+				case '≤':
+					addPlayers(players, node);
+					getValues(players, node.getLeft());
+					break;
+			}
+		}
+	}
+
+	private void getValues(ArrayList<String[]> players, BSTNode<Double, ArrayList<Integer>> node){
+		if(node != null){
+			getValues(players, node.getLeft());
+			addPlayers(players, node);
+			getValues(players, node.getRight());
+		}
+	}
+
+	private void addPlayers(ArrayList<String[]> players, BSTNode<Double, ArrayList<Integer>> node){
+		ArrayList<Integer> positionsPlayers = node.getValue();
+			for(int i=0; i<positionsPlayers.size();i++){
+				players.add(allData.get(positionsPlayers.get(i)));
+			}
+	}
+
+	private void searchWith(char symbol, RBTree<Double, ArrayList<Integer>> tree, ArrayList<String[]> players, double value){
+		RBNode<Double, ArrayList<Integer>> node = tree.search(value);
+		if(node!=null){
+			switch(symbol){
+				case '=':
+					addPlayers(players, node);
+					break;
+				case '>':
+					getValues(players, node.getRight());
+					break;
+				case '<':
+					getValues(players, node.getLeft());
+					break;
+				case '≥':
+					addPlayers(players, node);
+					getValues(players, node.getRight());
+					break;
+				case '≤':
+					addPlayers(players, node);
+					getValues(players, node.getLeft());
+					break;
+			}
+		}
+	}
+
+	private void getValues(ArrayList<String[]> players, RBNode<Double, ArrayList<Integer>> node){
+		if(node != null){
+			getValues(players, node.getLeft());
+			addPlayers(players, node);
+			getValues(players, node.getRight());
+		}
+	}
+
+	private void addPlayers(ArrayList<String[]> players, RBNode<Double, ArrayList<Integer>> node){
 		ArrayList<Integer> positionsPlayers = node.getValue();
 			for(int i=0; i<positionsPlayers.size();i++){
 				players.add(allData.get(positionsPlayers.get(i)));

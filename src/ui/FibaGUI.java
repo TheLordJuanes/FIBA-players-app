@@ -571,7 +571,7 @@ public class FibaGUI {
             }
             String textPlayers="";
             for(int i=0; i<players.size(); i++){
-                for(int j=0; j<FIBA.NUMBER_OF_STATISTICS; j++){
+                for(int j=0; j<FIBA.NUMBER_OF_STATISTICS+3; j++){
                     textPlayers+=players.get(i)[j]+" ";
                 }
                 textPlayers+="\n";
