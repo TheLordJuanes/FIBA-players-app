@@ -183,7 +183,15 @@ public class FibaGUI {
      */
     public FibaGUI(Stage primaryStage) {
         this.primaryStage = primaryStage;
+        /**
         fiba = new FIBA();
+        File file = new File("resources/100.csv"); //QUITARRRRR, CAMBIARRR
+        try {
+            fiba.addPlayerDataByTextFile(file);
+        } catch (IOException | CsvException | InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } **/
     }
 
     @FXML
@@ -571,7 +579,7 @@ public class FibaGUI {
             }
             String textPlayers="";
             for(int i=0; i<players.size(); i++){
-                for(int j=0; j<FIBA.NUMBER_OF_STATISTICS+3; j++){
+                for(int j=0; j<FIBA.NUMBER_OF_STATISTICS+2; j++){
                     textPlayers+=players.get(i)[j]+" ";
                 }
                 textPlayers+="\n";

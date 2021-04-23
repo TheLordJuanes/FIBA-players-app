@@ -193,28 +193,47 @@ public class FIBA {
 	}
 
 	private void searchWith(char symbol, AVLTree<Double, ArrayList<Integer>> tree, ArrayList<String[]> players, double value){
-		AVLNode<Double, ArrayList<Integer>> node = tree.search(value);
-		if(node!=null){
+		AVLNode<Double, ArrayList<Integer>> node;
 			switch(symbol){
 				case '=':
+				node = tree.search(value);
+				if(node!=null){
+					System.out.println(node.getKey());
 					addPlayers(players, node);
+				}
 					break;
 				case '>':
-					getValues(players, node.getRight());
+					node = tree.search(value);
+					if(node!=null){
+						System.out.println(node.getKey());
+						getValues(players, node.getRight());
+					}
 					break;
 				case '<':
-					getValues(players, node.getLeft());
+					node = tree.search(value);
+					if(node!=null){
+						System.out.println(node.getKey());
+						getValues(players, node.getLeft());
+					}
 					break;
 				case '≥':
-					addPlayers(players, node);
-					getValues(players, node.getRight());
+					node = tree.search(value);
+					if(node!=null){
+						System.out.println(node.getKey());
+						addPlayers(players, node);
+						getValues(players, node.getRight());
+					}
 					break;
 				case '≤':
-					addPlayers(players, node);
-					getValues(players, node.getLeft());
+					node = tree.search(value);
+					if(node!=null){
+						System.out.println(node.getKey());
+						addPlayers(players, node);
+						getValues(players, node.getLeft());
+					}
 					break;
 			}
-		}
+		
 	}
 
 	private void getValues(ArrayList<String[]> players, AVLNode<Double, ArrayList<Integer>> node){
@@ -224,7 +243,7 @@ public class FIBA {
 			getValues(players, node.getRight());
 		}
 	}
-
+	
 	private void addPlayers(ArrayList<String[]> players, AVLNode<Double, ArrayList<Integer>> node){
 		ArrayList<Integer> positionsPlayers = node.getValue();
 			for(int i=0; i<positionsPlayers.size();i++){
@@ -232,7 +251,6 @@ public class FIBA {
 			}
 	}
 
-<<<<<<< HEAD
 	private void searchWith(char symbol, BSTree<Double, ArrayList<Integer>> tree, ArrayList<String[]> players, double value){
 		BSTNode<Double, ArrayList<Integer>> node = tree.search(value);
 		if(node!=null){
@@ -313,8 +331,6 @@ public class FIBA {
 			}
 	}
 
-=======
->>>>>>> 6a65beab622b6db5f92710005606a1d133abdacf
 	public ArrayList<String[]> searchPlayer(char symbol1, char symbol2, String statistic, double value1, double value2) {
 		ArrayList<String[]> players = new ArrayList<String[]>();
 		return players;
