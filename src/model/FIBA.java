@@ -232,6 +232,7 @@ public class FIBA {
 			}
 	}
 
+<<<<<<< HEAD
 	private void searchWith(char symbol, BSTree<Double, ArrayList<Integer>> tree, ArrayList<String[]> players, double value){
 		BSTNode<Double, ArrayList<Integer>> node = tree.search(value);
 		if(node!=null){
@@ -312,6 +313,8 @@ public class FIBA {
 			}
 	}
 
+=======
+>>>>>>> 6a65beab622b6db5f92710005606a1d133abdacf
 	public ArrayList<String[]> searchPlayer(char symbol1, char symbol2, String statistic, double value1, double value2) {
 		ArrayList<String[]> players = new ArrayList<String[]>();
 		return players;
