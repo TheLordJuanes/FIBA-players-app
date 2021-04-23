@@ -1,5 +1,7 @@
 package dataStructures;
 
+import java.util.ArrayList;
+
 public class AVLTree<K extends Comparable<K>, V> implements AVLTreeInterface<K, V>  { // class adapted from GeeksForGeeks https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
 
     // -----------------------------------------------------------------
@@ -43,40 +45,20 @@ public class AVLTree<K extends Comparable<K>, V> implements AVLTreeInterface<K, 
 
     @Override
     public AVLNode<K, V> search(K key) {
-        return searchEqual(root, key);
+        return privateSearch(root, key);
     }
 
-    private AVLNode<K, V> searchEqual(AVLNode<K, V> r, K key) {
+    private AVLNode<K, V> privateSearch(AVLNode<K, V> r, K key) {
         if (r == null || key.compareTo(r.getKey()) == 0)
             return r;
         if (key.compareTo(r.getKey()) < 0)
-            return searchEqual(r.getLeft(), key);
-        return searchEqual(r.getRight(), key);
-    }
-
-    public AVLNode<K, V> searchWith(K key, char symbol) {
-        AVLNode<K, V> nodeSearched = null;
-        switch(symbol){
-            case '=':
-                nodeSearched = searchEqual(root, key);
-                break;
-            case '≠':
-                break;
-            case '>':
-                break;
-            case '<':
-                break;
-            case '≥':
-                break;
-            case '≤':
-                break;
-        }
-        return nodeSearched;
+            return privateSearch(r.getLeft(), key);
+        return privateSearch(r.getRight(), key);
     }
 
     @Override
     public boolean delete(K key) {
-		AVLNode<K, V> toErase = searchEqual(root, key);
+		AVLNode<K, V> toErase = privateSearch(root, key);
         if (toErase != null) {
             privateDelete(toErase);
             return true;

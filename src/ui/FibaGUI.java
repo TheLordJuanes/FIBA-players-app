@@ -513,19 +513,16 @@ public class FibaGUI {
             cbDataType.getItems().add("Defensive");
             cbDataType.getItems().add("Blocks");
             cbSymbol1.getItems().add('=');
-            cbSymbol1.getItems().add('≠');
             cbSymbol1.getItems().add('>');
             cbSymbol1.getItems().add('<');
             cbSymbol1.getItems().add('≥');
             cbSymbol1.getItems().add('≤');
             cbSymbol2.getItems().add('=');
-            cbSymbol2.getItems().add('≠');
             cbSymbol2.getItems().add('>');
             cbSymbol2.getItems().add('<');
             cbSymbol2.getItems().add('≥');
             cbSymbol2.getItems().add('≤');
             cbSymbol3.getItems().add('=');
-            cbSymbol3.getItems().add('≠');
             cbSymbol3.getItems().add('>');
             cbSymbol3.getItems().add('<');
             cbSymbol3.getItems().add('≥');
@@ -566,7 +563,7 @@ public class FibaGUI {
             Character symbol3 = cbSymbol3.getValue();
             if(symbol1!=null){ 
                 double value1 = Double.parseDouble(searchValue1.getText());
-                players = fiba.searchPlayer(symbol1, statistic, value1);
+                players = fiba.searchPlayerIn(symbol1, statistic, value1);
             }else{ 
                 double value2 = Double.parseDouble(searchValue2.getText());
                 double value3 = Double.parseDouble(searchValue3.getText());

@@ -12,8 +12,6 @@ import dataStructures.RBTree;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import com.opencsv.CSVParser;
-import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.CSVWriter;
@@ -166,22 +164,16 @@ public class FIBA {
 	 * @param attribute
 	 * @param value
 	*/
-	public ArrayList<String[]> searchPlayer(char symbol, String statistic, double value) {
+	public ArrayList<String[]> searchPlayerIn(char symbol, String statistic, double value) {
 		ArrayList<String[]> players = new ArrayList<String[]>();
-		AVLNode<Double, ArrayList<Integer>> node1;
-		ArrayList<Integer> positionsPlayers;
 		switch(statistic){
 			case "True Shooting":
-				node1 = playersByTrueShooting.searchWith(value, symbol);
-				positionsPlayers = node1.getValue();
-				for(int i=0; i<positionsPlayers.size(); i++){
-					players.add(allData.get(positionsPlayers.get(i)));
-				}
+				searchWith(symbol, playersByTrueShooting, players, value);
 			case "Usage":
-				playersByUsage.searchWith(value, symbol);
+				searchWith(symbol, playersByUsage, players, value);
 				break;
 			case "Assist":
-				playersByAssist.searchWith(value, symbol);
+				searchWith(symbol, playersByAssist, players, value);
 				break;
 			case "Rebound":
 				playersByRebound.searchWith(value, symbol);
@@ -196,6 +188,46 @@ public class FIBA {
 				break;
 		}
 		return players;
+	}
+
+	private void searchWith(char symbol, AVLTree<Double, ArrayList<Integer>> tree, ArrayList<String[]> players, double value){
+		AVLNode<Double, ArrayList<Integer>> node = tree.search(value);
+		if(node!=null){
+			switch(symbol){
+				case '=':
+					addPlayers(players, node);
+					break;
+				case '>':
+					getValues(players, node.getRight());
+					break;
+				case '<':
+					getValues(players, node.getLeft());
+					break;
+				case '≥':
+					addPlayers(players, node);
+					getValues(players, node.getRight());
+					break;
+				case '≤':
+					addPlayers(players, node);
+					getValues(players, node.getLeft());
+					break;
+			}
+		}
+	}
+
+	private void getValues(ArrayList<String[]> players, AVLNode<Double, ArrayList<Integer>> node){
+		if(node != null){
+			getValues(players, node.getLeft());
+			addPlayers(players, node);
+			getValues(players, node.getRight());
+		}
+	}
+
+	private void addPlayers(ArrayList<String[]> players, AVLNode<Double, ArrayList<Integer>> node){
+		ArrayList<Integer> positionsPlayers = node.getValue();
+			for(int i=0; i<positionsPlayers.size();i++){
+				players.add(allData.get(positionsPlayers.get(i)));
+			}
 	}
 
 	public ArrayList<String[]> searchPlayer(char symbol1, char symbol2, String statistic, double value1, double value2) {
