@@ -14,6 +14,7 @@ import dataStructures.RBTree;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
@@ -83,8 +84,6 @@ public class FIBA {
 			}
 			int number=i+1; //QUITARRR
 			System.out.println("Jugador "+number+" añadido");
-			if(i==3)
-			System.out.println(Arrays.toString(allData.get(i)));
 		}
 		return true;
 	}
@@ -186,7 +185,7 @@ public class FIBA {
 				searchWith(symbol, playersByDefensive, players, value);
 				break;
 			case "Blocks":
-
+				searchWith(symbol, playersByBlocks, players, value);
 				break;
 			default:
 				break;
@@ -411,12 +410,83 @@ public class FIBA {
 				players.retainAll(playersTemp);
 				break;
 			case "Blocks":
-
+				searchWith(symbol1, playersByBlocks, players, value1);
+				searchWith(symbol2, playersByBlocks, playersTemp, value2);
+				players.retainAll(playersTemp);
 				break;
 			default:
 				break;
 		}
 		return players;
+	}
+
+	private void searchWith(char symbol, ArrayList<Double> tree, ArrayList<ArrayList<String>> players, double value){
+		switch(symbol){
+			case '=':
+				for(int i=0; i<tree.size(); i++){
+					double key= tree.get(i);
+					if(key==value){
+						addPlayer(players, i);
+					}
+				}	
+				break;
+			case '>':
+				searchMajorThanInBlocks(tree, players, value);
+				break;
+			case '<':
+				searchMinorThanInBlocks(tree, players, value);
+				break;
+			case '≥':
+				searchMajorEqualThanInBlocks(tree, players, value);
+				break;
+			case '≤':
+				searchMinorEqualThanInBlocks(tree, players, value);
+				break;
+		}
+	}
+
+	private void searchMajorThanInBlocks(ArrayList<Double> tree, ArrayList<ArrayList<String>> players, double value){
+		for(int i=0; i<tree.size(); i++){
+			double key= tree.get(i);
+			if(key>value){
+				addPlayer(players, i);
+			}
+		}
+	}
+
+	private void searchMajorEqualThanInBlocks(ArrayList<Double> tree, ArrayList<ArrayList<String>> players, double value){
+		for(int i=0; i<tree.size(); i++){
+			double key= tree.get(i);
+			if(key>value){
+				addPlayer(players, i);
+			}
+		}
+	}
+
+	private void searchMinorThanInBlocks(ArrayList<Double> tree, ArrayList<ArrayList<String>> players, double value){
+		for(int i=0; i<tree.size(); i++){
+			double key= tree.get(i);
+			if(key<value){
+				addPlayer(players, i);
+			}
+		}
+	}
+
+	private void searchMinorEqualThanInBlocks(ArrayList<Double> tree, ArrayList<ArrayList<String>> players, double value){
+		for(int i=0; i<tree.size(); i++){
+			double key= tree.get(i);
+			if(key<=value){
+				addPlayer(players, i);
+			}
+		}
+	}
+
+	private void addPlayer(ArrayList<ArrayList<String>> players, int index){
+		String[] temp = allData.get(index);
+		ArrayList<String> player = new ArrayList<String>();
+		Collections.addAll(player, temp);
+		player.add(String.valueOf(index));
+		players.add(player);
 	}
 
     /**

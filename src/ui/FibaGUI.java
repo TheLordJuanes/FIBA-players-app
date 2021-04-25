@@ -549,8 +549,22 @@ public class FibaGUI {
                 if(symbol1!=null){
                     double value1 = Double.parseDouble(searchValue1.getText());
                     players = fiba.searchPlayerIn(symbol1, statistic, value1);
-                    System.out.println(players.size());
+                    
                 }else{
+                    switch(symbol2){
+                        case '>':
+                            symbol2='<';
+                            break;
+                        case '<':
+                            symbol2='>';
+                            break;
+                        case '≥':
+                            symbol2='≤';
+                            break;
+                        case '≤':
+                            symbol2='≥';
+                            break;
+                    }
                     double value2 = Double.parseDouble(searchValue2.getText());
                     double value3 = Double.parseDouble(searchValue3.getText());
                     players = fiba.searchPlayer(symbol2, symbol3, statistic, value2, value3);
@@ -565,11 +579,11 @@ public class FibaGUI {
                     textPlayers+="Last Name: "+player.get(1)+"\n";
                     textPlayers+="Team: "+player.get(2)+"\n";
                     textPlayers+="True Shooting: "+player.get(3)+"\n";
-                    textPlayers+="Usage: "+player.get(3)+"\n";
-                    textPlayers+="Assist: "+player.get(4)+"\n";
-                    textPlayers+="Rebound: "+player.get(5)+"\n";
-                    textPlayers+="Defensive: "+player.get(6)+"\n";
-                    textPlayers+="Blocks: "+player.get(7)+"\n\n";
+                    textPlayers+="Usage: "+player.get(4)+"\n";
+                    textPlayers+="Assist: "+player.get(5)+"\n";
+                    textPlayers+="Rebound: "+player.get(6)+"\n";
+                    textPlayers+="Defensive: "+player.get(7)+"\n";
+                    textPlayers+="Blocks: "+player.get(8)+"\n\n";
                 }
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("searchResult.fxml"));
                 fxmlLoader.setController(this);
@@ -577,7 +591,6 @@ public class FibaGUI {
                 primaryStage.setScene(new Scene(root));
                 primaryStage.setTitle("Player search");
                 taSearchResult.setText(textPlayers);
-                System.out.println(textPlayers);
                 primaryStage.show();
             }
         } catch (IOException ioe) {
