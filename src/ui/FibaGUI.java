@@ -17,6 +17,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTreeTableView;
 import com.opencsv.exceptions.CsvException;
 
 import javafx.event.ActionEvent;
@@ -183,7 +184,7 @@ public class FibaGUI {
      */
     public FibaGUI(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        /**
+        
         fiba = new FIBA();
         File file = new File("resources/100.csv"); //QUITARRRRR, CAMBIARRR
         try {
@@ -191,7 +192,7 @@ public class FibaGUI {
         } catch (IOException | CsvException | InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } **/
+        } 
     }
 
     @FXML
@@ -572,17 +573,26 @@ public class FibaGUI {
             if(symbol1!=null){ 
                 double value1 = Double.parseDouble(searchValue1.getText());
                 players = fiba.searchPlayerIn(symbol1, statistic, value1);
+                System.out.println(players.size());
             }else{ 
                 double value2 = Double.parseDouble(searchValue2.getText());
                 double value3 = Double.parseDouble(searchValue3.getText());
                 players = fiba.searchPlayer(symbol2, symbol3, statistic, value2, value3);
             }
             String textPlayers="";
+            //"firstName, lastName, team,trueShooting,usage,assist,rebound,defensive,blocks"
             for(int i=0; i<players.size(); i++){
-                for(int j=0; j<FIBA.NUMBER_OF_STATISTICS+2; j++){
-                    textPlayers+=players.get(i)[j]+" ";
-                }
-                textPlayers+="\n";
+                int number=i+1;
+                textPlayers+="Player "+number+"\n";
+                textPlayers+="First Name: "+players.get(i)[0]+"\n";
+                textPlayers+="Last Name: "+players.get(i)[1]+"\n";
+                textPlayers+="Team: "+players.get(i)[2]+"\n";
+                textPlayers+="True Shooting: "+players.get(i)[3]+"\n";
+                textPlayers+="Usage: "+players.get(i)[3]+"\n";
+                textPlayers+="Assist: "+players.get(i)[4]+"\n";
+                textPlayers+="Rebound: "+players.get(i)[5]+"\n";
+                textPlayers+="Defensive: "+players.get(i)[6]+"\n";
+                textPlayers+="Blocks: "+players.get(i)[7]+"\n\n";
             }
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("searchResult.fxml"));
             fxmlLoader.setController(this);
@@ -590,6 +600,7 @@ public class FibaGUI {
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Player search");
             taSearchResult.setText(textPlayers);
+            System.out.println(textPlayers);
             primaryStage.show();
 
         } catch (IOException ioe) {

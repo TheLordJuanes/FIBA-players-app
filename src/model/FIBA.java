@@ -48,7 +48,6 @@ public class FIBA {
 	private RBTree<Double, ArrayList<Integer>> playersByDefensive;
 	private ArrayList<String[]> allData;
 
-
 	// -----------------------------------------------------------------
 	// Methods
     // -----------------------------------------------------------------
@@ -67,6 +66,7 @@ public class FIBA {
 		allData = new ArrayList<>();
 	}
 
+
 	public boolean addPlayerDataByTextFile(File file) throws IOException, CsvException, InterruptedException {
 		FileReader fr = new FileReader(file);
 		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
@@ -81,7 +81,7 @@ public class FIBA {
 			for (int j = 0; j < trees.length; j++) {
 				trees[j].join();
 			}
-			int number=i+1;
+			int number=i+1; //QUITARRR
 			System.out.println("Jugador "+number+" añadido");
 		}
 		return true;
@@ -171,6 +171,7 @@ public class FIBA {
 		switch(statistic){
 			case "True Shooting":
 				searchWith(symbol, playersByTrueShooting, players, value);
+				break;
 			case "Usage":
 				searchWith(symbol, playersByUsage, players, value);
 				break;
@@ -193,54 +194,52 @@ public class FIBA {
 	}
 
 	private void searchWith(char symbol, AVLTree<Double, ArrayList<Integer>> tree, ArrayList<String[]> players, double value){
-		AVLNode<Double, ArrayList<Integer>> node;
-			switch(symbol){
-				case '=':
+		ArrayList<AVLNode<Double, ArrayList<Integer>>> nodes = new ArrayList<>();
+		int size;
+		switch(symbol){
+			case '=':
+				AVLNode<Double, ArrayList<Integer>> node;
 				node = tree.search(value);
 				if(node!=null){
-					System.out.println(node.getKey());
 					addPlayers(players, node);
 				}
-					break;
-				case '>':
-					node = tree.search(value);
-					if(node!=null){
-						System.out.println(node.getKey());
-						getValues(players, node.getRight());
+				break;
+			case '>':
+				nodes = tree.searchMajor(value);
+				size = nodes.size();
+				if(size!=0){
+					for(int i=0; i<size; i++){
+						addPlayers(players, nodes.get(i));
 					}
-					break;
-				case '<':
-					node = tree.search(value);
-					if(node!=null){
-						System.out.println(node.getKey());
-						getValues(players, node.getLeft());
+				}
+				break;
+			case '<':
+				nodes = tree.searchMinor(value);
+				size = nodes.size();
+				if(size!=0){
+					for(int i=0; i<size; i++){
+						addPlayers(players, nodes.get(i));
 					}
-					break;
-				case '≥':
-					node = tree.search(value);
-					if(node!=null){
-						System.out.println(node.getKey());
-						addPlayers(players, node);
-						getValues(players, node.getRight());
+				}
+				break;
+			case '≥':
+				nodes = tree.searchMajorEqual(value);
+				size = nodes.size();
+				if(size!=0){
+					for(int i=0; i<size; i++){
+						addPlayers(players, nodes.get(i));
 					}
-					break;
-				case '≤':
-					node = tree.search(value);
-					if(node!=null){
-						System.out.println(node.getKey());
-						addPlayers(players, node);
-						getValues(players, node.getLeft());
+				}
+				break;
+			case '≤':
+				nodes = tree.searchMinorEqual(value);
+				size = nodes.size();
+				if(size!=0){
+					for(int i=0; i<size; i++){
+						addPlayers(players, nodes.get(i));
 					}
-					break;
-			}
-		
-	}
-
-	private void getValues(ArrayList<String[]> players, AVLNode<Double, ArrayList<Integer>> node){
-		if(node != null){
-			getValues(players, node.getLeft());
-			addPlayers(players, node);
-			getValues(players, node.getRight());
+				}
+				break;
 		}
 	}
 	
@@ -252,35 +251,52 @@ public class FIBA {
 	}
 
 	private void searchWith(char symbol, BSTree<Double, ArrayList<Integer>> tree, ArrayList<String[]> players, double value){
-		BSTNode<Double, ArrayList<Integer>> node = tree.search(value);
-		if(node!=null){
-			switch(symbol){
-				case '=':
+		ArrayList<BSTNode<Double, ArrayList<Integer>>> nodes = new ArrayList<>();
+		int size;
+		switch(symbol){
+			case '=':
+				BSTNode<Double, ArrayList<Integer>> node;
+				node = tree.search(value);
+				if(node!=null){
 					addPlayers(players, node);
-					break;
-				case '>':
-					getValues(players, node.getRight());
-					break;
-				case '<':
-					getValues(players, node.getLeft());
-					break;
-				case '≥':
-					addPlayers(players, node);
-					getValues(players, node.getRight());
-					break;
-				case '≤':
-					addPlayers(players, node);
-					getValues(players, node.getLeft());
-					break;
-			}
-		}
-	}
-
-	private void getValues(ArrayList<String[]> players, BSTNode<Double, ArrayList<Integer>> node){
-		if(node != null){
-			getValues(players, node.getLeft());
-			addPlayers(players, node);
-			getValues(players, node.getRight());
+				}
+				break;
+			case '>':
+				nodes = tree.searchMajor(value);
+				size = nodes.size();
+				if(size!=0){
+					for(int i=0; i<size; i++){
+						addPlayers(players, nodes.get(i));
+					}
+				}
+				break;
+			case '<':
+				nodes = tree.searchMinor(value);
+				size = nodes.size();
+				if(size!=0){
+					for(int i=0; i<size; i++){
+						addPlayers(players, nodes.get(i));
+					}
+				}
+				break;
+			case '≥':
+				nodes = tree.searchMajorEqual(value);
+				size = nodes.size();
+				if(size!=0){
+					for(int i=0; i<size; i++){
+						addPlayers(players, nodes.get(i));
+					}
+				}
+				break;
+			case '≤':
+				nodes = tree.searchMinorEqual(value);
+				size = nodes.size();
+				if(size!=0){
+					for(int i=0; i<size; i++){
+						addPlayers(players, nodes.get(i));
+					}
+				}
+				break;
 		}
 	}
 
@@ -292,36 +308,54 @@ public class FIBA {
 	}
 
 	private void searchWith(char symbol, RBTree<Double, ArrayList<Integer>> tree, ArrayList<String[]> players, double value){
-		RBNode<Double, ArrayList<Integer>> node = tree.search(value);
-		if(node!=null){
-			switch(symbol){
-				case '=':
+		ArrayList<RBNode<Double, ArrayList<Integer>>> nodes = new ArrayList<>();
+		int size;
+		switch(symbol){
+			case '=':
+				RBNode<Double, ArrayList<Integer>> node;
+				node = tree.search(value);
+				if(node!=null){
 					addPlayers(players, node);
-					break;
-				case '>':
-					getValues(players, node.getRight());
-					break;
-				case '<':
-					getValues(players, node.getLeft());
-					break;
-				case '≥':
-					addPlayers(players, node);
-					getValues(players, node.getRight());
-					break;
-				case '≤':
-					addPlayers(players, node);
-					getValues(players, node.getLeft());
-					break;
-			}
+				}
+				break;
+			case '>':
+				nodes = tree.searchMajor(value);
+				size = nodes.size();
+				if(size!=0){
+					for(int i=0; i<size; i++){
+						addPlayers(players, nodes.get(i));
+					}
+				}
+				break;
+			case '<':
+				nodes = tree.searchMinor(value);
+				size = nodes.size();
+				if(size!=0){
+					for(int i=0; i<size; i++){
+						addPlayers(players, nodes.get(i));
+					}
+				}
+				break;
+			case '≥':
+				nodes = tree.searchMajorEqual(value);
+				size = nodes.size();
+				if(size!=0){
+					for(int i=0; i<size; i++){
+						addPlayers(players, nodes.get(i));
+					}
+				}
+				break;
+			case '≤':
+				nodes = tree.searchMinorEqual(value);
+				size = nodes.size();
+				if(size!=0){
+					for(int i=0; i<size; i++){
+						addPlayers(players, nodes.get(i));
+					}
+				}
+				break;
 		}
-	}
-
-	private void getValues(ArrayList<String[]> players, RBNode<Double, ArrayList<Integer>> node){
-		if(node != null){
-			getValues(players, node.getLeft());
-			addPlayers(players, node);
-			getValues(players, node.getRight());
-		}
+		
 	}
 
 	private void addPlayers(ArrayList<String[]> players, RBNode<Double, ArrayList<Integer>> node){

@@ -1,5 +1,7 @@
 package dataStructures;
 
+import java.util.ArrayList;
+
 public class BSTree<K extends Comparable<K>, V> implements BSTreeInterface<K, V> { // class adapted from https://github.com/Bibeknam/algorithmtutorprograms/blob/11ef340f8c8e60839a9dff395dd52b8752c537a6/data-structures/red-black-trees/RedBlackTree.java#L298
 
     private BSTNode<K, V> root;
@@ -38,6 +40,86 @@ public class BSTree<K extends Comparable<K>, V> implements BSTreeInterface<K, V>
         if (key.compareTo(r.getKey()) < 0)
             return privateSearch(r.getLeft(), key);
         return privateSearch(r.getRight(), key);
+    }
+
+    public ArrayList<BSTNode<K, V>> searchMajor(K key){
+        ArrayList<BSTNode<K, V>> nodes = new ArrayList<>();
+        pSearchMajor(root, key, nodes);
+        return nodes;
+    }
+
+    private void pSearchMajor(BSTNode<K, V> node, K key, ArrayList<BSTNode<K, V>> nodes){
+        if(node!=null){
+            if(node.getKey().compareTo(key)>0){
+                nodes.add(node);
+                addNode(node.getRight(), nodes);
+                pSearchMajor(node.getLeft(), key, nodes);
+            }else {
+                pSearchMajor(node.getRight(), key, nodes);
+            }
+        }
+    }
+
+    public ArrayList<BSTNode<K, V>> searchMajorEqual(K key){
+        ArrayList<BSTNode<K, V>> nodes = new ArrayList<>();
+        pSearchMajorEqual(root, key, nodes);
+        return nodes;
+    }
+
+    private void pSearchMajorEqual(BSTNode<K, V> node, K key, ArrayList<BSTNode<K, V>> nodes){
+        if(node!=null){
+            if((node.getKey().compareTo(key)>0) || (node.getKey().compareTo(key)==0)){
+                nodes.add(node);
+                addNode(node.getRight(), nodes);
+                pSearchMajorEqual(node.getLeft(), key, nodes);
+            }else {
+                pSearchMajorEqual(node.getRight(), key, nodes);
+            }
+        }
+    }
+
+    public ArrayList<BSTNode<K, V>> searchMinor(K key){
+        ArrayList<BSTNode<K, V>> nodes = new ArrayList<>();
+        pSearchMinor(root, key, nodes);
+        return nodes;
+    }
+
+    private void pSearchMinor(BSTNode<K, V> node, K key, ArrayList<BSTNode<K, V>> nodes){
+        if(node!=null){
+            if(node.getKey().compareTo(key)<0){
+                nodes.add(node);
+                addNode(node.getLeft(), nodes);
+                pSearchMinor(node.getRight(), key, nodes);
+            }else {
+                pSearchMinor(node.getLeft(), key, nodes);
+            }
+        }
+    }
+
+    public ArrayList<BSTNode<K, V>> searchMinorEqual(K key){
+        ArrayList<BSTNode<K, V>> nodes = new ArrayList<>();
+        pSearchMinorEqual(root, key, nodes);
+        return nodes;
+    }
+
+    private void pSearchMinorEqual(BSTNode<K, V> node, K key, ArrayList<BSTNode<K, V>> nodes){
+        if(node!=null){
+            if((node.getKey().compareTo(key)<0) || (node.getKey().compareTo(key)==0)){
+                nodes.add(node);
+                addNode(node.getLeft(), nodes);
+                pSearchMinorEqual(node.getRight(), key, nodes);
+            }else {
+                pSearchMinorEqual(node.getLeft(), key, nodes);
+            }
+        }
+    }
+
+    private void addNode(BSTNode<K, V> node, ArrayList<BSTNode<K, V>> nodes){
+        if(node != null){
+			addNode(node.getLeft(), nodes);
+			nodes.add(node);
+			addNode(node.getRight(), nodes);
+		}
     }
 
     @Override

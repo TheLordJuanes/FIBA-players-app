@@ -56,9 +56,85 @@ public class AVLTree<K extends Comparable<K>, V> implements AVLTreeInterface<K, 
         return privateSearch(r.getRight(), key);
     }
 
+    public ArrayList<AVLNode<K, V>> searchMajor(K key){
+        ArrayList<AVLNode<K, V>> nodes = new ArrayList<>();
+        pSearchMajor(root, key, nodes);
+        return nodes;
+    }
+
+    private void pSearchMajor(AVLNode<K, V> node, K key, ArrayList<AVLNode<K, V>> nodes){
+        if(node!=null){
+            if(node.getKey().compareTo(key)>0){
+                nodes.add(node);
+                addNode(node.getRight(), nodes);
+                pSearchMajor(node.getLeft(), key, nodes);
+            }else {
+                pSearchMajor(node.getRight(), key, nodes);
+            }
+        }
+    } 
+
+    public ArrayList<AVLNode<K, V>> searchMajorEqual(K key){
+        ArrayList<AVLNode<K, V>> nodes = new ArrayList<>();
+        pSearchMajorEqual(root, key, nodes);
+        return nodes;
+    }
+
+    private void pSearchMajorEqual(AVLNode<K, V> node, K key, ArrayList<AVLNode<K, V>> nodes){
+        if(node!=null){
+            if((node.getKey().compareTo(key)>0) || (node.getKey().compareTo(key)==0)){
+                nodes.add(node);
+                addNode(node.getRight(), nodes);
+                pSearchMajorEqual(node.getLeft(), key, nodes);
+            }else {
+                pSearchMajorEqual(node.getRight(), key, nodes);
+            }
+        }
+    }
     
+    public ArrayList<AVLNode<K, V>> searchMinor(K key){
+        ArrayList<AVLNode<K, V>> nodes = new ArrayList<>();
+        pSearchMinor(root, key, nodes);
+        return nodes;
+    }
+
+    private void pSearchMinor(AVLNode<K, V> node, K key, ArrayList<AVLNode<K, V>> nodes){
+        if(node!=null){
+            if(node.getKey().compareTo(key)<0){
+                nodes.add(node);
+                addNode(node.getLeft(), nodes);
+                pSearchMinor(node.getRight(), key, nodes);
+            }else {
+                pSearchMinor(node.getLeft(), key, nodes);
+            }
+        }
+    } 
+
+    public ArrayList<AVLNode<K, V>> searchMinorEqual(K key){
+        ArrayList<AVLNode<K, V>> nodes = new ArrayList<>();
+        pSearchMinorEqual(root, key, nodes);
+        return nodes;
+    }
+
+    private void pSearchMinorEqual(AVLNode<K, V> node, K key, ArrayList<AVLNode<K, V>> nodes){
+        if(node!=null){
+            if((node.getKey().compareTo(key)<0) || (node.getKey().compareTo(key)==0)){
+                nodes.add(node);
+                addNode(node.getLeft(), nodes);
+                pSearchMinorEqual(node.getRight(), key, nodes);
+            }else {
+                pSearchMinorEqual(node.getLeft(), key, nodes);
+            }
+        }
+    } 
     
-    
+    private void addNode(AVLNode<K, V> node, ArrayList<AVLNode<K, V>> nodes){
+        if(node != null){
+			addNode(node.getLeft(), nodes);
+			nodes.add(node);
+			addNode(node.getRight(), nodes);
+		}
+    }
 
     @Override
     public boolean delete(K key) {
