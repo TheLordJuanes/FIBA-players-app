@@ -1,12 +1,14 @@
 package dataStructures;
 
-public interface BSTreeInterface<K extends Comparable<K>, V> {
+import java.util.List;
+
+public interface BSTreeInterface<K extends Comparable<K>, V extends List<E>, E extends Number> {
 
     public void insert(BSTNode<K, V> node);
 
     public BSTNode<K, V> search(K key);
 
-    public boolean delete(K key);
+    public boolean delete(K key,E expected);
 
     public String preOrder(BSTNode<K,V> root);
 

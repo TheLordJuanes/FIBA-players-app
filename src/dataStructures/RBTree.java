@@ -1,10 +1,10 @@
 package dataStructures;
 
 import java.util.ArrayList;
-
+import java.util.List;
 import dataStructures.RBNode.COLOR;
 
-public class RBTree<K extends Comparable<K>, V> implements RBTreeInterface<K, V> { // class adapted from https://github.com/Bibeknam/algorithmtutorprograms/blob/11ef340f8c8e60839a9dff395dd52b8752c537a6/data-structures/red-black-trees/RedBlackTree.java#L298
+public class RBTree<K extends Comparable<K>, V extends List<E>, E extends Number> implements RBTreeInterface<K, V,E> { // class adapted from https://github.com/Bibeknam/algorithmtutorprograms/blob/11ef340f8c8e60839a9dff395dd52b8752c537a6/data-structures/red-black-trees/RedBlackTree.java#L298
 
     // -----------------------------------------------------------------
     // Relations
@@ -71,7 +71,7 @@ public class RBTree<K extends Comparable<K>, V> implements RBTreeInterface<K, V>
                 pSearchMajor(node.getRight(), key, nodes);
             }
         }
-    } 
+    }
 
     public ArrayList<RBNode<K, V>> searchMajorEqual(K key){
         ArrayList<RBNode<K, V>> nodes = new ArrayList<>();
@@ -107,7 +107,7 @@ public class RBTree<K extends Comparable<K>, V> implements RBTreeInterface<K, V>
                 pSearchMinor(node.getLeft(), key, nodes);
             }
         }
-    } 
+    }
 
     public ArrayList<RBNode<K, V>> searchMinorEqual(K key){
         ArrayList<RBNode<K, V>> nodes = new ArrayList<>();
@@ -125,7 +125,7 @@ public class RBTree<K extends Comparable<K>, V> implements RBTreeInterface<K, V>
                 pSearchMinorEqual(node.getLeft(), key, nodes);
             }
         }
-    } 
+    }
 
     private void addNode(RBNode<K, V> node, ArrayList<RBNode<K, V>> nodes){
         if(node != null){

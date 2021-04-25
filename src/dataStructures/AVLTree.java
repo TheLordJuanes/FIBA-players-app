@@ -1,8 +1,9 @@
 package dataStructures;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class AVLTree<K extends Comparable<K>, V> implements AVLTreeInterface<K, V>  { // class adapted from GeeksForGeeks https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
+public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Number & Comparable<E>> implements AVLTreeInterface<K,V,E>  { // class adapted from GeeksForGeeks https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
 
     // -----------------------------------------------------------------
     // Relations
@@ -72,7 +73,7 @@ public class AVLTree<K extends Comparable<K>, V> implements AVLTreeInterface<K, 
                 pSearchMajor(node.getRight(), key, nodes);
             }
         }
-    } 
+    }
 
     public ArrayList<AVLNode<K, V>> searchMajorEqual(K key){
         ArrayList<AVLNode<K, V>> nodes = new ArrayList<>();
@@ -91,7 +92,7 @@ public class AVLTree<K extends Comparable<K>, V> implements AVLTreeInterface<K, 
             }
         }
     }
-    
+
     public ArrayList<AVLNode<K, V>> searchMinor(K key){
         ArrayList<AVLNode<K, V>> nodes = new ArrayList<>();
         pSearchMinor(root, key, nodes);
@@ -108,7 +109,7 @@ public class AVLTree<K extends Comparable<K>, V> implements AVLTreeInterface<K, 
                 pSearchMinor(node.getLeft(), key, nodes);
             }
         }
-    } 
+    }
 
     public ArrayList<AVLNode<K, V>> searchMinorEqual(K key){
         ArrayList<AVLNode<K, V>> nodes = new ArrayList<>();
@@ -126,8 +127,8 @@ public class AVLTree<K extends Comparable<K>, V> implements AVLTreeInterface<K, 
                 pSearchMinorEqual(node.getLeft(), key, nodes);
             }
         }
-    } 
-    
+    }
+
     private void addNode(AVLNode<K, V> node, ArrayList<AVLNode<K, V>> nodes){
         if(node != null){
 			addNode(node.getLeft(), nodes);
@@ -137,14 +138,26 @@ public class AVLTree<K extends Comparable<K>, V> implements AVLTreeInterface<K, 
     }
 
     @Override
-    public boolean delete(K key) {
+    public boolean delete(K key,E expected) {
 		AVLNode<K, V> toErase = privateSearch(root, key);
         if (toErase != null) {
-            privateDelete(toErase);
+            V positions = toErase.getValue();
+            int length =positions.size();
+            if(length>1){
+                for(int i=0; i<length;i++){
+                    if(positions.get(i).compareTo(expected)==0){
+                        positions.remove(i);
+                    }
+                }
+            }else{
+                privateDelete(toErase);
+            }
             return true;
         }
         return false;
     }
+
+
 
     private void privateDelete(AVLNode<K, V> current) {
         if (current.getLeft() == null && current.getRight() == null) {

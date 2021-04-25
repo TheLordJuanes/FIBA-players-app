@@ -72,7 +72,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <JFXTextField fx:id="txtAge" blendMode="ADD" focusColor="#00b6ff" layoutX="52.0" layoutY="144.0" prefHeight="48.0" prefWidth="227.0" promptText="Age" stylesheets="@style.css" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtLastName" blendMode="ADD" focusColor="#00b6ff" layoutX="52.0" layoutY="144.0" prefHeight="48.0" prefWidth="227.0" promptText="Last Name" stylesheets="@style.css" unFocusColor="WHITE">
          <font>
             <Font name="Avenir Next Condensed Bold" size="22.0" />
          </font>
@@ -80,7 +80,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <JFXTextField fx:id="txtID" blendMode="ADD" focusColor="#00b6ff" layoutX="52.0" layoutY="207.0" prefHeight="48.0" prefWidth="227.0" promptText="ID" stylesheets="@style.css" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtAge" blendMode="ADD" focusColor="#00b6ff" layoutX="52.0" layoutY="207.0" prefHeight="48.0" prefWidth="227.0" promptText="Age" stylesheets="@style.css" unFocusColor="WHITE">
          <font>
             <Font name="Avenir Next Condensed Bold" size="22.0" />
          </font>

@@ -1,8 +1,9 @@
 package dataStructures;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class BSTree<K extends Comparable<K>, V> implements BSTreeInterface<K, V> { // class adapted from https://github.com/Bibeknam/algorithmtutorprograms/blob/11ef340f8c8e60839a9dff395dd52b8752c537a6/data-structures/red-black-trees/RedBlackTree.java#L298
+public class BSTree<K extends Comparable<K>,  V extends List<E>, E extends Number & Comparable<E>> implements BSTreeInterface<K, V,E> { // class adapted from https://github.com/Bibeknam/algorithmtutorprograms/blob/11ef340f8c8e60839a9dff395dd52b8752c537a6/data-structures/red-black-trees/RedBlackTree.java#L298
 
     private BSTNode<K, V> root;
 
@@ -123,10 +124,20 @@ public class BSTree<K extends Comparable<K>, V> implements BSTreeInterface<K, V>
     }
 
     @Override
-    public boolean delete(K key) {
+    public boolean delete(K key,E expected) {
 		BSTNode<K,V> toErase = privateSearch(root, key);
         if (toErase != null) {
-            privateDelete(toErase);
+            V positions = toErase.getValue();
+            int length =positions.size();
+            if(length>1){
+                for(int i=0; i<length;i++){
+                    if(positions.get(i).compareTo(expected)==0){
+                        positions.remove(i);
+                    }
+                }
+            }else{
+                privateDelete(toErase);
+            }
             return true;
         }
         return false;
