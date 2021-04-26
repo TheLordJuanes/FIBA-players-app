@@ -12,9 +12,7 @@ import dataStructures.BSTree;
 import dataStructures.RBNode;
 import dataStructures.RBTree;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
@@ -145,9 +143,10 @@ public class FIBA {
 	 *
 	 * @param id
 	 * @throws InterruptedException
+	 * @throws IOException
 	*/
 
-	public boolean deletePlayer(ArrayList<ArrayList<String>> players,int toErase) throws InterruptedException {
+	public boolean deletePlayer(ArrayList<ArrayList<String>> players,int toErase) throws InterruptedException, IOException {
 		Integer position = Integer.parseInt(players.get(toErase).get(players.size()-1));
 		DeletePlayerThread[] trees = new DeletePlayerThread[NUMBER_OF_STATISTICS];
 		for (int i = 0; i < trees.length; i++) {
@@ -157,9 +156,14 @@ public class FIBA {
 		for (int i = 0; i < trees.length; i++){
 			trees[i].join();
 		}
+		allData.set(position,null);
+		FileWriter fw = new FileWriter(FILE_NAME);
+		CSVWriter csvwriter= new CSVWriter(fw);
+		csvwriter.writeAll(allData);
+		csvwriter.close();
 		return true;
 	}
-	//""
+	
 
 	/**
 	 *
@@ -186,8 +190,6 @@ public class FIBA {
 				break;
 			case "Blocks":
 				searchWith(symbol, playersByBlocks, players, value);
-				break;
-			default:
 				break;
 		}
 		return players;
@@ -428,7 +430,7 @@ public class FIBA {
 					if(key==value){
 						addPlayer(players, i);
 					}
-				}	
+				}
 				break;
 			case '>':
 				searchMajorThanInBlocks(tree, players, value);

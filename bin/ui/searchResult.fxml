@@ -22,8 +22,9 @@
          </font>
          <cursor>
             <Cursor fx:constant="TEXT" />
-         </cursor></JFXTextArea>
-      <JFXButton alignment="CENTER" blendMode="OVERLAY" contentDisplay="CENTER" layoutX="386.0" layoutY="170.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#goBackToMenu" prefHeight="48.0" prefWidth="185.0" style="-fx-background-radius: 5em; -fx-background-color: YELLOW;" text="Back to Menu" textAlignment="CENTER">
+         </cursor>
+      </JFXTextArea>
+      <JFXButton alignment="CENTER" blendMode="OVERLAY" contentDisplay="CENTER" layoutX="388.0" layoutY="113.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#goBackToMenu" prefHeight="48.0" prefWidth="185.0" style="-fx-background-radius: 5em; -fx-background-color: YELLOW;" text="Return to Menu" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="20.0" />
          </font>
@@ -32,6 +33,27 @@
          </cursor>
       </JFXButton>
       <Label layoutX="158.0" layoutY="14.0" prefHeight="32.0" prefWidth="78.0" text="Results" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="22.0" />
+         </font>
+      </Label>
+      <JFXButton alignment="CENTER" blendMode="OVERLAY" contentDisplay="CENTER" layoutX="388.0" layoutY="224.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#deleteAPlayer" prefHeight="48.0" prefWidth="185.0" style="-fx-background-radius: 5em; -fx-background-color: YELLOW;" text="Delete player" textAlignment="CENTER">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton alignment="CENTER" blendMode="OVERLAY" contentDisplay="CENTER" layoutX="388.0" layoutY="168.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#modifyAPlayer" prefHeight="48.0" prefWidth="185.0" style="-fx-background-radius: 5em; -fx-background-color: YELLOW;" text="Modify player" textAlignment="CENTER">
+         <font>
+            <Font name="Avenir Next Condensed Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label fx:id="lbSearchTime" blendMode="LIGHTEN" layoutX="364.0" layoutY="346.0" prefHeight="32.0" prefWidth="230.0" textFill="WHITE">
          <font>
             <Font name="Avenir Next Condensed Bold" size="22.0" />
          </font>

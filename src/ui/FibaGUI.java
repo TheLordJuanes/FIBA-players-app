@@ -6,8 +6,10 @@
 */
 package ui;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import com.jfoenix.controls.JFXButton;
@@ -401,7 +403,7 @@ public class FibaGUI {
                 @Override
                 public void handle(ActionEvent event) {
                     stage.close();
-                    //textFileDeletion(event);
+                    textFileDeletion(event);
                 }
             });
         } catch (IOException ioe) {
@@ -423,7 +425,7 @@ public class FibaGUI {
         }
     }
 
-    /**
+    
     @FXML
     public void textFileDeletion(ActionEvent event) {
         showInformationAlert("Text Input Format", "The players' IDs must be one per line as follows:", "ID1\nID2\nID3\n...");
@@ -439,10 +441,10 @@ public class FibaGUI {
                 String line = br.readLine();
                 boolean deleted1 = true;
                 while (line != null) {
-                    boolean deleted2 = fiba.deletePlayer(line);
-                    if (!deleted2) {
+                    //boolean deleted2 = fiba.deletePlayer(line);
+                    //if (!deleted2) {
                         deleted1 = false;
-                    }
+                    //}
                     line = br.readLine();
                 }
                 br.close();
@@ -456,31 +458,31 @@ public class FibaGUI {
                 showErrorAlert("Error", "Something went wrong", "There were problems reading the file");
             } catch (NumberFormatException nfe) {
                 showErrorAlert("Error", "Something went wrong", "The data in the file isn't correct");
-            } catch (InterruptedException e) {
-                showErrorAlert("Error", null, "Something went wrong");
+           // } catch (InterruptedException e) {
+             //   showErrorAlert("Error", null, "Something went wrong");
             }
         } else
             showInformationAlert("Missing File", null, "No file was selected ");
     }
-    **/
+    
 
-    /**
+    
     @FXML
     public void deletePlayer(ActionEvent event) {
-        boolean deleted;
+       // boolean deleted;
         try {
-            deleted = fiba.deletePlayer(txtID.getText());
-            if (deleted)
+           // deleted = fiba.deletePlayer(txtID.getText());
+           // if (deleted)
                 lbDeletePlayer.setText("Player successfully deleted!");
-            else
+            //else
                 lbDeletePlayer.setText("Player doesn't exist!");
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        //} catch (InterruptedException e) {
+         //   e.printStackTrace();
         }
     }
-    **/
+    
 
     @FXML
     public void searchAPlayer(ActionEvent event) {
@@ -510,6 +512,30 @@ public class FibaGUI {
             cbSymbol3.getItems().add('≥');
             cbSymbol3.getItems().add('≤');
             primaryStage.show();
+
+            cbDataType.getSelectionModel().selectedItemProperty().addListener(
+                (v, oldValue, newValue) -> {
+                switch(newValue){
+                    case "True Shooting":
+                        initialLettersDataType.setText("TS");
+                        break;
+                    case "Usage":
+                        initialLettersDataType.setText("Usg");
+                        break;
+                    case "Assist":
+                        initialLettersDataType.setText("AST");
+                        break;
+                    case "Rebound":
+                        initialLettersDataType.setText("TRB");
+                        break;
+                    case "Defensive":
+                        initialLettersDataType.setText("DRB");
+                        break;
+                    case "Blocks":
+                        initialLettersDataType.setText("BLK");
+                        break;
+                }});
+
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
