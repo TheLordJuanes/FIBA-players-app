@@ -7,5 +7,7 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "resources/opencsv-5.4.jar"
-    ]
+    ],
+    "liveshare.allowGuestDebugControl": true,
+    "liveshare.allowGuestTaskControl": true
 }

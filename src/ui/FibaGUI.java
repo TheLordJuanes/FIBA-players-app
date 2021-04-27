@@ -6,10 +6,9 @@
 */
 package ui;
 
-import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import com.jfoenix.controls.JFXButton;
@@ -137,10 +136,19 @@ public class FibaGUI {
     private JFXComboBox<String> cbDataType;
 
     @FXML
+    private JFXComboBox<String> cbDataTypeMod;
+
+    @FXML
     private JFXTextField txtDataValue;
 
     @FXML
     private Label lbModifyPlayer;
+
+    @FXML
+    private JFXComboBox<String> cbModifyPlayer;
+
+    @FXML
+    private JFXComboBox<String> cbDeletePlayer;
 
     @FXML
     private Label lbDeletePlayer;
@@ -164,14 +172,15 @@ public class FibaGUI {
      */
     public FibaGUI(Stage primaryStage) {
         this.primaryStage = primaryStage;
-
+        
         fiba = new FIBA();
+        /** 
         File file = new File("resources/100.csv"); //QUITARRRRR, CAMBIARRR
         try {
             fiba.addPlayerDataByTextFile(file);
         } catch (IOException | CsvException | InterruptedException e) {
             e.printStackTrace();
-        }
+        }**/
     }
 
     @FXML
@@ -263,7 +272,7 @@ public class FibaGUI {
 
     @FXML
     public void textFileAddition(ActionEvent event) {
-        showInformationAlert("Text Input Format", "The data of the players must be in this order separated by a coma \",\"", "firstName, lastName, team,trueShooting,usage,assist,rebound,defensive,blocks");
+        showWarningAlert("Text Input Format", "The data of the players must be in this order separated by a coma \",\"", "firstName, lastName, team,trueShooting,usage,assist,rebound,defensive,blocks");
         Stage stage = new Stage();
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Csv files", "*.csv"));
@@ -313,29 +322,23 @@ public class FibaGUI {
     @FXML
     public void modifyAPlayer(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modificationForm.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modify-player.fxml"));
             fxmlLoader.setController(this);
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
+            cbDataTypeMod.getItems().add("Name");
+            cbDataTypeMod.getItems().add("Last Name");
+            //cbDataTypeMod.getItems().add("Age");
+            cbDataTypeMod.getItems().add("Team");
+            cbDataTypeMod.getItems().add("True Shooting");
+            cbDataTypeMod.getItems().add("Usage");
+            cbDataTypeMod.getItems().add("Assist");
+            cbDataTypeMod.getItems().add("Rebound");
+            cbDataTypeMod.getItems().add("Defensive");
+            cbDataTypeMod.getItems().add("Blocks");
             stage.setScene(new Scene(root));
             stage.setTitle("Player modification form");
             stage.show();
-            btnPlatform.setOnAction(new EventHandler<ActionEvent>() {
-
-                @Override
-                public void handle(ActionEvent event) {
-                    stage.close();
-                    platformModification(event);
-                }
-            });
-            btnTextFile.setOnAction(new EventHandler<ActionEvent>() {
-
-                @Override
-                public void handle(ActionEvent event) {
-                    stage.close();
-                    textFileModification(event);
-                }
-            });
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -355,57 +358,43 @@ public class FibaGUI {
         }
     }
 
-    @FXML
+    /*@FXML
     public void textFileModification(ActionEvent event) {
 
-    }
-    /*
+    }*/
+    
     @FXML
-    public void modifyPlayer(ActionEvent event) {
+    public void modifyPlayer(ActionEvent event) throws IOException {
         int valueI = 0;
-        double valueD = 0;
         String valueS = "";
-        if (cbDataType.getValue().equals("Age"))
+        if (cbDataTypeMod.getValue().equals("Age"))
             valueI = Integer.valueOf(txtDataValue.getText());
-        else if (cbDataType.getValue().equals("Name") || cbDataType.getValue().equals("Team"))
+        else 
             valueS = txtDataValue.getText();
-        else {
-            valueD = Double.valueOf(txtDataValue.getText());
+        int player=0;
+        for(int i=0; i<cbModifyPlayer.getItems().size();i++){
+            if(cbModifyPlayer.getItems().get(i).equals(cbModifyPlayer.getValue())){
+                player=i;
+                break;
+            }
         }
-        boolean modified = fiba.modifyPlayerData(cbDataType.getValue(), valueD, valueS, valueI,
-                Integer.valueOf(txtID.getText()));
+        boolean modified = fiba.modifyPlayerData(cbDataType.getValue(), valueS, valueI,player);
         if (modified)
             lbModifyPlayer.setText("Player successfully modified!");
         else
             lbModifyPlayer.setText("Player doesn't exist!");
     }
-    */
+    
     @FXML
     public void deleteAPlayer(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("deletionForm.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("delete-player.fxml"));
             fxmlLoader.setController(this);
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Player elimination form");
+            stage.setTitle("Player elimination");
             stage.show();
-            btnPlatform.setOnAction(new EventHandler<ActionEvent>() {
-
-                @Override
-                public void handle(ActionEvent event) {
-                    stage.close();
-                    platformDeletion(event);
-                }
-            });
-            btnTextFile.setOnAction(new EventHandler<ActionEvent>() {
-
-                @Override
-                public void handle(ActionEvent event) {
-                    stage.close();
-                    textFileDeletion(event);
-                }
-            });
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -425,7 +414,7 @@ public class FibaGUI {
         }
     }
 
-    
+    /*
     @FXML
     public void textFileDeletion(ActionEvent event) {
         showInformationAlert("Text Input Format", "The players' IDs must be one per line as follows:", "ID1\nID2\nID3\n...");
@@ -464,9 +453,9 @@ public class FibaGUI {
         } else
             showInformationAlert("Missing File", null, "No file was selected ");
     }
-    
+    */
 
-    
+
     @FXML
     public void deletePlayer(ActionEvent event) {
        // boolean deleted;
@@ -482,7 +471,7 @@ public class FibaGUI {
          //   e.printStackTrace();
         }
     }
-    
+
 
     @FXML
     public void searchAPlayer(ActionEvent event) {
@@ -575,7 +564,7 @@ public class FibaGUI {
                 if(symbol1!=null){
                     double value1 = Double.parseDouble(searchValue1.getText());
                     players = fiba.searchPlayerIn(symbol1, statistic, value1);
-                    
+
                 }else{
                     switch(symbol2){
                         case '>':
@@ -618,6 +607,11 @@ public class FibaGUI {
                 primaryStage.setTitle("Player search");
                 taSearchResult.setText(textPlayers);
                 primaryStage.show();
+                for(int i=0;i<players.size();i++){
+                cbDeletePlayer.getItems().add("Player" +(i+1));
+                }
+                cbModifyPlayer.setItems(cbDeletePlayer.getItems());
+                fiba.setCurrentPlayers(players);
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();

@@ -23,7 +23,15 @@ public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Numbe
     }
 
     @Override
-    public void insert(AVLNode<K, V> node) {
+    public void insert(AVLNode<K, V> node, E index) {
+        AVLNode<K, V> node1 = search(node.getKey());
+        if (node1 == null)
+            privateInsert(node);
+        else
+            node1.getValue().add(index);
+    }
+
+    private void privateInsert(AVLNode<K, V> node) {
         AVLNode<K, V> y = null;
         AVLNode<K, V> x = root;
         while (x != null) {
@@ -207,7 +215,7 @@ public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Numbe
         }
     }
 
-    public void rebalance(AVLNode<K, V> node) {
+    private void rebalance(AVLNode<K, V> node) {
         node.setHeight(1 + maxHeight(height(node.getLeft()), height(node.getRight())));
         int balance = getBalance(node);
         if (balance > 1 && node.getKey().compareTo(node.getLeft().getKey()) < 0)
@@ -295,36 +303,36 @@ public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Numbe
     @Override
     public String preOrder(AVLNode<K, V> node) {
         String keys = "";
-        if (node != null) {
-            keys += node.getKey() + " ";
-            keys += preOrder(node.getLeft());
-            keys += preOrder(node.getRight());
+        if (node == null) {
             return keys;
         }
-        return null;
+        keys += node.getKey() + " ";
+        keys += preOrder(node.getLeft());
+        keys += preOrder(node.getRight());
+        return keys;
     }
 
     @Override
     public String inOrder(AVLNode<K, V> node) {
         String keys = "";
-        if (node != null) {
-            keys += inOrder(node.getLeft());
-            keys += node.getKey() + " ";
-            keys += inOrder(node.getRight());
+        if (node == null) {
             return keys;
         }
-        return null;
+        keys += inOrder(node.getLeft());
+        keys += node.getKey() + " ";
+        keys += inOrder(node.getRight());
+        return keys;
     }
 
     @Override
     public String postOrder(AVLNode<K, V> node) {
         String keys = "";
-		if (node != null) {
-			keys += postOrder(node.getLeft());
-			keys += postOrder(node.getRight());
-			keys += node.getValue().toString() + " ";
+        if (node == null) {
             return keys;
-		}
-        return null;
-	}
+        }
+        keys += postOrder(node.getLeft());
+        keys += postOrder(node.getRight());
+        keys += node.getKey() + " ";
+        return keys;
+    }
 }

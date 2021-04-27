@@ -51,13 +51,6 @@
             <Font name="Avenir Next Condensed Bold" size="22.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtID" blendMode="ADD" focusColor="ORANGE" layoutX="44.0" layoutY="77.0" prefHeight="39.0" prefWidth="194.0" promptText="Player ID" stylesheets="@style.css" unFocusColor="#0080ff">
-         <font>
-            <Font name="Avenir Next Condensed Bold" size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </JFXTextField>
+      <JFXComboBox fx:id="cbModifyPlayer" focusColor="ORANGE" labelFloat="true" layoutX="44.0" layoutY="82.0" prefHeight="39.0" prefWidth="194.0" promptText="Choose player" stylesheets="@style.css" unFocusColor="#389bff" />
    </children>
 </AnchorPane>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -41,13 +41,6 @@
             <Font name="Avenir Next Condensed Bold" size="22.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtDataValue" blendMode="ADD" focusColor="ORANGE" layoutX="481.0" layoutY="105.0" prefHeight="39.0" prefWidth="194.0" promptText="Player ID" stylesheets="@style.css" unFocusColor="#ff9696">
-         <font>
-            <Font name="Avenir Next Condensed Bold" size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </JFXTextField>
+      <JFXComboBox fx:id="cbDeletePlayer" focusColor="ORANGE" layoutX="481.0" layoutY="114.0" prefHeight="31.0" prefWidth="194.0" promptText="Player to erase" stylesheets="@style.css" unFocusColor="#ff9696" />
    </children>
 </AnchorPane>

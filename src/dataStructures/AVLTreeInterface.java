@@ -1,8 +1,10 @@
 package dataStructures;
+
 import java.util.List;
+
 public interface AVLTreeInterface<K extends Comparable<K>, V extends List<E>, E extends Number> {
 
-    public void insert(AVLNode<K,V> node);
+    public void insert(AVLNode<K,V> node, E index);
 
     public AVLNode<K,V> search(K key);
 

@@ -43,10 +43,16 @@ public class FIBA {
 	private AVLTree<Double, ArrayList<Integer>, Integer> playersByUsage;
 	private AVLTree<Double, ArrayList<Integer>, Integer> playersByAssist;
 	private BSTree<Double, ArrayList<Integer>,Integer> playersByRebound;
-	private ArrayList<Double> playersByBlocks;
 	private RBTree<Double, ArrayList<Integer>,Integer> playersByDefensive;
-	private ArrayList<String[]> allData;
+	
 
+	// -----------------------------------------------------------------
+	// Attributes
+    // -----------------------------------------------------------------
+	
+	private ArrayList<String[]> allData;
+	private ArrayList<Double> playersByBlocks;
+	private ArrayList<ArrayList<String>> currentPlayers;
 	// -----------------------------------------------------------------
 	// Methods
     // -----------------------------------------------------------------
@@ -65,16 +71,57 @@ public class FIBA {
 		allData = new ArrayList<>();
 	}
 
+	public ArrayList<ArrayList<String>> getCurrentPlayers() {
+		return currentPlayers;
+	}
+
+
+	public void setCurrentPlayers(ArrayList<ArrayList<String>> currentPlayers) {
+		this.currentPlayers = currentPlayers;
+	}
 
 	public boolean addPlayerDataByTextFile(File file) throws IOException, CsvException, InterruptedException {
+		File dataFile = new File(FILE_NAME);
+		if(!dataFile.exists()){
+			dataFile.createNewFile();
+		}
 		FileReader fr = new FileReader(file);
 		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
-		allData = new ArrayList<>((LinkedList<String[]>) csvReader.readAll());
-		System.out.println(allData.size());
-		for(int i=0; i<allData.size(); i++){
+		FileWriter fw = new FileWriter(FILE_NAME, true);
+		CSVWriter csvwriter= new CSVWriter(fw);
+		if(allData.size()==0){
+			allData = new ArrayList<>((LinkedList<String[]>) csvReader.readAll());
+			String[] temp={"firstname","lastname","team","trueShooting","usage","assist","rebound","defensive","blocks"};
+			csvwriter.writeNext(temp);
+			for(int i=0; i<allData.size(); i++){
+				csvwriter.writeNext(allData.get(i));
+				AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
+				for (int j = 0; j < trees.length; j++) {
+					trees[j] = new AddPlayerThread(this, allData.get(i), j, i);
+					trees[j].start();
+				}
+				for (int j = 0; j < trees.length; j++) {
+					trees[j].join();
+				}
+				int number=i+1; //QUITARRR
+				System.out.println("Jugador "+number+" añadido");
+			}
+		}else{
+			ArrayList<String[]> newData = new ArrayList<>((LinkedList<String[]>) csvReader.readAll());;
+			int begin = allData.size();
+			privateAddPlayerDataByTextFile(csvwriter, newData, begin);
+		}
+		csvwriter.close();
+		return true;
+	}
+
+	private boolean privateAddPlayerDataByTextFile(CSVWriter writer, ArrayList<String[]> newData, int begin) throws InterruptedException{
+		for(int i=0; i<newData.size(); i++){
+			writer.writeNext(newData.get(i));
+			allData.add(newData.get(i));
 			AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
 			for (int j = 0; j < trees.length; j++) {
-				trees[j] = new AddPlayerThread(this, allData.get(i), j, i);
+				trees[j] = new AddPlayerThread(this, newData.get(i), j, i+begin);
 				trees[j].start();
 			}
 			for (int j = 0; j < trees.length; j++) {
@@ -83,7 +130,7 @@ public class FIBA {
 			int number=i+1; //QUITARRR
 			System.out.println("Jugador "+number+" añadido");
 		}
-		return true;
+		return true; //CAMBIARRRR
 	}
 
 	/**
@@ -134,9 +181,46 @@ public class FIBA {
 	 * @param attribute
 	 * @param valueD
 	 * @param valueS
+	 * @throws IOException
 	*/
-	public boolean modifyPlayerData(String attribute, double valueD, String valueS, int valueI, int id) {
-		return false;
+	public boolean modifyPlayerData(String attribute,String valueS, int valueI, int player) throws IOException {
+		Integer position = Integer.parseInt(currentPlayers.get(player).get(currentPlayers.size()-1));
+		switch(attribute){
+			case "Name":
+			allData.get(position)[0]=valueS;
+			break;
+			case "Last Name":
+			allData.get(position)[1]=valueS;
+			break;
+            case "Team":
+			allData.get(position)[2]=valueS;
+			break;
+			case "True Shooting":
+			allData.get(position)[3]=valueS;
+			break;
+			case "Usage":
+			allData.get(position)[4]=valueS;
+			break;
+			case "Assist":
+			allData.get(position)[5]=valueS;
+			break;
+			case "Rebound":
+			allData.get(position)[6]=valueS;
+			break;
+			case "Defensive":
+			allData.get(position)[7]=valueS;
+			break;
+			case "Blocks":
+			allData.get(position)[8]=valueS;
+			break;
+			default:
+			return false;
+		}
+		FileWriter fw = new FileWriter(FILE_NAME);
+		CSVWriter csvwriter= new CSVWriter(fw);
+		csvwriter.writeAll(allData);
+		csvwriter.close();
+		return true;
 	}
 
 	/**

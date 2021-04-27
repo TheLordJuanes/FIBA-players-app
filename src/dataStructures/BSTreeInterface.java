@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface BSTreeInterface<K extends Comparable<K>, V extends List<E>, E extends Number> {
 
-    public void insert(BSTNode<K, V> node);
+    public void insert(BSTNode<K, V> node, E index);
 
     public BSTNode<K, V> search(K key);
 

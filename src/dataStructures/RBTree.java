@@ -24,7 +24,11 @@ public class RBTree<K extends Comparable<K>, V extends List<E>, E extends Number
     }
 
     @Override
-    public void insert(RBNode<K, V> newNode) {
+    public void insert(RBNode<K, V> newNode, E index){
+
+    }
+
+    private void privateInsert(RBNode<K, V> newNode) {
         if (root == null) {
             newNode.setColor(COLOR.BLACK);
             root = newNode;

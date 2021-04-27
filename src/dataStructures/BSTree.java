@@ -11,7 +11,16 @@ public class BSTree<K extends Comparable<K>,  V extends List<E>, E extends Numbe
     }
 
     @Override
-    public void insert(BSTNode<K, V> node) {
+    public void insert(BSTNode<K, V> node, E index){
+        BSTNode<K, V> node1 = search(node.getKey());
+        if (node1 == null)
+            privateInsert(node);
+        else
+            node1.getValue().add(index);
+    }
+
+
+    private void privateInsert(BSTNode<K, V> node) {
         BSTNode<K, V> y = null;
         BSTNode<K, V> x = root;
         while (x != null) {
@@ -216,38 +225,38 @@ public class BSTree<K extends Comparable<K>,  V extends List<E>, E extends Numbe
     @Override
     public String preOrder(BSTNode<K, V> node) {
         String keys = "";
-        if (node != null) {
-            keys += node.getValue().toString() + " ";
-            keys += preOrder(node.getLeft());
-            keys += preOrder(node.getRight());
+        if (node == null) {
             return keys;
         }
-        return null;
+        keys += node.getKey() + " ";
+        keys += preOrder(node.getLeft());
+        keys += preOrder(node.getRight());
+        return keys;
     }
 
     @Override
     public String inOrder(BSTNode<K, V> node) {
         String keys = "";
-		if (node != null) {
-			keys += inOrder(node.getLeft());
-			keys += node.getValue().toString() + " ";
-			keys += inOrder(node.getRight());
+        if (node == null) {
             return keys;
-		}
-        return null;
-	}
+        }
+        keys += inOrder(node.getLeft());
+        keys += node.getKey() + " ";
+        keys += inOrder(node.getRight());
+        return keys;
+    }
 
     @Override
     public String postOrder(BSTNode<K, V> node) {
         String keys = "";
-		if (node != null) {
-			keys += postOrder(node.getLeft());
-			keys += postOrder(node.getRight());
-			keys += node.getValue().toString() + " ";
+        if (node == null) {
             return keys;
-		}
-        return null;
-	}
+        }
+        keys += postOrder(node.getLeft());
+        keys += postOrder(node.getRight());
+        keys += node.getKey() + " ";
+        return keys;
+    }
 
     public BSTNode<K, V> getRoot() {
         return root;
