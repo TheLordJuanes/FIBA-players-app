@@ -17,7 +17,7 @@
             <Image url="@../../resources/modify.jpg" />
          </image>
       </ImageView>
-      <JFXButton alignment="CENTER" blendMode="HARD_LIGHT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" onAction="#goBackToMenu" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 5em; -fx-background-color: #fbb036;" text=" " textAlignment="CENTER">
+      <JFXButton alignment="CENTER" blendMode="HARD_LIGHT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" onAction="#searchResult" prefHeight="30.0" prefWidth="66.0" style="-fx-background-radius: 5em; -fx-background-color: #fbb036;" text=" " textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="42.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
                <image>

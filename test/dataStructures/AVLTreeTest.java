@@ -99,18 +99,18 @@ class AVLTreeTest {
 	@Test
 	public void testPreOrder() {
 		setup2();
-        assertEquals("80.0 39.1 35.5 88.8 ", avlTree.preOrder(avlTree.getRoot()));
+		assertEquals("80.0 39.1 35.5 88.8 ", avlTree.preOrder(avlTree.getRoot()));
 	}
 
 	@Test
 	public void testInOrder() {
 		setup2();
-        assertEquals("35.5 39.1 80.0 88.8 ", avlTree.inOrder(avlTree.getRoot()));
+		assertEquals("35.5 39.1 80.0 88.8 ", avlTree.inOrder(avlTree.getRoot()));
 	}
 
 	@Test
 	public void testPostOrder() {
 		setup2();
-        assertEquals("35.5 39.1 88.8 80.0 ", avlTree.postOrder(avlTree.getRoot()));
+		assertEquals("35.5 39.1 88.8 80.0 ", avlTree.postOrder(avlTree.getRoot()));
 	}
 }

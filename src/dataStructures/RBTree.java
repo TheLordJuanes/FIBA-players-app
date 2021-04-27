@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import dataStructures.RBNode.COLOR;
 
-public class RBTree<K extends Comparable<K>, V extends List<E>, E extends Number> implements RBTreeInterface<K, V,E> { // class adapted from https://github.com/Bibeknam/algorithmtutorprograms/blob/11ef340f8c8e60839a9dff395dd52b8752c537a6/data-structures/red-black-trees/RedBlackTree.java#L298
+public class RBTree<K extends Comparable<K>, V extends List<E>, E extends Number> implements RBTreeInterface<K, V, E> { // class adapted from https://github.com/Bibeknam/algorithmtutorprograms/blob/11ef340f8c8e60839a9dff395dd52b8752c537a6/data-structures/red-black-trees/RedBlackTree.java#L298
 
     // -----------------------------------------------------------------
     // Relations
@@ -24,7 +24,7 @@ public class RBTree<K extends Comparable<K>, V extends List<E>, E extends Number
     }
 
     @Override
-    public void insert(RBNode<K, V> newNode, E index){
+    public void insert(RBNode<K, V> newNode, E index) {
 
     }
 
@@ -59,84 +59,84 @@ public class RBTree<K extends Comparable<K>, V extends List<E>, E extends Number
         return privateSearch(current.getRight(), key);
     }
 
-    public ArrayList<RBNode<K, V>> searchMajor(K key){
+    public ArrayList<RBNode<K, V>> searchMajor(K key) {
         ArrayList<RBNode<K, V>> nodes = new ArrayList<>();
         pSearchMajor(root, key, nodes);
         return nodes;
     }
 
-    private void pSearchMajor(RBNode<K, V> node, K key, ArrayList<RBNode<K, V>> nodes){
-        if(node!=null){
-            if(node.getKey().compareTo(key)>0){
+    private void pSearchMajor(RBNode<K, V> node, K key, ArrayList<RBNode<K, V>> nodes) {
+        if (node != null) {
+            if (node.getKey().compareTo(key) > 0) {
                 nodes.add(node);
                 addNode(node.getRight(), nodes);
                 pSearchMajor(node.getLeft(), key, nodes);
-            }else {
+            } else {
                 pSearchMajor(node.getRight(), key, nodes);
             }
         }
     }
 
-    public ArrayList<RBNode<K, V>> searchMajorEqual(K key){
+    public ArrayList<RBNode<K, V>> searchMajorEqual(K key) {
         ArrayList<RBNode<K, V>> nodes = new ArrayList<>();
         pSearchMajorEqual(root, key, nodes);
         return nodes;
     }
 
-    private void pSearchMajorEqual(RBNode<K, V> node, K key, ArrayList<RBNode<K, V>> nodes){
-        if(node!=null){
-            if((node.getKey().compareTo(key)>0) || (node.getKey().compareTo(key)==0)){
+    private void pSearchMajorEqual(RBNode<K, V> node, K key, ArrayList<RBNode<K, V>> nodes) {
+        if (node != null) {
+            if ((node.getKey().compareTo(key) > 0) || (node.getKey().compareTo(key) == 0)) {
                 nodes.add(node);
                 addNode(node.getRight(), nodes);
                 pSearchMajorEqual(node.getLeft(), key, nodes);
-            }else {
+            } else {
                 pSearchMajorEqual(node.getRight(), key, nodes);
             }
         }
     }
 
-    public ArrayList<RBNode<K, V>> searchMinor(K key){
+    public ArrayList<RBNode<K, V>> searchMinor(K key) {
         ArrayList<RBNode<K, V>> nodes = new ArrayList<>();
         pSearchMinor(root, key, nodes);
         return nodes;
     }
 
-    private void pSearchMinor(RBNode<K, V> node, K key, ArrayList<RBNode<K, V>> nodes){
-        if(node!=null){
-            if(node.getKey().compareTo(key)<0){
+    private void pSearchMinor(RBNode<K, V> node, K key, ArrayList<RBNode<K, V>> nodes) {
+        if (node != null) {
+            if (node.getKey().compareTo(key) < 0) {
                 nodes.add(node);
                 addNode(node.getLeft(), nodes);
                 pSearchMinor(node.getRight(), key, nodes);
-            }else {
+            } else {
                 pSearchMinor(node.getLeft(), key, nodes);
             }
         }
     }
 
-    public ArrayList<RBNode<K, V>> searchMinorEqual(K key){
+    public ArrayList<RBNode<K, V>> searchMinorEqual(K key) {
         ArrayList<RBNode<K, V>> nodes = new ArrayList<>();
         pSearchMinorEqual(root, key, nodes);
         return nodes;
     }
 
-    private void pSearchMinorEqual(RBNode<K, V> node, K key, ArrayList<RBNode<K, V>> nodes){
-        if(node!=null){
-            if((node.getKey().compareTo(key)<0) || (node.getKey().compareTo(key)==0)){
+    private void pSearchMinorEqual(RBNode<K, V> node, K key, ArrayList<RBNode<K, V>> nodes) {
+        if (node != null) {
+            if ((node.getKey().compareTo(key) < 0) || (node.getKey().compareTo(key) == 0)) {
                 nodes.add(node);
                 addNode(node.getLeft(), nodes);
                 pSearchMinorEqual(node.getRight(), key, nodes);
-            }else {
+            } else {
                 pSearchMinorEqual(node.getLeft(), key, nodes);
             }
         }
     }
 
-    private void addNode(RBNode<K, V> node, ArrayList<RBNode<K, V>> nodes){
-        if(node != null){
-			addNode(node.getLeft(), nodes);
-			nodes.add(node);
-			addNode(node.getRight(), nodes);
-		}
+    private void addNode(RBNode<K, V> node, ArrayList<RBNode<K, V>> nodes) {
+        if (node != null) {
+            addNode(node.getLeft(), nodes);
+            nodes.add(node);
+            addNode(node.getRight(), nodes);
+        }
     }
 
     @Override

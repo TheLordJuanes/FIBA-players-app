@@ -1,9 +1,7 @@
 package thread;
 
 import model.FIBA;
-
 import java.util.ArrayList;
-
 import dataStructures.RBNode;
 
 public class DeletePlayerThread extends Thread {
@@ -33,14 +31,14 @@ public class DeletePlayerThread extends Thread {
     }
 
     /*
-     * info[0]=name; 
-     * info[1]=lastName; 
-     * info[2]=team; 
-     * info[3] = String.valueOf(trueShooting); 
-     * info[4]= String.valueOf(usage); 
-     * info[5] = String.valueOf(assist); 
-     * info[6] = String.valueOf(rebound); 
-     * info[7] = String.valueOf(defensive); 
+     * info[0]=name;
+     * info[1]=lastName;
+     * info[2]=team;
+     * info[3] = String.valueOf(trueShooting);
+     * info[4]= String.valueOf(usage);
+     * info[5] = String.valueOf(assist);
+     * info[6] = String.valueOf(rebound);
+     * info[7] = String.valueOf(defensive);
      * info[8] = String.valueOf(blocks);
      */
     @Override

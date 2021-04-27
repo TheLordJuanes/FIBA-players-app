@@ -6,7 +6,6 @@
 */
 package ui;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -155,6 +154,8 @@ public class FibaGUI {
 
     private Stage primaryStage;
 
+    private String textPlayers;
+
     // -----------------------------------------------------------------
     // Relations
     // -----------------------------------------------------------------
@@ -172,9 +173,8 @@ public class FibaGUI {
      */
     public FibaGUI(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        
         fiba = new FIBA();
-        /** 
+        /**
         File file = new File("resources/100.csv"); //QUITARRRRR, CAMBIARRR
         try {
             fiba.addPlayerDataByTextFile(file);
@@ -220,6 +220,7 @@ public class FibaGUI {
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Start Menu");
             primaryStage.show();
+            textPlayers = "";
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -303,10 +304,7 @@ public class FibaGUI {
     @FXML
     public void addNewPlayer(ActionEvent event) {
         try {
-            fiba.addPlayerDatabyPlatform(txtName.getText(), txtLastName.getText(), txtTeam.getText(),
-                    Double.valueOf(txtTrueShooting.getText()), Double.valueOf(txtUsage.getText()),
-                    Double.valueOf(txtAssist.getText()), Double.valueOf(txtRebound.getText()),
-                    Double.valueOf(txtDefensive.getText()), Double.valueOf(txtBlocks.getText()));
+            fiba.addPlayerDataByPlatform(txtName.getText(), txtLastName.getText(), txtTeam.getText(), Double.valueOf(txtTrueShooting.getText()), Double.valueOf(txtUsage.getText()), Double.valueOf(txtAssist.getText()), Double.valueOf(txtRebound.getText()), Double.valueOf(txtDefensive.getText()), Double.valueOf(txtBlocks.getText()));
             lbAddPlayer.setText("Player successfully added!");
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
@@ -325,7 +323,6 @@ public class FibaGUI {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("modify-player.fxml"));
             fxmlLoader.setController(this);
             Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
             cbDataTypeMod.getItems().add("Name");
             cbDataTypeMod.getItems().add("Last Name");
             //cbDataTypeMod.getItems().add("Age");
@@ -336,9 +333,9 @@ public class FibaGUI {
             cbDataTypeMod.getItems().add("Rebound");
             cbDataTypeMod.getItems().add("Defensive");
             cbDataTypeMod.getItems().add("Blocks");
-            stage.setScene(new Scene(root));
-            stage.setTitle("Player modification form");
-            stage.show();
+            primaryStage.setScene(new Scene(root));
+            primaryStage.setTitle("Player modification form");
+            primaryStage.show();
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -362,46 +359,31 @@ public class FibaGUI {
     public void textFileModification(ActionEvent event) {
 
     }*/
-    
+
     @FXML
     public void modifyPlayer(ActionEvent event) throws IOException {
         int valueI = 0;
         String valueS = "";
         if (cbDataTypeMod.getValue().equals("Age"))
             valueI = Integer.valueOf(txtDataValue.getText());
-        else 
+        else
             valueS = txtDataValue.getText();
-        int player=0;
-        for(int i=0; i<cbModifyPlayer.getItems().size();i++){
-            if(cbModifyPlayer.getItems().get(i).equals(cbModifyPlayer.getValue())){
-                player=i;
+        int player = 0;
+        for (int i = 0; i < cbModifyPlayer.getItems().size(); i++) {
+            if (cbModifyPlayer.getItems().get(i).equals(cbModifyPlayer.getValue())) {
+                player = i;
                 break;
             }
         }
-        boolean modified = fiba.modifyPlayerData(cbDataType.getValue(), valueS, valueI,player);
+        boolean modified = fiba.modifyPlayerData(cbDataType.getValue(), valueS, valueI, player);
         if (modified)
             lbModifyPlayer.setText("Player successfully modified!");
         else
             lbModifyPlayer.setText("Player doesn't exist!");
     }
-    
-    @FXML
-    public void deleteAPlayer(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("delete-player.fxml"));
-            fxmlLoader.setController(this);
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Player elimination");
-            stage.show();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-    }
 
     @FXML
-    public void platformDeletion(ActionEvent event) {
+    public void deleteAPlayer(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("delete-player.fxml"));
             fxmlLoader.setController(this);
@@ -430,10 +412,10 @@ public class FibaGUI {
                 String line = br.readLine();
                 boolean deleted1 = true;
                 while (line != null) {
-                    //boolean deleted2 = fiba.deletePlayer(line);
-                    //if (!deleted2) {
+                    boolean deleted2 = fiba.deletePlayer(line);
+                    if (!deleted2) {
                         deleted1 = false;
-                    //}
+                    }
                     line = br.readLine();
                 }
                 br.close();
@@ -447,29 +429,27 @@ public class FibaGUI {
                 showErrorAlert("Error", "Something went wrong", "There were problems reading the file");
             } catch (NumberFormatException nfe) {
                 showErrorAlert("Error", "Something went wrong", "The data in the file isn't correct");
-           // } catch (InterruptedException e) {
-             //   showErrorAlert("Error", null, "Something went wrong");
+            } catch (InterruptedException e) {
+                showErrorAlert("Error", null, "Something went wrong");
             }
         } else
             showInformationAlert("Missing File", null, "No file was selected ");
     }
     */
 
-
     @FXML
     public void deletePlayer(ActionEvent event) {
-       // boolean deleted;
         try {
-           // deleted = fiba.deletePlayer(txtID.getText());
+           //boolean deleted = fiba.deletePlayer(txtID.getText());
            // if (deleted)
                 lbDeletePlayer.setText("Player successfully deleted!");
             //else
                 lbDeletePlayer.setText("Player doesn't exist!");
         } catch (NumberFormatException nfe) {
             nfe.printStackTrace();
-        //} catch (InterruptedException e) {
+        } //catch (InterruptedException e) {
          //   e.printStackTrace();
-        }
+        //}
     }
 
 
@@ -501,15 +481,13 @@ public class FibaGUI {
             cbSymbol3.getItems().add('≥');
             cbSymbol3.getItems().add('≤');
             primaryStage.show();
-
-            cbDataType.getSelectionModel().selectedItemProperty().addListener(
-                (v, oldValue, newValue) -> {
+            cbDataType.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
                 switch(newValue){
                     case "True Shooting":
                         initialLettersDataType.setText("TS");
                         break;
                     case "Usage":
-                        initialLettersDataType.setText("Usg");
+                        initialLettersDataType.setText("USG");
                         break;
                     case "Assist":
                         initialLettersDataType.setText("AST");
@@ -524,12 +502,10 @@ public class FibaGUI {
                         initialLettersDataType.setText("BLK");
                         break;
                 }});
-
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
     }
-
 
     @FXML
     public void platformSearch(ActionEvent event) {
@@ -552,67 +528,71 @@ public class FibaGUI {
 
     @FXML
     public void searchPlayer(ActionEvent event) {
-        try {
-            ArrayList<ArrayList<String>> players;
-            String statistic = cbDataType.getValue();
-            Character symbol1 = cbSymbol1.getValue();
-            Character symbol2 = cbSymbol2.getValue();
-            Character symbol3 = cbSymbol3.getValue();
-            if(symbol1!=null && (symbol2!=null || symbol3!=null)){
-                showErrorAlert("Problems with the equations", null, "You cannot write two inequalities, write only one");
-            }else {
-                if(symbol1!=null){
-                    double value1 = Double.parseDouble(searchValue1.getText());
-                    players = fiba.searchPlayerIn(symbol1, statistic, value1);
-
-                }else{
-                    switch(symbol2){
-                        case '>':
-                            symbol2='<';
-                            break;
-                        case '<':
-                            symbol2='>';
-                            break;
-                        case '≥':
-                            symbol2='≤';
-                            break;
-                        case '≤':
-                            symbol2='≥';
-                            break;
-                    }
-                    double value2 = Double.parseDouble(searchValue2.getText());
-                    double value3 = Double.parseDouble(searchValue3.getText());
-                    players = fiba.searchPlayer(symbol2, symbol3, statistic, value2, value3);
+        ArrayList<ArrayList<String>> players;
+        String statistic = cbDataType.getValue();
+        Character symbol1 = cbSymbol1.getValue();
+        Character symbol2 = cbSymbol2.getValue();
+        Character symbol3 = cbSymbol3.getValue();
+        if (symbol1 != null && (symbol2 != null || symbol3 != null))
+            showErrorAlert("Problems with the equations", null, "You cannot write two inequalities, write only one");
+        else {
+            if (symbol1 != null) {
+                double value1 = Double.parseDouble(searchValue1.getText());
+                players = fiba.searchPlayerIn(symbol1, statistic, value1);
+            } else {
+                switch (symbol2) {
+                case '>':
+                    symbol2 = '<';
+                    break;
+                case '<':
+                    symbol2 = '>';
+                    break;
+                case '≥':
+                    symbol2 = '≤';
+                    break;
+                case '≤':
+                    symbol2 = '≥';
+                    break;
                 }
-                String textPlayers="";
-                //"firstName, lastName, team,trueShooting,usage,assist,rebound,defensive,blocks"
-                for(int i=0; i<players.size(); i++){
-                    int number=i+1;
-                    ArrayList<String> player = players.get(i);
-                    textPlayers+="Player "+number+"\n";
-                    textPlayers+="First Name: "+ player.get(0)+"\n";
-                    textPlayers+="Last Name: "+player.get(1)+"\n";
-                    textPlayers+="Team: "+player.get(2)+"\n";
-                    textPlayers+="True Shooting: "+player.get(3)+"\n";
-                    textPlayers+="Usage: "+player.get(4)+"\n";
-                    textPlayers+="Assist: "+player.get(5)+"\n";
-                    textPlayers+="Rebound: "+player.get(6)+"\n";
-                    textPlayers+="Defensive: "+player.get(7)+"\n";
-                    textPlayers+="Blocks: "+player.get(8)+"\n\n";
-                }
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("searchResult.fxml"));
-                fxmlLoader.setController(this);
-                Parent root = fxmlLoader.load();
-                primaryStage.setScene(new Scene(root));
-                primaryStage.setTitle("Player search");
-                taSearchResult.setText(textPlayers);
-                primaryStage.show();
-                for(int i=0;i<players.size();i++){
-                cbDeletePlayer.getItems().add("Player" +(i+1));
-                }
-                cbModifyPlayer.setItems(cbDeletePlayer.getItems());
-                fiba.setCurrentPlayers(players);
+                double value2 = Double.parseDouble(searchValue2.getText());
+                double value3 = Double.parseDouble(searchValue3.getText());
+                players = fiba.searchPlayer(symbol2, symbol3, statistic, value2, value3);
             }
+            // "firstName, lastName,
+            // team,trueShooting,usage,assist,rebound,defensive,blocks"
+            for (int i = 0; i < players.size(); i++) {
+                int number = i + 1;
+                ArrayList<String> player = players.get(i);
+                textPlayers += "Player " + number + "\n";
+                textPlayers += "First Name: " + player.get(0) + "\n";
+                textPlayers += "Last Name: " + player.get(1) + "\n";
+                textPlayers += "Team: " + player.get(2) + "\n";
+                textPlayers += "True Shooting: " + player.get(3) + "\n";
+                textPlayers += "Usage: " + player.get(4) + "\n";
+                textPlayers += "Assist: " + player.get(5) + "\n";
+                textPlayers += "Rebound: " + player.get(6) + "\n";
+                textPlayers += "Defensive: " + player.get(7) + "\n";
+                textPlayers += "Blocks: " + player.get(8) + "\n\n";
+            }
+            searchResult(event);
+            for (int i = 0; i < players.size(); i++) {
+                cbDeletePlayer.getItems().add("Player" + (i + 1));
+            }
+            cbModifyPlayer.setItems(cbDeletePlayer.getItems());
+            fiba.setCurrentPlayers(players);
+        }
+    }
+
+    @FXML
+    public void searchResult(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("searchResult.fxml"));
+            fxmlLoader.setController(this);
+            Parent root = fxmlLoader.load();
+            primaryStage.setScene(new Scene(root));
+            primaryStage.setTitle("Search Result");
+            taSearchResult.setText(textPlayers);
+            primaryStage.show();
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -640,5 +620,10 @@ public class FibaGUI {
         alert.setHeaderText(header);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+
+    @FXML
+    public void exit(ActionEvent event) {
+        System.exit(0);
     }
 }

@@ -2,7 +2,7 @@ package dataStructures;
 
 import java.util.List;
 
-public interface RBTreeInterface<K extends Comparable<K>,  V extends List<E>, E extends Number> {
+public interface RBTreeInterface<K extends Comparable<K>, V extends List<E>, E extends Number> {
 
     public void insert(RBNode<K, V> node, E index);
 

@@ -34,12 +34,12 @@ public class AddPlayerThread extends Thread {
         fiba = f;
         typeData = tD;
         player = p;
-        index=ind;
+        index = ind;
     }
 
     @Override
 	public void run() {
-        if(player.length==9){
+        if (player.length == 9) {
             //"firstName, lastName, team,trueShooting,usage,assist,rebound,defensive,blocks"
             AVLNode<Double, ArrayList<Integer>> node1;
             BSTNode<Double, ArrayList<Integer>> node2;
@@ -88,7 +88,7 @@ public class AddPlayerThread extends Thread {
                     break;
                 case 5:
                     double blocks = Double.parseDouble(player[8]);
-                    fiba.getPlayersByBlocks().add(blocks); 
+                    fiba.getPlayersByBlocks().add(blocks);
                     break;
                 default:
                     break;

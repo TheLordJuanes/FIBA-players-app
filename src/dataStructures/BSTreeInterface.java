@@ -8,11 +8,11 @@ public interface BSTreeInterface<K extends Comparable<K>, V extends List<E>, E e
 
     public BSTNode<K, V> search(K key);
 
-    public boolean delete(K key,E expected);
+    public boolean delete(K key, E expected);
 
-    public String preOrder(BSTNode<K,V> root);
+    public String preOrder(BSTNode<K, V> root);
 
-    public String inOrder(BSTNode<K,V> root);
+    public String inOrder(BSTNode<K, V> root);
 
-    public String postOrder(BSTNode<K,V> root);
+    public String postOrder(BSTNode<K, V> root);
 }

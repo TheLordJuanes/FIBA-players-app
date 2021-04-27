@@ -98,18 +98,18 @@ class BSTreeTest {
 	@Test
 	public void testPreOrder() {
 		setup2();
-        assertEquals("80.0 39.1 35.5 88.8 ", bstree.preOrder(bstree.getRoot()));
+		assertEquals("80.0 39.1 35.5 88.8 ", bstree.preOrder(bstree.getRoot()));
 	}
 
 	@Test
 	public void testInOrder() {
 		setup2();
-        assertEquals("35.5 39.1 80.0 88.8 ", bstree.inOrder(bstree.getRoot()));
+		assertEquals("35.5 39.1 80.0 88.8 ", bstree.inOrder(bstree.getRoot()));
 	}
 
 	@Test
 	public void testPostOrder() {
 		setup2();
-        assertEquals("35.5 39.1 88.8 80.0 ", bstree.postOrder(bstree.getRoot()));
+		assertEquals("35.5 39.1 88.8 80.0 ", bstree.postOrder(bstree.getRoot()));
 	}
 }

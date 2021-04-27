@@ -38,5 +38,17 @@
             <Font name="Avenir Next Condensed Bold" size="18.0" />
          </font>
       </Label>
+      <JFXButton layoutX="14.0" layoutY="347.0" onAction="#exit" prefHeight="27.0" prefWidth="47.0" text=" ">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/power.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

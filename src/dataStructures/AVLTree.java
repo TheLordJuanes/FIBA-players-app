@@ -3,7 +3,7 @@ package dataStructures;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Number & Comparable<E>> implements AVLTreeInterface<K,V,E>  { // class adapted from GeeksForGeeks https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
+public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Number & Comparable<E>> implements AVLTreeInterface<K, V, E> { // class adapted from GeeksForGeeks https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
 
     // -----------------------------------------------------------------
     // Relations
@@ -49,7 +49,7 @@ public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Numbe
         else {
             y.setRight(node);
         }
-        rebalance(node);
+        reBalance(node);
     }
 
     @Override
@@ -65,107 +65,105 @@ public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Numbe
         return privateSearch(r.getRight(), key);
     }
 
-    public ArrayList<AVLNode<K, V>> searchMajor(K key){
+    public ArrayList<AVLNode<K, V>> searchMajor(K key) {
         ArrayList<AVLNode<K, V>> nodes = new ArrayList<>();
         pSearchMajor(root, key, nodes);
         return nodes;
     }
 
-    private void pSearchMajor(AVLNode<K, V> node, K key, ArrayList<AVLNode<K, V>> nodes){
-        if(node!=null){
-            if(node.getKey().compareTo(key)>0){
+    private void pSearchMajor(AVLNode<K, V> node, K key, ArrayList<AVLNode<K, V>> nodes) {
+        if (node != null) {
+            if (node.getKey().compareTo(key) > 0) {
                 nodes.add(node);
                 addNode(node.getRight(), nodes);
                 pSearchMajor(node.getLeft(), key, nodes);
-            }else {
+            } else {
                 pSearchMajor(node.getRight(), key, nodes);
             }
         }
     }
 
-    public ArrayList<AVLNode<K, V>> searchMajorEqual(K key){
+    public ArrayList<AVLNode<K, V>> searchMajorEqual(K key) {
         ArrayList<AVLNode<K, V>> nodes = new ArrayList<>();
         pSearchMajorEqual(root, key, nodes);
         return nodes;
     }
 
-    private void pSearchMajorEqual(AVLNode<K, V> node, K key, ArrayList<AVLNode<K, V>> nodes){
-        if(node!=null){
-            if((node.getKey().compareTo(key)>0) || (node.getKey().compareTo(key)==0)){
+    private void pSearchMajorEqual(AVLNode<K, V> node, K key, ArrayList<AVLNode<K, V>> nodes) {
+        if (node != null) {
+            if ((node.getKey().compareTo(key) > 0) || (node.getKey().compareTo(key) == 0)) {
                 nodes.add(node);
                 addNode(node.getRight(), nodes);
                 pSearchMajorEqual(node.getLeft(), key, nodes);
-            }else {
+            } else {
                 pSearchMajorEqual(node.getRight(), key, nodes);
             }
         }
     }
 
-    public ArrayList<AVLNode<K, V>> searchMinor(K key){
+    public ArrayList<AVLNode<K, V>> searchMinor(K key) {
         ArrayList<AVLNode<K, V>> nodes = new ArrayList<>();
         pSearchMinor(root, key, nodes);
         return nodes;
     }
 
-    private void pSearchMinor(AVLNode<K, V> node, K key, ArrayList<AVLNode<K, V>> nodes){
-        if(node!=null){
-            if(node.getKey().compareTo(key)<0){
+    private void pSearchMinor(AVLNode<K, V> node, K key, ArrayList<AVLNode<K, V>> nodes) {
+        if (node != null) {
+            if (node.getKey().compareTo(key) < 0) {
                 nodes.add(node);
                 addNode(node.getLeft(), nodes);
                 pSearchMinor(node.getRight(), key, nodes);
-            }else {
+            } else {
                 pSearchMinor(node.getLeft(), key, nodes);
             }
         }
     }
 
-    public ArrayList<AVLNode<K, V>> searchMinorEqual(K key){
+    public ArrayList<AVLNode<K, V>> searchMinorEqual(K key) {
         ArrayList<AVLNode<K, V>> nodes = new ArrayList<>();
         pSearchMinorEqual(root, key, nodes);
         return nodes;
     }
 
-    private void pSearchMinorEqual(AVLNode<K, V> node, K key, ArrayList<AVLNode<K, V>> nodes){
-        if(node!=null){
-            if((node.getKey().compareTo(key)<0) || (node.getKey().compareTo(key)==0)){
+    private void pSearchMinorEqual(AVLNode<K, V> node, K key, ArrayList<AVLNode<K, V>> nodes) {
+        if (node != null) {
+            if ((node.getKey().compareTo(key) < 0) || (node.getKey().compareTo(key) == 0)) {
                 nodes.add(node);
                 addNode(node.getLeft(), nodes);
                 pSearchMinorEqual(node.getRight(), key, nodes);
-            }else {
+            } else {
                 pSearchMinorEqual(node.getLeft(), key, nodes);
             }
         }
     }
 
-    private void addNode(AVLNode<K, V> node, ArrayList<AVLNode<K, V>> nodes){
-        if(node != null){
-			addNode(node.getLeft(), nodes);
-			nodes.add(node);
-			addNode(node.getRight(), nodes);
-		}
+    private void addNode(AVLNode<K, V> node, ArrayList<AVLNode<K, V>> nodes) {
+        if (node != null) {
+            addNode(node.getLeft(), nodes);
+            nodes.add(node);
+            addNode(node.getRight(), nodes);
+        }
     }
 
     @Override
-    public boolean delete(K key,E expected) {
-		AVLNode<K, V> toErase = privateSearch(root, key);
+    public boolean delete(K key, E expected) {
+        AVLNode<K, V> toErase = privateSearch(root, key);
         if (toErase != null) {
             V positions = toErase.getValue();
-            int length =positions.size();
-            if(length>1){
-                for(int i=0; i<length;i++){
-                    if(positions.get(i).compareTo(expected)==0){
+            int length = positions.size();
+            if (length > 1) {
+                for (int i = 0; i < length; i++) {
+                    if (positions.get(i).compareTo(expected) == 0) {
                         positions.remove(i);
                     }
                 }
-            }else{
+            } else {
                 privateDelete(toErase);
             }
             return true;
         }
         return false;
     }
-
-
 
     private void privateDelete(AVLNode<K, V> current) {
         if (current.getLeft() == null && current.getRight() == null) {
@@ -194,7 +192,7 @@ public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Numbe
             }
         } else {
             AVLNode<K, V> nodeMostToLeft = successor(current);
-            if (nodeMostToLeft != null ) {
+            if (nodeMostToLeft != null) {
                 privateDelete(nodeMostToLeft);
                 current.getParent().setLeft(nodeMostToLeft);
             }
@@ -215,7 +213,7 @@ public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Numbe
         }
     }
 
-    private void rebalance(AVLNode<K, V> node) {
+    private void reBalance(AVLNode<K, V> node) {
         node.setHeight(1 + maxHeight(height(node.getLeft()), height(node.getRight())));
         int balance = getBalance(node);
         if (balance > 1 && node.getKey().compareTo(node.getLeft().getKey()) < 0)
