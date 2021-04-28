@@ -2,8 +2,6 @@
 
 ## Description 🏀
 
-<img src = "resources/gui-app.png" >
-
 Basketball is one of the most important and popular sports on an orbital level, either because of the simplicity of its game, because of its massive practice throughout the planet, because of the spectacle that it generates around it or because of the statistical revolution that has brought with him. Although the essence of this beautiful sport, invented more than a century ago by Canadian professor James Naismith, remains, many other aspects of the sport have evolved. Over the years and as professionalism has progressed, the monitoring of the orange ball game has used various factors to increase its level of detail and, consequently, the volume of data analysis. This is how the field of observation within this game has grown exponentially. Currently, statistics are kept in multiple categories and aspects of the sport: points, rebounds, assists, blocks, steals, success rates in each type of shot, etc.
 
 The International Basketball Federation, better known as FIBA, is the regulatory body for basketball worldwide, the one that defines the rules of this sport at the international level and the body not only in charge of organizing and coordinating the most important orbital competitions but also of bringing together to all practitioners of this sport at a professional level.

@@ -1,501 +1,501 @@
-firstname,lastname,team,trueShooting,usage,assist,rebound,defensive,blocks
-Aeriela,Zuzana,American Samoa,45.36,35.94,21.37,32.69,48.32,59.22
-Brynna,Ardeha,Liberia,14.07,34.3,74.41,40.07,35.35,82.06
-Rhoda,Dielu,Wallis and Futuna,14.85,25.96,100.2,24.94,94.33,94.61
-Oona,Fitzsimmons,Colombia,36.79,39.48,70.34,43.84,71.36,70.04
-Aimil,Carbo,United Kingdom,41.5,49.62,63.62,89.61,93.33,33.73
-Siana,Tippets,Hungary,50.5,94.39,98.3,26.48,42.17,36.73
-Carly,Urania,Gabon,25.59,48.99,87.06,53.64,50,98.82
-Tori,Carlson,Guinea,58.08,73.83,16.71,69.65,19.32,20.06
-Clementine,Juan,Czech Republic,57.1,30.41,26.33,36.04,80.59,8.29
-Dione,Ball,Ethiopia,62.7,10.71,14.18,96.54,32.94,36.21
-Sonni,Vilma,Norfolk Island,63.2,39.48,84.71,24.68,62.73,68.39
-Layla,Parsaye,Ukraine,51.4,24.08,3.71,14.67,93.94,58.86
-Rani,Carri,"Virgin Islands, British",56.33,49.89,73.73,73.14,55.62,31.95
-Feliza,Hourigan,Lebanon,29.1,34.05,75.55,59.84,68.24,22.98
-Danny,Bivins,Colombia,9.07,11.08,31.78,42.26,56.96,36.34
-Marylou,Kendrick,Greece,65.86,71.09,35.24,83.5,63.61,60.62
-Lita,Stefa,Marshall Islands,12.39,64.24,79.06,43.9,27.22,69.72
-Sue,Old,Kuwait,97.2,31.09,56.73,99.48,84.16,65.89
-Alameda,Llovera,Croatia,99.64,52.52,16.94,21.73,64.63,87.1
-Annaliese,Stanwood,Cambodia,62.08,81.77,42.58,46.55,47.86,5.4
-Brynna,Quinn,Guyana,10,66.66,9.84,28.62,88.2,5.89
-Wanda,Emerson,Papua New Guinea,57.35,87.41,49.6,16.14,22.5,4.91
-Alia,Constancy,Turkmenistan,58.94,94.98,80.44,1.41,32.51,32.83
-Gretal,Dielu,Wallis and Futuna,93.36,99.79,89.83,8.61,34.3,79.65
-Norine,Loeb,United Arab Emirates,1.73,34.74,70.22,51.56,69.02,77.61
-Amara,Bettine,Namibia,11.56,3.45,62.16,13.31,15.89,18.8
-Luci,Lilas,New Caledonia,78.22,65.05,81.17,66.79,91.06,69.79
-Marnia,Talia,Morocco,50.95,9.66,97.58,70.3,95.2,21.27
-Jacquetta,Chinua,Trinidad and Tobago,34.04,81.2,1.02,90.68,20.82,97.1
-Aurore,Torray,Hong Kong,73.48,97.04,13.04,42.8,12.69,52.57
-Mireielle,Armanda,Djibouti,91.77,12.37,45.38,74.65,100.52,1.48
-Sara-Ann,Sabella,Mauritania,95.25,75.48,72.54,5.86,26.69,24.85
-Shauna,Hanshaw,Saint Kitts and Nevis,21.36,86.74,55.84,41.8,50.81,97.65
-Diena,Woodberry,Ireland,65.27,54.41,78.18,55.65,87.78,41
-Misha,Fosque,Faroe Islands,32.46,21.91,38.16,1.68,43.34,2.46
-Lanae,Briney,Kenya,4.05,53.3,21.96,46.43,29.36,92.38
-Fredericka,Tound,Saint Pierre and Miquelon,78.15,76.66,50.66,47.6,95.19,81.51
-Kamilah,Poppy,"Virgin Islands, British",69.61,90.03,65.95,95.63,34.27,44.98
-Marnia,Brady,Colombia,69.98,80.34,6.84,53.87,94.8,85.89
-Veda,Iiette,Poland,34.32,22.46,78.1,81.33,30.03,56.22
-Gerianna,Kelula,Tajikistan,57.28,53.53,82.85,26.62,2.13,20.94
-Blinni,Frendel,Cook Islands,51.26,77.12,98.61,2.37,87.82,55.65
-Cacilie,Evangelia,Italy,47.76,29.2,45.73,97.76,47.84,36.95
-Genevra,Niles,Holy See (Vatican City State),51.28,98.81,40.16,49.69,94.42,99.41
-Mildrid,Jorgan,France,1.6,21.78,54.92,68.93,80.22,55.24
-Mallory,Dorothy,Viet Nam,6.14,39.88,80.81,71.76,4.31,88.87
-Jean,Hull,Saint Kitts and Nevis,49.89,37.71,7.87,41.17,47.15,7.98
-Regina,Terencio,Paraguay,78.74,81.77,92.53,64.36,98.7,76.75
-Karlee,Haerr,Antarctica,40.21,82.92,80.63,96.02,46.67,33.25
-Amelia,Bigner,Australia,13.89,85.07,60.05,12.57,35.01,67.85
-Minne,Dannye,Sao Tome and Principe,30.71,61.91,43.01,27.16,82.19,31.07
-Jorry,Mathilde,Nepal,56.95,25.5,74.73,89.42,13.14,59.49
-Dari,Brunell,French Guiana,5.3,14.62,50.92,37.59,7.62,69.83
-Raf,Ashely,Suriname,7.71,30.38,60.87,13.98,43.55,66.05
-Genovera,Cullin,Iraq,60.53,24.21,94.79,38.8,7.09,52.66
-Madeleine,Monk,Samoa,78.99,56.66,27.6,37.93,44.71,84.56
-Clementine,Blisse,Peru,31.93,57.29,92.53,69.89,51.36,9.35
-Queenie,Swigart,Uruguay,85.77,86.8,14.35,25.31,9.94,79.63
-Alie,Trace,Namibia,43.72,3.35,68.69,49.26,90.61,69.42
-Layla,Goth,Timor-Leste,35.96,6.95,79.85,88.17,91.61,34.71
-Hollie,Lucienne,French Southern Territories,32.13,5.12,13.07,15.86,30.12,65.13
-Linet,Leffen,Mexico,20.29,69.05,22.95,17.38,24.14,88.37
-Stacey,Herrera,Algeria,74.62,20.01,42.6,43.54,90.26,95.67
-Justinn,Niles,Georgia,58.17,20.76,55.43,87.21,95.38,8.89
-Ursulina,Cynar,Oman,53.85,23.74,42.59,50.79,68.78,65.85
-Sean,Whiffen,Bosnia and Herzegovina,100.8,53.13,46.78,59.22,57.99,89.94
-Edyth,Guildroy,Guinea,7.97,47.56,16.45,94.8,25.92,79.41
-Jessy,Dituri,Czech Republic,86.52,51.47,28.82,7.21,59.47,18.92
-Anica,Shelba,Puerto Rico,74.11,22.18,96.72,85.72,39.87,24.7
-Sibella,Adore,Guadeloupe,67.11,33.16,20.86,11.78,19.9,21.2
-Ekaterina,Chabot,Haiti,56.23,88.32,27.95,1.41,34.04,36.37
-Kary,Zamora,Reunion,63.96,89.6,51.62,46.21,83.44,100.37
-Glynnis,Brian,United States,54.15,34.98,43.08,49.87,20.37,21.91
-Carree,Stephie,Maldives,90.81,81.72,33.54,3.57,58.59,65.47
-Antonietta,Rooney,Greece,37.7,8.59,51.76,20.73,38.5,29.64
-Fanny,Caitlin,Tajikistan,11.41,98.75,84.01,97.69,79.13,9.16
-Jemie,Helve,Ecuador,73.48,92.13,53.56,86.79,88.43,51.96
-Roslyn,Howlyn,Syrian Arab Republic,14.71,14.64,8.82,17.7,57.55,7.02
-Sam,Jacinda,Cape Verde,45.73,47.6,47.81,43.69,57.87,39.48
-Edyth,Whittaker,Turks and Caicos Islands,48.74,24.55,45.32,46.64,68.88,20.33
-Dacia,Annabella,Hong Kong,88.68,51.54,4.26,50.77,51.24,55.28
-Basia,Armanda,Oman,8.75,1.81,81.32,97.55,29.57,72.35
-Dennie,Salvidor,Barbados,55.56,10.09,20.4,94.57,86.47,69.76
-Gianina,Klemperer,Pakistan,9.43,58.07,14.06,29.22,77.67,43.33
-Sibella,Darian,Montserrat,77.49,14.36,29,69.5,67.47,67.6
-Dennie,Anyah,Libyan Arab Jamahiriya,29.74,92.84,76.25,68,32.9,86.93
-Florencia,Fink,Tunisia,13.52,74.58,82.14,63.68,22.26,39.54
-Vere,Phaidra,Italy,66.36,66.64,30.65,24.68,21.74,74.85
-Theodora,Timon,Honduras,52.94,55.92,67.84,40.92,5.3,84.03
-Demetris,Harl,Martinique,8.5,31.78,58.27,7.14,31.67,43.79
-Jessamyn,Westphal,Tokelau,52.66,6.98,61.03,25.5,28.99,7.74
-Leia,Whittaker,Christmas Island,23.74,48.63,70.17,83.86,76.92,69.6
-Steffane,Lattie,Faroe Islands,57.37,47.79,68.15,5.27,91.98,69.89
-Mariann,Lattie,Albania,3.52,36.27,34.73,68.37,94.35,76.54
-Orelia,Si,Bahamas,12.9,84.58,47.96,94.37,37.35,83.12
-Taffy,Dudley,New Zealand,85.26,7.5,93.48,90.7,62.9,78.64
-Genovera,Allare,Chad,91.87,76.49,19.12,22.41,54,87.22
-Kaia,Verger,Cocos (Keeling) Islands,47.12,61.87,8.87,94.7,99.67,80.49
-Nataline,Lea,Peru,82.28,8.02,66.65,6.98,27.92,82.55
-Maryellen,Maxi,Pitcairn,57.79,65.07,25.64,35.71,26.16,51.15
-Annecorinne,Kellby,South Africa,19.95,16.74,60.5,66.41,84.65,4.99
-Margarette,Junie,Thailand,71.89,64.96,67.7,47.67,82.06,11.92
-Katleen,Thad,Bosnia and Herzegovina,28.18,23.75,70.55,7.48,3.49,30.26
-Fidelia,Sadowski,Croatia,29.98,29.73,16.13,54.5,55.35,75.89
-Jeanna,Clarissa,Uruguay,63.15,50.3,46.68,25.98,58.88,22.24
-Belinda,Shaver,Brazil,7.44,6.46,12.51,83.26,40.03,88.77
-Karolina,Delp,American Samoa,44.25,45.17,39.84,56.16,48.21,33.99
-Anthia,Hurley,Jordan,92.9,7.18,44.9,38.89,66.91,81.79
-Cindelyn,Rona,Senegal,37.4,45.47,91.43,33.02,3.23,82.02
-Malina,Sheng,Latvia,93.98,54.71,46.71,48.02,31.33,76.62
-Lyssa,Ackerley,Cambodia,4.53,89.03,68.78,11.5,45.17,99.31
-Kayla,Suzetta,Saint Kitts and Nevis,90.23,26.29,63.35,45.28,11.23,61.37
-Emilia,Sprage,Papua New Guinea,92.61,36.5,51.22,93.13,58.26,40.57
-Daryl,Reneta,Tunisia,90.59,1.4,67.29,65.61,53.3,100.4
-Sindee,Tacye,Romania,83.43,15.17,69.64,71.24,100.85,48.67
-Larine,Grayce,"Korea, Republic of",52.78,38.54,65.7,32.77,60.42,48.21
-Doro,Cressida,San Marino,19.97,2.4,12.8,3.11,98.87,71.13
-Raina,Hourigan,Reunion,77.7,91.79,4.79,6.03,54.65,67.04
-Angela,Neva,Uzbekistan,12.63,43.2,51.82,7.8,76.21,23.01
-Luci,Hedve,Canada,100.07,34.89,4,96.69,41.84,67.04
-Zondra,Friede,United States Minor Outlying Islands,43.37,83.39,29.87,1.97,83.37,49.9
-Karina,Kendrick,Faroe Islands,93.13,6.53,26.03,69.6,39.23,44.41
-Devina,Christine,Saint Vincent and the Grenadines,85.79,51.62,48.16,58.92,69.51,77.6
-Maurene,Stevy,Saint Lucia,71.81,77.45,89.36,41.01,20.71,23.08
-Cassandra,Muriel,Georgia,51.84,75.92,60.35,21.11,8.62,25.95
-Brianna,Bates,Estonia,54.21,97.32,35.96,5.97,96.91,60.93
-Genovera,Roumell,Guernsey,7.57,10.37,49.7,24.19,37.19,82.04
-Kimmy,Paton,Cuba,17.01,71.53,79.06,56.1,24.87,81.83
-Vanessa,Erminia,Canada,3.96,58.97,49.88,22.62,61.88,31.07
-Basia,Leifeste,Jordan,93.9,37.25,22.41,12.89,21,75.04
-Christy,Tound,Sudan,40.32,26.21,39.32,61.89,27.35,55.32
-Bertine,Tremayne,Saint Vincent and the Grenadines,36.83,13.66,42.8,33.17,33.56,51.82
-Alyssa,Grobe,Falkland Islands (Malvinas),15.6,48.62,57.68,87.52,73.84,7.07
-Rosanne,Cavan,Ecuador,67.04,52.36,71.63,44.06,98.01,2.38
-Joleen,Hutchison,Madagascar,5.72,97.11,45.12,85.18,47.68,5.35
-Mara,Florina,Turks and Caicos Islands,71.79,96.98,47.12,22.49,84.98,64.98
-Demetris,Rosemary,Russian Federation,96.38,81.61,99.26,43.14,53.13,17.64
-Ottilie,Gualtiero,Western Sahara,2.2,67.33,61.47,31.51,95.14,76.79
-Rani,Erb,Canada,83.14,30.93,72.74,55.65,49.53,93.67
-Ivett,Damarra,Turks and Caicos Islands,96.33,11.46,76.24,52.9,66.52,11.71
-Jsandye,Rubie,"Lao People""S Democratic Republic",92.12,69.22,75.47,5.73,44.89,28.73
-Marguerite,Maurine,China,8.48,9.75,84.33,29.73,34.74,7.31
-Alyda,Koehler,Holy See (Vatican City State),17.19,22.46,52.39,54.09,13.59,2.07
-Justinn,Lenny,Uganda,73.06,7.98,64.5,40.96,43.13,10.95
-Jaclyn,Manolo,Malawi,77.84,6.95,64.37,55.89,51.03,18.36
-Minda,Palocz,Hong Kong,58.7,23.36,68.52,29.84,20.89,19.56
-Karina,Anton,Grenada,43.99,78.41,25.05,44.22,19.27,35.99
-Joelly,Durante,Lebanon,60.69,19.5,22.31,48.76,61.31,36.66
-Gavrielle,Niles,Belize,29.08,14.49,55.83,59.68,37.76,28.79
-Paule,McNully,Tunisia,63.62,65.59,60.35,70.95,98.75,68.35
-Lyssa,Macey,Cook Islands,28.51,57.2,50.88,73.93,69.09,69.14
-Ashlee,Greyson,Norway,6.7,22.98,81.37,16.64,56.74,48.62
-Ayn,Dannye,Czech Republic,4.4,29.84,44.17,4.39,60.04,7.51
-Julieta,Daveta,Cocos (Keeling) Islands,77.66,72.81,73.57,36.49,26.35,23.92
-Elsie,Decato,Afghanistan,30.17,65.49,41.82,70.5,79.15,82.35
-Viki,Jillane,San Marino,74.47,34.91,36.21,14.97,52.65,44.49
-Korrie,Annabella,Kuwait,8.82,1.54,37.56,99.36,50.01,28.24
-Adele,Eno,China,89.97,62.05,18.55,97.02,91.28,3.72
-Darlleen,Odell,Burkina Faso,57.53,18.64,64.78,34,42.64,30.34
-Jacquetta,Marijo,Egypt,55.3,44.35,17.34,91.33,40.87,81.67
-Tiffie,Zrike,Papua New Guinea,91.46,77.14,73.28,43.66,34.74,39.4
-Priscilla,Ruvolo,China,77.76,47.73,81.51,34.84,55.2,100.08
-Mady,Tillford,Jamaica,61.32,63.98,57.45,32.06,54.54,56.55
-Christal,Moina,Armenia,75.27,22.87,80.73,77.7,92.4,60.61
-Marylou,Grayce,Seychelles,9.4,12.1,92.36,96.21,82.26,54.24
-Pollyanna,Auberbach,Seychelles,4.1,72.86,98.36,69.92,65.67,89.53
-Estell,Secrest,Fiji,28.76,69.27,62.65,6.66,64.45,86.5
-Corly,Eliathas,Cameroon,15.56,82.99,100.62,81.71,82.29,54.24
-Hildegaard,Hazlett,Papua New Guinea,46.07,64.82,39.59,35.95,3.95,32.64
-Tatiania,Trace,Bermuda,81.51,91.39,61.08,78.02,72.98,70.92
-Ingrid,Louanna,Kazakhstan,19.77,3.81,90.26,2.08,90.82,60.83
-Elfreda,Alcott,Thailand,45.42,93.27,78,83.94,94.24,78.12
-Carmela,Rossner,Poland,37.22,40.45,99.12,61.95,29.45,95.67
-Brietta,Flita,Malawi,49.8,47.41,93.88,4.86,11.55,73.77
-Beverley,Bronk,Mayotte,28.78,96.68,61.94,6.77,75.65,44.74
-Amara,Zetta,South Georgia and the South Sandwich Islands,38.12,65.47,6.36,58.17,23.72,56.52
-Morganica,Capello,Venezuela,72.72,64.7,19.06,10.75,6.29,74.21
-Rosabelle,Secrest,Nepal,68.83,7.69,6.16,78.52,73.49,35.11
-Aaren,Yate,Viet Nam,86.31,10.32,83.98,9.35,23.25,22.75
-Raina,Flita,Guinea,73.9,93.89,51.46,91.24,46.12,20.38
-Dorene,Capello,Palau,36.65,6.24,88.58,39.73,18.69,99.05
-Teddie,Sabella,Netherlands,78.37,19.83,60.26,24.47,50.6,76.99
-Ermengarde,Thema,Australia,55.49,62.89,49.47,92.66,48.52,65.37
-Claudina,O'Rourke,Maldives,76.63,60.84,72.97,85.84,90.36,9.14
-Andeee,Shields,New Zealand,44.13,44.75,92.31,70.05,38.68,78.45
-Caryl,Fitzsimmons,United Arab Emirates,70.44,57.88,3.87,35.03,47.39,24.85
-Gwyneth,Felecia,Tonga,73.57,97.58,54.58,78.53,3.58,71.33
-Aigneis,Roarke,Honduras,69.39,51.2,90.43,80.2,80.93,60.05
-Paola,Germann,Mozambique,57.76,89.07,2.31,94.43,40.86,39.11
-Mallory,Breed,Greece,55.41,71.07,55.92,53.06,77.35,78.72
-Joane,Revkah,Bosnia and Herzegovina,12.53,37.79,68.99,90.59,30.95,53.7
-Helsa,Lissi,Argentina,78.47,79.94,23.06,16.27,60.15,70.71
-Rhoda,Pernick,"Macedonia, The Former Yugoslav Republic of",73.6,26.48,24.33,7.01,9.5,99.03
-Bibby,Halsey,Lithuania,51.74,1.63,80.84,43.23,77.96,51.05
-Rosaline,Barrus,Uganda,45.44,19.25,64.06,8.21,48.39,91.48
-Dode,Earlie,Romania,56.31,50.9,79.99,63.12,71.13,48.04
-Bee,Herrera,Western Sahara,89,38.45,31.09,65.95,23.21,28.28
-Vinita,Karna,Thailand,90.88,82.41,95.27,35.71,90.44,96.57
-Melisent,Jalbert,Georgia,23.25,22.4,88.43,9.16,89.25,60.24
-Chickie,Pitt,Malaysia,72.08,52.26,47.3,17.07,79.86,73.46
-Tani,Aurelio,Saint Lucia,67.29,55.54,32.19,37.62,84.63,15.16
-Emylee,Edmund,Costa Rica,61.71,31.55,13.44,15.47,74.64,25.54
-Tressa,Sidonius,Albania,17.74,33.71,62.74,54.91,57.96,56.44
-Fanchon,Maiah,Monaco,88.4,17.27,58.25,42.68,82.03,77.92
-Jacenta,Merriott,Sri Lanka,56.23,45.06,47.22,57.83,8.38,78.73
-Bernie,Atonsah,Israel,50.39,60.88,96.06,41.57,81.44,47.15
-Carly,Hilbert,Marshall Islands,98.16,40.6,71.52,76.1,83.4,89.38
-Krystle,Federica,Central African Republic,22.81,39.23,9.6,92.57,43.54,33.96
-Magdalena,Alabaster,Suriname,49.25,24.62,91.69,1.85,46.09,13.08
-Trudie,Gaulin,Åland Islands,49.8,17.28,20.34,6.14,95.15,11.79
-Helsa,Abernon,Japan,10.41,53.82,98.47,65.48,8.4,90.25
-Lisette,Carleen,Falkland Islands (Malvinas),92.03,6.26,65.06,51.61,62.56,67.18
-Kylynn,Craggie,Belgium,37.13,67.82,76,33.76,85.21,26.59
-Cecile,Malvino,Congo,9.15,25.85,20.17,8.86,90.33,97.3
-Lesly,Raama,Cyprus,70.49,17.26,36.26,41.24,29.88,83
-Cristabel,Abbot,Qatar,81.47,28.4,51.08,25.62,71.26,59.51
-Addia,Geffner,South Georgia and the South Sandwich Islands,41.67,91.51,99.24,75.06,54.07,73.73
-Adore,Nedrud,Heard Island and Mcdonald Islands,88.88,27.1,79.95,67.7,16.78,67.94
-Beth,Aldric,Guernsey,33.32,41.93,46.69,37.72,44.09,36.52
-Alex,Jerold,Bermuda,62.26,57.46,97.79,92.7,30.64,26.16
-Meriel,Faust,Benin,87.99,10.48,59.23,29.12,14,45.04
-Heddie,Means,French Polynesia,69.1,57.66,87.34,44.5,88.96,82.31
-Arlina,Wenda,Saint Helena,10.08,54.04,56.3,44.43,13.1,14.3
-Sandie,Dosia,Pitcairn,54.51,98.07,33.15,86.08,91.59,16.17
-Stevana,Forrer,Liberia,27.38,99.1,28.82,100.47,83.48,61.88
-Teddie,Ellerey,Lesotho,100.05,85.29,33.26,8.91,37.96,72.76
-Mariele,Fleeta,Trinidad and Tobago,87.41,60.68,34.38,53.53,4.21,55.26
-Charlena,Sholley,"Cote D""Ivoire",100.56,81.2,52.17,73.34,87.19,47.61
-Kristina,Carri,Grenada,35.96,12.01,72.87,33.89,66.06,8.87
-Raquela,Elephus,"Iran, Islamic Republic Of",1.38,51.42,99.32,46.43,14.53,42.48
-Madeleine,Byrne,New Caledonia,94.71,3.99,27.14,89.93,44.94,54.38
-Fredericka,Schonfeld,Canada,81.22,70.1,13.91,41.29,74.02,5.97
-Betta,Maroney,Czech Republic,90.42,80.64,1.65,22.51,55.19,26.63
-Ninnetta,Janith,China,55.01,13.79,39.81,21.08,1.78,16.7
-Ariela,Margret,Eritrea,22.59,92.14,73,72.41,70.27,33.29
-Tilly,Hermes,Guernsey,13.25,35.78,56.51,25.9,60.17,95.23
-Carly,Caitlin,Svalbard and Jan Mayen,73.69,92.02,26.18,81.63,28.38,99.51
-Lucille,Woodberry,Syrian Arab Republic,27.52,100.25,76.1,69.5,79.54,45.57
-Olivette,Solitta,Madagascar,74.14,88.74,1.38,59.25,68.25,8.48
-Jackie,Waldron,Samoa,33.91,10.39,43.9,39.28,69.67,52.98
-Ayn,Alejoa,Serbia and Montenegro,5.74,35.05,69.21,99.06,33.83,43.41
-Cherilyn,Artie,San Marino,93.85,100.76,91.29,70.21,100.86,21.27
-Lyssa,Zola,Macao,92.53,44.86,59.31,68.25,32.34,47.76
-Adelle,Tice,Morocco,54.65,66.15,32.12,12.19,4.33,30.98
-Evita,Arne,Philippines,1.13,82.92,62.3,60.19,77.86,16.66
-Jasmina,Middleton,Honduras,26.92,42.79,75.12,36.03,17.58,30.44
-Shel,Jorgan,Central African Republic,36.9,99.95,24.12,78.36,93.4,2.49
-Alexine,Marsden,Thailand,56.09,56.27,54.7,79.34,84.55,97.04
-Justinn,Noam,Cameroon,33.38,69.81,73.06,59.06,24.49,38.48
-Lenna,Fillbert,RWANDA,20.1,2.78,29.72,13.78,88.02,28.25
-Jacenta,Smitt,Nepal,20,65.15,64.07,19.9,32.1,47.27
-Ulrike,Uund,Morocco,83.09,70.02,99.93,27.18,70.09,53.9
-Amara,Mendez,Sri Lanka,98.31,67.24,52.07,15.68,72.24,97.96
-Lisette,Zrike,India,51.21,33.49,40.38,37.47,1.91,18.87
-Tybie,Pattin,Mauritius,56.62,48.87,47.38,68.1,41.64,75.96
-Randa,Sandye,Cuba,16.81,16.24,58.83,51.39,27.81,29.18
-Estell,Ariella,Cook Islands,55.74,63.63,69.26,98.28,71.65,15.53
-Donnie,Rudolph,Estonia,69.01,30.33,93.62,32.92,96.78,55.28
-Zondra,Skell,Germany,40.24,35.69,71.21,99.85,17.86,44
-Ardeen,Paton,Tonga,33.26,11.21,65.81,23.06,49.64,44.13
-Emmey,Claudine,Monaco,36.76,88.12,55.08,89.49,18.87,68.21
-Ellette,Izaak,Gibraltar,1.62,58.57,18.41,84.3,99.27,30.92
-Marylou,Loleta,Guernsey,13.57,69.11,79.48,96.73,45.66,79.51
-Kerrin,Hartnett,Myanmar,72.93,75.91,20.13,85.21,80.38,94.42
-Genevra,Gibbeon,Martinique,66.8,55.87,1.69,54.18,88.01,88.28
-Mara,Gualtiero,Ireland,74.4,67.79,22.32,39.45,67.24,48.63
-Bernie,Caitlin,Mali,78.59,9.92,47.58,30.28,26.37,73.49
-Pearline,Primalia,Iraq,21.54,18.12,79.63,24.5,56.6,89.15
-Anthia,Suk,Italy,72.18,83.35,74.72,82.57,26.21,64.14
-Joceline,Halla,Latvia,61.7,46.01,72.39,65.85,22.38,84.21
-Emmey,Ashely,Montserrat,89.7,20.52,13.59,81.55,44.72,87.43
-Candi,Ader,Sri Lanka,69.57,41.63,63.7,93.84,16.45,60.38
-Bernie,Bach,Cyprus,93.66,72.25,13.51,53.72,80.28,85.6
-Tami,Charmine,Oman,27.34,26.85,42.07,82.29,43.41,38.99
-Georgetta,Karna,Croatia,84.58,52.3,58.6,70.86,77.1,39.34
-Willetta,Sinegold,Sudan,32.57,82.74,60.51,32.47,37,73.12
-Nicoli,Wandie,Norfolk Island,32.75,69.63,37.24,62.74,96.19,51.98
-Flory,Pip,Bosnia and Herzegovina,81.88,32.81,26.78,19.91,71.95,69.47
-Nadine,Melony,Thailand,34.7,26.55,46.65,76.58,4.23,78.98
-Hyacinthe,McCutcheon,Kyrgyzstan,39.6,6.12,96.38,98.09,70.67,74.94
-Tracey,Stevy,Canada,20.61,69.88,20.57,47.53,91.54,46.13
-Chickie,Masao,Tonga,70.94,63.44,90.82,13.74,4.44,95.86
-Emilia,Philipp,Solomon Islands,22.51,32.35,39.89,62.56,77.17,59.39
-Linet,Erskine,San Marino,55.44,82.52,9.56,90.47,33.43,11.08
-Emelina,Prober,Ethiopia,60.1,58.45,33.81,63.69,82.16,17.55
-Elyssa,Hoban,Aruba,21.86,64.81,62.58,14.32,57.9,35.61
-Rhoda,Ardeha,Gambia,76.15,20.28,73.94,59.52,96.07,21.76
-Tressa,Tarrant,Australia,60.62,37.65,26.29,32.38,87.2,76.17
-Glynnis,Teryn,Trinidad and Tobago,81.84,11.08,74.64,52.02,57.06,88.96
-Oona,Boycey,Antigua and Barbuda,71.48,25.62,1.68,59.81,50.71,56.22
-Ilse,Killigrew,Costa Rica,57.22,51.38,75.1,38.86,19.47,76.2
-Raquela,Tremayne,Indonesia,61.61,6.61,1.03,14.1,33.24,94.23
-Leia,Parette,American Samoa,91.51,16.22,18.39,37.05,68.87,97.5
-Aigneis,Moseley,Spain,6.96,9.7,73.65,80.89,18.2,13.66
-Veda,Slifka,Costa Rica,30.12,91.34,32.01,24.85,65.4,68.28
-Jenda,Toni,Fiji,73.92,33.47,31.52,27.06,42.8,96.31
-Rosaline,Couture,Cayman Islands,51.78,66.16,40.76,57.94,33.46,100.48
-Rani,Levey,Chad,63.39,70.01,50.82,53.8,93.76,96.18
-Janis,Colp,Cameroon,15.85,34.77,18.17,74.51,74.23,84.23
-Kalina,Koziara,Antarctica,97.32,58.61,8.04,18.91,34.24,33.93
-Lenna,Melleta,Malaysia,21.83,24.39,78.89,5.71,45.7,65.32
-Ketti,Ethban,French Southern Territories,76.31,80.36,22.33,7.63,52.8,99.64
-Marita,Marsden,Sri Lanka,12.12,10.63,58.89,97.37,89.19,5.26
-Jere,Lynn,Russian Federation,98.59,59.4,53.58,32.47,37.93,53.56
-Natka,Hunfredo,Åland Islands,66.82,31.77,72.19,97.28,95.46,69.37
-Ethel,Shelba,Guadeloupe,43.23,74.81,87.52,48.03,3.65,29.27
-Teddie,Romelda,Mongolia,4.19,74.56,27.76,15.15,29.76,68.86
-Lulita,Tjon,Kiribati,71.6,78.13,71.45,11.95,85.96,3.85
-Augustine,Posner,Turkey,14.62,30.88,51.17,10.19,16.93,51.74
-Tilly,Izaak,Åland Islands,11.81,47.67,16.48,32.28,82.88,61.61
-Belva,Jorgan,Denmark,73.29,29.89,86.97,30.33,92.14,69.11
-Renie,Sibyls,Brunei Darussalam,90,61.05,49.77,88.44,41.36,81.31
-Loree,Pond,Togo,85.86,29.32,46.19,69.61,26.2,81.57
-Tobe,Kalinda,Guyana,41.61,42.77,83.98,2.26,59.68,81.48
-Verla,Weide,Mali,24.65,93.32,16.7,37.27,89.36,7.95
-Ivett,Narton,Saint Helena,24.13,63.35,88.51,61.45,61.48,14.04
-Cyndie,Docilla,Guam,33.09,79.48,87.84,94.88,96.24,28.83
-Molli,Vale,Puerto Rico,12.99,22.37,58.36,24.81,20.63,28.78
-Almeta,Ariella,Togo,98.46,42.12,80.76,71.34,29.51,64.81
-Brietta,Malanie,Jordan,11.26,35.62,55.49,87.58,98.22,65.87
-Nataline,Trey,Singapore,21.24,27.68,98.67,8.38,45.81,4.93
-Corly,Corabella,Isle of Man,97.22,78.94,9.08,89.59,57.36,20.6
-Constance,Dannye,Barbados,94.93,30.28,60.95,21.8,13.26,9.63
-Tarra,Colleen,New Zealand,49.86,92.13,75.89,61.24,31,29.01
-Karolina,Lilas,United Arab Emirates,75.63,68.2,86.07,27.47,7.36,45.13
-Georgina,Roxanna,Guam,95.85,54.45,12.88,8.68,77.97,49.81
-Lizzie,Cottle,Myanmar,36.01,91.69,40.36,65.99,77.09,57.61
-Hildegaard,Constancy,Mauritius,86.79,89.6,86.52,35.55,85.97,68.75
-Dianemarie,Bigner,Costa Rica,31.23,44.07,37.11,29.55,70.12,6.69
-Ronna,Nore,Macao,44.41,63.94,46.05,4.21,88.08,59.65
-Dennie,Shaddock,Cayman Islands,47.75,47.2,2.32,87.38,65.03,58.21
-Mellicent,Daniele,Namibia,27.25,47.76,86.46,32.12,60.58,87.39
-Delilah,Kress,Honduras,83.99,48.81,8.54,97.03,29.13,61.77
-Sonni,Joseph,Croatia,90.73,56.57,57.27,93.26,77.28,68.57
-Malina,LaRue,Kuwait,13.58,87.18,82.35,14.78,73.16,64.7
-Adore,Lymann,Costa Rica,96.41,53.7,79.19,69.63,7.76,91.12
-Daune,Orelee,Malta,73.43,95.34,41.03,72.93,90.05,38.1
-Paule,Ambrosia,Macao,7.75,33.74,97.3,65.27,21.81,17.37
-Etta,Stephie,Cuba,31.62,45.58,64.84,79.74,31.39,16.35
-Modestia,Delp,Comoros,7.21,3.42,18.7,50.19,67.31,92.38
-Harrietta,Tatianas,Bolivia,89.63,32.94,43.16,69.07,94.58,45.57
-Lilith,Lory,Morocco,27.76,97.81,88.17,48.61,29.09,62.72
-Tarra,Sundin,Algeria,82.21,61.85,55.69,27.97,36.07,37.28
-Priscilla,Salvidor,Ghana,61.85,33.71,35.3,92.27,96.55,21.69
-Bertine,Berl,Sweden,31.99,22.22,96.5,55.7,31.07,55.55
-Gabriellia,Paine,Uzbekistan,97.39,86.13,31.12,49.28,44.61,50.17
-Dagmar,Macey,Papua New Guinea,98.93,100.52,38.29,17.44,92.66,22.76
-Tarra,Dannye,Trinidad and Tobago,32.89,96.74,98.91,56.18,25.01,55.15
-Sharlene,Naor,Suriname,99.79,28.44,84.27,12.31,87.42,26.93
-Linet,Rugen,Falkland Islands (Malvinas),98.35,24.96,6.72,72.31,6.8,20.42
-Pierette,Travax,Tajikistan,94.38,63.16,46,59.09,73.18,9.5
-Lesly,Ellord,French Southern Territories,76.04,40.81,48.81,8.26,99.2,93.41
-Jasmina,Gordon,Hungary,2.3,84.51,89.1,91.34,80.59,5.76
-Roxane,Lowry,Tonga,64.11,70.94,20.75,40.7,84.49,11.07
-Kayla,Cristi,Wallis and Futuna,66.55,69.11,43.12,66.23,8.43,27.91
-Aimil,Schonfeld,Antigua and Barbuda,92.26,14.9,2.09,77.98,62.67,97.71
-Stevana,Noam,Japan,24.19,84.16,100.71,68.47,23.67,40.96
-Theodora,Caitlin,South Georgia and the South Sandwich Islands,37.93,87.23,86.88,31.01,16.44,70.3
-Jenilee,Marden,Antarctica,6.27,98.92,65.6,49.35,11.37,58.24
-Charmaine,Travax,Samoa,26.59,49.93,72.85,7.83,3.28,62.63
-Dominga,Nester,Zimbabwe,22.34,20.05,36.01,56.02,61.59,46.38
-Maurene,Earlie,Uruguay,97.98,31.17,55.12,62.51,71.54,43.3
-Libbie,Weinreb,Kenya,85.94,80.31,70.19,5.74,81.1,24.1
-Brana,Swanhildas,Turkey,49.43,87.93,12.13,2.16,88.74,8.88
-Zondra,Horan,RWANDA,14.98,37.4,98.96,73.43,94.56,19.12
-Sean,Jefferey,Guyana,73.53,5.7,92.9,29.55,80.22,91.51
-Leia,Oriana,Guadeloupe,85.73,45.64,56.04,75.65,26.79,41.85
-Natka,Dituri,Panama,76.01,15.19,48.37,11.99,42.53,65.9
-Orsola,Granoff,Zambia,98.92,50.1,38.36,68.78,79.44,29.62
-Aili,Graig,Tuvalu,11.78,30.58,59.07,50.14,16.73,30.05
-Alia,Nahum,Estonia,85.29,80.99,73.32,83.37,45.2,11.54
-Gaylene,Publia,Tonga,7.15,87.14,36.7,8.99,92.41,98.98
-Peri,Lytton,Comoros,62.31,4.67,70.96,16.32,94.79,56.82
-Tina,Kimmie,Guinea,30.23,66.97,77.53,96.95,12,27.08
-Liana,Kaete,Niger,3.02,14.47,91.86,94.53,19.71,14.09
-Rosene,Baudin,Senegal,27.34,91.06,86.76,15.16,50.76,66.19
-Estell,Hailee,Canada,56.91,73.95,78.55,30.05,24.43,80.76
-Allis,Sothena,Guinea,51.53,5.77,64.25,91.91,58.47,44.42
-Nicoli,Dudley,Morocco,5.07,86.06,80.71,83.2,89.44,35.1
-Verla,Berriman,Luxembourg,42.04,25.56,31.97,2.34,49.71,11.64
-Vivia,Crudden,Gabon,49.9,26.96,55.67,100.07,97.69,65.07
-Corene,Rosette,Myanmar,75.7,78.65,65.39,13,26.55,55.94
-Carol-Jean,Wilona,Lesotho,27.64,2.29,92.66,40.35,69.95,37.73
-Margette,Seligman,Benin,29.35,40.37,14.86,91.75,95.79,39.77
-Tobe,Richers,Morocco,62.7,31.78,52.51,1.22,86.28,28.64
-Kristan,Felecia,Samoa,33.9,31.24,33.26,49.72,67.06,22.55
-Janey,Bow,French Guiana,48.59,9.18,59.89,41.42,85.01,45.01
-Sharlene,Turne,Reunion,4.75,73.39,8.98,52.11,73.14,78.19
-Gale,Berriman,Nepal,81.09,35.19,98.13,19.55,37.81,61.27
-Demetris,Maiah,Belgium,15.96,9.13,11.58,85.37,93.94,29.32
-Laure,Diogenes,Kiribati,25.19,30.43,16.12,35.11,13.77,30.27
-Dorthy,Berne,Macao,48.94,8.94,39.3,11.9,79.06,27.74
-Leeanne,Westphal,Bhutan,77.61,18.25,68.01,48.6,19.12,78.36
-Clementine,Genna,Kuwait,7.39,36.18,50.45,59.32,25.08,95.91
-Tomasina,Idelia,Bolivia,29.57,30.12,95.92,69.16,66.23,33.55
-Yvonne,Mathilde,Burundi,18.53,75.31,79.16,47.47,69.73,58.43
-Wynne,Faria,Barbados,52.1,58.7,17.73,91.09,20.98,7.24
-Maye,Kolnick,Gambia,26.46,77.11,67.17,19.01,61.03,3.35
-Hannis,Byrne,Chile,95.89,24.5,80.35,95.55,38.21,83.33
-Delilah,Dermott,United Arab Emirates,58.3,40.47,74.4,70.58,75.24,94.67
-Benita,Nicoline,Morocco,75.38,77.51,57.82,79.77,47.98,67.98
-Johna,Means,Gambia,65.88,58.66,73.52,13.19,94.66,47.34
-Christal,Duwalt,Norfolk Island,2.08,38.16,63.67,9.23,54.3,17.43
-Wendi,Laurianne,Morocco,73.02,87.78,10.58,30.54,82.1,96.55
-Fernande,Kenney,Chile,9.6,66.9,67.63,43.73,92.79,5.15
-Bertine,Garrison,Puerto Rico,66.16,84.41,74.71,30.32,73,83.13
-Mallory,Mullane,Burundi,36.79,80.72,89.7,97.47,34.63,100.88
-Violet,Blase,Equatorial Guinea,1.22,55.82,5.59,37.34,43.48,51.43
-Kelly,Sadowski,Canada,99.95,24.4,74.99,13.98,97.08,67.32
-Rori,Teddman,French Southern Territories,44.9,54.35,35.09,72.77,54.88,29.36
-Sam,Loleta,Niue,18.97,90.84,80.89,55.89,31.28,70.62
-Cassondra,Ursulette,British Indian Ocean Territory,94.33,17.4,46.84,3.56,38.87,31.03
-Basia,Prouty,Zimbabwe,69.26,78.14,87.82,73.76,42.02,39.81
-Nessie,Berriman,Honduras,61.99,59.34,3.86,25.09,35.42,13.02
-Regina,Cleo,"Taiwan, Province of China",26.37,4.11,75.23,59.72,6.75,19.85
-Goldie,Halsey,Norfolk Island,50.24,48.95,35.65,68.73,33.3,16.33
-Fredericka,Ellord,Netherlands Antilles,73.24,67.45,77.56,95.43,14.54,38.11
-Cassandra,Mozelle,"Virgin Islands, British",24.45,64.16,40.11,14.57,18.11,22.74
-Sharlene,Mehalek,Isle of Man,65.89,78.57,94.99,98.49,73.12,62.52
-Verla,Huggins,United States Minor Outlying Islands,88.5,35.61,29.36,52.53,79.61,79.65
-Claudina,Palocz,American Samoa,88.19,36.63,10.62,85.25,4.83,26.28
-Ingrid,Blase,Australia,18.61,87.07,57.98,88.82,17.61,25.24
-Karolina,Goldina,Canada,1.17,72.69,32.85,80.5,63.36,66.27
-Chloris,Duwalt,Lebanon,60.24,16.67,14.65,75.49,68.29,51.77
-Adelle,Shelba,South Georgia and the South Sandwich Islands,54.73,8.53,89.42,4.95,98.92,19.47
-Nanete,Bach,Nigeria,62.42,24.42,94.86,14.96,3.62,28.45
-Ilse,Silvan,French Polynesia,93.85,88.04,66.79,36.4,24.04,12.72
-Sadie,Lory,Guyana,43.27,12.27,11.29,15.58,74.49,61.9
-Sashenka,Yoko,Falkland Islands (Malvinas),9.44,41.6,81.31,98.85,58.13,57.1
-Dotty,Francene,Malawi,21.35,21.91,96.2,13.63,95.79,4.32
-Daphne,Garrison,Suriname,53.94,23.79,60.7,51.42,53.73,90.72
-Yolane,Fennessy,Liechtenstein,75.47,6.3,11.37,80.05,69.25,82.19
-Agnese,Mayeda,Central African Republic,83.99,69.71,53.47,78.7,61.31,62.03
-Darlleen,Gino,"Korea, Democratic People""S Republic of",67.16,18.37,81.32,89.84,21.01,56.57
-Madeleine,Bohlin,Norfolk Island,63.73,88.57,6.78,35.77,69.76,7.69
-Lauryn,Kelula,Christmas Island,22.44,29.03,54.29,37.59,36.11,12.55
-Neila,Malina,Togo,67.89,35.28,90.75,61.92,27.83,43.24
-Halette,Bohlin,Lesotho,11.54,83.88,92.49,98.48,38.64,87.78
-Carmencita,Cutlerr,Mauritius,24.29,48.26,18.63,81.96,47.82,15.6
-Konstance,Marisa,Tokelau,1.38,86.82,55.14,8.71,60.58,40.49
-Gilligan,Huggins,Burundi,11.56,57.14,69.68,36.73,96.47,54.87
-Magdalena,Zaslow,Myanmar,80.56,61.66,12.4,13.51,45.44,36.47
-Ilse,Raychel,Slovakia,85.6,63.64,12.47,71.24,50.5,83.88
-Ruthe,Ciapas,Argentina,92.14,62.33,68.84,55.38,1.05,16.88
-Debee,Melleta,Solomon Islands,46.46,22.22,86.9,54.68,5.01,61.85
-Regina,Auberbach,Ukraine,12.37,71.14,72.52,93.4,82.82,92.78
-Cristabel,Kellby,Mozambique,78.32,43.06,100.87,47.23,91.16,36.22
-Helena,Sandye,"Micronesia, Federated States of",85.08,96.76,30.82,28.59,4.57,93.39
-Hallie,Chobot,Belarus,34.05,31.82,95.7,1.36,70.35,65.35
-Heida,Trinetta,Ghana,91.11,18.42,34.14,54.58,9.74,57.19
-Danny,Engdahl,Nauru,92.63,48.8,25.8,73.8,36.96,69.99
-Gwyneth,Barrus,Haiti,12.24,66.21,4.43,9.68,30.21,14.63
-Katharina,Alabaster,Uruguay,84.86,12.47,56.63,99.88,6.52,93.53
-Annora,Tillford,Czech Republic,15.24,64.6,56.66,99.31,32.21,51.83
-Mariele,Rocray,Lithuania,57.18,19.1,59.74,73.95,44.68,89.33
-Tamqrah,Natalia,Chile,1.76,8.86,75.06,46.64,62.81,87.79
-Ursulina,Heidt,Panama,80.62,57.14,34.07,67.48,18.48,37.03
-Evita,Nadia,Ireland,31.79,80.38,96.06,23.39,40.92,10.71
-Trixi,Chandler,Slovenia,65.18,82.42,45.77,37.32,70.19,68.21
-Sadie,Joni,Central African Republic,8.23,84.17,97.22,67.32,88.58,48.36
-Nelle,Afton,Indonesia,2.69,89.44,42.13,43.74,28.08,83.44
-Darci,Munn,Falkland Islands (Malvinas),56.86,100.92,61.21,8.62,68.34,10.91
-Helena,Wind,Cuba,91.51,45.62,93.82,53.29,22.94,56.63
-Veda,Morgun,Lesotho,26.97,50.43,66.87,64.24,32.52,69.3
-Arabel,Lunsford,Northern Mariana Islands,15.68,36.48,17.51,17.05,4.63,76.71
-Maridel,Bigner,Guyana,100.16,35.72,69.8,3.61,96.3,63.06
-Lucille,Bouchard,Dominican Republic,53.83,26.2,67.1,15.97,93.15,27.36
-Doro,Erlandson,Bouvet Island,90.39,20.7,40.18,79.57,40.67,78.24
-Therine,Maryanne,Holy See (Vatican City State),1.98,86.35,32.25,52.26,83.76,43.63
-Mariele,Montgomery,Iraq,49.04,49.17,32.11,20.76,97.39,14.83
-Esmeralda,Halsey,Honduras,75.19,6.26,15.41,32.1,58.98,83.54
-Kathy,Mallon,Samoa,7.26,85.77,87.61,31.3,79.56,22.8
-Dale,Judye,Brazil,64.45,77.82,25.61,59.56,91.34,14.16
-Merci,Nelsen,"Virgin Islands, British",52.48,30.65,20.7,4.11,38.74,72.32
-Mallory,Lissi,Anguilla,55.74,32.27,55.2,8.63,90.95,72.66
-Rosene,Shaddock,Niue,27.56,33.65,12.23,87.33,65.82,4.59
-Cathie,Abram,Equatorial Guinea,52.74,91.02,49.97,54.25,31.85,18.45
-Rosabelle,Aaberg,Uruguay,66.88,76.52,26.52,90.14,99.8,24.42
-Lenna,Bendick,Monaco,70.95,60.6,62.76,59.22,74.73,64.68
-Eve,Lewes,Bahamas,33.07,7.5,80.58,27.1,68.69,71.03
-Bernardine,Christal,Ireland,28.89,78.08,6.04,9.48,22.76,87.54
-Yolane,Reneta,Uzbekistan,33.25,4.27,87.34,24.25,29.68,60.63
-Oona,Kiersten,Peru,18.24,33.4,78.59,43.1,10.97,50.69
-Max,Marisa,China,96.7,59.51,96.32,36.36,15.75,89.14
-Eadie,Lory,Ecuador,84.31,5.22,62.93,69.19,42.04,30.06
-Aurore,Artie,"Congo, The Democratic Republic of the",67.02,1.98,39.33,4.86,76.6,73.33
-Leia,Rad,AndorrA,45.57,97.27,2.4,10.1,95.25,10.07
-Sashenka,Buffum,Mongolia,20.55,2.95,78.06,27.67,77.81,59.85
-Carmencita,Aprile,Luxembourg,46.69,100.17,73.56,25.34,48.98,86.06
-Goldie,Berne,Bulgaria,77.88,44.14,60.77,66.18,88.95,1.1
-Jennica,Ader,United States Minor Outlying Islands,51.53,3.3,19.6,66.34,100.67,17.52
-Malina,Primalia,Belgium,9.19,59.45,100.41,43.34,1.52,41.16
-Ursulina,Tomasina,Mayotte,81.18,91.27,45.69,1.09,46.48,51.57
-Nicoli,Peg,Maldives,26.77,97.19,24.05,38.99,14.36,21.54
-Dorice,Dex,Greenland,80.94,27.68,76.99,29.18,62.63,61.29
-Ebonee,August,Sierra Leone,81.77,72.27,20.07,55.53,58.16,25.79
-Priscilla,Belanger,Saint Lucia,62.85,75.31,54.5,37.35,52.09,70.92
-Livvyy,Tengdin,Azerbaijan,12.84,21.19,61.88,88.16,74.59,12.27
-Fernande,Knowling,Brunei Darussalam,6.12,44.55,42.08,91.3,58.3,69.61
-Allis,Suk,Samoa,76.8,64.76,93.95,27.11,33.63,4.23
+firstname,lastname,team,age,trueShooting,usage,assist,rebound,defensive,blocks
+Ricky,Eachern,Orlando Magic,18,86.14,8.25,8.19,18.84,66.2,4.78
+Margarette,Japeth,Oklahoma City Thunder,25,85.81,12.73,14.37,34.04,54.56,56.23
+Shell,Tremayne,Toronto Raptors,24,89.86,28.95,21.1,3.6,96.57,41.34
+Ermengarde,Azeria,Minnesota Timberwolves,28,69.79,64.42,90.55,22.84,99.46,96.53
+Robinia,August,Brooklyn Nets,28,53.52,68.22,91.65,13.98,50.66,62.79
+Perry,Alejoa,Houston Rockets,19,18.43,56.71,92.69,6.1,61.73,58.34
+Caritta,Vorster,Cleveland Cavaliers,22,29.26,45.9,96.11,94.05,25.31,17.75
+Nanete,Huggins,Phoenix Suns,24,62.21,75.84,47.16,33.96,15.1,77.58
+Kittie,Ivens,LA Clippers,24,60.75,92.99,71.51,49.9,28.07,44.59
+Molli,Orelee,San Antonio Spurs,25,11.31,39.2,15.22,13.22,60.67,94.55
+Lesly,Yerkovich,Memphis Grizzlies,27,79.55,52.42,5.49,39.69,74.76,45.81
+Catharine,Emanuel,Utah Jazz,19,19.68,81.82,44.23,6.61,22.03,93.67
+Lelah,Gower,Portland Trail Blazers,20,77.34,8.28,4.1,21.57,79,70.06
+Maisey,Vacuva,Los Angeles Lakers,23,88.31,46.71,9.48,57.72,38.6,81.06
+Quintina,Mendez,Minnesota Timberwolves,21,55,67.79,24.63,48.4,80.75,87.85
+Allis,Phi,Dallas Mavericks,25,18.14,22.17,69.45,39.68,77.11,63.9
+Regina,Gale,Portland Trail Blazers,21,80.27,11.23,71.66,11.94,27.92,15.94
+Charmaine,Jagir,Houston Rockets,28,80.37,17.68,96.7,6.35,31.49,24.61
+Marsiella,Loring,Cleveland Cavaliers,28,88.95,23.9,80.48,93.63,90.33,77.43
+Phylis,Jillane,Brooklyn Nets,25,96.65,52.07,33.77,15.8,93.58,47.72
+Tersina,Buttaro,Minnesota Timberwolves,25,73.87,39.75,1.08,34.8,38.37,16.33
+Elyssa,Klemperer,New Orleans Pelicans,28,39.83,46.82,75.79,75.07,44.87,33.86
+Henriette,Tryck,Chicago Bulls,20,45.16,11.66,24.06,31.59,92.08,56.47
+Sarette,Brotherson,Oklahoma City Thunder,27,64.05,95.53,84.71,15.32,26.43,96.95
+Ethel,Bearnard,Utah Jazz,18,48.55,58.56,55.23,27.78,93.47,53.58
+Gilligan,Randene,Cleveland Cavaliers,28,65.27,63.1,38.06,47.54,48.54,80.35
+Yvonne,Solitta,Sacramento Kings,24,55.38,9.71,77.33,35.95,22.66,64.48
+Minda,Ledah,Golden State Warriors,26,20.8,33.83,47.1,23.06,25.58,11.47
+Fred,Tomasina,Orlando Magic,29,24.85,99.6,73.72,67.63,1.68,16.85
+Marjie,Roumell,Toronto Raptors,27,18.32,42.55,94.62,43.18,10.93,33.35
+Carmela,Gualtiero,Cleveland Cavaliers,20,11.16,69.11,14.83,34.04,28.51,36.42
+Atlanta,Travax,Portland Trail Blazers,26,69.06,62.55,60.12,45.61,14.8,28.52
+Kylynn,Chabot,Atlanta Hawks,20,71.53,19.52,47.73,25,97.67,93.98
+Ardenia,Maribeth,Atlanta Hawks,28,81.46,4.96,38.48,49.85,71.37,44.27
+Dagmar,Anastatius,Golden State Warriors,29,90.17,19.69,98.77,24.65,41.58,10.47
+Ingrid,Campball,Phoenix Suns,20,8.99,6.53,76.89,45.21,42.82,68.59
+Gabriellia,Mandler,Washington Wizards,21,95.47,15.5,31.66,14.71,74.08,63.69
+Brietta,Daegal,Toronto Raptors,30,46.78,41.13,7.83,39.98,71.09,69.44
+Elvira,Nisbet,Utah Jazz,19,26.46,42.22,13.94,7.4,42.24,1.02
+Steffane,Rona,Philadelphia 76ers,22,4.54,67.84,30.89,57.46,18,50.64
+Josephine,Gaal,Golden State Warriors,24,62.79,51.16,77.29,56.87,62.91,30.81
+Hannis,Tayib,Washington Wizards,29,64.61,10.11,72.49,23.84,77.25,17.94
+Jinny,Lattie,Charlotte Hornets,28,60.29,3.14,44.47,16.71,48.29,40.21
+Mallory,Keily,Chicago Bulls,21,12.39,15.41,49.78,56.32,99.4,20.53
+Anestassia,Wenda,Portland Trail Blazers,30,63.33,15.52,85.31,50.28,87.41,86.17
+Brietta,Lindemann,Memphis Grizzlies,23,39,74.64,40.44,36.22,34.66,62.87
+Kassey,Bouchard,Washington Wizards,30,61.81,8.98,86.84,31.62,89.83,68.87
+Asia,Tiffa,Brooklyn Nets,19,92.56,16.22,10.72,30.27,27.75,67.85
+Myriam,Lilybelle,Atlanta Hawks,26,67.6,31.51,14.05,80.45,83.32,98.06
+Olivette,Johanna,Phoenix Suns,20,64.91,38.81,22.68,15.56,65.03,89.86
+Zaria,Judye,Minnesota Timberwolves,29,33.97,42.24,7.02,5.83,95.44,32.92
+Farrah,Ferino,Brooklyn Nets,19,78.15,42.22,89.96,44.69,83.91,16.58
+Candi,Tarrant,Golden State Warriors,28,12.39,86.72,57.08,18.95,86.83,22.75
+Aili,Letsou,Sacramento Kings,20,81.05,49.43,57.41,46.12,69.84,4.78
+Jean,Kellby,Toronto Raptors,28,20.37,78.33,46.34,95.54,71.78,27.05
+Marita,Colp,Sacramento Kings,30,97.34,72.97,74.74,51.81,96.79,10.86
+Chastity,Cimbura,Toronto Raptors,24,95.78,26.27,28.53,29.31,3.13,10.82
+Fayre,Roche,San Antonio Spurs,18,53.47,77.76,45.85,19.92,30.99,64.75
+Lory,Amand,New Orleans Pelicans,23,17.9,50.89,41.25,29.74,29.41,92.06
+Halette,Auberbach,Golden State Warriors,28,25.14,6.76,43.65,11.77,93.28,14.17
+Gilligan,Valoniah,Dallas Mavericks,18,70.14,95.91,85.02,43.13,18.6,35.9
+Eve,Gladstone,Milwaukee Bucks,23,96.85,49.54,72.8,81.07,47.39,55.67
+Ida,Schenck,Dallas Mavericks,25,4.01,6.13,37.32,76.64,97.75,69.44
+Emma,Buttaro,Minnesota Timberwolves,26,80.19,1.05,41.87,55.01,20.51,66.95
+Tomasina,Thar,Portland Trail Blazers,28,93.26,30.73,99.21,62.79,30.63,17.02
+Sandie,Breed,Utah Jazz,26,50.87,4.96,62.27,2.85,36.63,88.1
+Eadie,Rosette,Philadelphia 76ers,25,31.13,34.99,66.13,97.7,22.15,37.37
+Nyssa,Land,Toronto Raptors,19,99.01,83.89,23.17,42.02,81.66,88.77
+Starla,Allare,Detroit Pistons,19,72.85,79.49,30.18,55.54,7.61,57.27
+Mariele,Pond,New Orleans Pelicans,23,9.42,44.99,18.52,77.99,6.14,73.47
+Nelle,Berriman,Utah Jazz,29,98.24,1.2,41.68,32.92,80.33,58.55
+Aaren,Cressida,San Antonio Spurs,30,19.76,11.76,53.87,95.17,48.13,57.76
+Etta,Cecile,Toronto Raptors,19,43.03,29.41,99.33,97.99,25.88,5.88
+Esmeralda,Darian,Phoenix Suns,23,47.48,61.58,35.2,89.28,35.14,77.43
+Elvira,Ade,Golden State Warriors,22,78.49,86.7,70.18,67.77,6.71,39.67
+Sam,Hachmin,Boston Celtics,18,43.32,4.42,16.26,22.94,12.23,19.52
+Dotty,Wattenberg,Oklahoma City Thunder,24,22.46,15.57,97.77,93.3,90.55,50.97
+Lynnea,Vorster,LA Clippers,21,24.69,13.53,6.25,83.61,35.84,52.49
+Correy,Ovid,Toronto Raptors,28,68.86,45.69,93.36,12.03,80.49,38.03
+Wilma,Giff,Toronto Raptors,24,50.25,83.41,88.56,30.48,43.78,76.44
+Nariko,Naor,Dallas Mavericks,23,50.81,24.88,41.21,71.81,60.51,86
+Corina,Fabiola,Washington Wizards,22,37.04,56.84,38.36,20.98,53.51,73.79
+Ermengarde,Juliet,Oklahoma City Thunder,28,97.45,10.77,82.2,53.22,66.03,59.54
+Merci,Bonilla,Indiana Pacers,28,75.63,4.18,33.47,22.45,73.98,90.38
+Gianina,Fontana,Minnesota Timberwolves,25,30.18,61.61,63.37,30.25,13.67,79.03
+Charmaine,Roche,Indiana Pacers,26,57.64,98.99,36.49,5.43,70.2,97.6
+Rhea,Leifeste,Toronto Raptors,25,1.98,17.17,34.76,58.05,3.96,23.21
+Blondelle,Faro,New Orleans Pelicans,30,22.76,86.01,32.47,92.37,83.03,28.7
+Frank,Marijo,Miami Heat,29,29.93,49.87,58.31,55.37,76.2,79.2
+Gerianna,Lalitta,Toronto Raptors,20,15.51,3.33,62.36,9.45,10.93,39.52
+Katuscha,Weitman,Milwaukee Bucks,21,14.57,78.97,78.62,80.99,44.61,70.82
+Sallie,Odell,Sacramento Kings,19,88.71,85.55,45.56,55.27,96.97,57.18
+Ada,Sinegold,Atlanta Hawks,22,12.99,94.53,82.61,25.57,33.28,32.98
+Dode,Bartlett,Houston Rockets,23,67.72,36.46,91.92,23.81,55.63,89.67
+Morganica,Eldrid,Washington Wizards,27,87.13,17.97,42.97,2.12,85.97,67.53
+Cordi,Chauncey,Miami Heat,22,63.73,41.33,11.14,36.65,53.26,98.94
+Jemie,Alwin,Atlanta Hawks,28,96.39,51.01,90.91,25.26,49.43,93.92
+Kassey,Sabella,Chicago Bulls,28,22.12,11.57,94.54,72.15,53.37,53.07
+Mallory,Skurnik,Memphis Grizzlies,29,18.23,53.63,90.33,71.22,38.6,85.23
+Correy,Colleen,Golden State Warriors,26,27.48,77.15,31.18,26.2,68.92,28.49
+Letizia,Ulphia,Phoenix Suns,20,92.03,69.01,67.97,68.93,65.75,87.41
+Sissy,Sparhawk,Utah Jazz,18,26.07,78.86,52.71,32.51,76.78,84.35
+Dotty,Tarrant,Orlando Magic,29,91.87,97.04,62.06,20.88,27.86,14.85
+Laurene,Adamsen,Atlanta Hawks,18,70.55,99.18,91.07,80.21,81.02,82.47
+Blinni,Euridice,New Orleans Pelicans,26,44.91,23.84,94.24,37.64,12.62,63.62
+Berget,Kronfeld,Portland Trail Blazers,26,95.26,29.42,91.69,60.32,26.7,83.04
+Jessamyn,Maryanne,Utah Jazz,18,33.63,90.44,24.33,22.34,10.65,30.28
+Leontine,Madelene,Milwaukee Bucks,20,76.55,35.15,39.36,67.08,96.66,43.7
+Tobe,Kauppi,Washington Wizards,18,69.12,77.88,27.83,61.57,55.84,36.21
+Michaelina,Morehouse,Houston Rockets,18,74.13,85.07,90.27,46.56,67.54,88.24
+Renae,Creamer,Detroit Pistons,28,16.81,40.21,28.55,93.93,25.98,15.67
+Kaia,Natalia,Brooklyn Nets,23,96.19,77.57,60.34,59.45,29.97,90.89
+Celisse,Lytton,Atlanta Hawks,24,75.7,24.52,16.09,93.08,29.27,58.25
+Winny,Chesna,Charlotte Hornets,27,14.48,61.3,90.64,76.68,29.55,46.69
+Elise,Pacorro,San Antonio Spurs,22,4.21,33.05,46.06,10.68,93.38,9.6
+Kerrin,An,Indiana Pacers,27,16.36,36.69,35.75,4.27,77.56,17.62
+Asia,Pillsbury,Houston Rockets,27,79.86,3.92,37.05,27.97,21.83,97.55
+Tierney,Johanna,Utah Jazz,25,45.73,40.41,30.76,20.34,44.82,19.8
+Nariko,Penelopa,Washington Wizards,29,89.61,79.11,34.05,49.4,76.13,1.35
+Marcy,Erskine,Los Angeles Lakers,21,22.43,68.27,75.59,96.75,62.8,17.61
+Karena,Kress,Orlando Magic,19,72.36,54.41,78.33,22.4,93.21,23.62
+Cassondra,Yusuk,Washington Wizards,20,1.39,11.86,39.64,99.07,88.06,58.12
+Trixi,Winnick,Detroit Pistons,28,64.42,11.46,19.87,7.71,72.83,38.38
+Adriana,Brenn,Portland Trail Blazers,27,65.85,68.58,38.13,33.97,3.76,42.71
+Corina,Vins,Milwaukee Bucks,28,89.92,72.89,11.14,95.04,39.64,94.67
+Mary,Mata,Houston Rockets,28,69.43,97.72,81.31,43.45,31.59,85.68
+Vere,Rubie,Sacramento Kings,27,51.23,49.05,82.44,95.34,69.36,96.58
+Albertina,Silvan,Toronto Raptors,26,25.04,71.45,73.93,67.35,68.55,64.66
+Ekaterina,Natalia,Los Angeles Lakers,25,59.39,24.78,15.54,14.35,83.28,40.94
+Kore,Yuille,Philadelphia 76ers,30,70.89,38.37,85.5,30.97,90.96,11.15
+Ericka,Ricarda,Dallas Mavericks,24,17.87,38.97,27.32,67.68,76.27,10.97
+Binny,Nisbet,Oklahoma City Thunder,18,63.05,75.92,58.61,11.52,44.18,27.94
+Mary,Amasa,Golden State Warriors,20,91.65,1.3,79.04,97.76,30.84,25.29
+Alie,Ackerley,Philadelphia 76ers,28,26.27,34.74,1.68,17.33,29.25,78.32
+Bernie,Mathilde,Los Angeles Lakers,30,87.77,41.51,92.59,29.98,57.18,15.39
+Jolyn,Sibyls,Denver Nuggets,22,47.83,99.76,18.39,63.81,65.38,36.24
+Nananne,Fry,New York Knicks,24,52.98,62.57,47.56,38.75,91.74,74.99
+Ilse,Winthorpe,Denver Nuggets,21,11.08,61.76,41.24,69.82,27.68,55.13
+Gretal,Linskey,Memphis Grizzlies,20,91.29,97.58,18.51,38.71,52.17,84.38
+Gale,Beebe,Washington Wizards,24,45.32,74.85,48.6,56.38,61.09,62.53
+Rozele,Chem,Toronto Raptors,24,79.36,38.02,18.7,5.01,99.91,77.97
+Brietta,Ambrosia,Orlando Magic,28,33.32,19.17,58.84,58.15,18.07,99.23
+Micheline,Randene,Chicago Bulls,20,11.16,60.19,80.92,53,70.65,3.23
+Brana,Parette,Miami Heat,24,92.48,61.43,13.9,1.75,92.76,97.98
+Rosabelle,My,Portland Trail Blazers,26,68.07,47.21,8.33,81.58,88.12,55.01
+Annaliese,Rosette,Utah Jazz,25,59.99,34.51,92.42,60.65,2.65,19.05
+Aryn,Wadell,LA Clippers,23,95.19,9.37,84.99,10.34,23.4,80.59
+Sue,Ader,Atlanta Hawks,28,35.71,29.42,92.89,22.21,63.77,49.02
+Riannon,Means,LA Clippers,30,32.74,95.89,1.7,32.4,39.11,51.33
+Tani,Maroney,Chicago Bulls,29,15.79,58.54,92.44,93.39,31.62,19.91
+Chandra,McLaughlin,LA Clippers,20,34.14,29.48,40.97,24.83,56,49.6
+Adele,Ries,Memphis Grizzlies,27,66.52,75.07,35.72,83.65,24.24,84.52
+Emma,Byrne,New York Knicks,21,43.35,24.46,61.86,29.78,31.01,6.75
+Tina,Zaslow,Utah Jazz,23,88.74,76.23,8.36,58.32,98.43,56.88
+Jaclyn,Noman,Chicago Bulls,21,5.97,69.3,86.4,9,78.8,63.46
+Yetty,Cynar,Indiana Pacers,18,20.33,63.72,76.61,94.57,46.02,1.34
+Fina,Lia,Golden State Warriors,19,65.57,80.82,76.23,78.02,61.23,50.97
+Vivia,Sabella,Dallas Mavericks,21,96.42,65.14,15.92,34.08,77.65,3.74
+Annaliese,Germann,Miami Heat,29,27.66,94.77,57.42,80.93,51.76,74.23
+Joy,Emmaline,Houston Rockets,23,70.48,42.31,7.33,55.6,16.27,74.73
+Evaleen,Pernick,Portland Trail Blazers,18,70.23,54.66,84.66,75.08,90.86,26.82
+Karlee,Berl,Portland Trail Blazers,26,12.88,27.42,54.49,70.74,59.61,84.34
+Molli,Dex,Washington Wizards,25,35.66,56.73,76.72,38.42,52.68,92.58
+Tori,Vittoria,Washington Wizards,29,56.46,85.27,80.4,65.75,87.13,42.67
+Bill,Matthew,Utah Jazz,30,89.43,75.86,27.91,50.45,81.82,87.27
+Dania,Breed,Chicago Bulls,19,53.81,22.56,94.29,43.44,66.02,96.74
+Kirstin,Margret,Chicago Bulls,20,18.84,81.55,93.37,42.91,2.66,51.51
+Sharlene,Hylan,Milwaukee Bucks,26,78.14,58.74,87.33,62.65,28.75,35.87
+Kristan,Pernick,Sacramento Kings,28,97.21,90.89,42.37,84.59,41.61,61.1
+Steffane,Wildermuth,Oklahoma City Thunder,28,77.3,15.63,16.98,91.9,48.24,50.36
+Wileen,Klemperer,Orlando Magic,26,82.25,37.96,21.91,25.15,74.37,46.61
+Tersina,Philoo,Orlando Magic,21,97.85,89.04,50.33,75.37,94.31,20.69
+Max,Iaverne,Boston Celtics,24,92.44,79.73,43.57,53.18,10.04,68.76
+Tilly,Vilma,Milwaukee Bucks,27,42.26,97.49,46.25,9.59,40.12,31.32
+Barbara,Lubin,,27,59.22,50.99,86.15,8.96,7.91,48.98
+Myriam,Wilkinson,LA Clippers,23,39.5,13.29,30.58,15.86,43.49,37.19
+Orelia,Madox,Phoenix Suns,26,50.95,90.18,84.36,44.19,89.99,43.89
+Bertine,Tamar,New York Knicks,20,8.6,96.36,99.22,4.61,45.13,3.93
+Briney,Llovera,Indiana Pacers,25,82,60.19,5.67,4.48,91.63,76.79
+Mureil,Rustice,Phoenix Suns,22,6.11,8.3,83.9,13.2,77.23,8.61
+Kial,Valoniah,Milwaukee Bucks,22,64.47,80.71,23.5,45.9,27.59,57.04
+Roslyn,Podvin,Portland Trail Blazers,19,80.1,59.17,3.51,18.17,48.64,79.94
+Annora,Screens,Washington Wizards,20,90.71,92.52,52.5,62.14,28.37,13.95
+Lolita,Kolnick,Golden State Warriors,19,95.53,34.19,14.78,64.32,12.88,92.06
+Tina,Caitlin,Toronto Raptors,27,76.29,43.63,10.95,69,40.39,41.9
+Kary,Eachern,Philadelphia 76ers,29,43.61,35.16,96.87,98.69,64.03,11.81
+Peri,Kazimir,Dallas Mavericks,19,52.33,80.53,26.2,46.52,84.9,32.9
+Mamie,Jarib,Los Angeles Lakers,18,70.49,8.27,53.04,98.51,50.4,10.13
+Margalo,Philoo,Denver Nuggets,20,68.85,38.35,25.02,3.35,78.63,54.29
+Corina,Baudin,Oklahoma City Thunder,29,14.99,40.36,24.09,96.84,53.28,60.41
+Orsola,Xerxes,Memphis Grizzlies,24,97,68.62,76.74,39.09,12.51,52.74
+Caritta,Sigfrid,Charlotte Hornets,23,39.63,31.56,6.77,31.88,95.73,13.82
+Vevay,Merell,Charlotte Hornets,29,22.19,62.16,89.95,51.19,58.24,27.04
+Mildrid,Nea,Phoenix Suns,30,93.41,76.93,71.38,91.74,21.35,75.51
+Kary,Durware,Indiana Pacers,21,1.36,7.68,69.49,51.68,31.96,76.82
+Marnia,Lia,Detroit Pistons,27,83.24,93.04,36.32,6.68,69.86,41.27
+Celisse,Ochs,,19,11.38,67.62,97.4,36.19,53.24,70.61
+Aurelie,Plato,Miami Heat,21,89.75,56.18,26.02,3.86,19.57,58.17
+Max,Tillford,Atlanta Hawks,21,71.46,98.85,18.54,62.96,68.91,99.4
+Ebonee,Thad,Dallas Mavericks,25,81.47,21.31,28.74,51.94,90.71,96.3
+Elfreda,Connelly,LA Clippers,28,79.96,20.92,58.8,87.77,75.12,51.63
+Clarice,Allys,Utah Jazz,19,89.59,79.01,60.47,72.39,76.14,86.94
+Gretal,Sharl,San Antonio Spurs,22,26.4,52.98,18.37,96.78,50.22,1.47
+Cristabel,Margret,Orlando Magic,19,67.91,30.15,78.99,76.3,65.16,20.61
+Moyna,Shaver,Dallas Mavericks,30,70.67,40.72,36.34,18.39,30.45,41.42
+Lauryn,Wyn,Phoenix Suns,29,22.01,34.96,80.54,15.56,66.71,81
+Gilda,Schroth,Atlanta Hawks,30,21.13,94.33,48.83,38.03,33.74,79.45
+Natka,Doig,Houston Rockets,30,62.7,58.74,31.6,23.46,35.3,17.54
+Siana,Urania,Chicago Bulls,21,33.82,61.99,48.3,17.94,75.98,6.13
+Candi,Mendez,Washington Wizards,22,75.54,49.09,62.69,66.1,99.85,79.77
+Jsandye,Jethro,Portland Trail Blazers,24,50.64,48.64,58.11,67.77,51.81,9.54
+Karly,Docilla,Detroit Pistons,19,57.06,76.1,54.53,70.86,65.82,19.5
+Chickie,Kolnick,Toronto Raptors,24,56.98,53.51,59.13,38.48,94.81,40.91
+Regina,Stuart,Portland Trail Blazers,26,55.58,12.8,47.17,57.75,81.54,71.55
+Malina,Zetta,Dallas Mavericks,30,97.43,13.94,23.57,68.21,53.51,20.09
+Gerrie,Blisse,Portland Trail Blazers,23,90.07,7.91,67.44,13.24,83.34,74.03
+Phedra,Weide,Denver Nuggets,30,61.11,93.87,56.99,38.05,71.69,74.97
+Stephanie,Faria,Phoenix Suns,24,7.67,26.89,77.86,51.58,63.17,48.73
+Romona,Sandye,Charlotte Hornets,18,82.46,25.74,43.67,67.5,30.78,21.06
+Dede,Tarrant,Toronto Raptors,24,32.35,16.38,59.62,81.65,55.63,69.88
+Vita,Cleo,New York Knicks,28,82.98,78.27,3.11,76.05,50.29,20.04
+Shaylyn,Merell,Washington Wizards,28,7.96,33.92,24.71,14.15,42.85,38.73
+Brooks,Norvol,Minnesota Timberwolves,27,68.2,5.6,94.03,58.68,69.85,46.73
+Chrystel,Pozzy,Minnesota Timberwolves,25,78.37,32.11,43.48,48.71,99,19.77
+Fanny,Codding,Golden State Warriors,20,8.31,28.98,29.48,19.38,57.66,98.31
+Rosene,Fiann,Memphis Grizzlies,21,77.56,3.72,61.39,97.07,73.84,34.75
+Brianna,Bryna,Atlanta Hawks,25,94.59,44.05,38.92,40.19,26.84,91.25
+Heddie,Alwin,Los Angeles Lakers,23,57.4,22.86,52.54,14.31,97.89,50.82
+Camile,Noelyn,Philadelphia 76ers,18,71.48,88.41,33.03,74.84,27.57,89.71
+Frieda,Ranjiv,Los Angeles Lakers,21,22.32,39.87,61.82,40.51,61.43,5.38
+Frank,Natalia,Houston Rockets,29,35.76,38.88,7.25,11.39,86.85,72.42
+Elie,Wilona,Houston Rockets,20,2.39,10.8,54.31,16.47,55.6,88.87
+Pollyanna,Susannah,San Antonio Spurs,20,52.37,82.32,74.88,1.5,55.45,55.2
+Cyndie,Whiffen,Oklahoma City Thunder,18,5.53,20.71,24.37,53.86,8.41,95.69
+Nataline,Charmine,Los Angeles Lakers,22,2.59,33.04,58.07,89.64,68.16,22.52
+Jackie,Zitvaa,San Antonio Spurs,26,82.37,58.19,61.78,81.74,31.92,58.64
+Sibella,Beebe,Indiana Pacers,25,8.5,26.94,98.35,51.79,87,47.63
+Iseabal,Eugenia,Milwaukee Bucks,19,90.47,57.31,8.75,40.08,29.66,87.63
+Albertina,Bonucci,Phoenix Suns,23,79.14,28,50.42,63.51,30.59,47.29
+Evita,Zachary,Philadelphia 76ers,25,76.34,22.97,48.47,78,34.74,87.9
+Michaelina,Jerold,Los Angeles Lakers,28,47.44,24.4,91.91,26.94,14.33,69.89
+Sindee,Heidt,Atlanta Hawks,19,25.28,57.55,76.17,12.08,53.05,29.53
+Shirlee,Shirberg,Houston Rockets,19,64.02,14.35,76.35,87.56,6.01,44.44
+Pamella,Faso,Phoenix Suns,30,83.1,43.52,36.29,3.99,96.61,91.73
+Lesly,Fiester,Indiana Pacers,23,13.7,84.26,86.77,8.18,76.75,52.51
+Concettina,Bearnard,Portland Trail Blazers,30,34.45,11.12,28.65,32.46,30.55,34.77
+Tabbatha,Torray,Utah Jazz,30,48.28,91.41,82.5,82.89,7.25,43.72
+Elena,Ralfston,Miami Heat,26,1.2,27.89,29.01,14.57,32.64,48.33
+Adele,Berl,Sacramento Kings,21,60.41,64.07,32.34,79.97,4.02,42.07
+Dyann,Stevy,Brooklyn Nets,30,64.07,18.46,52.47,54.24,14.04,97.09
+Jennica,Ehrman,Phoenix Suns,27,29.25,76.01,56.63,94.55,78.02,56.29
+Alia,Lea,Orlando Magic,18,14.77,77.36,2.44,58.91,48.56,15.29
+Peri,Baptlsta,Dallas Mavericks,26,25.22,72.06,95.7,2.52,36.04,31.67
+Orelia,Wenda,,25,58.83,15.47,55.92,24.13,60.4,78.25
+Felice,Angelis,Phoenix Suns,25,70.9,93.32,43.14,41.43,36.95,64.95
+Rivalee,Mich,Minnesota Timberwolves,25,62.1,72.33,79.59,28.55,62.88,82.46
+Karina,Aloise,Utah Jazz,25,15.65,33.45,83.33,40.55,41.59,93.9
+Giustina,Merell,Washington Wizards,20,85.35,9.74,15.63,11.94,9.1,41.41
+Brandise,Burnside,Denver Nuggets,23,55.89,60.63,83.85,17.31,71.6,30
+Kayla,Stilwell,Houston Rockets,19,95.23,81.38,14.68,3.98,23.51,72.11
+Darlleen,Hewitt,Utah Jazz,29,69.47,49.41,83.2,65.55,7.88,14.62
+Margette,Flita,Detroit Pistons,18,86.59,51.13,9.62,52.73,60.98,29.15
+Rivalee,Rubie,Sacramento Kings,21,36.25,33.63,2,51.93,56.27,61.98
+Robinia,Penelopa,Denver Nuggets,23,44.19,78.88,96.25,92.8,93.69,3.07
+Chere,Candy,Minnesota Timberwolves,23,87.1,62.09,42.73,61.75,58.51,96.06
+Katuscha,Darrell,Miami Heat,30,32.16,11.49,71.27,46.97,44.99,90.27
+Janenna,Pierette,Utah Jazz,29,21.03,12.14,28.21,88.1,33.1,40.52
+Edith,Jobi,Washington Wizards,27,36.99,17.38,83.21,45.91,54.65,96.75
+Chickie,Wildermuth,Cleveland Cavaliers,28,26.07,8.84,39.05,89.68,47.06,62.07
+Fayre,Boehike,Miami Heat,27,29.03,46.58,88.68,45.1,82.89,41.69
+Karly,Rosalba,San Antonio Spurs,19,82.02,27.93,56.7,49.66,46.1,77.75
+Amii,Brenn,Milwaukee Bucks,27,2.04,97.9,45.73,65.19,81.53,82.71
+Ketti,Adamsen,Sacramento Kings,29,20.42,82.75,9.75,58.88,46.05,52.49
+Nannie,Giff,Sacramento Kings,25,9.76,43.72,43.28,82.99,46.73,18.02
+Zia,Plato,New Orleans Pelicans,26,3.3,96.37,97.83,28.77,64.99,85.6
+Nelle,Pelagias,Denver Nuggets,24,30.15,82.38,27.55,56.43,42.13,78.86
+Sheelagh,Denis,Orlando Magic,29,43.83,45.16,43.19,46.17,89.83,13.84
+Sue,Reinke,Cleveland Cavaliers,20,48.84,96.28,41.27,59.37,15.71,65.08
+Benita,Havens,Toronto Raptors,21,56.38,61.09,71.54,42.63,78.96,84.58
+Belinda,Joseph,Memphis Grizzlies,18,26.55,42.61,65.73,44.24,53.72,59.34
+Alleen,Armanda,Washington Wizards,23,12.56,38.29,19.15,75.73,76.17,28.92
+Hettie,Colp,Philadelphia 76ers,27,60.48,39.81,22.04,88.55,2.53,98.25
+Dode,Eachern,Minnesota Timberwolves,25,13.49,35.28,3.62,1.99,43.72,46.31
+Lisette,Hubert,Utah Jazz,25,78.27,61.73,57.49,66.85,62.07,75.69
+Roxane,Ellerey,Brooklyn Nets,24,46.99,36.27,68.05,75.45,51.49,19.92
+Edee,Kiersten,LA Clippers,22,93.58,41.04,14.48,97.3,47.54,27.43
+Darlleen,Jarib,Milwaukee Bucks,27,94.98,91.37,82.58,32.5,46.5,68.77
+Clarice,Bendick,Cleveland Cavaliers,28,19.39,83.06,95.01,97.21,64.49,81.78
+Brooks,Pozzy,Dallas Mavericks,25,32.37,10.23,1.98,46.26,21.83,76.75
+Tami,Silvan,,20,53.73,32.75,20.27,42.67,69.56,3.45
+Dulcinea,Skell,Charlotte Hornets,26,39.14,62.65,87.73,6.77,27.66,55.57
+Madalyn,Lynn,Charlotte Hornets,19,22.28,8.16,59.18,92.73,43.58,8.33
+Tarra,Helve,Atlanta Hawks,30,79.75,36.48,94.05,61.3,65.93,60.57
+Roz,Seessel,Boston Celtics,25,63.29,7.16,51.86,67.85,54.05,52.64
+Dione,Alabaster,Golden State Warriors,19,8.46,43.42,45.32,47.65,24.1,58.2
+Florie,Morehouse,Indiana Pacers,25,52.69,3.02,97.02,88.44,66.52,62.43
+Adriana,Hoban,Chicago Bulls,26,19.68,82.04,81.43,37.4,38.4,57.06
+Angelique,Carleen,Indiana Pacers,18,18.38,50.31,55.97,58.22,10.23,39.03
+Gusella,Richers,Miami Heat,26,84.62,74.76,3.14,45.73,79.1,93.49
+Jaime,Engdahl,Utah Jazz,30,47.44,6.6,22.8,48.9,75.81,30.43
+Ida,Barbey,Oklahoma City Thunder,23,51.37,49.44,37.78,35.4,53.28,9.08
+Mildrid,Seligman,Utah Jazz,22,86.41,72.26,34.39,85.73,55.01,28.53
+Gloria,Campball,New York Knicks,23,96.42,33.1,46.95,97.11,97.53,44.17
+Tonia,Pozzy,Memphis Grizzlies,19,54.65,39.21,70.4,24.46,4.25,90.01
+Coral,Sparhawk,Dallas Mavericks,21,24.79,17.48,18.18,64.7,21.18,73.47
+Maurene,Janene,Indiana Pacers,20,12.15,44.2,65.14,62.76,54.12,2.59
+Aili,Howlyn,Washington Wizards,25,17.22,3.18,45.73,43.65,77.78,98
+Ginnie,Denis,Washington Wizards,24,62.53,38.7,69.3,82.94,10.78,95.82
+Georgetta,Sabella,Denver Nuggets,27,95.47,71.09,22.19,26.23,63.89,26.49
+Lorenza,Moseley,Atlanta Hawks,24,30.03,97.01,64.51,18.64,95.68,89.56
+Susette,Madelene,Golden State Warriors,29,79.97,37.6,43.03,37.24,20.01,31.32
+Bernardine,Eugenia,San Antonio Spurs,19,90.37,51.67,25.11,55.89,72.74,1.76
+Philis,Screens,Orlando Magic,29,29.17,30.51,73.65,7.96,95.54,80
+Jolyn,Evangelia,Houston Rockets,24,90.45,53.7,76.24,49.41,55.06,78.43
+Althea,Kauppi,Atlanta Hawks,27,75.48,74.59,43.41,99.19,22.8,89.29
+Noelle,Tristram,Washington Wizards,25,68.19,63.13,9.08,95.11,52.92,55.59
+Glynnis,Denis,Atlanta Hawks,20,58.15,24.08,47.44,32.93,69.35,36.41
+Blinni,Ahab,LA Clippers,25,81.1,13.25,3.18,33.59,41.06,72.73
+Edyth,Kaete,Atlanta Hawks,24,40.84,94.54,53.24,49.39,87.44,47.57
+Deane,Tacye,Los Angeles Lakers,19,73.69,58.04,9.45,23.86,29.03,70.36
+Elora,Bakerman,Washington Wizards,27,76.89,62.24,96.81,65.41,82.45,24.45
+Maye,Wattenberg,Dallas Mavericks,22,21.51,56.49,32.33,23.36,60.1,9.45
+Selia,Presber,Miami Heat,24,66.78,73.66,38.16,43.53,77.23,66.5
+Lindie,Orlene,Miami Heat,18,16.85,4.6,67.91,12.3,14.46,72.21
+Cassandra,Pattin,Milwaukee Bucks,19,86.7,19.72,89.7,39.25,44.32,35.35
+Rozele,Auberbach,San Antonio Spurs,30,71.08,75.69,57.2,65.84,15.03,3.07
+Lusa,Corrine,Sacramento Kings,25,79.13,94.02,52.61,69.73,82.51,29.36
+Dede,Henrie,Los Angeles Lakers,29,47.13,19.12,65.06,81.71,47.71,85.08
+Ivett,Narton,Orlando Magic,27,47.03,90.01,9.04,81.86,83.17,34.84
+Cissiee,Suanne,LA Clippers,20,13.43,85.79,29.45,30.09,21.03,41.91
+Hettie,Tayib,Toronto Raptors,19,44.89,20.95,6.93,50.71,4.12,46.94
+Reeba,Frendel,Detroit Pistons,20,93.41,1.91,46.31,35.45,47.44,63.7
+Nelle,Ovid,Detroit Pistons,27,51.72,43.35,89.71,10.79,14.71,22.24
+Kial,Toffic,Miami Heat,24,42.77,81.9,92.02,53.82,53.63,64.65
+Nollie,Alisia,Indiana Pacers,23,53.22,38.98,98.25,35.97,82.82,29.54
+Mady,Corilla,Cleveland Cavaliers,21,2.4,54.66,23.88,10.54,52.17,31.53
+Evita,Raimondo,Portland Trail Blazers,26,33.45,89.46,73.16,58.57,79.56,32.69
+Krystle,Selway,Miami Heat,27,27.14,84.2,56.94,62.97,33.94,73.46
+Nyssa,Darrell,Dallas Mavericks,29,97.23,78.07,87.07,36.84,33.76,70.32
+Loree,Publia,Miami Heat,27,55.81,29.13,74.25,38.37,89.37,4.92
+Verla,Monaco,Toronto Raptors,21,81.65,7.15,47.45,57.67,77.54,50.11
+Blondelle,Bollay,Indiana Pacers,18,13.89,83.09,55.83,10.56,94.29,53.07
+Patricia,Baudin,New Orleans Pelicans,21,28.3,91.84,49.21,65.98,97.32,59.52
+Petronia,Colleen,Detroit Pistons,20,86.1,39.11,89.75,60.58,59.62,2.74
+Catharine,Ramona,Los Angeles Lakers,30,28.49,45.82,41.86,9.8,58.37,89.27
+Lonnie,Helfand,New Orleans Pelicans,22,64.53,95.16,85.96,94.76,26.1,1.32
+Celene,Kimmie,Phoenix Suns,20,64.3,55.11,36.69,85.37,64.8,55.68
+Ekaterina,Bronk,Charlotte Hornets,20,61.28,78.51,22.82,34.06,48.32,60.15
+Nataline,Rudolph,,20,13.85,6.3,7.97,95.89,37.73,14.22
+Corene,Cookie,Denver Nuggets,21,52.01,94.79,3.3,85.55,96.15,73.32
+Pollyanna,Hazlett,New Orleans Pelicans,27,47.01,61.46,60.62,32.74,49.7,99.19
+Cristabel,Nerita,Toronto Raptors,18,50.16,82.69,99.81,28.4,58.01,62.55
+Averyl,Carolin,Philadelphia 76ers,27,42.55,31.87,12.7,71.1,61.98,56.4
+Paulita,Sharl,New York Knicks,21,71.26,39.36,75.04,64.17,1.58,22.4
+Marnia,Karl,Boston Celtics,18,86.23,64.61,52.46,48.06,40.33,74.14
+Edith,Junie,Phoenix Suns,24,49.25,19.23,29.51,84.39,97.3,75.91
+Eve,Orlene,Brooklyn Nets,25,71.2,19.73,91.5,15.23,49.97,55.48
+Kathi,Cherianne,Sacramento Kings,26,73.23,12.75,1.46,58.73,33.21,43.01
+Dorothy,MacIntosh,Los Angeles Lakers,30,25.44,53.19,54.13,50.78,55.72,77.52
+Nita,Elsinore,Milwaukee Bucks,25,74.38,71.52,70.57,48.54,12.64,44.91
+Imojean,Ambrosia,Milwaukee Bucks,30,57.81,97.99,8.02,47.51,65.21,95.15
+Silvana,Sholley,Indiana Pacers,20,18.79,77.8,73.8,82.54,64.14,85.83
+Sheree,Ashely,Brooklyn Nets,21,96.99,9.58,82.46,92.93,35.68,68.34
+Ebonee,Wandie,Chicago Bulls,18,24.48,97.04,45.52,18.69,79.49,77.49
+Sabina,Milson,Oklahoma City Thunder,20,96.42,45.91,89.17,50.69,7.71,87.88
+Janenna,Darbie,New Orleans Pelicans,27,26.85,55.78,96.73,48.72,16.99,70.35
+Ariela,Michella,Toronto Raptors,19,90.32,97.76,85.84,5.82,65.77,19.22
+Lita,Stover,San Antonio Spurs,18,48.79,46.73,56.13,36.12,21.89,30.1
+Cassondra,Erb,Toronto Raptors,27,83.87,75.96,49.21,64.69,3.29,75.81
+Elmira,Elsinore,Brooklyn Nets,19,6.65,3.7,36.96,36.29,31.15,32.5
+Nataline,Fabiola,Washington Wizards,23,62.67,66.31,49.53,24.17,54.28,3.79
+Joane,Sancho,Philadelphia 76ers,30,91.19,85.41,89.06,78.86,32.41,88.14
+Regina,Sheedy,New York Knicks,27,53.77,55.86,32.52,12,70.09,1.38
+Rubie,Grimbly,LA Clippers,20,35.26,12.74,69.51,6.92,32.05,84.82
+Drucie,Leary,Washington Wizards,18,91.98,68.84,20.07,14.13,97.22,68.6
+Brena,Ade,Houston Rockets,20,64.37,72.56,64.92,53.54,18.79,57.67
+Vevay,Henrie,Houston Rockets,21,31.75,84.7,67.86,75.68,88.58,58
+Millie,Parette,Golden State Warriors,30,26.27,25.98,21,66.73,63.72,70.99
+Cecile,Lubin,Oklahoma City Thunder,28,30.02,46.01,32.1,9.23,81.85,20.8
+Leontine,Serilda,San Antonio Spurs,24,69.6,13.28,72.91,24.2,75.48,88.99
+Kittie,Eiser,Boston Celtics,24,36.6,31.48,19.02,64.11,60.91,54.98
+Chloris,Schlosser,San Antonio Spurs,23,33.77,63.56,63.22,49.62,61.18,78
+Elvira,Flyn,Brooklyn Nets,25,9.87,13.85,52.65,94.34,80.75,16.69
+Tamqrah,Soneson,Miami Heat,23,91.17,4.16,74.02,98.17,77.45,89.01
+Karolina,Reneta,Cleveland Cavaliers,28,69.3,14.59,63.13,78.38,18.73,63.45
+Wilma,Garek,Oklahoma City Thunder,28,34.11,33.48,54.12,1.05,91.76,40.95
+Sophia,Ammann,Philadelphia 76ers,19,72.48,98.97,56.14,55.71,71.14,71.52
+Dorothy,Valoniah,Indiana Pacers,24,89.9,93.38,42.68,67.44,23.6,57.11
+Nikki,Salvidor,New Orleans Pelicans,27,23.97,93.9,10.61,77.36,19.47,95.87
+Philis,Dex,Toronto Raptors,30,97.15,47.28,31.93,9.35,72.18,7.46
+Ida,Pillsbury,Indiana Pacers,18,30.05,36.2,1.97,3.19,86.31,57.35
+Nita,Nicoline,San Antonio Spurs,20,96.69,32.08,23.92,88.05,15.49,48.49
+Isa,August,Indiana Pacers,20,72.32,36.44,74.02,87.95,33.41,21.36
+Donnie,Mike,Philadelphia 76ers,26,18.51,28.73,12.18,40.74,77.07,14.5
+Sidoney,Dominy,Washington Wizards,23,30.02,92.52,29.39,4.63,73.9,69.94
+Hermione,Thilda,Chicago Bulls,19,48.1,71.36,29.98,79.99,21.54,67.07
+Marita,Helve,LA Clippers,30,73.61,24.45,22.01,6.34,31.3,30.19
+Tani,O'Rourke,Houston Rockets,26,23.77,99.31,79.84,43.71,75.29,96.43
+Ottilie,Guthrie,Charlotte Hornets,23,67.87,92.81,1.66,95.39,93.48,43.35
+Ellette,Sigfrid,Memphis Grizzlies,19,31.67,47.43,14.7,78.29,34.28,68.01
+Hayley,Etom,Miami Heat,22,63.9,83.46,47.51,25.35,27.87,44.29
+Jinny,Presber,Washington Wizards,19,36.52,95.74,79.35,93.39,26.73,32.54
+Vivia,Grimbly,San Antonio Spurs,27,12.71,74.8,31.21,51.21,56.02,29.8
+Trixi,Henrie,Charlotte Hornets,19,84.66,64.76,41.35,21.28,40.75,69.61
+Odessa,Stav,Minnesota Timberwolves,24,54.42,17.81,44.57,63.48,85.19,72.92
+Ruthe,Wattenberg,Chicago Bulls,30,95.19,17.08,51.64,37.73,55.05,61.05
+Marguerite,Hachmin,Boston Celtics,20,50.79,68.71,38.09,75.35,75.83,66.41
+Ada,Tamsky,Dallas Mavericks,29,18.87,30.83,44.21,78.86,9.04,79.82
+Valli,Jotham,Detroit Pistons,26,7.08,12.23,34.39,63.44,67.58,16.31
+Brena,Bahr,Toronto Raptors,24,20.45,85,37.75,14.27,20.65,70
+Allis,Noam,Phoenix Suns,19,60.99,17.96,99.17,99.41,45,15.19
+Damaris,Amadas,Atlanta Hawks,19,77.53,83.02,17.62,33,44.08,98.47
+Chickie,Kinnard,Milwaukee Bucks,29,74.92,38.63,15.37,42.28,3.95,71.11
+Georgetta,Madaih,New York Knicks,20,9.08,33.54,32.14,51.51,12.34,58.61
+Pearline,Schroth,Detroit Pistons,23,9.09,24.25,71.74,79.99,51.16,70.67
+Dulcinea,Tjon,Brooklyn Nets,23,64.96,86.58,99.31,35.51,99.1,13.47
+Jillayne,Fry,Golden State Warriors,24,43.45,31.01,12.74,21.97,43.98,87.5
+Amelia,Merell,Golden State Warriors,26,15.93,44.26,90.67,33.96,2.8,85.08
+Marcelline,Emmy,Houston Rockets,28,46.4,91.2,27.47,33.37,67.14,56.25
+Trudie,Casimir,Indiana Pacers,25,15.09,60.93,28.56,74.63,20.1,6.05
+Mamie,Magdalen,Utah Jazz,26,57.96,99.66,56.34,55.14,87.88,92.4
+Cecile,Bebe,Dallas Mavericks,21,76.79,58.32,96.3,29.08,96.5,4.33
+Eugine,Dorcy,Utah Jazz,26,73.34,13.88,74.48,92.2,63.88,87.79
+Willetta,Peti,Orlando Magic,30,26.01,68.14,19.82,22.19,19.02,62.79
+Merle,Kermit,Denver Nuggets,29,98.33,87.54,86.82,66.1,48.11,86.73
+Hettie,Olnee,Miami Heat,23,99,61.89,30.43,14.37,96.5,35.1
+Audrie,Garek,Utah Jazz,22,73.76,79.62,43.44,78.39,23.73,63.69
+Gusty,Posner,Chicago Bulls,29,15.16,52.35,6.99,17.13,28.29,11.71
+Jan,Liebermann,New York Knicks,25,66.6,2.31,64.68,3.58,75.54,42.06
+Trixi,Havens,New Orleans Pelicans,30,69.72,40.84,77.27,1.97,95.58,49.27
+Natka,Bobbee,Dallas Mavericks,18,69.59,32.43,23.33,39.09,62.51,74.48
+Debee,Belanger,Houston Rockets,22,7.96,60.18,40.77,44.25,23.09,50.43
+Maurene,Rudolph,New Orleans Pelicans,18,96.85,7.16,47.13,45.89,5.01,62.68
+Nataline,Anselmi,Miami Heat,21,69.42,88.07,7.65,1.13,58.64,95.9
+Briney,Cristi,Sacramento Kings,20,42.36,62.54,48.59,20.36,16.5,26.41
+Viki,Himelman,Cleveland Cavaliers,23,71.99,9.98,33.89,18.76,22.11,52.06
+Tatiania,LaRue,San Antonio Spurs,29,23.93,96.41,39.28,93.94,3.8,21.8
+Kara-Lynn,Arquit,Philadelphia 76ers,28,13.22,97.36,96.96,15.77,57.02,83.84
+Janenna,Candy,Brooklyn Nets,23,86.77,27.68,73.11,99.74,26.56,73.74
+Lita,Cherianne,LA Clippers,25,76.27,96.34,35.58,11.37,94.49,54.85
+Emelina,Dunkin,Los Angeles Lakers,24,12.63,43.98,6.49,41.24,6.05,60.89
+Imojean,Bonilla,Miami Heat,19,43.82,57.91,10.29,67.76,70.71,98.32
+Tressa,Sophronia,Minnesota Timberwolves,24,1.09,80.93,64.17,96.09,30.34,73.26
+Ilse,Standing,Boston Celtics,29,74.03,87.97,17.76,69.45,5.35,70.7
+Mallory,Truc,Oklahoma City Thunder,27,16.41,62.89,28.58,69.55,98.11,93.42
+Sabina,Bertold,Miami Heat,20,85.92,55.4,28.62,99.21,99.45,70.18
+Corry,Lewes,Cleveland Cavaliers,27,10.58,64.38,46.54,10.34,55.11,62.76
+Odessa,Callista,Detroit Pistons,20,18.42,29.32,73.02,19.28,74.46,86.67
+Nanete,Ioab,Detroit Pistons,27,31.42,99.47,52.44,24.4,2.43,58.57
+Ninnetta,Emmy,Memphis Grizzlies,26,45.39,1.24,88.48,61.88,84.85,94.45
+Hannis,Odell,Miami Heat,21,59.91,29.62,81.7,11.68,73.45,66.9
+Florie,Bethany,Chicago Bulls,22,8.92,21.28,8.84,2.49,3.17,40.53
+Hayley,Stefa,New Orleans Pelicans,27,20.21,14.77,74.43,53.45,57.53,21.21
+Christy,Dalli,Los Angeles Lakers,21,1.39,7.71,48.06,75.97,99.81,51.24
+Di,Middleton,Memphis Grizzlies,27,47.03,25.96,73.64,48.71,78.75,36.88
+Edee,Cohdwell,Miami Heat,27,16.17,40.73,54.11,99.8,14.67,81.36
+Joelly,Emmaline,Brooklyn Nets,21,87.86,37.38,46.65,67.04,83.63,74.36
+Ardys,Kaete,Portland Trail Blazers,29,45.89,39.22,10.35,35.2,26.98,43.63
+Krystle,Lunsford,Golden State Warriors,21,59.38,71.63,54.67,1.92,29.16,73.12
+Shauna,Podvin,Washington Wizards,27,71.23,65.51,19.33,86.39,88.08,36.07
+Isa,Dorcy,Sacramento Kings,30,84.22,34.96,51.13,25.51,19.09,68.49
+Monika,Pauly,Sacramento Kings,21,33.01,83.83,89.82,37.44,47.93,99.58
+Hermione,Abbot,Denver Nuggets,18,32.43,16.85,98.71,78.86,53.88,49.41
+Fina,Glenden,New York Knicks,29,16.12,58.28,41.36,25.77,4.16,31.93
+Caritta,Iiette,Minnesota Timberwolves,29,52.63,95.22,20.07,65.49,4.93,34.24
+Meghann,Wenoa,Denver Nuggets,18,70.21,26.53,74.91,6.86,22.47,25.05
+Keelia,Tjon,Atlanta Hawks,21,32.75,49.25,66.6,29,8.71,28.09
+Dianemarie,Raffo,Phoenix Suns,22,17.12,74.52,12.08,81.88,54.14,42.86
+Alex,Dreda,Brooklyn Nets,26,41.49,85.36,51.69,89.82,16.01,62.89
+Brynna,Elo,Denver Nuggets,23,82.98,40.3,40.41,15.47,21.62,42.63
+Lonnie,Kronfeld,New Orleans Pelicans,24,8.05,9.52,34.12,8.69,39.67,28.24
+Elena,Aloise,Atlanta Hawks,28,83.9,89.11,26.58,9.43,39.78,89.42
+Kimmy,Roumell,New Orleans Pelicans,20,31.8,92.33,65.06,83.88,52.1,22.32
+Gilda,Tjon,Minnesota Timberwolves,21,67.55,22.31,6.07,76.37,57.58,16.08
+Marika,Saree,Toronto Raptors,28,85.36,72.69,48.28,84.11,30.72,51.29
+Gloria,Forrer,Houston Rockets,27,20.15,19.91,73.64,72.81,15.95,65.69
+Melina,Roarke,Sacramento Kings,21,98.75,84.27,13.42,79.14,91.66,38.43
+Elena,Birdella,Miami Heat,24,13.99,75.46,68.42,4.11,46.89,92.21
+Marguerite,Arquit,Miami Heat,22,71.73,18.89,24.45,41.85,21.85,92.48
+Gloria,Kendrick,Detroit Pistons,20,97.15,22.41,84.31,96.28,36.79,62.46
+Nananne,Alarise,Denver Nuggets,25,85.21,39.52,69.45,34.44,44.45,32.66
+Nickie,Edee,Indiana Pacers,24,52.36,32.5,88.19,92.04,50.28,36.79
+Agnese,Fredi,Atlanta Hawks,19,93.87,20.62,89.14,76.49,6.62,5.14
+Tatiania,Jary,Dallas Mavericks,24,65.88,78.6,61.58,80.64,29.35,69.19
+Donnie,Cutlerr,Golden State Warriors,28,65.4,20.03,1.42,25.93,51.88,94.4
+Sashenka,Haymes,Dallas Mavericks,20,58.35,55.77,7.12,74.21,8.98,56.64
+Aurelie,Briney,Atlanta Hawks,27,29.71,35.05,56.67,47.83,58.89,61.92
+Ricky,Plato,Boston Celtics,18,3.86,75.74,13.11,12.55,88.52,60.68
+Charlena,Florina,Sacramento Kings,23,21.05,92.53,76.8,46.64,47.4,23.22
+Dotty,Gunn,Oklahoma City Thunder,22,45.99,52.11,56.87,24.2,22.28,92.87
+Tori,Justinn,Cleveland Cavaliers,22,77.47,40.29,13.95,81.92,89.21,71.05
+Meghann,Heidt,Cleveland Cavaliers,20,80.18,18.92,25.57,51.26,50.08,56.94
+Collen,Prouty,Philadelphia 76ers,23,46.05,36.04,84.06,54.01,35.8,36.33
+Eadie,Stanwood,Orlando Magic,20,6.29,29.75,85.11,49.68,26.2,74.87
+Liana,Fredi,New Orleans Pelicans,29,49.34,76.37,36.87,86.34,55.11,46.9
+Etta,Yusuk,Chicago Bulls,18,41.92,75.35,33.23,59.83,98.3,1.47
+Courtnay,Greyson,Charlotte Hornets,25,53.1,34.6,27.37,29.27,14.32,89.22
+Dorthy,Riordan,Los Angeles Lakers,22,4.84,62.84,19.12,35.17,84.8,28.94
+Helena,Jobi,Los Angeles Lakers,28,51.73,38.85,22.98,83.89,14.06,1.29
+Riannon,Pillsbury,Indiana Pacers,22,63.57,62.87,50.24,10.29,16.22,20.15

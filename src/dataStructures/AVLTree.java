@@ -245,7 +245,7 @@ public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Numbe
         node.setRight(node.getRight().getLeft());
         node.setHeight(maxHeight(height(node.getLeft()), height(node.getRight())) + 1);
         node.getRight().setHeight(maxHeight(height(node.getRight().getLeft()), height(node.getRight().getRight())) + 1);
-        return (AVLNode<K, V>) node.getRight();
+        return node.getRight();
     }
 
     private AVLNode<K, V> rightRotate(AVLNode<K, V> node) {

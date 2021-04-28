@@ -24,7 +24,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextArea>
-      <JFXButton alignment="CENTER" blendMode="OVERLAY" contentDisplay="CENTER" layoutX="388.0" layoutY="113.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#goBackToMenu" prefHeight="48.0" prefWidth="185.0" style="-fx-background-radius: 5em; -fx-background-color: YELLOW;" text="Return to Menu" textAlignment="CENTER">
+      <JFXButton alignment="CENTER" blendMode="OVERLAY" contentDisplay="CENTER" layoutX="388.0" layoutY="113.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#goToMenu" prefHeight="48.0" prefWidth="185.0" style="-fx-background-radius: 5em; -fx-background-color: YELLOW;" text="Return to Menu" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="20.0" />
          </font>

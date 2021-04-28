@@ -1,6 +1,6 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * @Authors: Juan Pablo Ramos, Juan Esteban Caicedo and Jose Alejandro García
+ * @Authors: Juan Pablo Ramos, Juan Esteban Caicedo and Jose Alejandro GarcÃ­a
  * @Date: April, 27th 2021
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
@@ -9,8 +9,6 @@ package model;
 import dataStructures.AVLTree;
 import dataStructures.BSTNode;
 import dataStructures.BSTree;
-import dataStructures.RBNode;
-import dataStructures.RBTree;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -42,6 +40,7 @@ public class FIBA {
 	private ArrayList<String[]> allData;
 	private ArrayList<Double> playersByBlocks;
 	private ArrayList<ArrayList<String>> currentPlayers;
+	private double progress;
 
 	// -----------------------------------------------------------------
 	// Relations
@@ -51,7 +50,7 @@ public class FIBA {
 	private AVLTree<Double, ArrayList<Integer>, Integer> playersByUsage;
 	private AVLTree<Double, ArrayList<Integer>, Integer> playersByAssist;
 	private BSTree<Double, ArrayList<Integer>,Integer> playersByRebound;
-	private RBTree<Double, ArrayList<Integer>,Integer> playersByDefensive;
+	private AVLTree<Double, ArrayList<Integer>,Integer> playersByDefensive;
 
 	// -----------------------------------------------------------------
 	// Methods
@@ -66,9 +65,18 @@ public class FIBA {
 		playersByUsage = new AVLTree<Double, ArrayList<Integer>, Integer>();
 		playersByAssist = new AVLTree<Double, ArrayList<Integer>, Integer>();
 		playersByRebound = new BSTree<Double, ArrayList<Integer>, Integer>();
-		playersByDefensive = new RBTree<Double, ArrayList<Integer>, Integer>();
+		playersByDefensive = new AVLTree<Double, ArrayList<Integer>, Integer>();
 		playersByBlocks = new ArrayList<Double>();
 		allData = new ArrayList<String[]>();
+		progress = 0;
+	}
+
+	public double getProgress() {
+		return progress;
+	}
+
+	public void setProgress(double progress) {
+		this.progress = progress;
 	}
 
 	public ArrayList<ArrayList<String>> getCurrentPlayers() {
@@ -87,13 +95,14 @@ public class FIBA {
 		}
 		FileReader fr = new FileReader(file);
 		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
-		FileWriter fw = new FileWriter(FILE_NAME, true);
+		FileWriter fw = new FileWriter(FILE_NAME);
 		CSVWriter csvWriter = new CSVWriter(fw);
 		if (allData.size() == 0) {
 			allData = new ArrayList<>((LinkedList<String[]>) csvReader.readAll());
-			String[] temp = { "firstName", "lastName", "team", "trueShooting", "usage", "assist", "rebound", "defensive", "blocks" };
+			String[] temp = { "firstName", "lastName", "team", "age", "trueShooting", "usage", "assist", "rebound", "defensive", "blocks" };
 			csvWriter.writeNext(temp);
 			for (int i = 0; i < allData.size(); i++) {
+				progress = (i + 1) / (double) allData.size();
 				csvWriter.writeNext(allData.get(i));
 				AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
 				for (int j = 0; j < trees.length; j++) {
@@ -103,8 +112,6 @@ public class FIBA {
 				for (int j = 0; j < trees.length; j++) {
 					trees[j].join();
 				}
-				int number = i + 1; // QUITARRR
-				System.out.println("Jugador " + number + " añadido");
 			}
 		} else {
 			ArrayList<String[]> newData = new ArrayList<>((LinkedList<String[]>) csvReader.readAll());
@@ -117,6 +124,7 @@ public class FIBA {
 
 	private boolean privateAddPlayerDataByTextFile(CSVWriter writer, ArrayList<String[]> newData, int begin) throws InterruptedException {
 		for (int i = 0; i < newData.size(); i++) {
+			progress = (i + 1) / (double) newData.size();
 			writer.writeNext(newData.get(i));
 			allData.add(newData.get(i));
 			AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
@@ -127,8 +135,6 @@ public class FIBA {
 			for (int j = 0; j < trees.length; j++) {
 				trees[j].join();
 			}
-			int number = i + 1; // QUITARRR
-			System.out.println("Jugador " + number + " añadido");
 		}
 		return true; // CAMBIARRRR
 	}
@@ -147,19 +153,20 @@ public class FIBA {
 	 * @throws CsvException
 	 * @throws IOException
 	*/
-	public void addPlayerDataByPlatform(String name, String lastName,String team, double trueShooting, double usage, double assist, double rebound, double defensive, double blocks) throws InterruptedException, IOException, CsvException {
-		FileWriter fw = new FileWriter(FILE_NAME);
+	public void addPlayerDataByPlatform(String name, String lastName, String age, String team, String trueShooting, String usage, String assist, String rebound, String defensive, String blocks) throws InterruptedException, IOException, CsvException {
+		FileWriter fw = new FileWriter(FILE_NAME, true);
 		CSVWriter csvWriter= new CSVWriter(fw);
-		String[] info = new String[8];
-		info[0]=name;
-		info[1]=lastName;
-		info[2]=team;
-		info[3] = String.valueOf(trueShooting);
-		info[4]= String.valueOf(usage);
-		info[5] = String.valueOf(assist);
-		info[6] = String.valueOf(rebound);
-		info[7] = String.valueOf(defensive);
-		info[8] = String.valueOf(blocks);
+		String[] info = new String[10];
+		info[0] = name;
+		info[1] = lastName;
+		info[2] = team;
+		info[3] = age;
+		info[4] = trueShooting;
+		info[5] = usage;
+		info[6] = assist;
+		info[7] = rebound;
+		info[8] = defensive;
+		info[9] = blocks;
 		csvWriter.writeNext(info);
 		AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
 		for (int i = 0; i < trees.length; i++) {
@@ -183,7 +190,7 @@ public class FIBA {
 	 * @param valueS
 	 * @throws IOException
 	*/
-	public boolean modifyPlayerData(String attribute,String valueS, int valueI, int player) throws IOException {
+	public void modifyPlayerData(String attribute,String valueS, int valueI, int player) throws IOException {
 		Integer position = Integer.parseInt(currentPlayers.get(player).get(currentPlayers.size()-1));
 		switch (attribute) {
 			case "Name":
@@ -214,13 +221,12 @@ public class FIBA {
 				allData.get(position)[8]=valueS;
 				break;
 			default:
-				return false;
+				return;
 		}
 		FileWriter fw = new FileWriter(FILE_NAME);
 		CSVWriter csvWriter= new CSVWriter(fw);
 		csvWriter.writeAll(allData);
 		csvWriter.close();
-		return true;
 	}
 
 	/**
@@ -230,7 +236,8 @@ public class FIBA {
 	 * @throws IOException
 	*/
 	public boolean deletePlayer(ArrayList<ArrayList<String>> players, int toErase) throws InterruptedException, IOException {
-		Integer position = Integer.parseInt(players.get(toErase).get(players.size() - 1));
+		ArrayList<String> player = players.get(toErase);
+		Integer position = Integer.parseInt(player.get(player.size() - 1));
 		DeletePlayerThread[] trees = new DeletePlayerThread[NUMBER_OF_STATISTICS];
 		for (int i = 0; i < trees.length; i++) {
 			trees[i] = new DeletePlayerThread(this, position, i);
@@ -239,10 +246,18 @@ public class FIBA {
 		for (int i = 0; i < trees.length; i++) {
 			trees[i].join();
 		}
-		allData.set(position, null);
+		String[] temp = new String[player.size()];
+		for (int i = 0; i < player.size(); i++) {
+			temp[i]="";
+		}
+		allData.set(position, temp);
 		FileWriter fw = new FileWriter(FILE_NAME);
 		CSVWriter csvWriter = new CSVWriter(fw);
-		csvWriter.writeAll(allData);
+		String[] temp1 = { "firstName", "lastName", "team", "age", "trueShooting", "usage", "assist", "rebound", "defensive", "blocks" };
+		csvWriter.writeNext(temp1);
+		for (int i = 0; i < allData.size(); i++) {
+			csvWriter.writeNext(allData.get(i));
+		}
 		csvWriter.close();
 		return true;
 	}
@@ -380,63 +395,6 @@ public class FIBA {
 	}
 
 	private void addPlayers(ArrayList<ArrayList<String>> players, BSTNode<Double, ArrayList<Integer>> node) {
-		ArrayList<Integer> positionsPlayers = node.getValue();
-		for (int i = 0; i < positionsPlayers.size(); i++) {
-			int index = positionsPlayers.get(i);
-			String[] temp = allData.get(index);
-			ArrayList<String> player = new ArrayList<String>();
-			Collections.addAll(player, temp);
-			player.add(String.valueOf(index));
-			players.add(player);
-		}
-	}
-
-	private void searchWith(char symbol, RBTree<Double, ArrayList<Integer>,Integer> tree, ArrayList<ArrayList<String>> players, double value) {
-		ArrayList<RBNode<Double, ArrayList<Integer>>> nodes = new ArrayList<>();
-		int size;
-		switch (symbol) {
-			case '=':
-				RBNode<Double, ArrayList<Integer>> node;
-				node = tree.search(value);
-				if (node != null)
-					addPlayers(players, node);
-				break;
-			case '>':
-				nodes = tree.searchMajor(value);
-				size = nodes.size();
-				if (size != 0) {
-					for (int i = 0; i < size; i++)
-						addPlayers(players, nodes.get(i));
-				}
-				break;
-			case '<':
-				nodes = tree.searchMinor(value);
-				size = nodes.size();
-				if (size != 0) {
-					for (int i = 0; i < size; i++)
-						addPlayers(players, nodes.get(i));
-				}
-				break;
-			case '≥':
-				nodes = tree.searchMajorEqual(value);
-				size = nodes.size();
-				if (size != 0) {
-					for (int i = 0; i < size; i++)
-						addPlayers(players, nodes.get(i));
-				}
-				break;
-			case '≤':
-				nodes = tree.searchMinorEqual(value);
-				size = nodes.size();
-				if (size != 0) {
-					for (int i = 0; i < size; i++)
-						addPlayers(players, nodes.get(i));
-				}
-				break;
-		}
-	}
-
-	private void addPlayers(ArrayList<ArrayList<String>> players, RBNode<Double, ArrayList<Integer>> node) {
 		ArrayList<Integer> positionsPlayers = node.getValue();
 		for (int i = 0; i < positionsPlayers.size(); i++) {
 			int index = positionsPlayers.get(i);
@@ -625,14 +583,14 @@ public class FIBA {
     /**
      * @return RBTree<Double, ArrayList<Integer>> return the playersByDefensive
      */
-    public RBTree<Double, ArrayList<Integer>,Integer> getPlayersByDefensive() {
+    public AVLTree<Double, ArrayList<Integer>,Integer> getPlayersByDefensive() {
         return playersByDefensive;
     }
 
     /**
      * @param playersByDefensive the playersByDefensive to set
      */
-    public void setPlayersByDefensive(RBTree<Double, ArrayList<Integer>,Integer> playersByDefensive) {
+    public void setPlayersByDefensive(AVLTree<Double, ArrayList<Integer>,Integer> playersByDefensive) {
         this.playersByDefensive = playersByDefensive;
     }
 

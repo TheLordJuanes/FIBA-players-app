@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSpinner?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -15,7 +16,7 @@
             <Image url="@../../resources/menu.jpg" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" blendMode="COLOR_BURN" layoutX="414.0" layoutY="66.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="205.0" text="What to do?" textAlignment="CENTER" underline="true">
+      <Label alignment="CENTER" blendMode="COLOR_BURN" layoutX="415.0" layoutY="40.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="205.0" text="What to do?" textAlignment="CENTER" underline="true">
          <font>
             <Font name="Avenir Next Condensed Bold" size="36.0" />
          </font>
@@ -23,7 +24,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </Label>
-      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="438.0" layoutY="146.0" onAction="#addAPlayer" prefHeight="48.0" prefWidth="156.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Add player" textAlignment="CENTER">
+      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="440.0" layoutY="115.0" onAction="#addAPlayer" prefHeight="48.0" prefWidth="156.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Add player" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="24.0" />
          </font>
@@ -43,7 +44,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" layoutX="428.0" layoutY="230.0" onAction="#searchAPlayer" prefHeight="51.0" prefWidth="176.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Search player" textAlignment="CENTER">
+      <JFXButton fx:id="btnSearchMenu" alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" disable="true" layoutX="429.0" layoutY="197.0" onAction="#searchAPlayer" prefHeight="51.0" prefWidth="176.0" style="-fx-background-color: #ffc156; -fx-background-radius: 5em;" text="Search player" textAlignment="CENTER">
          <font>
             <Font name="Avenir Next Condensed Bold" size="24.0" />
          </font>
@@ -51,5 +52,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <JFXSpinner fx:id="spinner" layoutX="477.0" layoutY="275.0" prefHeight="67.0" prefWidth="82.0" progress="0.0" visible="false" />
    </children>
 </AnchorPane>
