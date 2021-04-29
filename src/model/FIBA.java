@@ -1,6 +1,6 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * @Authors: Juan Pablo Ramos, Juan Esteban Caicedo and Jose Alejandro GarcÃ­a
+ * @Authors: Juan Pablo Ramos, Juan Esteban Caicedo and Jose Alejandro García
  * @Date: April, 27th 2021
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
@@ -224,7 +224,7 @@ public class FIBA {
 		return true;
 	}
 
-	private boolean privateAddPlayerDataByTextFile(CSVWriter writer, ArrayList<String[]> newData, int begin) throws InterruptedException {
+	private void privateAddPlayerDataByTextFile(CSVWriter writer, ArrayList<String[]> newData, int begin) throws InterruptedException {
 		for (int i = 0; i < newData.size(); i++) {
 			progress = (i + 1) / (double) newData.size();
 			writer.writeNext(newData.get(i));
@@ -237,7 +237,6 @@ public class FIBA {
 			for (int j = 0; j < trees.length; j++)
 				trees[j].join();
 		}
-		return true; // CAMBIARRRR
 	}
 
 	/**
@@ -354,7 +353,7 @@ public class FIBA {
 	*/
 	public boolean deletePlayer(ArrayList<ArrayList<String>> players, int toErase) throws InterruptedException, IOException {
 		ArrayList<String> player = players.get(toErase);
-		if(player==null){
+		if (player == null) {
 			return false;
 		}
 		BufferedReader br = new BufferedReader(new FileReader(FILE_NAME));
@@ -386,6 +385,16 @@ public class FIBA {
 		}
 		br.close();
 		bw.close();
+		return true;
+	}
+
+	private String convertToLine(String[] data, char separator) {
+		String info = "";
+		if (data != null) {
+			for (int i = 0; i < data.length; i++)
+				info += "\"" + data[i] + "\"" + separator;
+		}
+		info += "\n";
 		return info;
 	}
 
@@ -465,14 +474,18 @@ public class FIBA {
 	}
 
 	private void addPlayers(ArrayList<ArrayList<String>> players, AVLNode<Double, ArrayList<Integer>> node) {
-		ArrayList<Integer> positionsPlayers = node.getValue();
-		for (int i = 0; i < positionsPlayers.size(); i++) {
-			int index = positionsPlayers.get(i);
-			String[] temp = allData.get(index);
-			ArrayList<String> player = new ArrayList<String>();
-			Collections.addAll(player, temp);
-			player.add(String.valueOf(index));
-			players.add(player);
+		try {
+			ArrayList<Integer> positionsPlayers = node.getValue();
+			for (int i = 0; i < positionsPlayers.size(); i++) {
+				int index = positionsPlayers.get(i);
+				String[] temp = allData.get(index);
+				ArrayList<String> player = new ArrayList<String>();
+				Collections.addAll(player, temp);
+				player.add(String.valueOf(index));
+				players.add(player);
+			}
+		} catch(NullPointerException np) {
+			System.out.println("Hello");
 		}
 	}
 

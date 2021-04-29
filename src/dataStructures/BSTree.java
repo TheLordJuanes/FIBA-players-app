@@ -5,25 +5,53 @@ import java.util.List;
 
 public class BSTree<K extends Comparable<K>, V extends List<E>, E extends Number & Comparable<E>> implements BSTreeInterface<K, V, E> { // class adapted from https://github.com/Bibeknam/algorithmtutorprograms/blob/11ef340f8c8e60839a9dff395dd52b8752c537a6/data-structures/red-black-trees/RedBlackTree.java#L298
 
+    // -----------------------------------------------------------------
+    // Attributes
+    // -----------------------------------------------------------------
+
+    private int sizeNodes;
+    private int sizeElements;
+
+    // -----------------------------------------------------------------
+    // Relations
+    // -----------------------------------------------------------------
+
     private BSTNode<K, V> root;
+
+    // -----------------------------------------------------------------
+    // Methods
+    // -----------------------------------------------------------------
 
     /** Name: BSTree <br>
 	 * <br> Constructor method of a generic Binary Search Tree. <br>
 	*/
     public BSTree() {
+        sizeNodes = 0;
+        sizeElements = 0;
     }
 
     public BSTNode<K, V> getRoot() {
         return root;
     }
 
+    public int getSizeNodes() {
+        return sizeNodes;
+    }
+
+    public int getSizeElements() {
+        return sizeElements;
+    }
+
     @Override
     public void insert(BSTNode<K, V> node, E index) {
         BSTNode<K, V> node1 = search(node.getKey());
-        if (node1 == null)
+        if (node1 == null) {
             privateInsert(node);
-        else
+            sizeNodes++;
+        } else {
             node1.getValue().add(index);
+        }
+        sizeElements++;
     }
 
     private void privateInsert(BSTNode<K, V> node) {
@@ -141,33 +169,61 @@ public class BSTree<K extends Comparable<K>, V extends List<E>, E extends Number
             V positions = toErase.getValue();
             if (positions.size() > 1) {
                 for (int i = 0; i < positions.size(); i++) {
-                    if (positions.get(i).compareTo(expected) == 0)
+                    if (positions.get(i).compareTo(expected) == 0){
                         positions.remove(i);
+                        sizeElements--;
+                        return true;
+                    }
                 }
-            } else
+            } else {
                 privateDelete(toErase);
-            return true;
+                sizeNodes--;
+                sizeElements--;
+                return true;
+            }
         }
         return false;
     }
 
     private void privateDelete(BSTNode<K, V> nodeToErase) {
-        if (nodeToErase.getLeft() == null && nodeToErase.getRight() == null) {
-            if (nodeToErase.equals(root))
+        if (nodeToErase == root){
+            BSTNode<K, V> nodeMostToLeft = successor(nodeToErase);
+            if (nodeMostToLeft != null) {
+                privateDelete(nodeMostToLeft);
+                nodeMostToLeft.setLeft(nodeToErase.getLeft());
+                BSTNode<K, V> temp = nodeMostToLeft.getLeft();
+                if(temp!=null){
+                    temp.setParent(nodeMostToLeft);
+                }
+                nodeMostToLeft.setRight(nodeToErase.getRight());
+                temp = nodeMostToLeft.getRight();
+                if(temp!=null){
+                    temp.setParent(nodeMostToLeft);
+                }
+                nodeMostToLeft.setParent(null);
+                root = nodeMostToLeft;
+            } else {
+                root = nodeToErase.getRight();
+                if (root != null)
+                    nodeToErase.setParent(null);
+            }
+        }
+        else if (nodeToErase.getLeft() == null && nodeToErase.getRight() == null) {
+            if (nodeToErase == root)
                 root = null;
-            else if (nodeToErase.getParent().getLeft().equals(nodeToErase))
+            else if (nodeToErase.getParent().getLeft() == nodeToErase)
                 nodeToErase.getParent().setLeft(null);
-            else if (nodeToErase.getParent().getRight().equals(nodeToErase)) {
+            else if (nodeToErase.getParent().getRight() == nodeToErase) {
                 nodeToErase.getParent().setRight(null);
             }
             nodeToErase.setParent(null);
         } else if (nodeToErase.getLeft() == null || nodeToErase.getRight() == null) {
             BSTNode<K, V> child = nodeToErase.getLeft() != null ? nodeToErase.getLeft() : nodeToErase.getRight();
-            if (nodeToErase.equals(root)) {
+            if (nodeToErase==root) {
                 root = child;
                 root.setParent(null);
             } else {
-                if (nodeToErase.getParent().getLeft().equals(nodeToErase))
+                if (nodeToErase.getParent().getLeft()==nodeToErase)
                     nodeToErase.getParent().setLeft(child);
                 else {
                     nodeToErase.getParent().setRight(child);

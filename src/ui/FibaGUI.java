@@ -186,6 +186,8 @@ public class FibaGUI {
     public FibaGUI(Stage primaryStage) {
         this.primaryStage = primaryStage;
         fiba = new FIBA();
+        players = new ArrayList<>();
+        textPlayers="";
     }
 
     @FXML
@@ -288,7 +290,7 @@ public class FibaGUI {
 
     @FXML
     public void textFileAddition(ActionEvent event) {
-        showWarningAlert("Text Input Format", "The data of the players must be in this order separated by a coma \",\"", "firstname,lastname,team,age,trueShooting,usage,assist,rebound,defensive,blocks");
+        showWarningAlert("Text Input Format", "The data of the players must be in this order separated by a coma \",\"", "firstName,lastName,team,age,trueShooting,usage,assist,rebound,defensive,blocks");
         Stage stage = new Stage();
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Csv files", "*.csv"));
@@ -394,12 +396,9 @@ public class FibaGUI {
             fxmlLoader.setController(this);
             Parent root = fxmlLoader.load();
             primaryStage.setScene(new Scene(root));
+            updateTextPlayers();
             for (int i = 0; i < players.size(); i++) {
-                if(players.get(i)==null){
-                    players.remove(i);
-                }else{
-                    cbDeletePlayer.getItems().add("Player " + (i + 1));
-                }
+                cbDeletePlayer.getItems().add("Player " + (i + 1));
             }
             fiba.setCurrentPlayers(players);
             primaryStage.setTitle("Player elimination");
@@ -538,29 +537,36 @@ public class FibaGUI {
                 double value3 = Double.parseDouble(searchValue3.getText());
                 players = fiba.searchPlayer(symbol2, symbol3, statistic, value2, value3);
             }
-            updateTextPlayers();
             searchResult(event);
             fiba.setCurrentPlayers(players);
         }
     }
 
-    private void updateTextPlayers(){ //TERMINAR
-        textPlayers="";
-            for (int i = 0; i < players.size(); i++) {
-                int number = i + 1;
-                ArrayList<String> player = players.get(i);
-                textPlayers += "Player " + number + "\n";
-                textPlayers += "First Name: " + player.get(0) + "\n";
-                textPlayers += "Last Name: " + player.get(1) + "\n";
-                textPlayers += "Team: " + player.get(2) + "\n";
-                textPlayers += "Age: " + player.get(3) + "\n";
-                textPlayers += "True Shooting: " + player.get(4) + "\n";
-                textPlayers += "Usage: " + player.get(5) + "\n";
-                textPlayers += "Assist: " + player.get(6) + "\n";
-                textPlayers += "Rebound: " + player.get(7) + "\n";
-                textPlayers += "Defensive: " + player.get(8) + "\n";
-                textPlayers += "Blocks: " + player.get(9) + "\n\n";
+    private void updateTextPlayers(){
+        textPlayers = "";
+        if(players.size()==0){
+            textPlayers = "No player satisfy the search criteria";
+        }
+        for(int i=0; i<players.size(); i++){
+            if(players.get(i)==null){
+                players.remove(i);
             }
+        }
+        for (int i = 0; i < players.size(); i++) {
+            int number = i + 1;
+            ArrayList<String> player = players.get(i);
+            textPlayers += "Player " + number + "\n";
+            textPlayers += "First Name: " + player.get(0) + "\n";
+            textPlayers += "Last Name: " + player.get(1) + "\n";
+            textPlayers += "Team: " + player.get(2) + "\n";
+            textPlayers += "Age: " + player.get(3) + "\n";
+            textPlayers += "True Shooting: " + player.get(4) + "\n";
+            textPlayers += "Usage: " + player.get(5) + "\n";
+            textPlayers += "Assist: " + player.get(6) + "\n";
+            textPlayers += "Rebound: " + player.get(7) + "\n";
+            textPlayers += "Defensive: " + player.get(8) + "\n";
+            textPlayers += "Blocks: " + player.get(9) + "\n\n";
+        }
     }
 
     @FXML
@@ -571,6 +577,7 @@ public class FibaGUI {
             Parent root = fxmlLoader.load();
             primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Search Result");
+            updateTextPlayers();
             taSearchResult.setText(textPlayers);
             primaryStage.show();
         } catch (IOException ioe) {

@@ -6,6 +6,13 @@ import java.util.List;
 public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Number & Comparable<E>> implements AVLTreeInterface<K, V, E> { // class adapted from GeeksForGeeks https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
 
     // -----------------------------------------------------------------
+    // Attributes
+    // -----------------------------------------------------------------
+
+    private int sizeNodes;
+    private int sizeElements;
+
+    // -----------------------------------------------------------------
     // Relations
     // -----------------------------------------------------------------
 
@@ -19,10 +26,20 @@ public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Numbe
 	 * <br> Constructor method of a generic AVL tree. <br>
 	*/
     public AVLTree() {
+        sizeNodes = 0;
+        sizeElements = 0;
     }
 
     public AVLNode<K, V> getRoot() {
         return root;
+    }
+
+    public int getSizeNodes() {
+        return sizeNodes;
+    }
+
+    public int getSizeElements() {
+        return sizeElements;
     }
 
     /** Name: insert <br>
@@ -35,10 +52,13 @@ public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Numbe
     @Override
     public void insert(AVLNode<K, V> node, E index) {
         AVLNode<K, V> node1 = search(node.getKey());
-        if (node1 == null)
+        if (node1 == null) {
             privateInsert(node);
-        else
+            sizeNodes++;
+        } else {
             node1.getValue().add(index);
+        }
+        sizeElements++;
     }
 
     /** Name: privateInsert <br>
@@ -246,12 +266,22 @@ public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Numbe
             V positions = toErase.getValue();
             if (positions.size() > 1) {
                 for (int i = 0; i < positions.size(); i++) {
-                    if (positions.get(i).compareTo(expected) == 0)
+                    if (positions.get(i).compareTo(expected) == 0){
                         positions.remove(i);
+                        sizeElements--;
+                        return true;
+                    }
                 }
-            } else
+            } else {
                 privateDelete(toErase);
-            return true;
+                AVLNode<K, V> toErase2 = privateSearch(root, key);
+                if(toErase2!=null){
+                    System.out.println("s");
+                }
+                sizeNodes--;
+                sizeElements--;
+                return true;
+            }
         }
         return false;
     }
@@ -262,7 +292,15 @@ public class AVLTree<K extends Comparable<K>, V extends List<E>, E extends Numbe
             if (nodeMostToLeft != null) {
                 privateDelete(nodeMostToLeft);
                 nodeMostToLeft.setLeft(current.getLeft());
+                AVLNode<K, V> temp = nodeMostToLeft.getLeft();
+                if(temp!=null){
+                    temp.setParent(nodeMostToLeft);
+                }
                 nodeMostToLeft.setRight(current.getRight());
+                temp = nodeMostToLeft.getRight();
+                if(temp!=null){
+                    temp.setParent(nodeMostToLeft);
+                }
                 nodeMostToLeft.setParent(null);
                 root = nodeMostToLeft;
             } else {
