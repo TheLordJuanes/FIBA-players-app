@@ -197,7 +197,12 @@ public class FIBA {
 	
 
 	public boolean addPlayerDataByTextFile(File file) throws IOException, CsvException, InterruptedException {
-		FileWriter fw = new FileWriter(FILE_NAME);
+		FileWriter fw;
+		if(allData.size() == 0){
+			fw = new FileWriter(FILE_NAME);
+		}else{
+			fw = new FileWriter(FILE_NAME, true);
+		}
 		CSVWriter csvWriter = new CSVWriter(fw);
 		FileReader fr = new FileReader(file);
 		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
@@ -217,12 +222,9 @@ public class FIBA {
 					trees[j].join();
 			}
 		} else {
-			fw = new FileWriter(FILE_NAME, true);
-			CSVWriter csvW = new CSVWriter(fw);
 			ArrayList<String[]> newData = new ArrayList<>((LinkedList<String[]>) csvReader.readAll());
 			int begin = allData.size();
-			privateAddPlayerDataByTextFile(csvW, newData, begin);
-			csvW.close();
+			privateAddPlayerDataByTextFile(csvWriter, newData, begin);
 		}
 		csvWriter.close();
 		return true;
@@ -259,7 +261,13 @@ public class FIBA {
 	*/
 	public void addPlayerDataByPlatform(String name, String lastName, String age, String team, String trueShooting, String usage, String assist, String rebound, String defensive, String blocks) throws InterruptedException, IOException, CsvException {
 		File dataFile = new File(FILE_NAME);
-		FileWriter fw = new FileWriter(FILE_NAME, true);
+		FileWriter fw;
+		if(allData.size()==0){
+			fw = new FileWriter(FILE_NAME);
+		}else{
+			fw = new FileWriter(FILE_NAME, true);
+		}
+		
 		CSVWriter csvWriter = new CSVWriter(fw);
 		if (dataFile.length() == 0) {
 			String[] temp = { "firstName", "lastName", "team", "age", "trueShooting", "usage", "assist", "rebound", "defensive", "blocks" };
@@ -285,10 +293,10 @@ public class FIBA {
 		for (int i = 0; i < trees.length; i++) {
 			trees[i].join();
 		}
+		csvWriter.close();
 		FileReader fr = new FileReader(FILE_NAME);
 		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
 		allData = new ArrayList<>((LinkedList<String[]>) csvReader.readAll());
-		csvWriter.close();
 		csvReader.close();
 	}
 
@@ -299,7 +307,10 @@ public class FIBA {
 	 * @param valueS
 	 * @throws IOException
 	*/
-	public void modifyPlayerData(String attribute,String valueS, int player) throws IOException {
+	public boolean modifyPlayerData(String attribute,String valueS, int player) throws IOException {
+		if(allData.get(player)==null){
+			return false;
+		}
 		Integer position = Integer.parseInt(currentPlayers.get(player).get(currentPlayers.get(player).size()-1));
 		switch (attribute) {
 			case "Name":
@@ -342,8 +353,6 @@ public class FIBA {
 				allData.get(position)[9] = valueS;
 				currentPlayers.get(player).set(9,allData.get(position)[9]);
 				break;
-			default:
-				return;
 		}
 		FileWriter fw = new FileWriter(FILE_NAME);
 		CSVWriter csvWriter= new CSVWriter(fw);
@@ -352,6 +361,7 @@ public class FIBA {
 		allData2.add(0, temp);
 		csvWriter.writeAll(allData2);
 		csvWriter.close();
+		return true;
 	}
 
 	/**
@@ -570,40 +580,47 @@ public class FIBA {
 	public ArrayList<ArrayList<String>> searchPlayer(char symbol1, char symbol2, String statistic, double value1, double value2) {
 		ArrayList<ArrayList<String>> players = new ArrayList<ArrayList<String>>();
 		ArrayList<ArrayList<String>> playersTemp = new ArrayList<ArrayList<String>>();
+		long begin = System.currentTimeMillis();
+		long end = 0;
 		switch (statistic) {
 			case "True Shooting":
 				searchWith(symbol1, playersByTrueShooting, players, value1);
 				searchWith(symbol2, playersByTrueShooting, playersTemp, value2);
+				end =System.currentTimeMillis();
 				players.retainAll(playersTemp);
 				break;
 			case "Usage":
 				searchWith(symbol1, playersByUsage, players, value1);
 				searchWith(symbol2, playersByUsage, playersTemp, value2);
+				end =System.currentTimeMillis();
 				players.retainAll(playersTemp);
 				break;
 			case "Assist":
 				searchWith(symbol1, playersByAssist, players, value1);
 				searchWith(symbol2, playersByAssist, playersTemp, value2);
+				end =System.currentTimeMillis();
 				players.retainAll(playersTemp);
 				break;
 			case "Rebound":
 				searchWith(symbol1, playersByRebound, players, value1);
 				searchWith(symbol2, playersByRebound, playersTemp, value2);
+				end =System.currentTimeMillis();
 				players.retainAll(playersTemp);
 				break;
 			case "Defensive":
 				searchWith(symbol1, playersByDefensive, players, value1);
 				searchWith(symbol2, playersByDefensive, playersTemp, value2);
+				end =System.currentTimeMillis();
 				players.retainAll(playersTemp);
 				break;
 			case "Blocks":
 				searchWith(symbol1, playersByBlocks, players, value1);
 				searchWith(symbol2, playersByBlocks, playersTemp, value2);
+				end =System.currentTimeMillis();
 				players.retainAll(playersTemp);
 				break;
-			default:
-				break;
 		}
+		timeTaken = end-begin;
 		return players;
 	}
 
