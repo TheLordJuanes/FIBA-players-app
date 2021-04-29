@@ -27,14 +27,26 @@ public class AddPlayerThread extends Thread {
 	// Methods
     // -----------------------------------------------------------------
 
-    public AddPlayerThread(FIBA f, String[] p, int tD, int ind) {
+    /** Name: AddPlayerThread <br>
+	 * <br> Constructor method of a thread to add a player. <br>
+     * @param fiba - Model controller - fiba = FIBA object, fiba != null
+     * @param player - array with a player data - player = String[], player != null
+     * @param typeData - Data type to add - typeData = int, typeData != null
+     * @param index - player index in the players' list - index = int, index != null
+	*/
+    public AddPlayerThread(FIBA fiba, String[] player, int typeData, int index) {
         setDaemon(true);
-        fiba = f;
-        typeData = tD;
-        player = p;
-        index = ind;
+        this.fiba = fiba;
+        this.typeData = typeData;
+        this.player = player;
+        this.index = index;
     }
 
+    /** Name: run <br>
+	 * <br> Method used to run the thread to add a player. <br>
+     * <br> pre: AddPlayerThread object already created. <br>
+     * <br> post: Threads to add a player ran. <br>
+	*/
     @Override
 	public void run() {
         if (player.length == 10) {

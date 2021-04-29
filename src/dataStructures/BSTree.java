@@ -7,7 +7,14 @@ public class BSTree<K extends Comparable<K>, V extends List<E>, E extends Number
 
     private BSTNode<K, V> root;
 
+    /** Name: BSTree <br>
+	 * <br> Constructor method of a generic Binary Search Tree. <br>
+	*/
     public BSTree() {
+    }
+
+    public BSTNode<K, V> getRoot() {
+        return root;
     }
 
     @Override
@@ -63,9 +70,8 @@ public class BSTree<K extends Comparable<K>, V extends List<E>, E extends Number
                 nodes.add(node);
                 addNode(node.getRight(), nodes);
                 pSearchMajor(node.getLeft(), key, nodes);
-            } else {
+            } else
                 pSearchMajor(node.getRight(), key, nodes);
-            }
         }
     }
 
@@ -81,9 +87,8 @@ public class BSTree<K extends Comparable<K>, V extends List<E>, E extends Number
                 nodes.add(node);
                 addNode(node.getRight(), nodes);
                 pSearchMajorEqual(node.getLeft(), key, nodes);
-            } else {
+            } else
                 pSearchMajorEqual(node.getRight(), key, nodes);
-            }
         }
     }
 
@@ -99,9 +104,8 @@ public class BSTree<K extends Comparable<K>, V extends List<E>, E extends Number
                 nodes.add(node);
                 addNode(node.getLeft(), nodes);
                 pSearchMinor(node.getRight(), key, nodes);
-            } else {
+            } else
                 pSearchMinor(node.getLeft(), key, nodes);
-            }
         }
     }
 
@@ -117,9 +121,8 @@ public class BSTree<K extends Comparable<K>, V extends List<E>, E extends Number
                 nodes.add(node);
                 addNode(node.getLeft(), nodes);
                 pSearchMinorEqual(node.getRight(), key, nodes);
-            } else {
+            } else
                 pSearchMinorEqual(node.getLeft(), key, nodes);
-            }
         }
     }
 
@@ -136,16 +139,13 @@ public class BSTree<K extends Comparable<K>, V extends List<E>, E extends Number
         BSTNode<K, V> toErase = privateSearch(root, key);
         if (toErase != null) {
             V positions = toErase.getValue();
-            int length = positions.size();
-            if (length > 1) {
-                for (int i = 0; i < length; i++) {
-                    if (positions.get(i).compareTo(expected) == 0) {
+            if (positions.size() > 1) {
+                for (int i = 0; i < positions.size(); i++) {
+                    if (positions.get(i).compareTo(expected) == 0)
                         positions.remove(i);
-                    }
                 }
-            } else {
+            } else
                 privateDelete(toErase);
-            }
             return true;
         }
         return false;
@@ -255,9 +255,5 @@ public class BSTree<K extends Comparable<K>, V extends List<E>, E extends Number
         keys += postOrder(node.getRight());
         keys += node.getKey() + " ";
         return keys;
-    }
-
-    public BSTNode<K, V> getRoot() {
-        return root;
     }
 }

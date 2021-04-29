@@ -9,6 +9,7 @@ public class AVLNode<K extends Comparable<K>, V> {
     private K key;
     private V value;
     private int height;
+
     // -----------------------------------------------------------------
     // Relations
     // -----------------------------------------------------------------
@@ -21,6 +22,11 @@ public class AVLNode<K extends Comparable<K>, V> {
     // Methods
     // -----------------------------------------------------------------
 
+    /** Name: AVLNode <br>
+	 * <br> Constructor method of a generic AVL node. <br>
+     * @param key - AVL node key - key = K, k != null, k != ""
+     * @param value - AVL node value - value = V, value != null
+	*/
     public AVLNode(K key, V value) {
         this.key = key;
         this.value = value;

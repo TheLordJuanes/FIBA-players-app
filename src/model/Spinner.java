@@ -12,20 +12,28 @@ public class Spinner {
 	// Methods
 	// -----------------------------------------------------------------
 
+    /**
+     * Name: Spinner
+     * Constructor method of a spinner.
+    */
     public Spinner() {
         spin = true;
     }
 
     /**
-     * @return boolean return the spin
-     */
+     * Name: getSpin
+     * Method used to get the status of a spin.
+     * @return A boolean with true if the spin is spinning, or with false otherwise.
+    */
     public boolean getSpin() {
         return spin;
     }
 
     /**
-     * @param spin the spin to set
-     */
+     * Name: getSpin
+     * Method used to update the status of a spin.
+     * @param spin - status of a spin - spin = boolean, spin != null
+    */
     public void setSpin(boolean spin) {
         this.spin = spin;
     }

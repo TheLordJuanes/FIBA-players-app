@@ -9,6 +9,10 @@ public class BSTNode<K extends Comparable<K>, V> {
     private K key;
     private V value;
 
+    /** Name: BSTree <br>
+	 * <br> Constructor method of a generic Binary Search Tree. <br>
+	*/
+
     // -----------------------------------------------------------------
     // Relations
     // -----------------------------------------------------------------
@@ -21,6 +25,11 @@ public class BSTNode<K extends Comparable<K>, V> {
     // Methods
     // -----------------------------------------------------------------
 
+    /** Name: BSTNode <br>
+	 * <br> Constructor method of a generic node from a Binary Search Tree. <br>
+     * @param key - BST node key - key = K, k != null, k != ""
+     * @param value - BST node value - value = V, value != null
+	*/
     public BSTNode(K key, V value) {
         this.key = key;
         this.value = value;

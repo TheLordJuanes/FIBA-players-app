@@ -21,56 +21,53 @@ public class DeletePlayerThread extends Thread {
     // Methods
     // -----------------------------------------------------------------
 
-    public DeletePlayerThread(FIBA f, int pos, int tD) {
+    /** Name: DeletePlayerThread <br>
+	 * <br> Constructor method of a thread to delete a player. <br>
+     * @param fiba - Model controller - fiba = FIBA object, fiba != null
+     * @param position - Position in the players' list - position = int, position != null
+     * @param typeData - Data type to delete - typeData = int, typeData != null
+	*/
+    public DeletePlayerThread(FIBA fiba, int position, int typeData) {
         setDaemon(true);
-        fiba = f;
-        typeData = tD;
-        position = pos;
+        this.fiba = fiba;
+        this.typeData = typeData;
+        this.position = position;
     }
 
-    /*
-     * info[0]=name;
-     * info[1]=lastName;
-     * info[2]=team;
-     * info[3] = String.valueOf(trueShooting);
-     * info[4]= String.valueOf(usage);
-     * info[5] = String.valueOf(assist);
-     * info[6] = String.valueOf(rebound);
-     * info[7] = String.valueOf(defensive);
-     * info[8] = String.valueOf(blocks);
-     */
+    /** Name: run <br>
+	 * <br> Method used to run the thread to delete a player. <br>
+     * <br> pre: DeletePlayerThread object already created. <br>
+     * <br> post: Threads to delete a player ran. <br>
+	*/
     @Override
     public void run() {
         switch (typeData) {
-        case 0:
-            // Delete in playersByTrueShooting
-            fiba.getPlayersByTrueShooting().delete(Double.parseDouble(fiba.getAllData().get(position)[4]), position);
-            break;
-        case 1:
-            // Delete in playersByUsage
-            fiba.getPlayersByUsage().delete(Double.parseDouble(fiba.getAllData().get(position)[5]), position);
-            break;
-        case 2:
-            // Delete in playersByAssist
-            fiba.getPlayersByAssist().delete(Double.parseDouble(fiba.getAllData().get(position)[6]), position);
-            break;
-        case 3:
-            // Delete in playersByRebound
-            fiba.getPlayersByRebound().delete(Double.parseDouble(fiba.getAllData().get(position)[7]), position);
-            break;
-        case 4:
-            // Delete in playersByDefensive
-            fiba.getPlayersByDefensive().delete(Double.parseDouble(fiba.getAllData().get(position)[8]), position);
-            break;
-        case 5:
-            // Delete in playersByBlocks
-            fiba.getPlayersByBlocks().set(position, null);
-            break;
-        case 6:
-
-            break;
-        default:
-            break;
+            case 0:
+                // Delete in playersByTrueShooting
+                fiba.getPlayersByTrueShooting().delete(Double.parseDouble(fiba.getAllData().get(position)[4]), position);
+                break;
+            case 1:
+                // Delete in playersByUsage
+                fiba.getPlayersByUsage().delete(Double.parseDouble(fiba.getAllData().get(position)[5]), position);
+                break;
+            case 2:
+                // Delete in playersByAssist
+                fiba.getPlayersByAssist().delete(Double.parseDouble(fiba.getAllData().get(position)[6]), position);
+                break;
+            case 3:
+                // Delete in playersByRebound
+                fiba.getPlayersByRebound().delete(Double.parseDouble(fiba.getAllData().get(position)[7]), position);
+                break;
+            case 4:
+                // Delete in playersByDefensive
+                fiba.getPlayersByDefensive().delete(Double.parseDouble(fiba.getAllData().get(position)[8]), position);
+                break;
+            case 5:
+                // Delete in playersByBlocks
+                fiba.getPlayersByBlocks().set(position, null);
+                break;
+            default:
+                break;
         }
     }
 }

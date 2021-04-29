@@ -17,8 +17,9 @@ public class SpinnerThread extends Thread {
 	// Methods
 	// -----------------------------------------------------------------
 
-    /** Name: SpinnerThread
-	 * Constructor method of a spinner thread. <br>
+    /** Name: SpinnerThread <br>
+	 * <br> Constructor method of a spinner thread. <br>
+     * @param spinner - sinner to load a progress - spinner = Spinner object, spinner != null
      * @param fibaGUI - GUI controller - fibaGUI = FibaGUI object, fibaGUI != null
 	*/
     public SpinnerThread(Spinner spinner, FibaGUI fibaGUI) {
@@ -27,10 +28,10 @@ public class SpinnerThread extends Thread {
         this.fibaGUI = fibaGUI;
     }
 
-    /** Name: run
-	 * Method used to run the spinner thread created. <br>
-     * <b>pre: </b> Spinner object already created. List of squares already initialized. <br>
-     * <b>post: </b> Spinner threads ran. <br>
+    /** Name: run <br>
+	 * <br> Method used to run the spinner thread created. <br>
+     * <br> pre: </b> Spinner object already created. List of squares already initialized. <br>
+     * <br> post: </b> Spinner threads ran. <br>
 	*/
     @Override
     public void run() {
