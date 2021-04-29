@@ -43,6 +43,7 @@ public class FIBA {
 	private ArrayList<Double> playersByBlocks;
 	private ArrayList<ArrayList<String>> currentPlayers;
 	private double progress;
+	private long timeTaken;
 
 	// -----------------------------------------------------------------
 	// Relations
@@ -71,6 +72,7 @@ public class FIBA {
 		playersByBlocks = new ArrayList<Double>();
 		allData = new ArrayList<String[]>();
 		progress = 0;
+		timeTaken = 0;
 	}
 
 	public double getProgress() {
@@ -80,6 +82,10 @@ public class FIBA {
 	public void setProgress(double progress) {
 		this.progress = progress;
 	}
+
+    public long getTimeTaken() {
+        return timeTaken;
+    }
 
 	public ArrayList<ArrayList<String>> getCurrentPlayers() {
 		return currentPlayers;
@@ -188,15 +194,13 @@ public class FIBA {
         this.allData = allData;
     }
 
+	
+
 	public boolean addPlayerDataByTextFile(File file) throws IOException, CsvException, InterruptedException {
-		File dataFile = new File(FILE_NAME);
-		if (!dataFile.exists()) {
-			dataFile.createNewFile();
-		}
-		FileReader fr = new FileReader(file);
-		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
 		FileWriter fw = new FileWriter(FILE_NAME);
 		CSVWriter csvWriter = new CSVWriter(fw);
+		FileReader fr = new FileReader(file);
+		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
 		if (allData.size() == 0) {
 			allData = new ArrayList<>((LinkedList<String[]>) csvReader.readAll());
 			String[] temp = { "firstName", "lastName", "team", "age", "trueShooting", "usage", "assist", "rebound", "defensive", "blocks" };
@@ -254,8 +258,13 @@ public class FIBA {
 	 * @throws IOException
 	*/
 	public void addPlayerDataByPlatform(String name, String lastName, String age, String team, String trueShooting, String usage, String assist, String rebound, String defensive, String blocks) throws InterruptedException, IOException, CsvException {
+		File dataFile = new File(FILE_NAME);
 		FileWriter fw = new FileWriter(FILE_NAME, true);
-		CSVWriter csvWriter= new CSVWriter(fw);
+		CSVWriter csvWriter = new CSVWriter(fw);
+		if (dataFile.length() == 0) {
+			String[] temp = { "firstName", "lastName", "team", "age", "trueShooting", "usage", "assist", "rebound", "defensive", "blocks" };
+			csvWriter.writeNext(temp);
+		}
 		String[] info = new String[10];
 		info[0] = name;
 		info[1] = lastName;
@@ -294,31 +303,31 @@ public class FIBA {
 		Integer position = Integer.parseInt(currentPlayers.get(player).get(currentPlayers.get(player).size()-1));
 		switch (attribute) {
 			case "Name":
-				allData.get(position)[0]=valueS;
+				allData.get(position)[0] = valueS;
 				currentPlayers.get(player).set(0,allData.get(position)[0]);
 				break;
 			case "Last Name":
-				allData.get(position)[1]=valueS;
+				allData.get(position)[1] = valueS;
 				currentPlayers.get(player).set(1,allData.get(position)[1]);
 				break;
             case "Team":
-				allData.get(position)[2]=valueS;
+				allData.get(position)[2] = valueS;
 				currentPlayers.get(player).set(2,allData.get(position)[2]);
 				break;
 			case "Age":
-				allData.get(position)[3]=valueS;
+				allData.get(position)[3] = valueS;
 				currentPlayers.get(player).set(3,allData.get(position)[3]);
 				break;
 			case "True Shooting":
-				allData.get(position)[4]=valueS;
+				allData.get(position)[4] = valueS;
 				currentPlayers.get(player).set(4,allData.get(position)[4]);
 				break;
 			case "Usage":
-				allData.get(position)[5]=valueS;
+				allData.get(position)[5] = valueS;
 				currentPlayers.get(player).set(5,allData.get(position)[5]);
 				break;
 			case "Assist":
-				allData.get(position)[6]=valueS;
+				allData.get(position)[6] = valueS;
 				currentPlayers.get(player).set(6,allData.get(position)[6]);
 				break;
 			case "Rebound":
@@ -326,11 +335,11 @@ public class FIBA {
 				currentPlayers.get(player).set(7,allData.get(position)[7]);
 				break;
 			case "Defensive":
-				allData.get(position)[8]=valueS;
+				allData.get(position)[8] = valueS;
 				currentPlayers.get(player).set(8,allData.get(position)[8]);
 				break;
 			case "Blocks":
-				allData.get(position)[9]=valueS;
+				allData.get(position)[9] = valueS;
 				currentPlayers.get(player).set(9,allData.get(position)[9]);
 				break;
 			default:
@@ -338,7 +347,7 @@ public class FIBA {
 		}
 		FileWriter fw = new FileWriter(FILE_NAME);
 		CSVWriter csvWriter= new CSVWriter(fw);
-		ArrayList<String[]> allData2=new ArrayList<>(allData);
+		ArrayList<String[]> allData2 = new ArrayList<>(allData);
 		String[] temp = { "firstName", "lastName", "team", "age", "trueShooting", "usage", "assist", "rebound", "defensive", "blocks" };
 		allData2.add(0, temp);
 		csvWriter.writeAll(allData2);
@@ -431,15 +440,19 @@ public class FIBA {
 	private void searchWith(char symbol, AVLTree<Double, ArrayList<Integer>,Integer> tree, ArrayList<ArrayList<String>> players, double value) {
 		ArrayList<AVLNode<Double, ArrayList<Integer>>> nodes = new ArrayList<>();
 		int size;
+		long begin = System.currentTimeMillis();
+		long end = 0;
 		switch (symbol) {
 			case '=':
 				AVLNode<Double, ArrayList<Integer>> node;
 				node = tree.search(value);
+				end =System.currentTimeMillis();
 				if (node != null)
 					addPlayers(players, node);
 				break;
 			case '>':
 				nodes = tree.searchMajor(value);
+				end =System.currentTimeMillis();
 				size = nodes.size();
 				if (size != 0) {
 					for (int i = 0; i < size; i++)
@@ -448,6 +461,7 @@ public class FIBA {
 				break;
 			case '<':
 				nodes = tree.searchMinor(value);
+				end =System.currentTimeMillis();
 				size = nodes.size();
 				if (size != 0) {
 					for (int i = 0; i < size; i++)
@@ -456,6 +470,7 @@ public class FIBA {
 				break;
 			case '≥':
 				nodes = tree.searchMajorEqual(value);
+				end =System.currentTimeMillis();
 				size = nodes.size();
 				if (size != 0) {
 					for (int i = 0; i < size; i++)
@@ -464,6 +479,7 @@ public class FIBA {
 				break;
 			case '≤':
 				nodes = tree.searchMinorEqual(value);
+				end =System.currentTimeMillis();
 				size = nodes.size();
 				if (size != 0) {
 					for (int i = 0; i < size; i++)
@@ -471,36 +487,37 @@ public class FIBA {
 				}
 				break;
 		}
+		timeTaken = end-begin;
 	}
 
 	private void addPlayers(ArrayList<ArrayList<String>> players, AVLNode<Double, ArrayList<Integer>> node) {
-		try {
-			ArrayList<Integer> positionsPlayers = node.getValue();
-			for (int i = 0; i < positionsPlayers.size(); i++) {
-				int index = positionsPlayers.get(i);
-				String[] temp = allData.get(index);
-				ArrayList<String> player = new ArrayList<String>();
-				Collections.addAll(player, temp);
-				player.add(String.valueOf(index));
-				players.add(player);
-			}
-		} catch(NullPointerException np) {
-			System.out.println("Hello");
+		ArrayList<Integer> positionsPlayers = node.getValue();
+		for (int i = 0; i < positionsPlayers.size(); i++) {
+			int index = positionsPlayers.get(i);
+			String[] temp = allData.get(index);
+			ArrayList<String> player = new ArrayList<String>();
+			Collections.addAll(player, temp);
+			player.add(String.valueOf(index));
+			players.add(player);
 		}
 	}
 
 	private void searchWith(char symbol, BSTree<Double, ArrayList<Integer>,Integer> tree, ArrayList<ArrayList<String>> players, double value) {
 		ArrayList<BSTNode<Double, ArrayList<Integer>>> nodes = new ArrayList<>();
 		int size;
+		long begin = System.currentTimeMillis();
+		long end = 0;
 		switch (symbol) {
 			case '=':
 				BSTNode<Double, ArrayList<Integer>> node;
 				node = tree.search(value);
+				end =System.currentTimeMillis();
 				if (node != null)
 					addPlayers(players, node);
 				break;
 			case '>':
 				nodes = tree.searchMajor(value);
+				end =System.currentTimeMillis();
 				size = nodes.size();
 				if (size != 0) {
 					for (int i = 0; i < size; i++)
@@ -509,6 +526,7 @@ public class FIBA {
 				break;
 			case '<':
 				nodes = tree.searchMinor(value);
+				end =System.currentTimeMillis();
 				size = nodes.size();
 				if (size != 0) {
 					for (int i = 0; i < size; i++)
@@ -517,6 +535,7 @@ public class FIBA {
 				break;
 			case '≥':
 				nodes = tree.searchMajorEqual(value);
+				end =System.currentTimeMillis();
 				size = nodes.size();
 				if (size != 0) {
 					for (int i = 0; i < size; i++)
@@ -525,6 +544,7 @@ public class FIBA {
 				break;
 			case '≤':
 				nodes = tree.searchMinorEqual(value);
+				end =System.currentTimeMillis();
 				size = nodes.size();
 				if (size != 0) {
 					for (int i = 0; i < size; i++)
@@ -532,6 +552,7 @@ public class FIBA {
 				}
 				break;
 		}
+		timeTaken = end-begin;
 	}
 
 	private void addPlayers(ArrayList<ArrayList<String>> players, BSTNode<Double, ArrayList<Integer>> node) {
@@ -587,6 +608,8 @@ public class FIBA {
 	}
 
 	private void searchWith(char symbol, ArrayList<Double> tree, ArrayList<ArrayList<String>> players, double value) {
+		long begin = System.currentTimeMillis();
+		long end = 0;
 		switch (symbol) {
 			case '=':
 				for (int i = 0; i < tree.size(); i++) {
@@ -594,20 +617,26 @@ public class FIBA {
 					if (key == value)
 						addPlayer(players, i);
 				}
+				end =System.currentTimeMillis();
 				break;
 			case '>':
 				searchMajorThanInBlocks(tree, players, value);
+				end =System.currentTimeMillis();
 				break;
 			case '<':
 				searchMinorThanInBlocks(tree, players, value);
+				end =System.currentTimeMillis();
 				break;
 			case '≥':
 				searchMajorEqualThanInBlocks(tree, players, value);
+				end =System.currentTimeMillis();
 				break;
 			case '≤':
 				searchMinorEqualThanInBlocks(tree, players, value);
+				end =System.currentTimeMillis();
 				break;
 		}
+		timeTaken = end-begin;
 	}
 
 	private void searchMajorThanInBlocks(ArrayList<Double> tree, ArrayList<ArrayList<String>> players, double value) {

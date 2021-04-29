@@ -37,6 +37,8 @@ public class FibaGUI {
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
+    @FXML
+    private Label lbSearchTime;
 
     @FXML
     private JFXSpinner spinner;
@@ -286,6 +288,7 @@ public class FibaGUI {
             showInformationAlert("Successful addition", null, "Players were successfully added!");
         else
             showErrorAlert("Error", "Something went wrong", "Some players weren't added");
+        btnSearchMenu.setDisable(false);
     }
 
     @FXML
@@ -299,7 +302,6 @@ public class FibaGUI {
             new AddPlayerWithSeparatedThread(fiba, this, file).start();
             sp = new Spinner();
             new SpinnerThread(sp, this).start();
-            btnSearchMenu.setDisable(false);
         } else
             showInformationAlert("Missing File", null, "No file was selected ");
     }
@@ -473,10 +475,10 @@ public class FibaGUI {
                         initialLettersDataType.setText("AST");
                         break;
                     case "Rebound":
-                        initialLettersDataType.setText("TRB");
+                        initialLettersDataType.setText("RB");
                         break;
                     case "Defensive":
-                        initialLettersDataType.setText("DRB");
+                        initialLettersDataType.setText("DF");
                         break;
                     case "Blocks":
                         initialLettersDataType.setText("BLK");
@@ -542,15 +544,16 @@ public class FibaGUI {
         }
     }
 
-    private void updateTextPlayers(){
+    private void updateTextPlayers() {
+        double timeTaken = fiba.getTimeTaken();
+        timeTaken/=(double)1000;
+        lbSearchTime.setText("Time: "+timeTaken+" seconds");
         textPlayers = "";
-        if(players.size()==0){
+        if (players.size() == 0)
             textPlayers = "No player satisfy the search criteria";
-        }
-        for(int i=0; i<players.size(); i++){
-            if(players.get(i)==null){
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i) == null)
                 players.remove(i);
-            }
         }
         for (int i = 0; i < players.size(); i++) {
             int number = i + 1;

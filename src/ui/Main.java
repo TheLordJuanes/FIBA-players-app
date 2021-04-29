@@ -42,5 +42,13 @@ public class Main extends Application {
 		primaryStage.setScene(new Scene(root));
 		primaryStage.setTitle("International Basketball Federation");
 		primaryStage.show();
+		File file = new File("resources/music.wav");
+ 		if (file.exists()) {
+ 			AudioInputStream audioInput = AudioSystem.getAudioInputStream(file);
+ 			Clip clip = AudioSystem.getClip();
+ 			clip.open(audioInput);
+ 			clip.start();
+ 			clip.loop(Clip.LOOP_CONTINUOUSLY);
+ 		}
 	}
 }

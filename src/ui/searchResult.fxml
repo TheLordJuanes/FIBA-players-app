@@ -53,7 +53,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label fx:id="lbSearchTime" blendMode="LIGHTEN" layoutX="364.0" layoutY="346.0" prefHeight="32.0" prefWidth="230.0" textFill="WHITE">
+      <Label fx:id="lbSearchTime" blendMode="LIGHTEN" layoutX="388.0" layoutY="331.0" prefHeight="32.0" prefWidth="185.0" text="Time:" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Avenir Next Condensed Bold" size="22.0" />
          </font>

@@ -176,7 +176,7 @@ public class BSTree<K extends Comparable<K>, V extends List<E>, E extends Number
                     }
                 }
             } else {
-                privateDelete(toErase);
+                root = deleteRec(root, key);
                 sizeNodes--;
                 sizeElements--;
                 return true;
@@ -185,60 +185,32 @@ public class BSTree<K extends Comparable<K>, V extends List<E>, E extends Number
         return false;
     }
 
-    private void privateDelete(BSTNode<K, V> nodeToErase) {
-        if (nodeToErase == root){
-            BSTNode<K, V> nodeMostToLeft = successor(nodeToErase);
-            if (nodeMostToLeft != null) {
-                privateDelete(nodeMostToLeft);
-                nodeMostToLeft.setLeft(nodeToErase.getLeft());
-                BSTNode<K, V> temp = nodeMostToLeft.getLeft();
-                if(temp!=null){
-                    temp.setParent(nodeMostToLeft);
-                }
-                nodeMostToLeft.setRight(nodeToErase.getRight());
-                temp = nodeMostToLeft.getRight();
-                if(temp!=null){
-                    temp.setParent(nodeMostToLeft);
-                }
-                nodeMostToLeft.setParent(null);
-                root = nodeMostToLeft;
-            } else {
-                root = nodeToErase.getRight();
-                if (root != null)
-                    nodeToErase.setParent(null);
-            }
+    private BSTNode<K, V> deleteRec(BSTNode<K, V> root, K key) {
+        if (root == null)
+            return root;
+        if (key.compareTo(root.getKey())<0)
+            root.setLeft(deleteRec(root.getLeft(), key));
+        else if (key.compareTo(root.getKey())>0)
+            root.setRight(deleteRec(root.getRight(), key));
+        else {
+            if (root.getLeft() == null)
+                return root.getRight();
+            else if (root.getRight() == null)
+                return root.getLeft();
+            
+            BSTNode<K, V> temp = minValue(root.getRight());  
+            root.setKey(temp.getKey());
+            root.setValue(temp.getValue());
+            root.setRight(deleteRec(root.getRight(), root.getKey()));
         }
-        else if (nodeToErase.getLeft() == null && nodeToErase.getRight() == null) {
-            if (nodeToErase == root)
-                root = null;
-            else if (nodeToErase.getParent().getLeft() == nodeToErase)
-                nodeToErase.getParent().setLeft(null);
-            else if (nodeToErase.getParent().getRight() == nodeToErase) {
-                nodeToErase.getParent().setRight(null);
-            }
-            nodeToErase.setParent(null);
-        } else if (nodeToErase.getLeft() == null || nodeToErase.getRight() == null) {
-            BSTNode<K, V> child = nodeToErase.getLeft() != null ? nodeToErase.getLeft() : nodeToErase.getRight();
-            if (nodeToErase==root) {
-                root = child;
-                root.setParent(null);
-            } else {
-                if (nodeToErase.getParent().getLeft()==nodeToErase)
-                    nodeToErase.getParent().setLeft(child);
-                else {
-                    nodeToErase.getParent().setRight(child);
-                }
-                child.setParent(nodeToErase.getParent());
-                nodeToErase.setRight(null);
-                nodeToErase.setLeft(null);
-            }
-        } else {
-            BSTNode<K, V> nodeMostToLeft = successor(nodeToErase);
-            if (nodeMostToLeft != null) {
-                privateDelete(nodeMostToLeft);
-                nodeToErase.getParent().setLeft(nodeMostToLeft);
-            }
+        return root;
+    }
+
+    private BSTNode<K, V> minValue(BSTNode<K, V> root){
+        while(root.getLeft()!=null){
+            root = root.getLeft();
         }
+        return root;
     }
 
     private BSTNode<K, V> minimum(BSTNode<K, V> node) {
