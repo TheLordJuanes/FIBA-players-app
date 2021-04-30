@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSpinner?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -20,12 +21,12 @@
             <Image url="@../../resources/fiba.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="58.0" layoutY="184.0" prefHeight="27.0" prefWidth="170.0" text="Get to know about the" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="58.0" layoutY="170.0" prefHeight="27.0" prefWidth="170.0" text="Get to know about the" textFill="WHITE">
          <font>
             <Font name="Avenir Next Condensed Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton alignment="CENTER" layoutX="56.0" layoutY="258.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#goToMenu" prefHeight="48.0" prefWidth="186.0" style="-fx-background-color: #ff9728; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="START MENU" underline="true">
+      <JFXButton fx:id="btnStartMenu" alignment="CENTER" disable="true" layoutX="56.0" layoutY="232.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#goToMenu" prefHeight="48.0" prefWidth="186.0" style="-fx-background-color: #ff9728; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="START MENU" underline="true">
          <font>
             <Font name="Avenir Next Condensed Bold" size="24.0" />
          </font>
@@ -33,7 +34,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label layoutX="56.0" layoutY="211.0" text="best basketball players!" textFill="WHITE">
+      <Label layoutX="56.0" layoutY="197.0" text="best basketball players!" textFill="WHITE">
          <font>
             <Font name="Avenir Next Condensed Bold" size="18.0" />
          </font>
@@ -50,5 +51,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <JFXSpinner fx:id="spinner3" layoutX="108.0" layoutY="297.0" prefHeight="67.0" prefWidth="82.0" progress="0.0" visible="false" />
    </children>
 </AnchorPane>

@@ -16,7 +16,11 @@ class FIBATest {
     private FIBA fiba;
 
     public void setup1() {
-        fiba = new FIBA();
+        try {
+            fiba = new FIBA();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setup2() {
@@ -105,46 +109,122 @@ class FIBATest {
         list = fiba.searchPlayerIn('≥', "Blocks", 70.0);
         assertEquals(24, list.size());
         for (int i = 0; i < list.size(); i++) {
-            assertTrue(Double.valueOf(list.get(i).get(9)) == 70.0 || Double.valueOf(list.get(i).get(9)) > 70.0);
+            assertTrue(Double.valueOf(list.get(i).get(9)) >= 70.0);
         }
         list = fiba.searchPlayerIn('≤', "Assist", 50.0);
         assertEquals(49, list.size());
         for (int i = 0; i < list.size(); i++) {
-            assertTrue(Double.valueOf(list.get(i).get(6)) == 50.0 || Double.valueOf(list.get(i).get(6)) < 50.0);
+            assertTrue(Double.valueOf(list.get(i).get(6)) <= 50.0);
         }
         list = fiba.searchPlayerIn('≥', "Defensive", 30);
         assertEquals(70, list.size());
         for (int i = 0; i < list.size(); i++)
-            assertTrue(Double.valueOf(list.get(i).get(8)) == 70.0 || Double.valueOf(list.get(i).get(8)) > 30.0);
+            assertTrue(Double.valueOf(list.get(i).get(8)) >= 30.0);
     }
 
     @Test
     public void testSearchPlayer() {
         setup2();
+        // n1 < x < n2
         ArrayList<ArrayList<String>> list = fiba.searchPlayer('>', '<', "True Shooting", 50.0, 70.0);
-        //assertEquals(45, list.size());
+        //assertEquals(21, list.size());
         for (int i = 0; i < list.size(); i++) {
             assertTrue(Double.valueOf(list.get(i).get(4)) > 50.0 && Double.valueOf(list.get(i).get(4)) < 70.0);
         }
-        list = fiba.searchPlayer('≥', '≤', "True Shooting", 50.0, 70.0);
-        //assertEquals(1, list.size());
+        // n1 ≤ x ≤ n2
+        list = fiba.searchPlayer('≥', '≤', "Usage", 40.0, 60.0);
+        //assertEquals(1, list.size())
         for (int i = 0; i < list.size(); i++) {
-            assertTrue((Double.valueOf(list.get(i).get(4)) >= 50.0) && (Double.valueOf(list.get(i).get(4)) <= 70.0));
+            assertTrue((Double.valueOf(list.get(i).get(5)) >= 40.0) && (Double.valueOf(list.get(i).get(5)) <= 60.0));
         }
-        list = fiba.searchPlayerIn('≥', "Blocks", 70.0);
-        //assertEquals(24, list.size());
+        // n1 > x > n2
+        list = fiba.searchPlayer('<', '>', "Rebound", 10.0, 30.0);
+        //assertEquals(1, list.size())
         for (int i = 0; i < list.size(); i++) {
-            assertTrue(Double.valueOf(list.get(i).get(9)) == 70.0 || Double.valueOf(list.get(i).get(9)) > 70.0);
+            assertTrue((Double.valueOf(list.get(i).get(7)) < 10.0) && (Double.valueOf(list.get(i).get(7)) > 30.0));
         }
-        list = fiba.searchPlayerIn('≤', "Assist", 50.0);
+        // n1 ≥ x ≥ n2
+        list = fiba.searchPlayer('≤', '≥', "Assist", 60.0, 80.0);
+        //assertEquals(1, list.size())
+        for (int i = 0; i < list.size(); i++) {
+            assertTrue((Double.valueOf(list.get(i).get(6)) <= 60.0) && (Double.valueOf(list.get(i).get(6)) >= 80.0));
+        }
+        // n1 ≤ x < n2
+        list = fiba.searchPlayer('≥', '<', "Blocks", 70.0, 90.0);
         //assertEquals(49, list.size());
         for (int i = 0; i < list.size(); i++) {
-            assertTrue(Double.valueOf(list.get(i).get(6)) == 50.0 || Double.valueOf(list.get(i).get(6)) < 50.0);
+            assertTrue(Double.valueOf(list.get(i).get(9)) >= 70.0 && Double.valueOf(list.get(i).get(9)) < 90.0);
         }
-        list = fiba.searchPlayerIn('≥', "Defensive", 30);
+        // n1 < x ≤ n2
+        list = fiba.searchPlayer('>', '≤', "Defensive", 80.0, 100.0);
+        //assertEquals(70, list.size());
+        for (int i = 0; i < list.size(); i++) {
+            assertTrue(Double.valueOf(list.get(i).get(8)) > 80.0 && Double.valueOf(list.get(i).get(8)) <= 100.0);
+        }
+        // n1 ≥ x > n2
+        list = fiba.searchPlayer('≤', '>', "True Shooting", 0.0, 20.0);
+        //assertEquals(49, list.size());
+        for (int i = 0; i < list.size(); i++) {
+            assertTrue(Double.valueOf(list.get(i).get(4)) <= 0 && Double.valueOf(list.get(i).get(4)) > 20.0);
+        }
+        // n1 > x ≥ n2
+        list = fiba.searchPlayer('<', '≥', "Usage", 40.0, 70.0);
+        //assertEquals(49, list.size());
+        for (int i = 0; i < list.size(); i++) {
+            assertTrue(Double.valueOf(list.get(i).get(5)) < 40.0 && Double.valueOf(list.get(i).get(5)) >= 70.0);
+        }
+        // n1 ≥ Ts ≤ n2
+        list = fiba.searchPlayer('≤', '≤', "Rebound", 0.0, 30.0);
+        //assertEquals(1, list.size())
+        for (int i = 0; i < list.size(); i++) {
+            assertTrue((Double.valueOf(list.get(i).get(7)) <= 0.0) && (Double.valueOf(list.get(i).get(7)) <= 30.0));
+        }
+        // n1 ≤ Ts ≥ n2
+        list = fiba.searchPlayer('≥', '≥', "Assist", 50.0, 80.0);
+        //assertEquals(1, list.size())
+        for (int i = 0; i < list.size(); i++) {
+            assertTrue((Double.valueOf(list.get(i).get(6)) >= 50.0) && (Double.valueOf(list.get(i).get(6)) >= 80.0));
+        }
+        // n1 > Ts < n2
+        list = fiba.searchPlayer('<', '>', "Blocks", 60.0, 90.0);
+        //assertEquals(49, list.size());
+        for (int i = 0; i < list.size(); i++) {
+            assertTrue(Double.valueOf(list.get(i).get(9)) < 60.0 && Double.valueOf(list.get(i).get(9)) > 90.0);
+        }
+        // n1 < Ts > n2
+        list = fiba.searchPlayer('>', '>', "Defensive", 70.0, 100.0);
         //assertEquals(70, list.size());
         for (int i = 0; i < list.size(); i++)
-            assertTrue(Double.valueOf(list.get(i).get(8)) == 70.0 || Double.valueOf(list.get(i).get(8)) > 30.0);
-        
+            assertTrue(Double.valueOf(list.get(i).get(8)) > 70.0 && Double.valueOf(list.get(i).get(8)) > 100.0);
+    }
+
+    @Test
+    public void testModifyPlayerData() {
+        try {
+            setup2();
+            File file = new File("data/players.csv");
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            br.readLine();
+            br.readLine();
+            String[] parts = br.readLine().split(",");
+            assertEquals("\"Zondra\"", parts[0]);
+            ArrayList<ArrayList<String>> currentPlayers = fiba.searchPlayerIn('>', "True Shooting", 80.0);
+            assertEquals(22, currentPlayers.size());
+            fiba.setCurrentPlayers(currentPlayers);
+            assertEquals("Zondra", fiba.getCurrentPlayers().get(0).get(0));
+            fiba.modifyPlayerData("Name", "Maria", 0);
+            assertEquals("Maria", fiba.getCurrentPlayers().get(0).get(0));
+            BufferedReader br2 = new BufferedReader(new FileReader(file));
+            br.readLine();
+            br.readLine();
+            parts = br2.readLine().split(",");
+            assertEquals("\"Maria\"", parts[0]);
+            br.close();
+            br2.close();
+        } catch (FileNotFoundException fnfe) {
+            fnfe.printStackTrace();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
     }
 }

@@ -39,6 +39,9 @@ public class FibaGUI {
     // Attributes
     // -----------------------------------------------------------------
     @FXML
+    private JFXButton btnStartMenu;
+
+    @FXML
     private Label lbSearchTime;
 
     @FXML
@@ -46,6 +49,9 @@ public class FibaGUI {
 
     @FXML
     private JFXSpinner spinner2;
+
+    @FXML
+    private JFXSpinner spinner3;
 
     @FXML
     private JFXButton btnSearchMenu;
@@ -197,6 +203,33 @@ public class FibaGUI {
     }
 
     @FXML
+    public void initialize(){
+        try {
+            File file = new File(FIBA.FILE_NAME);
+            if(file.exists()){
+                showInformationAlert("Adding data", null, "Previously added player data is loading, please wait");
+                new AddPlayerWithSeparatedThread(fiba, this, file, 2).start();
+                //sp = new Spinner();
+                //new SpinnerThread(sp, this, 2).start();
+            }else{
+                btnStartMenu.setDisable(false);
+            }
+        } catch (NumberFormatException e) {
+            showErrorAlert("Error", null, "Some stadistics are not numbers");
+        } 
+    }
+
+    public void showAlerts2(boolean added){
+        if (added)
+            showInformationAlert("Successful addition", null, "Players were successfully added!");
+        else
+            showErrorAlert("Error", "Something went wrong", "Some players weren't added");
+        btnStartMenu.setDisable(false);
+        spinner3.setVisible(false);
+        fiba.setProgress(0);
+    }
+
+    @FXML
     public void goBackToStart(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fiba.fxml"));
@@ -305,9 +338,9 @@ public class FibaGUI {
         fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Csv files", "*.csv"));
         File file = fc.showOpenDialog(stage);
         if (file != null) {
-            new AddPlayerWithSeparatedThread(fiba, this, file).start();
+            new AddPlayerWithSeparatedThread(fiba, this, file, 1).start();
             sp = new Spinner();
-            new SpinnerThread(sp, this).start();
+            new SpinnerThread(sp, this, 1).start();
         } else
             showInformationAlert("Missing File", null, "No file was selected ");
     }
@@ -629,6 +662,14 @@ public class FibaGUI {
         double percentage = fiba.getProgress();
         spinner.setProgress(percentage);
         spinner.setVisible(true);
+        if (percentage == 1.0)
+            sp.setSpin(false);
+    }
+
+    public void spin2() {
+        double percentage = fiba.getProgress();
+        spinner3.setProgress(percentage);
+        spinner3.setVisible(true);
         if (percentage == 1.0)
             sp.setSpin(false);
     }

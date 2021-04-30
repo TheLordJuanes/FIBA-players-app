@@ -12,6 +12,7 @@ public class SpinnerThread extends Thread {
 
     private Spinner spinner;
     private FibaGUI fibaGUI;
+    private int origin;
 
     // -----------------------------------------------------------------
 	// Methods
@@ -22,10 +23,11 @@ public class SpinnerThread extends Thread {
      * @param spinner - sinner to load a progress - spinner = Spinner object, spinner != null
      * @param fibaGUI - GUI controller - fibaGUI = FibaGUI object, fibaGUI != null
 	*/
-    public SpinnerThread(Spinner spinner, FibaGUI fibaGUI) {
+    public SpinnerThread(Spinner spinner, FibaGUI fibaGUI, int origin) {
         setDaemon(true);
         this.spinner = spinner;
         this.fibaGUI = fibaGUI;
+        this.origin = origin;
     }
 
     /** Name: run <br>
@@ -40,7 +42,15 @@ public class SpinnerThread extends Thread {
 
                 @Override
                 public void run() {
-                    fibaGUI.spin();
+                    switch(origin){
+                        case 1:
+                            fibaGUI.spin();
+                            break;
+                        case 2:
+                            fibaGUI.spin2();
+                            break;
+                    }
+                    
                 }
             });
             try {

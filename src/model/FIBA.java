@@ -194,25 +194,20 @@ public class FIBA {
         this.allData = allData;
     }
 
-	
-
-	public boolean addPlayerDataByTextFile(File file) throws IOException, CsvException, InterruptedException {
-		FileWriter fw;
-		if(allData.size() == 0){
-			fw = new FileWriter(FILE_NAME);
-		}else{
-			fw = new FileWriter(FILE_NAME, true);
-		}
+	public boolean addPlayerDataByTextFile(File file) throws IOException, CsvException, InterruptedException, NumberFormatException {
+		FileWriter fw = new FileWriter(FILE_NAME, true);
 		CSVWriter csvWriter = new CSVWriter(fw);
 		FileReader fr = new FileReader(file);
 		CSVReader csvReader = new CSVReaderBuilder(fr).withSkipLines(1).build();
-		if (allData.size() == 0) {
+		if (allData.size()==0) {
 			allData = new ArrayList<>((LinkedList<String[]>) csvReader.readAll());
+			fw = new FileWriter(FILE_NAME);
+			CSVWriter writer = new CSVWriter(fw);
 			String[] temp = { "firstName", "lastName", "team", "age", "trueShooting", "usage", "assist", "rebound", "defensive", "blocks" };
-			csvWriter.writeNext(temp);
+			writer.writeNext(temp);
 			for (int i = 0; i < allData.size(); i++) {
 				progress = (i + 1) / (double) allData.size();
-				csvWriter.writeNext(allData.get(i));
+				writer.writeNext(allData.get(i));
 				AddPlayerThread[] trees = new AddPlayerThread[NUMBER_OF_STATISTICS];
 				for (int j = 0; j < trees.length; j++) {
 					trees[j] = new AddPlayerThread(this, allData.get(i), j, i);
@@ -221,6 +216,7 @@ public class FIBA {
 				for (int j = 0; j < trees.length; j++)
 					trees[j].join();
 			}
+			writer.close();
 		} else {
 			ArrayList<String[]> newData = new ArrayList<>((LinkedList<String[]>) csvReader.readAll());
 			int begin = allData.size();
@@ -261,13 +257,7 @@ public class FIBA {
 	*/
 	public void addPlayerDataByPlatform(String name, String lastName, String age, String team, String trueShooting, String usage, String assist, String rebound, String defensive, String blocks) throws InterruptedException, IOException, CsvException {
 		File dataFile = new File(FILE_NAME);
-		FileWriter fw;
-		if(allData.size()==0){
-			fw = new FileWriter(FILE_NAME);
-		}else{
-			fw = new FileWriter(FILE_NAME, true);
-		}
-		
+		FileWriter fw = new FileWriter(FILE_NAME, true);
 		CSVWriter csvWriter = new CSVWriter(fw);
 		if (dataFile.length() == 0) {
 			String[] temp = { "firstName", "lastName", "team", "age", "trueShooting", "usage", "assist", "rebound", "defensive", "blocks" };

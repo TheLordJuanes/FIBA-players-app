@@ -16,6 +16,7 @@ public class AddPlayerWithSeparatedThread extends Thread {
     private FIBA fiba;
     private FibaGUI fibaGUI;
     private File file;
+    private int origin;
 
     // -----------------------------------------------------------------
     // Methods
@@ -28,10 +29,11 @@ public class AddPlayerWithSeparatedThread extends Thread {
      * @param typeData - Data type to add - typeData = int, typeData != null
      * @param index - player index in the players' list - index = int, index != null
 	*/
-    public AddPlayerWithSeparatedThread(FIBA fiba, FibaGUI fibaGUI, File file) {
+    public AddPlayerWithSeparatedThread(FIBA fiba, FibaGUI fibaGUI, File file, int origin) {
         this.fiba = fiba;
         this.fibaGUI = fibaGUI;
         this.file = file;
+        this.origin = origin;
     }
 
     /** Name: run <br>
@@ -40,13 +42,23 @@ public class AddPlayerWithSeparatedThread extends Thread {
      * <br> post: Separated threads to add a player ran. <br>
 	*/
     public void run() {
-        try {
+        try {   
             boolean s = fiba.addPlayerDataByTextFile(file);
             Platform.runLater(new Thread() {
 
                 @Override
                 public void run() {
-                    fibaGUI.showAlerts(s);
+                    switch(origin){
+                        //Adding files after run the program
+                        case 1:
+                            fibaGUI.showAlerts(s);
+                            break;
+                        //Adding files when the program starts
+                        case 2:
+                            fibaGUI.showAlerts2(s);
+                            break;
+                    }
+                    
                 }
             });
         } catch (IOException ioe) {
@@ -55,6 +67,8 @@ public class AddPlayerWithSeparatedThread extends Thread {
             fibaGUI.showErrorAlert("Error", null, "There were problems reading the cvs");
         } catch (InterruptedException e) {
             fibaGUI.showErrorAlert("Error", null, "Something went wrong");
+        }catch (NumberFormatException e) {
+            fibaGUI.showErrorAlert("Error", null, "Some stadistics are not numbers");
         }
 	}
 }
