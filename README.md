@@ -12,7 +12,7 @@ Therefore, FIBA requested the implementation of a tool for handling large volume
 
 ## Documentation 📃
 
-Check the engineering method with the functional requirements, the UML Class Diagram design, the data structures TAD design and the JUnit tests design [here](docs)
+Check the engineering method with the functional requirements, the UML Class Diagram design, the data structures TAD design and the JUnit tests design [here](docs/EngineeringMethod.pdf)
 
 ## Technical conditions 🛠️
 

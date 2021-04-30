@@ -216,11 +216,10 @@ public class FibaGUI {
                     showErrorAlert("Error", "Something went wrong", "There were problems creating the file");
                     e.printStackTrace();
                 }
-                
             }
         } catch (NumberFormatException e) {
-            showErrorAlert("Error", null, "Some stadistics are not numbers");
-        } 
+            showErrorAlert("Error", null, "Some statistics are not numbers");
+        }
     }
 
     public void showAlerts2(boolean added){
@@ -564,18 +563,11 @@ public class FibaGUI {
     }
 
     @FXML
-    public void textFileSearch(ActionEvent event) {
-
-    }
-
-    @FXML
     public void searchPlayer(ActionEvent event) {
         String statistic = cbDataType.getValue();
         Character symbol1 = cbSymbol1.getValue();
         Character symbol2 = cbSymbol2.getValue();
         Character symbol3 = cbSymbol3.getValue();
-        System.out.println(searchValue1.getText());
-        System.out.println(searchValue1.getText().equals(""));
         if (symbol1 != null && (symbol2 != null || symbol3 != null))
             showErrorAlert("Problems with the equations", null, "You cannot write two inequalities, write only one");
         else if(symbol1 == null && (symbol2 == null && symbol3 == null)){

@@ -50,6 +50,5 @@ public class Main extends Application {
  			clip.start();
  			clip.loop(Clip.LOOP_CONTINUOUSLY);
  		}
-		//fibaGUI.checkForData();
 	}
 }

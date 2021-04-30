@@ -194,6 +194,15 @@ public class FIBA {
         this.allData = allData;
     }
 
+	/**
+	 * 
+	 * @param file The file where the players are
+	 * @return True if the players were added successfully: false if they weren't
+	 * @throws IOException If the named file exists but is a directory rather than a regular file, does not exist but cannot be created, or cannot be opened for any other reason
+	 * @throws CsvException If there a problem reading the csv
+	 * @throws InterruptedException If the current Thread is 
+	 * @throws NumberFormatException If the statistics are not numbers
+	 */
 	public boolean addPlayerDataByTextFile(File file) throws IOException, CsvException, InterruptedException, NumberFormatException {
 		FileWriter fw = new FileWriter(FILE_NAME, true);
 		CSVWriter csvWriter = new CSVWriter(fw);
@@ -226,6 +235,13 @@ public class FIBA {
 		return true;
 	}
 
+	/**
+	 * Add players by text file
+	 * @param writer The writer
+	 * @param newData The new players
+	 * @param begin the index where is the last player of the file 
+	 * @throws InterruptedException If the current Thread is interrupted
+	 */
 	private void privateAddPlayerDataByTextFile(CSVWriter writer, ArrayList<String[]> newData, int begin) throws InterruptedException {
 		for (int i = 0; i < newData.size(); i++) {
 			progress = (i + 1) / (double) newData.size();
@@ -242,19 +258,21 @@ public class FIBA {
 	}
 
 	/**
-	 *
-	 * @param name
-	 * @param team
-	 * @param trueShooting
-	 * @param usage
-	 * @param assist
-	 * @param rebound
-	 * @param defensive
-	 * @param blocks
-	 * @throws InterruptedException
-	 * @throws CsvException
+	 * Add players by platform
+	 * @param name The name of the player
+	 * @param lastName The last name of the player
+	 * @param age The age of the player
+	 * @param team The team of the player
+	 * @param trueShooting The true shooting of the player
+	 * @param usage The usage of the player
+	 * @param assist The assist of the player
+	 * @param rebound The rebound of the player
+	 * @param defensive The defensive of the player
+	 * @param blocks The block of the player
+	 * @throws InterruptedException  If the current Thread is interrupted
 	 * @throws IOException
-	*/
+	 * @throws CsvException
+	 */
 	public void addPlayerDataByPlatform(String name, String lastName, String age, String team, String trueShooting, String usage, String assist, String rebound, String defensive, String blocks) throws InterruptedException, IOException, CsvException {
 		File dataFile = new File(FILE_NAME);
 		FileWriter fw = new FileWriter(FILE_NAME, true);

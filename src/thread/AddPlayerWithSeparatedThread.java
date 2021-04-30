@@ -52,7 +52,7 @@ public class AddPlayerWithSeparatedThread extends Thread {
      * <br> post: Separated threads to add a player ran. <br>
 	*/
     public void run() {
-        try {   
+        try {
             boolean s = fiba.addPlayerDataByTextFile(file);
             Platform.runLater(new Thread() {
 
@@ -69,7 +69,6 @@ public class AddPlayerWithSeparatedThread extends Thread {
                             fibaGUI.goToMenu(event);
                             break;
                     }
-                    
                 }
             });
         } catch (IOException ioe) {
@@ -78,8 +77,8 @@ public class AddPlayerWithSeparatedThread extends Thread {
             fibaGUI.showErrorAlert("Error", null, "There were problems reading the cvs");
         } catch (InterruptedException e) {
             fibaGUI.showErrorAlert("Error", null, "Something went wrong");
-        }catch (NumberFormatException e) {
-            fibaGUI.showErrorAlert("Error", null, "Some stadistics are not numbers");
+        } catch (NumberFormatException e) {
+            fibaGUI.showErrorAlert("Error", null, "Some statistics are not numbers");
         }
 	}
 }
