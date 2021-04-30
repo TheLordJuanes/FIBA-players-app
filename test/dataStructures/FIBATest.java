@@ -214,17 +214,37 @@ class FIBATest {
             assertEquals("Zondra", fiba.getCurrentPlayers().get(0).get(0));
             fiba.modifyPlayerData("Name", "Maria", 0);
             assertEquals("Maria", fiba.getCurrentPlayers().get(0).get(0));
+            br.close();
             BufferedReader br2 = new BufferedReader(new FileReader(file));
-            br.readLine();
-            br.readLine();
+            br2.readLine();
+            br2.readLine();
             parts = br2.readLine().split(",");
             assertEquals("\"Maria\"", parts[0]);
-            br.close();
             br2.close();
         } catch (FileNotFoundException fnfe) {
             fnfe.printStackTrace();
         } catch (IOException ioe) {
             ioe.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testDeletePlayer() {
+        try {
+            setup2();
+            File file = new File("data/players.csv");
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            br.readLine();
+            assertEquals(
+                    "\"Rayna\",\"Madox\",\"Phoenix Suns\",\"26\",\"41.76\",\"7.91\",\"46.04\",\"30.66\",\"72.4\",\"47.09\"",
+                    br.readLine());
+            ArrayList<ArrayList<String>> currentPlayers = fiba.searchPlayerIn('>', "True Shooting", 80.0);
+            assertEquals(22, currentPlayers.size());
+            fiba.setCurrentPlayers(currentPlayers);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

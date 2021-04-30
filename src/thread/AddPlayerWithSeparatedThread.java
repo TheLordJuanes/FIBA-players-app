@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import com.opencsv.exceptions.CsvException;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import model.FIBA;
 import ui.FibaGUI;
 
@@ -17,6 +18,7 @@ public class AddPlayerWithSeparatedThread extends Thread {
     private FibaGUI fibaGUI;
     private File file;
     private int origin;
+    private ActionEvent event;
 
     // -----------------------------------------------------------------
     // Methods
@@ -34,6 +36,14 @@ public class AddPlayerWithSeparatedThread extends Thread {
         this.fibaGUI = fibaGUI;
         this.file = file;
         this.origin = origin;
+    }
+
+    public AddPlayerWithSeparatedThread(FIBA fiba, FibaGUI fibaGUI, File file, int origin, ActionEvent event) {
+        this.fiba = fiba;
+        this.fibaGUI = fibaGUI;
+        this.file = file;
+        this.origin = origin;
+        this.event=event;
     }
 
     /** Name: run <br>
@@ -56,6 +66,7 @@ public class AddPlayerWithSeparatedThread extends Thread {
                         //Adding files when the program starts
                         case 2:
                             fibaGUI.showAlerts2(s);
+                            fibaGUI.goToMenu(event);
                             break;
                     }
                     

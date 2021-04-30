@@ -26,7 +26,7 @@
             <Font name="Avenir Next Condensed Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnStartMenu" alignment="CENTER" disable="true" layoutX="56.0" layoutY="232.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#goToMenu" prefHeight="48.0" prefWidth="186.0" style="-fx-background-color: #ff9728; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="START MENU" underline="true">
+      <JFXButton alignment="CENTER" layoutX="56.0" layoutY="232.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#goToMenuCheck" prefHeight="48.0" prefWidth="186.0" style="-fx-background-color: #ff9728; -fx-border-radius: 5em; -fx-background-radius: 5em;" text="START MENU" underline="true">
          <font>
             <Font name="Avenir Next Condensed Bold" size="24.0" />
          </font>

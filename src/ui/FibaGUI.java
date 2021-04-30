@@ -38,8 +38,6 @@ public class FibaGUI {
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
-    @FXML
-    private JFXButton btnStartMenu;
 
     @FXML
     private Label lbSearchTime;
@@ -202,17 +200,23 @@ public class FibaGUI {
         textPlayers="";
     }
 
-    @FXML
-    public void initialize(){
+    public void checkForData(ActionEvent event){
         try {
             File file = new File(FIBA.FILE_NAME);
             if(file.exists()){
                 showInformationAlert("Adding data", null, "Previously added player data is loading, please wait");
                 new AddPlayerWithSeparatedThread(fiba, this, file, 2).start();
-                //sp = new Spinner();
-                //new SpinnerThread(sp, this, 2).start();
+                sp = new Spinner();
+                new SpinnerThread(sp, this, 2).start();
             }else{
-                btnStartMenu.setDisable(false);
+                try {
+                    file.createNewFile();
+                    goToMenu(event);
+                } catch (IOException e) {
+                    showErrorAlert("Error", "Something went wrong", "There were problems creating the file");
+                    e.printStackTrace();
+                }
+                
             }
         } catch (NumberFormatException e) {
             showErrorAlert("Error", null, "Some stadistics are not numbers");
@@ -224,7 +228,6 @@ public class FibaGUI {
             showInformationAlert("Successful addition", null, "Players were successfully added!");
         else
             showErrorAlert("Error", "Something went wrong", "Some players weren't added");
-        btnStartMenu.setDisable(false);
         spinner3.setVisible(false);
         fiba.setProgress(0);
     }
@@ -244,6 +247,10 @@ public class FibaGUI {
     }
 
     @FXML
+    void goToMenuCheck(ActionEvent event) {
+        checkForData(event);
+    }
+
     public void goToMenu(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("start-menu.fxml"));
